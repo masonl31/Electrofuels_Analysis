@@ -1,0 +1,18 @@
+
+SET PROCTECHTYPE(PROC,TECHTYPE) 'Type of technology aggrupated'%semislash%
+
+$if     EXIST '../addons/OptiFlow/data/PROCTECHTYPE.inc' $INCLUDE         '../addons/OptiFlow/data/PROCTECHTYPE.inc';
+$if not EXIST '../addons/OptiFlow/data/PROCTECHTYPE.inc' $INCLUDE '../../base/addons/OptiFlow/data/PROCTECHTYPE.inc';
+%semislash%;
+
+SET TYPEFLOW/MASSFLOW, ENERGYFLOW/;
+
+SET PROCTYPEFLOW(PROC,FLOW,TYPEFLOW) 'Type of technology aggrupated'%semislash%
+
+$if     EXIST '../addons/OptiFlow/data/PROCTYPEFLOW.inc' $INCLUDE         '../addons/OptiFlow/data/PROCTYPEFLOW.inc';
+$if not EXIST '../addons/OptiFlow/data/PROCTYPEFLOW.inc' $INCLUDE '../../base/addons/OptiFlow/data/PROCTYPEFLOW.inc';
+%semislash%;
+
+PARAMETER PROCINSTALLED(AAA,PROC) 'Installed capacit per plant';
+PROCINSTALLED(IA,PROC)$(VPROCKAPNEW.L(IA,PROC)> 0.01)=VPROCKAPNEW.L(IA,PROC);
+

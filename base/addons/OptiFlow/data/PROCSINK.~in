@@ -1,0 +1,7 @@
+SET PROCSINK(PROC) "End PROC (no trace leaving it)"
+/
+Recycling_metal
+Recycling_plastic
+Bottom_ash
+
+/;

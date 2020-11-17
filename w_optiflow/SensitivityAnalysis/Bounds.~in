@@ -1,0 +1,17 @@
+Parameter BOUND_SCEN_IGKE_T(scenarios,AAA,GGG,SSS,TTT) 'Generation of existing plants is restricted by the electrical capacity';
+BOUND_SCEN_IGKE_T(scenarios,IA,IGKE,S,T)$IAGK_Y(IA,IGKE)=(IGKVACCTOY(IA,IGKE) + IGKFX_Y_Scenario(scenarios,IA,IGKE))*(IGKRATE(IA,IGKE,S,T));
+
+Parameter BOUND_SCEN_IGKH_T(scenarios,AAA,GGG,SSS,TTT) 'Generation of existing plants is restricted by the heat capacity';
+BOUND_SCEN_IGKH_T(scenarios,IA,IGKH,S,T)$IAGK_Y(IA,IGKH)=(IGKVACCTOY(IA,IGKH) + IGKFX_Y_Scenario(scenarios,IA,IGKH))*(IGKRATE(IA,IGKH,S,T));
+
+Parameter BOUND_SCEN_WND_T(scenarios,AAA,GGG,SSS,TTT) 'Bound of parameters for wind turbines';
+BOUND_SCEN_WND_T(scenarios,IA,IGWND,S,T)$IAGK_Y(IA,IGWND)=((WNDFLH_Scenarios(scenarios,IA) * (IGKVACCTOY(IA,IGWND) + IGKFX_Y(IA,IGWND))* WND_VAR_T(IA,S,T)) / IWND_SUMST(IA))$IWND_SUMST(IA);
+
+Parameter BOUND_SCEN_SOLE_T(scenarios,AAA,GGG,SSS,TTT) 'Bound of parameter for PV';
+BOUND_SCEN_SOLE_T(scenarios,IA,IGSOLE,S,T)$IAGK_Y(IA,IGSOLE)=((SOLEFLH_Scenarios(scenarios,IA) * (IGKVACCTOY(IA,IGSOLE) + IGKFX_Y(IA,IGSOLE)) * SOLE_VAR_T(IA,S,T)) / ISOLESUMST(IA))$ISOLESUMST(IA);
+
+Parameter BOUND_SCEN_HYRR_T(scenarios,AAA,GGG,SSS,TTT) 'Bound of parameter for hydropower run-of-river';
+BOUND_SCEN_HYRR_T(scenarios,IA,IGHYRR,S,T)$IAGK_Y(IA,IGHYRR)=((WTRRRFLH_Scenarios(scenarios,IA) * (IGKVACCTOY(IA,IGHYRR) + IGKFX_Y(IA,IGHYRR))* WTRRRVAR_T(IA,S,T)) / IWTRRRSUM(IA))$IWTRRRSUM(IA);
+
+Parameter BOUND_SCEN_SOLH_T(scenarios,AAA,GGG,SSS,TTT) 'Bound of parameter for solar collectors';
+BOUND_SCEN_SOLH_T(scenarios,IA,IGSOLH,S,T)$IAGK_Y(IA,IGSOLH)=((SOLHFLH_Scenarios(scenarios,IA) * (IGKVACCTOY(IA,IGSOLH) + IGKFX_Y(IA,IGSOLH))* SOLH_VAR_T(IA,S,T)) / ISOLHSUMST(IA))$ISOLHSUMST(IA);

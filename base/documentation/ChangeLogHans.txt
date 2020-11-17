@@ -1,0 +1,105 @@
+Changelog for revisioner hjemme på Acer, i folder C:\$_HansC\Balmorel\B-Konvergensprojekt\20140205\Versioned
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+INDLEDENDE: --------------------------------------------------------------------
+Bemærkning om datafiler: har taget, dem, der var i base/data, supplret om nødvendigt fra data-originaldownload  eller lavet selv. et sted ændrede jeg DOL option, så det passede med indholdet.
+
+ har udkommenteret meste indhodl i TAX_GF.inc, der anvendes et TAX_FHO_C, og heri er brændsler inkosistente.
+ samme med TAX_GH
+ tax_ge: udkommenteret assignement over ugyldige fuels i bunden af filen
+ tax_kn: fjernet noget snavs (ea automatisk overførsel, formentlig). Formatet er ikke kønt, skal forbedres.
+ øget YYY op til 2050, tilføjet der nødvendigt i YVALUE
+ XMAXINV.inc eksisterer ikke. Erklæringer er PARAMETER XMAXINV   'Max investment in transmission capacity between two regions for each simulated year(each 5th year)' (uden domaine), fremgår af koden, at det er XMAXINV(IRRRE,IRRRI), tilføjet det
+ TODO: koden er QXMAXINV(IRE,IRI)$(IXKN(IRI,IRE) OR IXKN(IRE,IRI)).. , bør ændres, til eps-konvention eller have et $XMAXINV  på  (i datafilen har jeg temporært   = INF)
+ HYRSDATASET: ændet til nyere indhold. Konsekvenser i HYRSDATA gjort. Men filerne ikke KØNNE!
+ prt3-bb2.ind: har midlertidigt udkommenteret  $include '../../base/output/printout/printinc/econ.inc';
+SÅ KØRER DET
+--------------------------------------------------------------------------------
+Filsammenligning B302, B303:
+302                  303                 303-302
+DISLOSS1E            DISLOSS1E            0      UD
+DISLOSS1H            DISLOSS1H            0      UD
+HYFXRW.GDX                               -1
+SCENARSIM            SCENARSIM   ?        0
+SCENARIO             SCENARIO    ?        0
+                     TAX_GE               1
+                     TAX_GF               1
+                     TAX_GH               1
+                     TAX_KN               1
+WATERVAL.GDX                             -1
+                     WAVE_VAR_T           1
+                     WAVEFLH              1
+XLOSS1               XLOSS1               0     UD
+                     XMAXINV              1
+IDAYSIN_S                                -1
+IHOURSIN24                               -1
+
+Thisdata             Thisdata             0
+119 filer            114 filer
+                                     diff 5: OK
+Af disse anvendes ikke i koden:
+DISLOSS1E
+DISLOSS1H
+XLOSS1
+IRESDE
+IRESWI
+de fjernes derfor fra base\data, der er derfor 113 (excl thisdata) filer som input fra datafolderen i b303.
+--------------------------------------------------------------------------------
+balopt: har rettet den til.
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+HUSKERE, TODO:
+gør noget ved option useBUI
+seasonal storage
+exoge, exogh
+
+I fobindelse med eliminiering af IDAYSIN_S, IHOURSIN24 er der rettet dels i blokkene $ifi %BB1%==yes    IWEIGHSUMS = SUM(S, WEIGHT_S(S))
+dels få andre steder, primært printfiler.
+Bemærk især IWTRRSSUM, hvor der optræder IOF365. Det er måsek forståeligt, men det må være stærkt overflødigt;
+se også de tre IHYINF_S(IA,S)=  i bb123.sim: IOF365 må kunne gå ud, og også andre simplificeringer konsistent med (revideret) beregnng af IWTRRSSUM.
+
+
+Addon HYRSBB123 skal gennemgås.
+
+BB4 virker ikke. 
+Fil:  model/acronymfix.txt !
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+Spredte observationer:
+ b.gms:  "* NOTWORKING (i.e. you MUST have '$setglobal INPUTDATAGDX2XLS'): Note:  GAMS version 22.7 and later have better support for this....   "
+ balopt.opt:
+      $SETGLOBAL  batfileCOMPAREWITHBASE    %relpathModel%COMPAREWITHBASE.bat
+      *!option !fixedvalue
+      oprindeligt var der et *!option !freetext / !fixedtext  !mustif %COMPAREWITHBASE%==yes
+    og
+      $SETGLOBAL  batfileMERGESAVEPOINTRESULTS    %relpathModel%MERGESAVEPOINTRESULTS.bat
+      *!option !fixedvalue
+    Der er måske et problem med min balopt syntaks: oprindeligt var der et  *!option !freetext / !fixedtext  !mustif %MERGESAVEPOINTRESULTS%==yes
+    Måske var det oprindelige ikke gennemtænkt, men er der et problem...?    (sammenlig med EE-filen!)
+
+b.gsm:---
+b.gms har $setglobal debugONtext  $ONTEXT      og  $setglobal debugOFFtext $OFFTEXT  Bør vel være i optionsfil
+b.gms ; daytype er udkokmmenteret.
+b.gms har  SET ECONSET  og  SET ECONSETCATEGORY  - hvordan er det nu med koden??
+b.gms  har ikke scenario-materiale
+b.gms  ACRONYMS   GCND, GBPR, GEXT, GHOB, GETOH, GHSTO, GESTO, GHYRS, GHYRR, GWND, GSOLE, GSOLH, GWAVE, GHSTO_S;
+b.gms  SET IGHSTO_S(G)            'Long-time heat seasonal storage technologies';  SET IGHSTOALL(G)           'All heat seasonal storage technologies';
+b.gms  "Rev.3.01"
+b.gms IRESDE, IRESWI fidnes ikke mere: har derfor slettet
+b.gms *GEFFDERATE(IA,G)$(GEFFDERATE(IA,G) EQ 0) = 1;   vhorfor er den ude?
+b.gms PARAMETER GKVACCDECOM(Y,AAA,G) og PARAMETER GKVACC(Y,AAA,G)   erklærede, hvo hvor er data?
+b.gms  DE_VAR_T(RRR,SSS,TTT)$(not IR(RRR)) = 0; og en række andre: tilføje forklaring.
+
+
+HAR NUGENNEMGÅET NED TIL * Set the time weights depending on the model    - RESTEN AF B.GMS       MANGLER
+
+bb123.sim: fejl i gdx: rettet som i Norge_Flexelterm\balmorel_vann.gms, søg    $ifi %bb3%==yes execute "gdxmerge *.gdx";
+

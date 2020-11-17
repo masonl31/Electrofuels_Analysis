@@ -1,0 +1,50 @@
+B 2 C o m p i l a t i o n
+B 670 E x e c u t i o n
+I 671 KI_plus
+I 705 KO_plus
+I 738 KI_minus
+I 768 KO_minus
+B 800 Equation Listing    SOLVE MILP Using MIP From line 602
+D 801 objective
+D 900 Gen_bound
+D 1105 Wind_bound
+D 1204 flow
+D 1609 flow_lo
+D 1814 flow_up
+D 2019 power_bal
+D 2401 Gas_bound
+D 2548 pr_lo
+D 2753 pr_up
+D 2958 Gas_bal
+D 3419 compr
+D 3624 gasflow
+D 3949 dir_plus
+D 4154 dir_minus
+D 4359 plus
+D 4664 minus
+D 5029 linepack
+D 5398 linepack_bal
+D 6003 linepack_ini
+D 6078 linepack_fin
+D 6105 KIKO1
+D 6510 KIKO2
+D 6915 KIKO3
+D 7320 KIKO4
+B 7727 Column Listing      SOLVE MILP Using MIP From line 602
+E 7728 p
+E 8333 w
+E 8576 g
+E 9011 delta
+E 9587 f
+E 10391 obj
+E 10398 q_plus
+E 11903 q_minus
+E 13408 q_in_plus
+E 14013 q_out_plus
+E 14618 q_in_minus
+E 15223 q_out_minus
+E 15828 pr
+E 19932 h
+E 20537 q
+E 20941 y
+B 23248 Model Statistics    SOLVE MILP Using MIP From line 602

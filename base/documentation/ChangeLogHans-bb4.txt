@@ -1,0 +1,8 @@
+HUSKERE
+
+GEFFDERATE HAR SKIFTET BETYDNING.   Dette skal indføres.
+MEN: samtidig er der ingført variabler for brændselsforbrug, derfor skal "*gkeffderate" ikke bare lige ændre til  "*(1-gkeffderate)" , men fuelvariabel skal ind. Mange steder.
+Desuden af der mange andre ændringer!
+
+
+CYCLESINS(): hvor blev den af ?

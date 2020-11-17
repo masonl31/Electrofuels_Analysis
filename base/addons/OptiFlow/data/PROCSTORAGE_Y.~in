@@ -1,0 +1,8 @@
+SET PROCSTORAGE_Y(PROC) "PROC that handles interseasonal storage - annual balance"
+/
+RDF_Storage_Ind
+RDF_Storage_M
+RDF_Storage_PM
+
+/
+;

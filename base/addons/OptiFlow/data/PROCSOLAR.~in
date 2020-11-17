@@ -1,0 +1,23 @@
+SET PROCSOLAR(PROC) "PROC that operate on high time resolution T"
+/
+
+DK_CA_Aal_DEC_SolarDH
+DK_CA_Aarhus_DEC_SolarDH
+DK_CA_Esb_DEC_SolarDH
+DK_CA_Hern_DEC_SolarDH
+DK_CA_Kal_SolarDH
+DK_CA_TVIS_DEC_SolarDH
+DK_MA_Hil_SolarDH
+DK_MA_Holst_DEC_SolarDH
+DK_MA_Sndborg_DEC_SolarDH
+DK_MA_Sndborg_SolarDH
+DK_MAM_Frdhavn_DEC_SolarDH
+DK_MAM_Had_DEC_SolarDH
+DK_MAM_Nyk_DEC_SolarDH
+DK_MAM_Svend_DEC_SolarDH
+SolarDH-10_19
+SolarDH-20_29
+SolarDH-30
+
+
+/;

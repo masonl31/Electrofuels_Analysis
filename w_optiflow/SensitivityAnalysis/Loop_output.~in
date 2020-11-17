@@ -1,0 +1,149 @@
+EPrice_RST(IR,S,T)=QEEQ.M(IR,S,T)*MONEYCONVERT/IHOURSINST(S,T);
+
+HPrice_AST(IA,S,T)=QHEQ.M(IA,S,T)*MONEYCONVERT/IHOURSINST(S,T);
+
+EDemand_RST("classic",IR,S,T)$(NOT (RETRANS(IR) OR RINDUS(IR)))=IDE_T_Y(IR,S,T);
+
+EDemand_RST("transport",IR,S,T)=SUM(RETRANS$IXKINI_Y(IR,RETRANS),IDE_T_Y(RETRANS,S,T));
+
+EDemand_RST("individual heating",IR,S,T)=SUM(IAGK_Y(IA,IGE)$((RRRAAA(IR,IA) AND (AINDHEAT(IA))) AND IGETOH(IGE)), VGE_T.L(IA,IGE,S,T))
+                                        +SUM(IAGKN(IA,IGE)$((RRRAAA(IR,IA) AND (AINDHEAT(IA))) AND IGETOH(IGE)), VGEN_T.L(IA,IGE,S,T));
+
+EDemand_RST("process heating",IR,S,T)=SUM(RINDUS$IXKINI_Y(IR,RINDUS),IDE_T_Y(RINDUS,S,T));
+
+EDemand_RST("DH",IR,S,T)=SUM(IAGK_Y(IA,IGE)$((RRRAAA(IR,IA) AND (NOT AINDHEAT(IA))) AND IGETOH(IGE)), VGE_T.L(IA,IGE,S,T))
+                        +SUM(IAGKN(IA,IGE)$((RRRAAA(IR,IA) AND (NOT AINDHEAT(IA))) AND IGETOH(IGE)), VGEN_T.L(IA,IGE,S,T));
+$ifi %H2%==yes  EDemand_RST("H2",IR,S,T)=SUM(IAGK_Y(IA,IGETOH2)$(RRRAAA(IR,IA)), VGE_T.L(IA,IGETOH2,S,T))+SUM(IAGKN(IA,IGETOH2)$(RRRAAA(IR,IA)), VGEN_T.L(IA,IGETOH2,S,T));
+
+Edemand_CST(EDemand_type,C,S,T)=SUM(IR$CCCRRR(C,IR),EDemand_RST(EDemand_type,IR,S,T));
+
+Edemand_R(EDemand_type,IR)=SUM((S,T),EDemand_RST(EDemand_type,IR,S,T)*IHOURSINST(S,T))*IOF0000001*IOF3P6;
+
+Edemand_C(EDemand_type,C)=SUM((S,T),EDemand_CST(EDemand_type,C,S,T)*IHOURSINST(S,T))*IOF0000001*IOF3P6;
+
+Hdemand_AST(IA,S,T)$(NOT AINDHEAT(IA))=IDH_T_Y(IA,S,T);
+
+EPrice_R(IR)$(SUM((EDemand_type,S,T),EDemand_RST(EDemand_type,IR,S,T)*IHOURSINST(S,T)))=SUM((EDemand_type,S,T),EDemand_RST(EDemand_type,IR,S,T)*IHOURSINST(S,T)*EPrice_RST(IR,S,T))/SUM((EDemand_type,S,T),EDemand_RST(EDemand_type,IR,S,T)*IHOURSINST(S,T));
+
+EPrice_CST(C,S,T)=SUM((EDemand_type,IR)$CCCRRR(C,IR),EDemand_RST(EDemand_type,IR,S,T)*EPrice_RST(IR,S,T))/SUM((EDemand_type,IR)$CCCRRR(C,IR),EDemand_RST(EDemand_type,IR,S,T));
+
+EPrice_C(C)=SUM((EDemand_type,S,T),EDemand_CST(EDemand_type,C,S,T)*IHOURSINST(S,T)*EPrice_CST(C,S,T))/SUM((EDemand_type,S,T),EDemand_CST(EDemand_type,C,S,T)*IHOURSINST(S,T));
+
+HPrice_AS(IA,S)$(SUM(T,Hdemand_AST(IA,S,T)))=SUM(T,HPrice_AST(IA,S,T)*Hdemand_AST(IA,S,T)*IHOURSINST(S,T))/SUM(T,Hdemand_AST(IA,S,T)*IHOURSINST(S,T));
+
+HPrice_A(IA)$(SUM((S,T),Hdemand_AST(IA,S,T)))=SUM((S,T),HPrice_AST(IA,S,T)*Hdemand_AST(IA,S,T)*IHOURSINST(S,T))/SUM((S,T),Hdemand_AST(IA,S,T)*IHOURSINST(S,T));
+
+EProduction_RST(IR,TECHTYPE,S,T)= SUM(IAGK_Y(IA,IGE)$((RRRAAA(IR,IA) AND (NOT AAAOFFSHORE(IA))) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)), VGE_T.L(IA,IGE,S,T))
+                                 +SUM(IAGKN(IA,IGE)$((RRRAAA(IR,IA) AND (NOT AAAOFFSHORE(IA))) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)), VGEN_T.L(IA,IGE,S,T))
+                                 +SUM(RRROFFSHORE$IXKINI_Y(RRROFFSHORE,IR),(SUM(IAGK_Y(IA,IGE)$((RRRAAA(RRROFFSHORE,IA) AND (AAAOFFSHORE(IA))) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)), VGE_T.L(IA,IGE,S,T)))*(1-XLOSS(RRROFFSHORE,IR)))
+                                 +SUM(RRROFFSHORE$IXKINI_Y(RRROFFSHORE,IR),(SUM(IAGKN(IA,IGE)$((RRRAAA(RRROFFSHORE,IA) AND (AAAOFFSHORE(IA))) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)), VGEN_T.L(IA,IGE,S,T)))*(1-XLOSS(RRROFFSHORE,IR)));
+
+ETrade_RST(IR,"Import",S,T)$((NOT RETRANS(IR)) AND (NOT RINDUS(IR)))=SUM(IRE$((IXKINI_Y(IRE,IR) OR IXKN(IRE,IR) OR IXKN(IR,IRE)) AND (NOT RRROFFSHORE(IRE))), VX_T.L(IRE,IR,S,T)*(1-XLOSS(IRE,IR)));
+
+ETrade_RST(IR,"Export",S,T)$(NOT RRROFFSHORE(IR))= SUM(IRI$((IXKINI_Y(IR,IRI) OR IXKN(IR,IRI) OR IXKN(IRI,IR)) AND ((NOT RETRANS(IRI)) AND (NOT RINDUS(IRI)))),VX_T.L(IR,IRI,S,T));
+
+ETrade_RST(IR,"Net Export",S,T)=ETrade_RST(IR,"Export",S,T)-ETrade_RST(IR,"Import",S,T);
+
+Eproduction_CST(C,TECHTYPE,S,T)=SUM(IR$CCCRRR(C,IR),EProduction_RST(IR,TECHTYPE,S,T));
+
+ETrade_CST(C,"Import",S,T)=SUM((IR,IRE)$(CCCRRR(C,IR) AND (NOT CCCRRR(C,IRE))AND (IXKINI_Y(IRE,IR) OR IXKN(IR,IRE) OR IXKN(IRE,IR)) AND (IXKINI_Y(IRE,IR) NE INF)), VX_T.L(IRE,IR,S,T)*(1-XLOSS(IRE,IR)));
+ETrade_CST(C,"Export",S,T)=SUM((IR,IRI)$(CCCRRR(C,IR) AND (NOT CCCRRR(C,IRI))AND (IXKINI_Y(IR,IRI) OR IXKN(IRI,IR) OR IXKN(IR,IRI)) AND (IXKINI_Y(IR,IRI) NE INF)), VX_T.L(IR,IRI,S,T));
+ETrade_CST(C,"Net Export",S,T)=ETrade_CST(C,"Export",S,T)-ETrade_CST(C,"Import",S,T);
+
+EProduction_R(IR,TECHTYPE)=(SUM((S,T),EProduction_RST(IR,TECHTYPE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+EProduction_C(C,TECHTYPE)= (SUM((S,T),EProduction_CST(C,TECHTYPE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+ETrade_R(IR,ELECTRADE)=(SUM((S,T),ETrade_RST(IR,ELECTRADE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+ETrade_C(C,ELECTRADE)=(SUM((S,T),ETrade_CST(C,ELECTRADE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+EProduction_RST(IR,"Net Trade",S,T)=-ETrade_RST(IR,"Net Export",S,T);
+Eproduction_CST(C,"Net Trade",S,T)=-ETrade_CST(C,"Net Export",S,T);
+
+Hproduction_AST(IA,TECHTYPE,S,T)$(NOT AINDHEAT(IA))=
+                                  SUM(IGBPR$(IAGK_Y(IA,IGBPR) AND GTECHTYPE(IGBPR,TECHTYPE)),VGH_T.L(IA,IGBPR,S,T))
+                                + SUM(IGBPR$(IAGKN(IA,IGBPR) AND GTECHTYPE(IGBPR,TECHTYPE)),VGHN_T.L(IA,IGBPR,S,T))
+                                + SUM(IGEXT$(IAGK_Y(IA,IGEXT) AND GTECHTYPE(IGEXT,TECHTYPE)),VGH_T.L(IA,IGEXT,S,T))
+                                + SUM(IGEXT$(IAGKN(IA,IGEXT) AND GTECHTYPE(IGEXT,TECHTYPE)),VGHN_T.L(IA,IGEXT,S,T))
+                                + SUM(IGHH$(IAGK_Y(IA,IGHH) AND GTECHTYPE(IGHH,TECHTYPE)),VGH_T.L(IA,IGHH,S,T))
+                                + SUM(IGHH$(IAGKN(IA,IGHH) AND GTECHTYPE(IGHH,TECHTYPE)),VGHN_T.L(IA,IGHH,S,T))
+                                + SUM(IGETOH$(IAGK_Y(IA,IGETOH) AND GTECHTYPE(IGETOH,TECHTYPE)),VGH_T.L(IA,IGETOH,S,T))
+                                + SUM(IGETOH$(IAGKN(IA,IGETOH) AND GTECHTYPE(IGETOH,TECHTYPE)),VGHN_T.L(IA,IGETOH,S,T))
+$ifi %H2%==yes                  +SUM(IGETOH2$(IAGK_Y(IA,IGETOH2) AND GTECHTYPE(IGETOH2,TECHTYPE)), VGH_T.L(IA,IGETOH2,S,T))
+$ifi %H2%==yes                  +SUM(IGETOH2$(IAGKN(IA,IGETOH2) AND GTECHTYPE(IGETOH2,TECHTYPE)), VGHN_T.L(IA,IGETOH2,S,T))
+;
+
+Hproduction_AST(IA,"Heat to Storage",S,T)=VHSTOLOADT.L(IA,S,T)$SUM(IGHSTO$(IAGK_Y(IA,IGHSTO) or IAGKN(IA,IGHSTO)),1);
+Hproduction_AST(IA,"Heat cool down",S,T)=VCOOLDOWN.L(IA,S,T);
+
+Hproduction_AS(IA,TECHTYPE,S)=SUM(T,Hproduction_AST(IA,TECHTYPE,S,T)*WEIGHT_T(T)*SUM(TTT,WEIGHT_T(TTT))/IWEIGHSUMT);
+
+Hproduction_A(IA,TECHTYPE)=(SUM((S,T),Hproduction_AST(IA,TECHTYPE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+Hproduction_CST(C,TECHTYPE,S,T)=SUM(IA$ICA(C,IA),Hproduction_AST(IA,TECHTYPE,S,T));
+
+Hproduction_CS(C,TECHTYPE,S)=SUM(IA$ICA(C,IA),Hproduction_AS(IA,TECHTYPE,S));
+
+Hproduction_C(C,TECHTYPE)=SUM(IA$ICA(C,IA),Hproduction_A(IA,TECHTYPE));
+
+FuelConsumption_C(C,TECHTYPE)=SUM((IA,G,S,T)$(ICA(C,IA) AND GTECHTYPE(G,TECHTYPE)),IHOURSINST(S,T)*(VGF_T.L(IA,G,S,T)+VGFN_T.L(IA,G,S,T)))*IOF0000001*IOF3P6;
+
+FuelConsumption_TOTAL(TECHTYPE)=SUM(C,FuelConsumption_C(C,TECHTYPE));
+
+Elec_Capacity(C,'New',TECHTYPE)=SUM((IA,IGE)$(ICA(C,IA) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)),VGKN.L(IA,IGE));
+
+Elec_Capacity(C,'Existing',TECHTYPE)=SUM((IA,IGE)$(ICA(C,IA) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE) AND IAGK_Y(IA,IGE)),IGKFX_Y(IA,IGE));
+
+Elec_Capacity(C,'TOTAL',TECHTYPE)=Elec_Capacity(C,'New',TECHTYPE)+Elec_Capacity(C,'Existing',TECHTYPE);
+
+Heat_Capacity(C,'New',TECHTYPE)=SUM(IA$(ICA(C,IA) AND (NOT AINDHEAT(IA))),
+SUM(IGBPR$GTECHTYPE(IGBPR,TECHTYPE),VGKN.L(IA,IGBPR)/GDATA(IGBPR,'GDCB'))
++SUM(IGEXT$GTECHTYPE(IGEXT,TECHTYPE),VGKN.L(IA,IGEXT)/GDATA(IGEXT,'GDCB'))
++SUM(IGHHNOSTO$GTECHTYPE(IGHHNOSTO,TECHTYPE),VGKN.L(IA,IGHHNOSTO ))
++SUM(IGETOH$GTECHTYPE(IGETOH,TECHTYPE),VGKN.L(IA,IGETOH)));
+
+Heat_Capacity(C,'Existing',TECHTYPE)=SUM(IA$(ICA(C,IA) AND (NOT AINDHEAT(IA))),
+SUM(IGBPR$(GTECHTYPE(IGBPR,TECHTYPE) AND IAGK_Y(IA,IGBPR)),IGKFX_Y(IA,IGBPR)/GDATA(IGBPR,'GDCB'))
++SUM(IGEXT$(GTECHTYPE(IGEXT,TECHTYPE) AND IAGK_Y(IA,IGEXT)),IGKFX_Y(IA,IGEXT)/GDATA(IGEXT,'GDCB'))
++SUM(IGHHNOSTO$(GTECHTYPE(IGHHNOSTO,TECHTYPE) AND IAGK_Y(IA,IGHHNOSTO)),IGKFX_Y(IA,IGHHNOSTO ))
++SUM(IGETOH$(GTECHTYPE(IGETOH,TECHTYPE) AND IAGK_Y(IA,IGETOH)),IGKFX_Y(IA,IGETOH)));
+
+Heat_Capacity(C,'TOTAL',TECHTYPE)=Heat_Capacity(C,'New',TECHTYPE)+Heat_Capacity(C,'Existing',TECHTYPE);
+
+*Cross writting report
+EPrice_RST_scen(scenarios,RRR,S,T)=EPrice_RST(RRR,S,T);
+HPrice_AST_scen(scenarios,AAA,S,T)=HPrice_AST(AAA,S,T);
+EDemand_RST_scen(scenarios,EDemand_type,RRR,S,T)=EDemand_RST(EDemand_type,RRR,S,T);
+Edemand_CST_scen(scenarios,EDemand_type,CCC,S,T)=Edemand_CST(EDemand_type,CCC,S,T);
+Edemand_R_scen(scenarios,EDemand_type,RRR)=Edemand_R(EDemand_type,RRR);
+Edemand_C_scen(scenarios,EDemand_type,CCC)=Edemand_C(EDemand_type,CCC);
+Hdemand_AST_scen(scenarios,AAA,S,T)=Hdemand_AST(AAA,S,T);
+EPrice_R_scen(scenarios,RRR)=EPrice_R(RRR);
+EPrice_CST_scen(scenarios,CCC,S,T)=EPrice_CST(CCC,S,T);
+EPrice_C_scen(scenarios,CCC)=EPrice_C(CCC);
+HPrice_AS_scen(scenarios,AAA,S)=HPrice_AS(AAA,S);
+HPrice_A_scen(scenarios,AAA)=HPrice_A(AAA);
+EProduction_RST_scen(scenarios,RRR,TECHTYPE,S,T)=EProduction_RST(RRR,TECHTYPE,S,T);
+ETrade_RST_scen(scenarios,RRR,ELECTRADE,S,T)=ETrade_RST(RRR,ELECTRADE,S,T);
+Eproduction_CST_scen(scenarios,CCC,TECHTYPE,S,T)=Eproduction_CST(CCC,TECHTYPE,S,T);
+ETrade_CST_scen(scenarios,CCC,ELECTRADE,S,T)=ETrade_CST(CCC,ELECTRADE,S,T);
+Eproduction_R_scen(scenarios,RRR,TECHTYPE)=Eproduction_R(RRR,TECHTYPE);
+Eproduction_C_scen(scenarios,CCC,TECHTYPE)=Eproduction_C(CCC,TECHTYPE);
+ETrade_R_scen(scenarios,RRR,ELECTRADE)=ETrade_R(RRR,ELECTRADE);
+ETrade_C_scen(scenarios,CCC,ELECTRADE)=ETrade_C(CCC,ELECTRADE);
+Hproduction_AST_scen(scenarios,AAA,TECHTYPE,S,T)=Hproduction_AST(AAA,TECHTYPE,S,T);
+Hproduction_AS_scen(scenarios,AAA,TECHTYPE,S)=Hproduction_AS(AAA,TECHTYPE,S);
+Hproduction_A_scen(scenarios,AAA,TECHTYPE)=Hproduction_A(AAA,TECHTYPE);
+Hproduction_CST_scen(scenarios,CCC,TECHTYPE,S,T)=Hproduction_CST(CCC,TECHTYPE,S,T);
+Hproduction_CS_scen(scenarios,CCC,TECHTYPE,S)=Hproduction_CS(CCC,TECHTYPE,S);
+Hproduction_C_scen(scenarios,CCC,TECHTYPE)=Hproduction_C(CCC,TECHTYPE);
+FuelConsumption_C_scen(scenarios,CCC,TECHTYPE)=FuelConsumption_C(CCC,TECHTYPE);
+FuelConsumption_TOTAL_scen(scenarios,TECHTYPE)=FuelConsumption_TOTAL(TECHTYPE);
+Elec_Capacity_scen(scenarios,CCC,CAPACITIES,TECHTYPE)=Elec_Capacity(CCC,CAPACITIES,TECHTYPE);
+Heat_Capacity_scen(scenarios,CCC,CAPACITIES,TECHTYPE)=Heat_Capacity(CCC,CAPACITIES,TECHTYPE);
+
+
+LVGKN_s(scenarios,IA,G)=VGKN.L(IA,G);
+MVGKN_s(scenarios,IA,G)=VGKN.M(IA,G);
+LVOBJ_s(scenarios)=VOBJ.L;

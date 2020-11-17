@@ -1,0 +1,41 @@
+*Last time modified (Davide, 10-05-2015)
+*source: GØRDING plant
+PARAMETER  SOLH_VAR_T(AAA,SSS,TTT) 'Variation of the solar generation'
+
+/
+
+
+/;
+
+*I need a profile for the following areas
+
+SOLH_VAR_T('DK_E_Rural',SSS,TTT)=SOLE_VAR_T('DK_E_Large',SSS,TTT);
+SOLH_VAR_T('DK_E_MedSmall',SSS,TTT)=SOLE_VAR_T('DK_E_Large',SSS,TTT);
+SOLH_VAR_T('DK_E_Small',SSS,TTT)=SOLE_VAR_T('DK_E_Large',SSS,TTT);
+
+SOLH_VAR_T('DK_W_Rural',SSS,TTT)=SOLE_VAR_T('DK_W_Large',SSS,TTT);
+SOLH_VAR_T('DK_W_MedSmall',SSS,TTT)=SOLE_VAR_T('DK_W_Large',SSS,TTT);
+SOLH_VAR_T('DK_W_Small',SSS,TTT)=SOLE_VAR_T('DK_W_Large',SSS,TTT);
+
+SOLH_VAR_T('FI_R_Rural',SSS,TTT)=SOLE_VAR_T('FI_R_Rural',SSS,TTT);
+SOLH_VAR_T('FI_R_Decen',SSS,TTT)=SOLE_VAR_T('FI_R_Rural',SSS,TTT);
+
+SOLH_VAR_T('NO_N_Rural',SSS,TTT)=SOLE_VAR_T('NO_N_Rural',SSS,TTT);
+SOLH_VAR_T('NO_M_Rural',SSS,TTT)=SOLE_VAR_T('NO_M_Rural',SSS,TTT);
+SOLH_VAR_T('NO_S_Rural',SSS,TTT)=SOLE_VAR_T('NO_S_Rural',SSS,TTT);
+SOLH_VAR_T('NO_O_Rural',SSS,TTT)=SOLE_VAR_T('NO_O_Rural',SSS,TTT);
+
+SOLH_VAR_T('SE_N_Rural',SSS,TTT)=SOLE_VAR_T('SE_N_Rural',SSS,TTT);
+SOLH_VAR_T('SE_M_Rural',SSS,TTT)=SOLE_VAR_T('SE_M_Rural',SSS,TTT);
+SOLH_VAR_T('SE_S_Rural',SSS,TTT)=SOLE_VAR_T('SE_S_Rural',SSS,TTT);
+
+
+SOLH_VAR_T(AAA,SSS,TTT)$(SOLH_VAR_T(AAA,SSS,TTT)=0 and RRRAAA('DK_W',AAA) AND SUM((Y,G)$(GDATA(G,'GDTYPE') EQ GSOLH),(AGKN(AAA,G) OR GKFX(Y,AAA,G)))) = SOLH_VAR_T('DK_E_Rural',SSS,TTT);
+SOLH_VAR_T(AAA,SSS,TTT)$(SOLH_VAR_T(AAA,SSS,TTT)=0 and RRRAAA('DK_E',AAA) AND SUM((Y,G)$(GDATA(G,'GDTYPE') EQ GSOLH),(AGKN(AAA,G) OR GKFX(Y,AAA,G)))) = SOLH_VAR_T('DK_W_Rural',SSS,TTT);
+
+
+
+
+
+
+

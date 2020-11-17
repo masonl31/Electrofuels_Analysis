@@ -1,0 +1,186 @@
+* The value 0 or white space implies no bound. The value 'eps' restricts to zero.
+
+
+* The capacity is implemented as a bound on a Flow.
+* The Flow relates processes PROC (index 3) and IPROC (index 4);
+* the value of IFLOWINOUT determines whether the Flow is from PROC to IPROC or the other way.
+* Hence, with 'IFLOWINOUT_OUT' the bound will be on the Flow from PROC  (index 3) to IPROC (index 4),
+* while  with 'IFLOWINOUT_IN'  the bound will be on the Flow from IPROC (index 4) to  PROC (index 3).
+* This way, the bound always relates PROC (index 3) and FLOW, and the sequence of PROC and IPROC in the data rows may be used as is convenient.
+* Capacity cannot be given for entering Flow with IMANYONE in PROCINOUTFLOW nor for leaving Flow with IONEMANY.
+
+
+
+*$ifi  %invSmallDom%==yes $goto largeDomain
+
+* ADDITIONAL COMMENT TO ABOVE:
+* Proc with capacity bounds are restricted to have only one independent Flow bundle (TO BE defined..).
+
+
+* OBS:  These data were changed ONLY WHEN SYNTAX ERRORS OCCUR DUE TO change in domain in declaration.  Hence, there are still some buffers that bave values that probably whould not have.
+* Moreover, I may have made errors in the revision. In particular, search "57.6000" which is on ElecBuffer with value 57.6000 many palces - should that not be on 'IFLOWINOUT_IN' ?
+* More errors obs: see errors.out
+* the good message is that now there are no syntas errors :)
+
+PARAMETER PROCKAPFX(YYY,AAA,PROC) "Capacity of Process (U/h)"
+/
+
+
+
+
+
+
+
+$ontext
+
+
+2014    .    DK_MAM_Slagelse           .     MSW_WtEBoiler_1_14           9.9315
+2014    .    DK_MAM_Hammel             .     MSW_WtEBoiler_2_14           3.8813
+2014    .    DK_MAM_Hobro              .     MSW_WtEBoiler_3_14           3.7671
+2014    .    DK_MA_Grenaa              .     MSW_WtEBoiler_4_14           2.8539
+2014    .    DK_CA_Roenne              .     MSW_WtEBoiler_5_14           2.7500
+2014    .    DK_MAM_Skagen             .     MSW_WtEBoiler_6_14           1.4269
+2014    .    DK_CA_KBH                 .     MSW_WtECHP_1_14              68.4932
+2014    .    DK_MAM_Nyk                .     MSW_WtECHP_10_14             16.0570
+2014    .    DK_MAM_Naestved           .     MSW_WtECHP_11_14             14.8402
+2014    .    DK_MA_Hjoerring           .     MSW_WtECHP_12_14             10.2740
+2014    .    DK_MA_Horsens             .     MSW_WtECHP_13_14             9.1324
+2014    .    DK_CA_Aarhus              .     MSW_WtECHP_14_14             7.9909
+2014    .    DK_MA_Sndborg             .     MSW_WtECHP_15_14             7.6484
+2014    .    DK_MAM_Had                .     MSW_WtECHP_16_14             7.4201
+2014    .    DK_MAM_Aars               .     MSW_WtECHP_17_14             6.8493
+2014    .    DK_MAM_Thisted            .     MSW_WtECHP_18_14             6.2785
+2014    .    DK_MAM_Svend              .     MSW_WtECHP_19_14             6.1644
+2014    .    DK_CA_KBH                 .     MSW_WtECHP_2_14              50.2283
+2014    .    DK_MAM_Frdhavn            .     MSW_WtECHP_20_14             4.1096
+2014    .    DK_CA_KBH                 .     MSW_WtECHP_3_14              39.9543
+2014    .    DK_CA_Odense              .     MSW_WtECHP_4_14              32.9909
+2014    .    DK_CA_Aarhus              .     MSW_WtECHP_5_14              28.5388
+2014    .    DK_CA_Esb                 .     MSW_WtECHP_6_14              20.5479
+2014    .    DK_CA_Aal                 .     MSW_WtECHP_7_14              20.5479
+2014    .    DK_CA_TVIS                .     MSW_WtECHP_8_14              18.2648
+2014    .    DK_MA_NrdOstSj            .     MSW_WtECHP_9_14              17.3516
+2020    .    DK_MAM_Slagelse           .     MSW_WtEBoiler_1_20           5.9898
+2020    .    DK_MAM_Hammel             .     MSW_WtEBoiler_2_20           2.6636
+2020    .    DK_MAM_Hobro              .     MSW_WtEBoiler_3_20           3.7671
+2020    .    DK_CA_Roenne              .     MSW_WtEBoiler_5_20           2.7500
+2020    .    DK_CA_KBH                 .     MSW_WtECHP_1_20              68.4932
+2020    .    DK_MAM_Nyk                .     MSW_WtECHP_10_20             8.8590
+2020    .    DK_MAM_Naestved           .     MSW_WtECHP_11_20             14.8402
+2020    .    DK_MA_Hjoerring           .     MSW_WtECHP_12_20             6.6651
+2020    .    DK_MA_Horsens             .     MSW_WtECHP_13_20             9.1324
+2020    .    DK_CA_Aarhus              .     MSW_WtECHP_14_20             4.5662
+2020    .    DK_MA_Sndborg             .     MSW_WtECHP_15_20             7.6484
+2020    .    DK_MAM_Had                .     MSW_WtECHP_16_20             7.4201
+2020    .    DK_MAM_Aars               .     MSW_WtECHP_17_20             3.9660
+2020    .    DK_MAM_Thisted            .     MSW_WtECHP_18_20             6.2785
+2020    .    DK_MAM_Svend              .     MSW_WtECHP_19_20             6.1644
+2020    .    DK_CA_KBH                 .     MSW_WtECHP_2_20              50.2283
+2020    .    DK_MAM_Frdhavn            .     MSW_WtECHP_20_20             4.1096
+2020    .    DK_CA_KBH                 .     MSW_WtECHP_3_20              39.9543
+2020    .    DK_CA_Odense              .     MSW_WtECHP_4_20              32.9909
+2020    .    DK_CA_Aarhus              .     MSW_WtECHP_5_20              14.4720
+2020    .    DK_CA_Esb                 .     MSW_WtECHP_6_20              20.5479
+2020    .    DK_CA_Aal                 .     MSW_WtECHP_7_20              20.5479
+2020    .    DK_CA_TVIS                .     MSW_WtECHP_8_20              18.2648
+2020    .    DK_MA_NrdOstSj            .     MSW_WtECHP_9_20              17.3516
+2025    .    DK_MAM_Hammel             .     MSW_WtEBoiler_2_25           2.6636
+2025    .    DK_MAM_Hobro              .     MSW_WtEBoiler_3_25           3.7671
+2025    .    DK_CA_KBH                 .     MSW_WtECHP_1_25              68.4932
+2025    .    DK_MAM_Nyk                .     MSW_WtECHP_10_25             8.8590
+2025    .    DK_MAM_Naestved           .     MSW_WtECHP_11_25             14.8402
+2025    .    DK_MA_Hjoerring           .     MSW_WtECHP_12_25             6.6651
+2025    .    DK_MA_Sndborg             .     MSW_WtECHP_15_25             7.6484
+2025    .    DK_MAM_Aars               .     MSW_WtECHP_17_25             3.9660
+2025    .    DK_MAM_Svend              .     MSW_WtECHP_19_25             6.1644
+2025    .    DK_CA_KBH                 .     MSW_WtECHP_3_25              39.9543
+2025    .    DK_CA_Odense              .     MSW_WtECHP_4_25              32.9909
+2025    .    DK_CA_Aarhus              .     MSW_WtECHP_5_25              14.4720
+2025    .    DK_CA_Esb                 .     MSW_WtECHP_6_25              20.5479
+2025    .    DK_CA_Aal                 .     MSW_WtECHP_7_25              13.8384
+2025    .    DK_CA_TVIS                .     MSW_WtECHP_8_25              9.5883
+2025    .    DK_MA_NrdOstSj            .     MSW_WtECHP_9_25              17.3516
+2030    .    DK_MAM_Hammel             .     MSW_WtEBoiler_2_30           2.6636
+2030    .    DK_MAM_Hobro              .     MSW_WtEBoiler_3_30           3.7671
+2030    .    DK_CA_KBH                 .     MSW_WtECHP_1_30              38.9616
+2030    .    DK_MAM_Nyk                .     MSW_WtECHP_10_30             8.8590
+2030    .    DK_CA_KBH                 .     MSW_WtECHP_3_30              21.1200
+2030    .    DK_CA_Odense              .     MSW_WtECHP_4_30              16.4954
+2030    .    DK_CA_Aarhus              .     MSW_WtECHP_5_30              14.4720
+2030    .    DK_CA_Esb                 .     MSW_WtECHP_6_30              20.5479
+2030    .    DK_CA_Aal                 .     MSW_WtECHP_7_30              13.8384
+2030    .    DK_CA_TVIS                .     MSW_WtECHP_8_30              9.5883
+2035    .    DK_CA_KBH                 .     MSW_WtECHP_3_35              21.1200
+2035    .    DK_CA_Aal                 .     MSW_WtECHP_7_35              13.8384
+2035    .    DK_CA_TVIS                .     MSW_WtECHP_8_35              9.5883
+2040    .    DK_CA_KBH                 .     MSW_WtECHP_3_40              21.1200
+2020    .    DK_CA_KBH                 .     MSW_chp_AmagerBakke          45.6621
+2025    .    DK_CA_KBH                 .     MSW_chp_AmagerBakke          45.6621
+2030    .    DK_CA_KBH                 .     MSW_chp_AmagerBakke          45.6621
+2035    .    DK_CA_KBH                 .     MSW_chp_AmagerBakke          45.6621
+2040    .    DK_CA_KBH                 .     MSW_chp_AmagerBakke          45.6621
+2045    .    DK_CA_KBH                 .     MSW_chp_AmagerBakke          45.6621
+
+$offtext
+
+/;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

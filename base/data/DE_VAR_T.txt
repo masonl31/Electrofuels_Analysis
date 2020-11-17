@@ -1,0 +1,97 @@
+* PARAMETER DE_VAR_T contains the description of seasonal and daily variation
+* of the electricity demand
+* Units: (see below).
+
+
+* The values in the tables DE_VAR_T, DH_VAR_T, WND_VAR_T, SOLE_VAR_T, SOLH_VAR_T, WAVE_VAR_T, X3FX_VAR_T
+* may be specified relatively
+* (i.e. the values for each day do not have to sum up to something specific,
+* only the relative values are important).
+* One way to do this is by specifying each season/time period value
+* as a percentage of the yearly maximum power load.
+* Another option is to specify the MW-loads for each combinations.
+$setglobal  COREDATAFOLDER   C:\$_HansC\Balmorel\Fjernvarmemodellen\base
+
+PARAMETER DE_VAR_T(RRR,SSS,TTT) /
+* Using profiles from 2001
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/DK-FB-F-SJ-01.inc'
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/DK-FB-F-JY-01.inc'
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/FI-FB-F-FI-01.inc'
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/NO-FB-F-NO-01.inc'
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/SE-FB-F-SE_S-01.inc'
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/SE-FB-F-SE_M-01.inc'
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/SE-FB-F-SE_N-01.inc'
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/DE_CS-FB-01.inc'
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/EE_R_07.inc';
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/LV_R_07.inc';
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/LT_R_07.inc';
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/DK_E_Industry_DE.inc';
+
+$include 'C:\Users\s131417\Desktop\Fjernvarmemodellen\data/var2001/EV_PROFILE_FjvAn.inc';
+/;
+
+/*
+* Electricity consumption in Norway uses the same profile for all regions
+DE_VAR_T('NO_N',SSS,TTT)=DE_VAR_T('NO_S',SSS,TTT);
+DE_VAR_T('NO_M',SSS,TTT)=DE_VAR_T('NO_S',SSS,TTT);
+DE_VAR_T('NO_O',SSS,TTT)=DE_VAR_T('NO_S',SSS,TTT);
+
+DE_VAR_T('DE_NW',SSS,TTT) =    DE_VAR_T('DE_CS',SSS,TTT)  ;
+DE_VAR_T('DE_NE',SSS,TTT) =    DE_VAR_T('DE_CS',SSS,TTT)  ;
+
+* Electricity demand variation, Poland
+DE_VAR_T('PL_NW',SSS,TTT) =    DE_VAR_T('FI_R',SSS,TTT)  ;
+DE_VAR_T('PL_W',SSS,TTT) =    DE_VAR_T('FI_R',SSS,TTT)  ;
+DE_VAR_T('PL_S',SSS,TTT) =    DE_VAR_T('FI_R',SSS,TTT)  ;
+DE_VAR_T('PL_Central',SSS,TTT) =    DE_VAR_T('FI_R',SSS,TTT)  ;
+DE_VAR_T('PL_SE',SSS,TTT) =    DE_VAR_T('FI_R',SSS,TTT)  ;
+
+* Electricity demand variation, Russia
+DE_VAR_T('RU_KAR',SSS,TTT) =    DE_VAR_T('EE_R',SSS,TTT)  ;
+DE_VAR_T('RU_KOL',SSS,TTT) =    DE_VAR_T('EE_R',SSS,TTT)  ;
+DE_VAR_T('RU_PSK',SSS,TTT) =    DE_VAR_T('EE_R',SSS,TTT)  ;
+DE_VAR_T('RU_KAL',SSS,TTT) =    DE_VAR_T('EE_R',SSS,TTT)  ;
+DE_VAR_T('RU_ARK',SSS,TTT) =    DE_VAR_T('EE_R',SSS,TTT)  ;
+DE_VAR_T('RU_STP',SSS,TTT) =    DE_VAR_T('EE_R',SSS,TTT)  ;
+DE_VAR_T('RU_NOV',SSS,TTT) =    DE_VAR_T('EE_R',SSS,TTT)  ;
+DE_VAR_T('RU_KOM',SSS,TTT) =    DE_VAR_T('EE_R',SSS,TTT)  ;
+
+DE_VAR_T('BLR_BLR',SSS,TTT)  = DE_VAR_T('DK_E',SSS,TTT) ;
+
+DE_VAR_T('DK_E_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('DK_W_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('FI_R_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('SE_N_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('SE_M_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('SE_S_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('NO_S_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('NO_O_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('NO_N_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('NO_M_Industry',SSS,TTT)   = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('DE_CS_Industry',SSS,TTT)  = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('DE_NE_Industry',SSS,TTT)  = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+DE_VAR_T('DE_NW_Industry',SSS,TTT)  = DE_VAR_T('DK_E_Industry',SSS,TTT) ;
+
+*$include '../../%COREDATAFOLDER%/data/DE_PROFIL_STROEM2025.inc'
+*DE_VAR_T(RRR,SSS,TTT)$DE_PROFIL_STROEM2025(SSS,TTT,RRR) = DE_PROFIL_STROEM2025(SSS,TTT,RRR);
+
+* AL BASREC EV profiles same for all regions
+
+DE_VAR_T('DK_W_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('SE_N_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('SE_M_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('SE_S_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('NO_S_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('NO_O_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('NO_N_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('NO_M_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('DE_CS_EV     ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('DE_NE_EV     ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('DE_NW_EV     ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('FI_R_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('LT_R_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('EE_R_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('LV_R_EV      ',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+DE_VAR_T('PL_Central_EV',SSS,TTT)   = DE_VAR_T('DK_E_EV',SSS,TTT) ;
+
+*/

@@ -1,0 +1,760 @@
+
+*TOTO; analysen med Piotr 201006xx har vist, at denne linie:     $ifi not %BB2%==yes VHSTOVOLT.UP(%IA_S_Td%)=SUM(IGHSTO$(IGKFX_Y(Y,IA,IGHSTO) GT 0),
+*      Men det er ikke alt, i hver fald er også  "$ifi not %BB2%==yes" helt i hampen, 'not' må da ikke optræde her!
+* File BB4.sim to the Balmorel model.
+* Revised 20090416(hr), 20090901 (hr).
+* Hans: lavet en del om her i de øverste 15 linier
+* This file is part of the Balmorel model, version 3.01->
+
+* This file contains simulation structure for model BALBASE4.
+* BALBASE4: optimisation simultaneuosly for all (S,T) over all Y (or possibly subsets of Y), endogenous investments.
+
+* Hans ny: og se tilsvarende i File BalmorelBB4.inc
+* Note: although not necessary there are a number of "$ifi %BB4%==yes" conditions,
+* this is to make some of the differences relative to bb123.sim more visible.  Hans: Men mon ikke det i virkeligheden er dumt
+
+
+
+* SØG Hans
+* Se også i bunden
+
+* Hans test: samme forudsætninger omellem årene:   FUELPRICE(YYY,AAA,FFF)      =  FUELPRICE('2020',AAA,FFF);M_POL(yyy,'TAX_CO2',CCC)= M_POL("2020",'TAX_CO2',CCC);
+*Hans:  anden manipulation til test :
+*FUELPRICE("2030",AAA,'coal') = 5 * FUELPRICE("2030",AAA,'coal');
+*M_POL("2030",'TAX_CO2',C)=5* M_POL("2030",'TAX_CO2',C);
+
+*-------------------------------------------------------------------------------
+* INITIALISATIONS BEFORE LOOPING OVER $YALIAS%:
+*-------------------------------------------------------------------------------
+
+IS3(S)   = YES;
+
+* Initialize the first year in the simulation:
+
+* IGKVACCTOY are the capacities (MW), for accumulated endogeneously
+* found generation capacities with decommisioning subtracted.
+* IXKVACCTOY are the capacities for accumulated endogenously found transmission
+* capacities.
+
+IXKVACCTOY(Y,IRE,IRI) = 0;
+XKACC(Y,IRE,IRI)      = 0;
+IGKVACCTOY(Y,IA,G)    = 0;
+VGKN.L(Y,IA,G)        = 0;
+VXKN.l(Y,IR,IRI)      = 0;
+VDECOM.l(Y,IA,G)      = 0;
+
+* Investments in new transmission technology are excluded by the following statement:
+
+IXKINI_Y(Y,IRRRE,IRRRI) = XKINI(Y,IRRRE,IRRRI);
+
+
+*------------------------------------------------------------------------------
+* INITIALISATIONS FOR addons:
+*------------------------------------------------------------------------------
+
+
+
+*----- End of initialisation for the addons  ---------------------------------
+*----- End of initialisation for annual updating part -------------------------
+
+
+*-------------------------------------------------------------------------------
+* INITIALISATIONS FOR THE SCENARIO SETTINGS:
+*-------------------------------------------------------------------------------
+*----- End of initialisation for the scenario setting  -------------------------
+
+
+
+
+* Calculate simweights for each simyear:
+ALIAS(SIMYEARS, SIMYEARS3);
+*LOOP(SIMYEARS,  Hans: Loop overflødig  MEN: OGSÅ  SIMWEIGHT ER DA OVERFLØDIG!!!
+SIMWEIGHT(SIMYEARS) = SUM(SIMYEARS3$(ORD(SIMYEARS3) <= ORD(SIMYEARS)), SIMDELTA(SIMYEARS3));
+*);  /* PaSSENDE BESKRIVELSE FOR SIMWEIGHT: "Number of years (measured by ord in Y) from first year in present Balbase4 model" */
+
+
+
+
+*Calculate ord() for each simyear
+ORD_IY(SIMYEARS) = 0;
+*LOOP(SIMYEARS,         Hans: Loop overflødig
+ORD_IY(SIMYEARS) = SIMWEIGHT(SIMYEARS);
+$ifi not yes==yes  ORD_IY(SIMYEARS) = SUM(SIMYEARS3$(ORD(SIMYEARS3) <= ORD(SIMYEARS)), SIMDELTA(SIMYEARS3));
+*);  /* PaSSENDE BESKRIVELSE FOR ORD_IY: "Number of years from first year (measured by ord in Y) in present Balbase4 model"   BEMÆRK: NAVNET ER DA MISVISENDE, FOR DET ER IKKE ord, DA DET FØRSTE ELEMENT HAR VÆRDIEN NUL!   */
+
+display " fØRSTE: ", SIMWEIGHT , SIMDELTA, ORD_IY;
+
+
+*-------------------------------------------------------------------------------
+* Here begins the scenario LOOP.
+*-------------------------------------------------------------------------------
+LOOP(SCENARIO$SCENARSIM(SCENARIO),
+*-------------------------------------------------------------------------------
+* Overwrite with scenario specific data:
+*-------------------------------------------------------------------------------
+IF((ORD(SCENARIO) GT 1),  /* Except base scenario */
+* Note the use of SSS rather than S to ensure consistency also for balbase3.  Hans: ud
+);
+*-------------------------------------------------------------------------------
+* End: Overwrite with scenario specific data that is independent on the year
+*-------------------------------------------------------------------------------
+
+*------------------------------------------------------------------------------
+* Initialize total capacity variables to start values.
+*------------------------------------------------------------------------------
+VXKINI_Y.fx(Y,IR,IRI)$(ORD(Y)=1) = MIN(IXKINI_Y(Y,IR,IRI),100000);
+VGKVACCTOY.fx(Y,IA,G)$(ORD(Y)=1) = 0;
+VGKVACCTOT.fx(Y,IA,G)$(ORD(Y)=1) = 0;
+
+* Initialise accumulated capacity to 0:
+IVGKN(Y,AAA,GGG)=0;
+IGKVACCTOT(Y,AAA,G)=0;
+IVXKN(Y,IRRRE,IRRRI)=0;
+
+
+*------------------------------------------------------------------------------------------------------------------------------------------------------------
+*------------------------------------------------------------------------------------------------------------------------------------------------------------
+*------------------------------------------------------------------------------------------------------------------------------------------------------------
+* LOOP OVER ALL THE FIRSTYEARS IN MODELS BALBASE4:
+*------------------------------------------------------------------------------------------------------------------------------------------------------------
+*------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+LOOP(YALIAS$((CARD(YALIAS)-ORD(YALIAS) ge (SUM(SIMYEARS, SIMDELTA(SIMYEARS))))),
+
+display "starting LOOP OVER ALL THE FIRSTYEARS IN MODELS BALBASE4" ;
+*------------------------------------------------------------------------------
+* INITIALISATIONS FOR THE UPDATING PART FOR EACH MODEL BALBASE4:
+*------------------------------------------------------------------------------
+
+* Initialize first year in current simulation:
+* IGKVACCTOY, VGKVACCTOY  and IXKINI_Y, VXKINI_Y and IGKVACCTOT, VGKVACCTOT are
+* the capacities (MW), for accumulated endogeneously
+* found generation capacities and for all transmission capacities,
+* respectively, at the start of the current simulation year for:
+
+IF((ORD(YALIAS) GT 1),
+   IXKINI_Y(YALIAS,IRE,IRI) = (IXKINI_Y(YALIAS-1,IRE,IRI)  + IVXKN(YALIAS-1,IRE,IRI) +
+IVXKN(YALIAS-1,IRI,IRE))$(ORD(YALIAS) GT 1 );
+);
+
+VXKINI_Y.FX(YALIAS,IRE,IRI) = MIN(IXKINI_Y(YALIAS,IRE,IRI),100000);
+
+* IGKVACCTOY is the invested capacity available at the beginning of the first year in the present Balbase4 model,
+* found as invested capacity available at the beginning of the first year in the previous Balbase4 model
+* minus invested capacity that is decommissioned due to age beging older than GDLIFETIME:
+IGKVACCTOY(YALIAS,IA,IGKFIND) =
+   (IGKVACCTOT(YALIAS-1,IA,IGKFIND) + IVGKN(YALIAS-1,IA,IGKFIND)
+    -  SUM(Y402$( YVALUE(Y402) <= (YVALUE(YALIAS)-GDATA(IGKFIND, 'GDLIFETIME'))), IVGKN(Y402,IA,IGKFIND)))$(ORD(YALIAS) GT 1 ) ;
+
+VGKVACCTOY.FX(YALIAS,IA,IGKFIND) = IGKVACCTOY(YALIAS,IA,IGKFIND);
+
+* IGKVACCTOT is the invested capacity available   year in Balbase4, not considering? decommissining due to age beging older than GDLIFETIME;
+IGKVACCTOT(YALIAS,IA,IGKFIND) = (IGKVACCTOT(YALIAS-1,IA,IGKFIND) + IVGKN(YALIAS-1,IA,IGKFIND))$(ORD(YALIAS) GT 1 );
+
+VGKVACCTOT.FX(YALIAS,IA,IGKFIND) = IGKVACCTOT(YALIAS,IA,IGKFIND);
+
+* -----------------------------------------------------------------------------
+* Calculate ORD_IY, and subsets of Y:
+* IY411: the years in the present Balbase4 model
+* IY410: IY411 except last year.
+* IY401: IY411 except first year.
+* IY4FIRST(YALIAS): first year in IY411;
+* -----------------------------------------------------------------------------
+
+ORD_YALIAS = ORD(YALIAS);  /* The present first-year's ord() in set YALIAS [som er det samme som Y]  Hans: ikke noget på dansk*/
+YVALUE_YALIAS = YVALUE(YALIAS);
+
+LOOP(SIMYEARS,
+   IF((ORD_IY(SIMYEARS) + 1 <= CARD(Y)-(CARD(SIMYEARS)-ORD(SIMYEARS))),
+     ORD_IY(SIMYEARS) = ORD_IY(SIMYEARS) + 1;
+   ELSE
+     ORD_IY(SIMYEARS) = CARD(Y)-(CARD(SIMYEARS)-ORD(SIMYEARS))
+   );
+);
+
+display " ANDEN: ", SIMWEIGHT , SIMDELTA, ORD_IY;
+
+
+
+IY411(Y) = NO;
+LOOP((SIMYEARS, Y)$(ORD_IY(SIMYEARS) = ORD(Y)),IY411(Y)=yes;);
+
+IY410(Y) = NO;
+LOOP((SIMYEARS, Y)$((ORD_IY(SIMYEARS) = ORD(Y)) AND (ORD(SIMYEARS) < CARD(SIMYEARS))),IY410(Y)=yes;);
+
+IY401(Y) = NO;
+LOOP((SIMYEARS, Y)$((ORD_IY(SIMYEARS) = ORD(Y)) AND (ORD(SIMYEARS) > 1)),IY401(Y)=yes;);
+
+IY4FIRST(Y)= NO;                   /* HANS */
+LOOP(IY411$(CARD(IY4FIRST) = 0),
+   IY4FIRST(IY411)=yes;
+);
+
+*IY4REMAINY(Y) = 0;
+*IY4REMAINY(YALIAS) = CARD(SIMYEARS);
+*IY4REMAINY(Y) = CARD(Y) - ORD(Y) - ORD_YALIAS + 1;
+
+
+ISCALAR1 = CARD(SIMYEARS);
+LOOP(IY411, IY4REMAINY(IY411) = ISCALAR1; ISCALAR1 = ISCALAR1 - 1;);
+IY4REMAINY(Y)$(NOT(IY411(Y))) = 0;
+
+display "BB4: sat  disse værdier: ", IYALIAS44, SIMYEARS, ORD_YALIAS,  IY411,  IY410,IY401, IY4FIRST  , IY4REMAINY;
+
+
+*LOOP((SIMYEARS, Y)$(ORD_IY(SIMYEARS) = ORD(Y)),IY4FIRST(SIMYEARS)=yes;);
+
+
+IGKFXYMAX(IA,G)=SMAX(Y,GKFX(Y,IA,G));
+
+*-------------------------------------------------------------------------------
+* START SIMULATION FOR CURRENT MODEL BB4
+*-------------------------------------------------------------------------------
+
+* Update generation capacities:
+* externally specified capacities:
+* IGKFX_Y(G,IA) => IGKFX_Y(G,IA,Y)
+ IGKFX_Y(IY411,IA,G)= GKFX(IY411,IA,G);
+
+
+* -----------------------------------------------------------------------------
+* Update parameters and bounds for current simulation year:
+* -----------------------------------------------------------------------------
+
+*------------------------------------------------------------------------------
+* Define IAGK_Y og IAGKN_Y
+*------------------------------------------------------------------------------
+
+
+IAGK_Y(IY411,IA,G) = NO;
+IAGK_Y(IY411,IA,G)=YES$(IGKVACCTOY(YALIAS,IA,G) + IGKFX_Y(IY411,IA,G));
+
+option  IAGK_Y:3:0:1 ,  IGKVACCTOY:3:0:1, IGKFX_Y:3:0:1;
+display "IAGK_Y første",  IGKVACCTOY ,  IGKFX_Y , IAGK_Y;
+
+
+*display "efter første del af   Define IAGK_Y og IAGKN_Y", ia, AGKN,  IAGK_Y ;
+
+LOOP(IY411,
+   IAGKN(IY411,IA,G)$(GDATA(G,'GDFROMYEAR') GT YVALUE(IY411))=NO;
+);
+
+*display "efter anden  del af   Define IAGK_Y og IAGKN_Y", ia, AGKN,  IAGK_Y ;
+
+
+* No new capacity if capacity is not specified to be found endogeneously:
+IAGKN(IY411,IA,IGKKNOWN) = NO;
+
+$ifi %COMBTECH%==yes LOOP(IY, her stod en vatrianta over overenstående, id et der var sammenblanding mellem IAGKN og IAGK_Y
+$ifi %COMBTECH%==yes    IAGKN(IY411,IA,G)$(GDATA(G,'GDFROMYEAR') GT YVALUE(YALIAS))=NO;
+$ifi %COMBTECH%==yes );
+
+IAGK_Y(IY411,IA,G) = YES$(IAGK_Y(IY411,IA,G) OR IAGKN(IY411,IA,G));
+
+
+display "IAGK_Y anden",  IGKVACCTOY ,  IGKFX_Y , IAGK_Y;
+
+
+$ifi %COMBTECH%==yes VGKN.FX(IA,IGCOMB2,IY) = 0;
+VGKN.FX(IY411,IA,G)$((NOT IAGKN(IY411,IA,G)) OR (NOT IGKFIND(G))) = 0;
+$ifi %COMBTECH%==yes VGKVACCTOY.FX(IGCOMB2,IA,IY) = 0;
+VGKVACCTOY.FX(IY411,IA,G)$(NOT (IAGKN(IY411,IA,G) OR IAGK_Y(IY411,IA,G)) OR (NOT IGKFIND(G))) = 0;
+$ifi %COMBTECH%==yes VGKVACCTOT.FX(IGCOMB2,IA,IY) = 0;
+VGKVACCTOT.FX(IY411,IA,G)$(NOT (IAGKN(IY411,IA,G) OR IAGK_Y(IY411,IA,G)) OR (NOT IGKFIND(G))) = 0;
+
+
+* Hans: er dette korrekte, hvad med IY411!!?
+$ifi %REShareE%==yes DE_Y(IR)=DE(YALIAS,IR);
+$ifi %REShareE%==yes DE_Y(IR)=DE(YALIAS,IR);
+$ifi %REShareE%==yes DH_Y(IA)=DH(YALIAS,IA);
+
+
+
+
+*------------------------------------------------------------------------------
+* Set bounds on variables ..
+*------------------------------------------------------------------------------
+
+
+*---- Generation technologies: ------------------------------------------------
+
+
+* Update generation and transmission capacities:
+* Externally specified capacities:
+  IGKFX_Y(IY411,IA,G)= GKFX(IY411,IA,G);
+  IXKINI_Y(IY411,IR,IRI) = XKINI(IY411,IR,IRI);
+
+* Externally specified capacities the year before (used in QGMAXINVEST2):
+  IGKFX_Y_1(Y,IA,G)= GKFX(YALIAS-1,IA,G) +GKFX(YALIAS,IA,G)$(ord(YALIAS)=1);
+
+
+* Update generation capacities according to stored investments from a bb2 calculation.
+
+* Generation capacities for those technologies for which investments
+* in new capacity may be internally found is equal to accumulated investments:
+
+$ifi %ADDINVEST%===yes IXKVACCTOY(IRE,IRI)=XKACC(YALIAS,IRE,IRI);
+
+/* HANS HANS !
+(men i øvrigt er der allerede 2 forsekllige assignments for IAGK_Y tidligere - det er nok én for meget!)
+IAGK_Y(Y,IA,G)=NO;
+IAGK_Y(Y,IA,G)=YES$(IGKVACCTOY(Y,IA,G) + IGKFX_Y(Y,IA,G));
+*/
+
+display "IAGK_Y tredie",  IGKVACCTOY ,  IGKFX_Y , IAGK_Y;
+
+
+
+$ifi %COMBTECH%==YES  LOOP((IA,IGCOMB1)$IAGK_Y(IA,IGCOMB1), IAGK_Y(IA,IGCOMB2)$GGCOMB(IGCOMB1,IGCOMB2)=YES);
+IGKNMAX_Y(IY411,IA,IGKFIND)=GKNMAX(YALIAS,IA,IGKFIND);
+
+
+$ifi %AGKNDISC%==yes  * Discrete investmenst:
+$ifi %AGKNDISC%==yes  IAGKNDISCAG(IA,G) = YES$AGKNDISCAG(IA,G);
+$ifi %AGKNDISC%==yes  * No new capacity if capacity is not specified to be found endogeneously:
+$ifi %AGKNDISC%==yes  IAGKNDISCAG(IA,IGKKNOWN) = NO;
+
+
+* Generation on existing plants
+* is restricted by the capacity (MW) adjusted by GKDERATE:
+* (For storages overwritten later.)
+
+
+* This corresponds to constraints QEGKUP and QHGKUP first year in model Balbase4:
+*VGE_T.UP(YALIAS,IA,IGKE,S,T)$IAGK_Y(YALIAS,IA,IGKE)= (IGKVACCTOY(YALIAS,IA,IGKE) + IGKFX_Y(YALIAS,IA,IGKE))*GKDERATE(IA,IGKE,S);   hans se næste
+*VGH_T.UP(YALIAS,IA,IGKH,S,T)$IAGK_Y(YALIAS,IA,IGKH)= (IGKVACCTOY(YALIAS,IA,IGKH) + IGKFX_Y(YALIAS,IA,IGKH))*GKDERATE(IA,IGKH,S);   hans se næste 4
+VGE_T.UP(Y,IA,IGKE,S,T)= INF; /* Default value */
+VGH_T.UP(Y,IA,IGKH,S,T)= INF; /* Default value */
+VGE_T.UP(IY4FIRST,IA,IGKE,S,T)$IAGK_Y(IY4FIRST,IA,IGKE)= (IGKVACCTOY(IY4FIRST,IA,IGKE) + IGKFX_Y(IY4FIRST,IA,IGKE))*GKDERATE(IA,IGKE,S); /* Hans - GKDERATE? og alle tech? (også non-disp?) */
+VGH_T.UP(IY4FIRST,IA,IGKH,S,T)$IAGK_Y(IY4FIRST,IA,IGKH)= (IGKVACCTOY(IY4FIRST,IA,IGKH) + IGKFX_Y(IY4FIRST,IA,IGKH))*GKDERATE(IA,IGKH,S); /* Hans - GKDERATE? og alle tech? (også non-disp?) */
+
+
+/*
+Hans: her er VGE_T.up for 2020.DK_E_Urban   .WI-L15  alt for store!     Case: kun dk_e, 2020/2030
+MEN HOV: det er vel klart, alle .UP er sat til kapacitet gange derate, men for wind etc, revideres jo senere i overensstemmelse med profilen!
+Og i øvrigt indgår gkderate ikke i wnd etc produktion.
+Man kan så overveje, om asssignmetn her skal skærpes, om der skal tilføjes en kommenterar, eller ...
+*/
+option  VGE_T:3:0:1;
+display "BB4 1: " ,y, iyalias, IY411 ,IY410, IY401, IY4FIRST , IAGK_Y,IGKVACCTOY,   IGKFX_Y,GKDERATE, VGE_T.up;
+
+
+$ifi %DECOMPEFF%==yes VDECOM.UP(IA,IGKE) = IGKVACCTOY(IA,IGKE) + IGKFX_Y(IA,IGKE);
+$ifi %DECOMPEFF%==yes VDECOM.UP(IA,IGKH) = IGKVACCTOY(IA,IGKH) + IGKFX_Y(IA,IGKH);
+
+$ifi %COMBTECH%==YES  $INCLUDE '../../base/addons/combtech/combSIM.inc';
+$ifi %H2%==yes $include '../../base/addons/Hydrogen/H2Sim.inc';
+
+* Storage loading (MW) and unloading (MW) do not exceed capacity:
+
+* Jeg har ine gjort ved STO, mangler!!  TODO  Hans: dette og næste linie skal da ud!
+* LARS20070814: For efficiency reasons simple bounds are generated if no storage technology is available for investment in BB2:
+$ifi %BB4%==yes Loop(IA$(0=Sum((IGHSTO,IY411)$IAGKN(IY411,IA,IGHSTO),1)),
+$ifi %BB4%==yes  VHSTOLOADT.UP(IY411,IA,S,T)=
+$ifi %BB4%==yes          SUM(IGHSTO$(IGKFX_Y(IY411,IA,IGHSTO) GT 0),
+$ifi %BB4%==yes  (IGKFX_Y(IY411,IA,IGHSTO)+IGKVACCTOY(IY411,IA,IGHSTO))/GDATA(IGHSTO,'GDSTOHLOAD'));
+$ifi %BB4%==yes );
+$ifi %BB4%==yes Loop(IA$(0=Sum((IGESTO,IY411)$IAGKN(IY411,IA,IGESTO),1)),
+$ifi %BB4%==yes  VESTOLOADT.UP(IY411,IA,S,T)=
+$ifi %BB4%==yes          SUM(IGESTO$(IGKFX_Y(IY411,IA,IGESTO) GT 0),
+$ifi %BB4%==yes  (IGKFX_Y(IY411,IA,IGESTO)+IGKVACCTOY(IY411,IA,IGESTO))/GDATA(IGESTO,'GDSTOHLOAD'));
+$ifi %BB4%==yes );
+
+* Hans : er dette ikke lidt underligt, .up har da kun gyldighed for første år i modellen, ie.,  IY4FIRST   . Fejl eller overflødigt?  Formentlig en fejl. Mne i øvrigt kan jeg ikke se, at STO techs er taget hånd om i en eqn i BalmodelBB4
+VGH_T.UP(IY411,IA,IGHSTO,S,T)$(IGKFX_Y(IY411,IA,IGHSTO) GT 0)= (IGKFX_Y(IY411,IA,IGHSTO)+IGKVACCTOY(IY411,IA,IGHSTO))/GDATA(IGHSTO,'GDSTOHUNLD');   /*OBS: gkderate */
+VGE_T.UP(IY411,IA,IGESTO,S,T)$(IGKFX_Y(IY411,IA,IGESTO) GT 0)= (IGKFX_Y(IY411,IA,IGESTO)+IGKVACCTOY(IY411,IA,IGESTO))/GDATA(IGESTO,'GDSTOHUNLD');   /*OBS: gkderate */
+
+
+/*
+Hans: her er VGE_T.up for 2020.DK_E_Urban   .WI-L15  alt for store!     Case: kun dk_e, 2020/2030  (men selvfølgelig det samme som ovenfor, kun STO er ændrede!)
+display "BB4 2" ,y, iyalias, IY411 ,IY410, IY401, IY4FIRST , VGE_T.up;
+*/
+* Storage contents does not exceed upper limit (MWh):
+*$ifi not %BB2%==yes VHSTOVOLT.UP(%IA_S_Td%)=SUM(IGHSTO$(IGKFX_Y(IY411,IA,IGHSTO) GT 0),
+*$ifi not %BB2%==yes    IGKFX_Y(Y,IA,IGHSTO)+IGKVACCTOY(Y,IA,IGHSTO));
+
+$ifi %BB4%==yes Loop(IA$(0=Sum((IGHSTO,IY411)$IAGKN(IY411,IA,IGHSTO),1)),
+$ifi %BB4%==yes VHSTOVOLT.UP(IY411,IA,S,T)=SUM(IGHSTO$(IGKFX_Y(IY411,IA,IGHSTO) GT 0),
+$ifi %BB4%==yes                          IGKFX_Y(IY411,IA,IGHSTO)+IGKVACCTOY(IY411,IA,IGHSTO));
+$ifi %BB4%==yes );
+$ifi %BB4%==yes Loop(IA$(0=Sum((IGESTO,IY411)$IAGKN(IY411,IA,IGESTO),1)),
+$ifi %BB4%==yes VESTOVOLT.UP(IY411,IA,S,T)=SUM(IGESTO$(IGKFX_Y(IY411,IA,IGESTO) GT 0),
+$ifi %BB4%==yes                          IGKFX_Y(IY411,IA,IGESTO)+IGKVACCTOY(IY411,IA,IGESTO));
+$ifi %BB4%==yes );
+
+
+* Existing  hydro-run-of-river, windpower and solarpower can not be dispatched:
+* Hans: generel bemærkning: Lars har lavet en addon der tillader wind at blive nedreguleret.
+* Jeg husker ikke lige hvordan - men et alternativ til hans implementering er jo at anvende assignmens som er hhv af .FX (uden shotdown) og af .UP(med shotdown)
+
+
+* Hans: HYRR oså ændret som de efterfølgende nondisp
+VGE_T.FX(IY4FIRST,IA,IGHYRR,S,T)$IAGK_Y(IY4FIRST,IA,IGHYRR)=
+    ((WTRRRFLH(IA) * (IGKVACCTOY(IY4FIRST,IA,IGHYRR) + IGKFX_Y(IY4FIRST,IA,IGHYRR))
+           * WTRRRVAR_T(IA,S,T)) / IWTRRRSUM(IA))$(IWTRRRSUM(IA) GT 0);
+
+* Hans: mangler disse:  %IA_IGWNDd%  :       Og med denne %WNDSHUTDOWN% konstruktion kan vi nøjes med assignment af .Lo (.up fixes jo ubetinget), alternativt indføres et not%WNDSHUTDOWN% på .up-linien
+* IKKE RETTET $ifi not %WNDSHUTDOWN%==yes VGE_T.FX(YALIAS,IA,IGWND,S,T)$IAGK_Y(YALIAS,IA,IGWND)= ((WNDFLH(IA) * (IGKVACCTOY(%IA_IGWNDd%)       + IGKFX_Y(%IA_IGWNDd%))       * WND_VAR_T(IA,S,T)) / IWND_SUMST(IA))$(IWND_SUMST(IA) GT 0);
+VGE_T.up(YALIAS,IA,IGWND,S,T)$IAGK_Y(YALIAS,IA,IGWND)= ((WNDFLH(IA) * (IGKVACCTOY(YALIAS,IA,IGWND) + IGKFX_Y(YALIAS,IA,IGWND)) * WND_VAR_T(IA,S,T)) / IWND_SUMST(IA))$(IWND_SUMST(IA) GT 0);
+* Hans: Ændret indeks fra YALIAS  til  IY411 til IY4FIRST, og KUN gjort for den ene linie, og for .FX:
+VGE_T.fx(IY4FIRST,IA,IGWND,S,T)$IAGK_Y(IY4FIRST,IA,IGWND)= ((WNDFLH(IA) * (IGKVACCTOY(IY4FIRST,IA,IGWND) + IGKFX_Y(IY4FIRST,IA,IGWND)) * WND_VAR_T(IA,S,T)) / IWND_SUMST(IA))$(IWND_SUMST(IA) GT 0);
+
+* Hans: også ændret efterfølgende
+
+VGE_T.FX(IY4FIRST,IA,IGSOLE,S,T)$IAGK_Y(IY4FIRST,IA,IGSOLE) =
+    ((SOLEFLH(IA) * (IGKVACCTOY(IY4FIRST,IA,IGSOLE) + IGKFX_Y(IY4FIRST,IA,IGSOLE))
+           * SOLE_VAR_T(IA,S,T)) / ISOLESUMST(IA))$(ISOLESUMST(IA) GT 0);
+
+VGE_T.FX(IY4FIRST,IA,IGSOLH,S,T)$IAGK_Y(IY4FIRST,IA,IGSOLH) =
+    ((SOLHFLH(IA) * (IGKVACCTOY(IY4FIRST,IA,IGSOLH) + IGKFX_Y(IY4FIRST,IA,IGSOLH))
+           * SOLH_VAR_T(IA,S,T)) / ISOLHSUMST(IA))$(ISOLHSUMST(IA) GT 0);
+
+* Calculate hydro inflow to reservoirs in MWh/MW installed capacity (new and old):
+
+$ifi %bb4%==yes  IHYINF_S(IA,S)=
+$ifi %bb4%==yes  ((WTRRSFLH(IA) * WTRRSVAR_S(IA,S) * IDAYSIN_S(S)) / IWTRRSSUM(IA))$(IWTRRSSUM(IA) GT 0);
+
+* Fuel limitations: No new capacity nor new generation if zero fuel potential:
+
+LOOP((FFF,G)$IGF(G,FFF),
+     LOOP((IA,C)$ICA(C,IA),
+     IF( (not (not FKPOT(C,FFF) or (FKPOT(C,FFF) GE 0))),
+     IAGKN(IY411,IA,G) = NO; ););
+
+     LOOP((IA,IR)$RRRAAA(IR,IA),
+     IF( (not (not FKPOT(IR,FFF) or (FKPOT(IR,FFF) GE 0))),
+     IAGKN(IY411,IA,G) = NO; ););
+
+     LOOP(IA,
+     IF( (not (not FKPOT(IA,FFF) or (FKPOT(IA,FFF) GE 0))),
+     IAGKN(IY411,IA,G) = NO; ););
+);
+
+VGKN.UP(IY411,IA,IGKFIND)$IGKNMAX_Y(IY411,IA,IGKFIND) = IGKNMAX_Y(IY411,IA,IGKFIND)-IGKVACCTOY(YALIAS,IA,IGKFIND);
+
+
+*---- Transmission: -----------------------------------------------------------
+
+* For balbase1 and balbase3 the tranmission capacities are by default the same for all years.
+* For balbase2 the transmission capacities my be increased endogeneously.
+
+* Default: Overwrite any previous information to ensure no new transmission lines:
+  IXKN(IRE,IRI)=NO;    /* Dette tanker lars over!*/
+
+* Update transmission capacities (MW)
+* (recall that new transmission is symmetric):
+*  IXKVACCTOY(IRE,IRI) = IXKVACCTOY(IRE,IRI) + VXKN.L(IRE,IRI) + VXKN.L(IRI,IRE);
+
+* Observe: the following assumes that XINVCOST is nonsymmetric:
+  IXKN(IRRRE,IRRRI)$(IRE(IRRRE) AND IRI(IRRRI))=
+   YES$((XINVCOST(IRRRE,IRRRI) LT INF) AND (ORD(IRRRE) GT ORD(IRRRI)));
+
+* LARS: Updates transmission capacity according to investments from a BB2 execution
+* ADDINVEST is automatically set to 'no' if BB2==yes (see balopt.opt).
+$ifi %ADDINVEST%==yes IXKVACCTOY(IRE,IRI)=XKACC(YALIAS,IRE,IRI);
+* Hans : ovenstående ikke kontrolleret!!
+
+
+* Set the fixed exchange with third regions:
+
+IX3FX_T_Y(YALIAS,IR,S,T)= ((X3FX(YALIAS,IR) * X3FX_VAR_T(IR,S,T)) / IX3FXSUMST(IR))$(IX3FXSUMST(IR) NE 0);
+* Hans : ovenstående ikke kontrolleret!! forkentlig forkert, bgure noget med iy411
+
+* Annual updates wrt electricity exchange with 3. countries.
+$ifi %X3V%==yes $include '../../base/addons/x3v/model/x3vannual.inc';
+
+*---- Demands: ----------------------------------------------------------------
+
+* Set the demand for electricity and heat for the years in model BALBASE4:
+* Note that IDE_SUMST is the total load expressed according to DE_VAR_T:
+
+  IDE_T_Y(IY411,IR,S,T) =
+    ((DE(IY411,IR) * DE_VAR_T(IR,S,T)) / IDE_SUMST(IR))$(IDE_SUMST(IR) GT 0);
+
+  IDH_T_Y(IY411,IA,S,T) =
+    ((DH(IY411,IA) * DH_VAR_T(IA,S,T)) / IDH_SUMST(IA))$(IDH_SUMST(IA) GT 0);
+
+
+* Elastic demands, upper bounds on the quantities of the individual steps.
+
+VDEF_T.UP(IY411,IR,S,T,DEF_D1)$(ORD(DEF_D1) LT CARD(DEF_D1))=
+   IDE_T_Y(IY411,IR,S,T)*
+ (DEF_STEPS(IR,S,T,'DF_QUANT',DEF_D1+1)-DEF_STEPS(IR,S,T,'DF_QUANT',DEF_D1));
+
+VDEF_T.UP(IY411,IR,S,T,DEF_D1)$((ORD(DEF_D1) EQ CARD(DEF_D1)) AND (1 LT CARD(DEF_D1)))=   IDE_T_Y(IY411,IR,S,T)*(1-DEF_STEPS(IR,S,T,'DF_QUANT',DEF_D1));
+
+VDEF_T.UP(IY411,IR,S,T,DEF_U1)$((ORD(DEF_U1) EQ 1) AND (1 LT CARD(DEF_U1)))=
+   IDE_T_Y(IY411,IR,S,T)*(DEF_STEPS(IR,S,T,'DF_QUANT',DEF_U1)-1);
+
+VDEF_T.UP(IY411,IR,S,T,DEF_U1)$(1 LT ORD(DEF_U1))=
+  IDE_T_Y(IY411,IR,S,T)*
+(DEF_STEPS(IR,S,T,'DF_QUANT',DEF_U1)-DEF_STEPS(IR,S,T,'DF_QUANT',DEF_U1-1));
+
+
+VDEF_T.UP(IY411,IR,S,T,DEF_D2)$(ord(def_d2) eq card(def_d2)) = DEF_STEPS(IR,S,T,'DF_QUANT',DEF_D2);
+VDEF_T.UP(IY411,IR,S,T,DEF_D2)$(ord(def_d2) lt card(def_d2)) = DEF_STEPS(IR,S,T,'DF_QUANT',DEF_D2)- DEF_STEPS(IR,S,T,'DF_QUANT',DEF_D2+1);
+
+VDEF_T.UP(IY411,IR,S,T,DEF_U2) = DEF_STEPS(IR,S,T,'DF_QUANT',DEF_U2);
+
+VDEF_T.UP(IY411,IR,S,T,DEF_U3) = IDE_T_Y(IY411,IR,S,T)*DEF_STEPS(IR,S,T,'DF_QUANT',DEF_U3);
+VDEF_T.UP(IY411,IR,S,T,DEF_D3) = IDE_T_Y(IY411,IR,S,T)*DEF_STEPS(IR,S,T,'DF_QUANT',DEF_D3);
+
+
+VDHF_T.UP(IY411,IA,S,T,DHF_D1)$(ORD(DHF_D1) EQ 1)= INF;
+
+VDHF_T.UP(IY411,IA,S,T,DHF_D1)$((1 LT ORD(DHF_D1)) AND (ORD(DHF_D1) LT CARD(DHF_D1)))=
+   IDH_T_Y(IY411,IA,S,T)*
+ (DHF_STEPS(IA,S,T,'DF_QUANT',DHF_D1+1)-DHF_STEPS(IA,S,T,'DF_QUANT',DHF_D1));
+
+VDHF_T.UP(IY411,IA,S,T,DHF_D1)$((ORD(DHF_D1) EQ CARD(DHF_D1)) AND (1 LT CARD(DHF_D1)))=
+   IDH_T_Y(IY411,IA,S,T)*(1-DHF_STEPS(IA,S,T,'DF_QUANT',DHF_D1));
+
+VDHF_T.UP(IY411,IA,S,T,DHF_U1)$((ORD(DHF_U1) EQ 1) AND (1 LT CARD(DHF_D1)))=
+   IDH_T_Y(IY411,IA,S,T)*(DHF_STEPS(IA,S,T,'DF_QUANT',DHF_U1)-1);
+
+VDHF_T.UP(IY411,IA,S,T,DHF_U1)$((1 LT ORD(DHF_U1)) AND (ORD(DHF_U1) LT CARD(DHF_U1)))=
+  IDH_T_Y(IY411,IA,S,T)*
+(DHF_STEPS(IA,S,T,'DF_QUANT',DHF_U1)-DHF_STEPS(IA,S,T,'DF_QUANT',DHF_U1-1));
+
+VDHF_T.UP(IY411,IA,S,T,DHF_U1)$(ORD(DHF_U1) EQ CARD(DHF_U1))= INF;
+
+
+
+* ---- Fuel prices: -----------------------------------------------------------
+
+* Set the fuelprice for the years in model BALBASE4:
+  IFUELP_Y(IY411,IA,FFF)= FUELPRICE(IY411,IA,FFF);
+
+
+*---- Environmental policies: -------------------------------------------------
+
+* Set the national environmental policies for the years in model BALBASE4:
+
+$ifi %bb4%==yes    ITAX_CO2_Y(IY411,C)  = M_POL(IY411,'TAX_CO2',C);
+$ifi %bb4%==yes    ITAX_SO2_Y(IY411,C)  = M_POL(IY411,'TAX_SO2',C);
+$ifi %bb4%==yes    ITAX_NOX_Y(IY411,C)  = M_POL(IY411,'TAX_NOX',C);
+
+
+$ifi %bb4%==yes    ILIM_CO2_Y(IY411,C)  = M_POL(IY411,'LIM_CO2',C);
+$ifi %bb4%==yes    ILIM_SO2_Y(IY411,C)  = M_POL(IY411,'LIM_SO2',C);
+$ifi %bb4%==yes    ILIM_NOX_Y(IY411,C)  = M_POL(IY411,'LIM_NOX',C);
+
+
+*---- Annual updating of add-on parameters: -------------------------------------------------
+
+$ifi %GAS%==yes $INCLUDE '../../base/addons/gas/annualupdate.inc';
+$ifi %RENEWTARGET%==yes $INCLUDE '../../base/addons/renewtarget/renewupdate.inc';
+$ifi %WINDTARGET%==yes $INCLUDE '../../base/addons/windtarget/wndannualupdate.inc';
+$ifi %CAES%==yes $INCLUDE '../../base/addons/CAES/CAESinit.inc';
+$ifi %HEATTRANS%==yes $INCLUDE '../../base/addons/heattrans/model/htannualupdate.inc'
+$ifi %FOSSILTARGET%==yes $INCLUDE '../../base/addons/fossiltarget/fossilupdate.inc';
+
+$ifi %H2%==yes $INCLUDE '../../base/addons/Hydrogen/H2AnnualUpdate.inc';
+*------------------------------------------------------------------------------
+* The following equations can exclude various elements of the model.
+*------------------------------------------------------------------------------
+
+* Electricity transmission between regions within countries and between
+* countries may be excluded by the following statement:
+
+* VX_T.FX(IRE,IRI,S,T)=0;
+
+* Electricity transmission between countries may be excluded
+* by the following statement (Note: the statement above must be comment out):
+
+* LOOP(C, VX_T.FX(IRE,IRI,S,T)$(NOT(CCCRRR(C,IRE) AND CCCRRR(C,IRI)))=0);
+
+* Investments in new generation technology are excluded
+* by the following statement:
+
+
+*----- End of: The following equations can exclude various elements ....-------
+
+*----- End of update parameters and bounds for current simulation year --------
+
+
+
+*-------------------------------------------------------------------------------
+* The following lines can be commented in, if transmission conditions
+* are irrelevant, e.g. for calculation of "system price":
+*XLOSS(IRRRE,IRRRI)= 0;
+*IXKINI_Y(IRRRE,IRRRI)=INF;
+*-------------------------------------------------------------------------------
+
+
+
+*------------------------------------------------------------------------------
+
+*-------------------------------------------------------------------------------
+*-------------------------------------------------------------------------------
+
+* Disable investments in electricity transmission capacity
+IXKN(IRI,IRE)=NO;
+
+
+* This option must be active especially for BB1 and BB2 since this outputs the
+* solution basis, which is used for generating results database.
+OPTION Savepoint=1;
+
+
+
+                  /*
+display "Summerne lige før solve i BB4: " , ;
+
+BB2:
+QEEQ(IR,IS3,T) ..
+
+      SUM(IAGK_Y(IA,IGE)$((RRRAAA(IR,IA)) AND IGNOTETOH(IGE)), VGE_T(IA,IGE,IS3,T))
+    - SUM(IAGK_Y(IA,IGE)$((RRRAAA(IR,IA)) AND IGETOH(IGE)),    VGE_T(IA,IGE,IS3,T))
+
+BB4:
+
+
+ SUM(IGE$((IAGK_Y(IY411,IA,IGE) OR (IAGKN(IY411,IA,IGE) AND NOT IY4FIRST(IY411))) AND IGNOTETOH(IGE)),
+
+QEEQ(IY411,IR,IS3,T) ..
+
+      SUM(IA$RRRAAA(IR,IA), SUM(IGE$((IAGK_Y(IY411,IA,IGE) OR (IAGKN(IY411,IA,IGE) AND NOT IY4FIRST(IY411))) AND IGNOTETOH(IGE)),VGE_T(IY411,IA,IGE,IS3,T)))
+    - SUM(IA$RRRAAA(IR,IA), SUM(IGETOH$(IAGK_Y(IY411,IA,IGETOH) OR (IAGKN(IY411,IA,IGETOH) AND NOT IY4FIRST(IY411))),            VGE_T(IY411,IA,IGETOH,IS3,T)  ))
+
+
+) pafretnes her?
+    */
+/*
+Hans: her ser VGE_T.up for 2020.DK_E_Urban   .WI-L15  ok ud,      Case: kun dk_e, 2020/2030
+*/
+display " lige før solve i BB4: " ,y, iyalias, IY411 ,IY410, IY401, IY4FIRST , IAGK_Y,IGKVACCTOY,   IGKFX_Y, VGE_T.up;
+* Calculate ORD_IY, and subsets of Y:
+* IY411: the years in the present Balbase4 model
+* IY410: IY411 except last year.
+* : IY411 except first year.
+* IY4FIRST(YALIAS): first year in IY411;
+
+
+
+$ifi not %SOLVEMIP%==yes SOLVE BALBASE4 USING LP  MINIMIZING VOBJ;
+$ifi     %SOLVEMIP%==yes SOLVE BALBASE4 USING MIP MINIMIZING VOBJ;
+
+*-------------------------------------------------------------------------------
+
+*$ifi %bb4%==yes $INCLUDE '../../base/logerror/logerinc/balbase4.mss';
+$ifi %bb4%==yes $INCLUDE '../../base/addons/BB4/balbase4.mss';
+
+
+* -----------------------------------------------------------------------------
+* Transfer values to be used in next run            HANS: "run" ER ikke et smart ord
+* -----------------------------------------------------------------------------
+
+* Hans: What?    :
+IVGKN(YALIAS,IA,IGKFIND) = VGKN.L(YALIAS,IA,IGKFIND);
+IVXKN(YALIAS,IRRRE,IRRRI) = VXKN.L(YALIAS,IRRRE,IRRRI);
+
+
+
+
+
+*-------------------------------------------------------------------------------
+
+
+*-------------------------------------------------------------------------------
+*-------------------------------------------------------------------------------
+
+$ifi %MERGESAVEPOINTRESULTS%==yes
+$ifi %bb4%==yes  putclose  fileMERGESAVEPOINTRESULTSbat 'move  ' '%relpathModel%''BALBASE4_p.gdx '  '%relpathModel%..\output\temp\'YALIAS.tl:0:0 '.gdx';
+$ifi %MERGESAVEPOINTRESULTS%==yes
+$ifi %bb4%==yes  execute  "%batfileMERGESAVEPOINTRESULTS%";
+
+
+*-------------------------------------------------------------------------------
+*-------------------------------------------------------------------------------
+$ifi %X3V%==yes $INCLUDE '../../base/addons/x3v/model/x3vgeninput.inc';
+
+* Certain checks may be made on the output:
+*$INCLUDE '../../base/logerror/logerinc/error4-BB4.inc'; Hans æbndret
+$INCLUDE '../../base/addons/BB4/errorBB4.inc';
+
+
+* Hans: er det ikke overflødigt af have $ifi %bb4%==yes   ?     Men behov for at få det ind i standardformatet, dvs. via  prt4-bb2.inc
+* Various results from the simulation of current year may be printed out:
+*$ifi %bb4%==yes   $INCLUDE '../../base/output/printout/printinc/gkn_ag.inc'      TODO
+*$ifi %bb4%==yes   $INCLUDE '../../base/output/printout/printinc/ep_rt.inc'
+*$ifi %bb4%==yes   $INCLUDE '../../base/output/printout/printinc/eg_cy.inc'
+*$ifi %bb4%==yes   $INCLUDE '../../base/output/printout/printinc/eg_gat.inc'      TODO
+
+*..............................................................................
+
+
+
+* Case specific output printing:
+$ifi EXIST 'caseprint.inc' $include 'caseprint.inc';
+
+display "At end of  /* LOOP(YALIAS,...) */ in BB4.sim" , IY411, AGKN, IAGKN;
+
+
+*------------------------------------------------------------------------------
+*                    END OF SIMULATION FOR CURRENT BB4 MODEL
+*------------------------------------------------------------------------------
+); /* LOOP(YALIAS,...) */
+
+display "At end of   /* LOOP(SCENARIO$SCENARSIM(SCENARIO),...) */  in BB4.sim"
+*------------------------------------------------------------------------------
+*                    END OF SCENARIO LOOP:
+*-------------------------------------------------------------------------------
+); /* LOOP(SCENARIO$SCENARSIM(SCENARIO),...) */
+
+
+display  YALIAS,  SCENARIO , SCENARSIM    ;
+*-------------------------------------------------------------------------------
+
+/*
+Hans:
+Jeg har problemer med VGE.up /.fx, VGEN.UP / .FX, og tilsvarende for heat:
+
+bb4.sim, :
+linie cirka 317: alle tech: .UP for YFIRST
+            350  STO            for YI411: må være en fejl    TODO  senere
+            380  non-disp:  .FX, oprindeligt for IY411, nu ændret til IYFIRST
+Disse assignmetns skal kompletteres af ligninger i BalmorelBB4.inc.
+BalmorelBB4.inc:
+  for nondisp:      QHYRRDISP, QWNDDISP QSOLEDISP  QSOLHDISP  kører på IY401, det passer fint til IYFIRST
+  dor ALLE tech:
+     QEGKUP(IYALIAS44,IA,IGKE,S,T)$(IY411(IYALIAS44) AND ( ORD(IYALIAS44) <> ORD_YALIAS ) AND (IAGK_Y(IYALIAS44,IA,IGKE) OR IAGKN(IYALIAS44,IA,IGKE))   )..    (tilsvarende for H)
+         VGE_T(IYALIAS44,IA,IGKE,S,T) =L= (VGKVACCTOY(IYALIAS44,IA,IGKE) + IGKFX_Y(IYALIAS44,IA,IGKE))*GKDERATE(IA,IGKE,S)
+
+    Her er SCALAR ORD_YALIAS "The ord() (relative to Y) of the first year of the present Balmbase4 model"; (og den bruges kun her  og i tilsvarende for combtech: QEGKCOMB1UP etc.) ; og alias(Y,IYALIAS44)
+
+Der står så vel mht årene: alle år i present BB4 undtagen første (mend det er vel IY401?)
+og mht tech: ALLE tech, det er vel forkert, fordi der skal vel kun her være non-disp?
+Konklusion: jeg har ændret QEGKUP og QHGKUP, se koden.
+
+
+NB:  ORD_YALIAS indgår herefter kun i combtech (QEGKCOMB1UP etc.), så den kan vel udelades.
+(Og ryd lige op i de mange alias til Y!)
+
+
+
+
+*****
+Noget helt andet:
+Bemærk, at vi ikke kan sammenligne omkostninger i BB2 og BB4 nemt (f.eks. via VOBJ): i BB2 indgår investeringsomkostninger kun første år (annuity), mens de for BB4 indgår i alle de år, der er med i aktuelle BB4.
+****
+
+WNDSHUTDOWN: dette er formentlig ikke implementeret fornuftigt. Hos LB ligger den på QGKNWND, der er nemt og overskueligt (men kan dog også være på .FX/.UP, se disussionen ovenfor).
+Her i BalmorelBB4 mangler det at blive implementeret i ligningerne ud over QGKNWND (der må være nogle relevante!)
+
+
+hvad bliver SIMWEIGHT  brugt til ? (diskontering?)
+Diskontering- brude vel med.
+
+Simyears -> BB4simyears ? Simdelta -> BB4Simdelta?
+Simyears3 -> Isimyears4 eller Isimyears4
+
+
+Jeg har BB4overview.out, der er udmærket. Hvis den ses som supplement til inputout (den ligger aktiske i inputoutfolderen), så skal den vel hedde noget andet?
+Mne ideen må vel være at få tilpasset inputout.
+
+*/
+
+
+

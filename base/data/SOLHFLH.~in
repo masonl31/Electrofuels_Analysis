@@ -1,0 +1,28 @@
+*Last time modified (Amalia, 07-05-2015)
+*THis parameter was expressed before a scalar between m2 and MWh of solar thermal, now it expresses the real full load hours of operation
+PARAMETER  SOLHFLH(AAA) "Full load hours for solar heat (hours)"
+
+
+/
+DK_E_MedSmall                   1073
+DK_W_MedSmall                   1010
+
+FI_R_Decen                      962
+FI_R_Rural                      962
+
+NO_M_Rural                      870
+NO_N_Rural                      894
+NO_O_Rural                      1044
+NO_S_Rural                      1044
+
+SE_M_Rural                      965
+SE_N_Rural                      947
+SE_S_Rural                      100
+
+/;
+
+SOLHFLH(AAA)$(SOLHFLH(AAA)=0 and RRRAAA('DK_W',AAA)AND SUM((YYY,G)$(GDATA(G,'GDTYPE') EQ GSOLH),(AGKN(AAA,G) OR GKFX(YYY,AAA,G)))) = 750;
+SOLHFLH(AAA)$(SOLHFLH(AAA)=0 and RRRAAA('DK_E',AAA)AND SUM((YYY,G)$(GDATA(G,'GDTYPE') EQ GSOLH),(AGKN(AAA,G) OR GKFX(YYY,AAA,G)))) = 750;
+
+
+

@@ -1,0 +1,945 @@
+SET AGKN(AAA,GGG) "Areas for possible location of new technologies"
+*Last time modified (Amalia, 26-05-2015)
+*The different geographically defined Balmorel DH areas in Denmark have been divided into four types
+*large, medium, medium-small and small according to their DH production from Energiproducentælling 2012 (Danish Energy Agency)
+*Maximum GDUNITSIZE of the G technology:
+*Small areas: <5.5 MW
+*Medium Small: < 30MW
+*Medium: < 82.5 MW
+*Large: no constraint in investments
+*Condensing plants could be located everywhere, as no heat is produced and electricity can be transmitted, but in order to avoid equations, they will be located in the large areas.
+*Nuclear and Hydropower capacity is fixed - no investment allowed, as the capacity GKFX is forecasted
+
+
+/
+DK_E_Large    .    Boiler-NG-10_19
+DK_E_Large    .    Boiler-NG-20_29
+DK_E_Large    .    Boiler-NG-30_49
+DK_E_Large    .    Boiler-NG-50
+DK_E_Large    .    Boiler-BGn_EC-10_19
+DK_E_Large    .    Boiler-BGn_EC-20_29
+DK_E_Large    .    Boiler-BGn_EC-30_49
+DK_E_Large    .    Boiler-BGn_EC-50
+DK_E_Large    .    Boiler-ST
+DK_E_Large    .    Boiler-WO
+DK_E_Large    .    Boiler-WP
+DK_E_Large    .    Engine-BGn-10_19
+DK_E_Large    .    Engine-BGn-20_29
+DK_E_Large    .    Engine-BGn-30_49
+DK_E_Large    .    Engine-BGn-50
+DK_E_Large    .    Engine-BGn-EC-10_19
+DK_E_Large    .    Engine-BGn-EC-20_29
+DK_E_Large    .    Engine-BGn-EC-30_49
+DK_E_Large    .    Engine-BGn-EC-50
+DK_E_Large    .    Engine-NG-10_19
+DK_E_Large    .    Engine-NG-20_29
+DK_E_Large    .    Engine-NG-30_49
+DK_E_Large    .    Engine-NG-50
+DK_E_Large    .    GasTurCC-CON-NG-10_19
+DK_E_Large    .    GasTurCC-CON-NG-20_29
+DK_E_Large    .    GasTurCC-CON-NG-30_49
+DK_E_Large    .    GasTurCC-CON-NG-50
+DK_E_Large    .    GasTurCC-CON-BGn-EC-10_19
+DK_E_Large    .    GasTurCC-CON-BGn-EC-20_29
+DK_E_Large    .    GasTurCC-CON-BGn-EC-30_49
+DK_E_Large    .    GasTurCC-CON-BGn-EC-50
+DK_E_Large    .    GasTurCC-CON-NGccs-30_50
+DK_E_Large    .    GasTurCC-EXT-NG-10_19
+DK_E_Large    .    GasTurCC-EXT-NG-20_29
+DK_E_Large    .    GasTurCC-EXT-NG-30_49
+DK_E_Large    .    GasTurCC-EXT-NG-50
+DK_E_Large    .    GasTurCC-EXT-BGn-EC-10_19
+DK_E_Large    .    GasTurCC-EXT-BGn-EC-20_29
+DK_E_Large    .    GasTurCC-EXT-BGn-EC-30_49
+DK_E_Large    .    GasTurCC-EXT-BGn-EC-50
+DK_E_Large    .    GasTurCC-EXT-NGccs-30_50
+DK_E_Large    .    GasTurCC-BP-NG-10_19
+DK_E_Large    .    GasTurCC-BP-NG-20_29
+DK_E_Large    .    GasTurCC-BP-NG-30_49
+DK_E_Large    .    GasTurCC-BP-NG-50
+DK_E_Large    .    GasTurCC-BP-BGn-EC-10_19
+DK_E_Large    .    GasTurCC-BP-BGn-EC-20_29
+DK_E_Large    .    GasTurCC-BP-BGn-EC-30_49
+DK_E_Large    .    GasTurCC-BP-BGn-EC-50
+DK_E_Large    .    GasTur-LARGE-CON-NG-10_19
+DK_E_Large    .    GasTur-LARGE-CON-NG-20_29
+DK_E_Large    .    GasTur-LARGE-CON-NG-30_49
+DK_E_Large    .    GasTur-LARGE-CON-NG-50
+DK_E_Large    .    GasTur-LARGE-BP-NG-10_19
+DK_E_Large    .    GasTur-LARGE-BP-NG-20_29
+DK_E_Large    .    GasTur-LARGE-BP-NG-30_49
+DK_E_Large    .    GasTur-LARGE-BP-NG-50
+DK_E_Large    .    GasTur-LARGE-CON-BGn-EC-10_19
+DK_E_Large    .    GasTur-LARGE-CON-BGn-EC-20_29
+DK_E_Large    .    GasTur-LARGE-CON-BGn-EC-30_49
+DK_E_Large    .    GasTur-LARGE-CON-BGn-EC-50
+DK_E_Large    .    GasTur-LARGE-BP-BGn-EC-10_19
+DK_E_Large    .    GasTur-LARGE-BP-BGn-EC-20_29
+DK_E_Large    .    GasTur-LARGE-BP-BGn-EC-30_49
+DK_E_Large    .    GasTur-LARGE-BP-BGn-EC-50
+DK_E_Large    .    GeothermalEl-10_19
+DK_E_Large    .    GeothermalEl-20_29
+DK_E_Large    .    GeothermalEl-30_50
+DK_E_Large    .    G-HSTORE-10
+DK_E_Large    .    HeatPump-EL-10_19
+DK_E_Large    .    HeatPump-EL-20_29
+DK_E_Large    .    HeatPump-EL-30_49
+DK_E_Large    .    HeatPump-EL-50
+DK_E_Large    .    HeatPump_LargeDH-EL-20_29
+DK_E_Large    .    HeatPump_LargeDH-EL-30_49
+DK_E_Large    .    HeatPump-LargeDH-EL-50
+DK_E_Large    .    SolarPV-10_19
+DK_E_Large    .    SteamTur-CON-COccs-30_50
+DK_E_Large    .    SteamTur-CON-WP-10_19
+DK_E_Large    .    SteamTur-CON-WP-20_29
+DK_E_Large    .    SteamTur-CON-WP-30_49
+DK_E_Large    .    SteamTur-CON-WP-50
+DK_E_Large    .    SteamTur-CON-WPccs-30_50
+DK_E_Large    .    SteamTur-EXT-COccs-30_50
+DK_E_Large    .    SteamTur-EXT-WP-10_19
+DK_E_Large    .    SteamTur-EXT-WP-20_29
+DK_E_Large    .    SteamTur-EXT-WP-30_49
+DK_E_Large    .    SteamTur-EXT-WP-50
+DK_E_Large    .    SteamTur-EXT-WPccs-30_50
+DK_E_Large    .    SteamTur-LARGE-BP-WO-10_19
+DK_E_Large    .    SteamTur-LARGE-BP-WO-20_29
+DK_E_Large    .    SteamTur-LARGE-BP-WO-30
+DK_E_Large    .    SteamTur-LARGE-CON-WO-10_19
+DK_E_Large    .    SteamTur-LARGE-CON-WO-20_29
+DK_E_Large    .    SteamTur-LARGE-CON-WO-30
+DK_E_Large    .    SteamTur-LARGE-EXT-WO-10_19
+DK_E_Large    .    SteamTur-LARGE-EXT-WO-20_29
+DK_E_Large    .    SteamTur-LARGE-EXT-WO-30
+DK_E_Large    .    SteamTur-Medi-BP-ST-10
+DK_E_Large    .    SteamTur-Medi-BP-WW-10_19
+DK_E_Large    .    SteamTur-Medi-BP-WW-20_29
+DK_E_Large    .    SteamTur-Medi-BP-WW-30
+DK_E_Large    .    Electrolyser_Large_15_29
+DK_E_Large    .    Electrolyser_Large_30
+DK_E_Large    .    H2_storage_Central_15_29
+DK_E_Large    .    H2_storage_Central_30
+DK_E_Large    .    WtECHP_Large
+DK_E_Large    .    WtEBoiler_Large
+
+DK_E_Medium    .    Boiler-NG-10_19
+DK_E_Medium    .    Boiler-NG-20_29
+DK_E_Medium    .    Boiler-NG-30_49
+DK_E_Medium    .    Boiler-NG-50
+DK_E_Medium    .    Boiler-BGn_EC-10_19
+DK_E_Medium    .    Boiler-BGn_EC-20_29
+DK_E_Medium    .    Boiler-BGn_EC-30_49
+DK_E_Medium    .    Boiler-BGn_EC-50
+DK_E_Medium    .    Boiler-ST
+DK_E_Medium    .    Boiler-WO
+DK_E_Medium    .    Boiler-WP
+DK_E_Medium    .    Engine-BGn-10_19
+DK_E_Medium    .    Engine-BGn-20_29
+DK_E_Medium    .    Engine-BGn-30_49
+DK_E_Medium    .    Engine-BGn-50
+DK_E_Medium    .    Engine-BGn-EC-10_19
+DK_E_Medium    .    Engine-BGn-EC-20_29
+DK_E_Medium    .    Engine-BGn-EC-30_49
+DK_E_Medium    .    Engine-BGn-EC-50
+DK_E_Medium    .    Engine-NG-10_19
+DK_E_Medium    .    Engine-NG-20_29
+DK_E_Medium    .    Engine-NG-30_49
+DK_E_Medium    .    Engine-NG-50
+DK_E_Medium    .    GasTurCC-BP-NG-10_19
+DK_E_Medium    .    GasTurCC-BP-NG-20_29
+DK_E_Medium    .    GasTurCC-BP-NG-30_49
+DK_E_Medium    .    GasTurCC-BP-NG-50
+DK_E_Medium    .    GasTurCC-BP-BGn-EC-10_19
+DK_E_Medium    .    GasTurCC-BP-BGn-EC-20_29
+DK_E_Medium    .    GasTurCC-BP-BGn-EC-30_49
+DK_E_Medium    .    GasTurCC-BP-BGn-EC-50
+DK_E_Medium    .    GasTur-MEDIUM-CON-NG-10_19
+DK_E_Medium    .    GasTur-MEDIUM-CON-NG-20_29
+DK_E_Medium    .    GasTur-MEDIUM-CON-NG-30_49
+DK_E_Medium    .    GasTur-MEDIUM-CON-NG-50
+DK_E_Medium    .    GasTur-MEDIUM-BP-NG-10_19
+DK_E_Medium    .    GasTur-MEDIUM-BP-NG-20_29
+DK_E_Medium    .    GasTur-MEDIUM-BP-NG-30_49
+DK_E_Medium    .    GasTur-MEDIUM-BP-NG-50
+DK_E_Medium    .    GasTur-MEDIUM-CON-BGn-EC-10_19
+DK_E_Medium    .    GasTur-MEDIUM-CON-BGn-EC-20_29
+DK_E_Medium    .    GasTur-MEDIUM-CON-BGn-EC-30_49
+DK_E_Medium    .    GasTur-MEDIUM-CON-BGn-EC-50
+DK_E_Medium    .    GasTur-MEDIUM-BP-BGn-EC-10_19
+DK_E_Medium    .    GasTur-MEDIUM-BP-BGn-EC-20_29
+DK_E_Medium    .    GasTur-MEDIUM-BP-BGn-EC-30_49
+DK_E_Medium    .    GasTur-MEDIUM-BP-BGn-EC-50
+DK_E_Medium    .    GeothermalEl-10_19
+DK_E_Medium    .    GeothermalEl-20_29
+DK_E_Medium    .    GeothermalEl-30_50
+DK_E_Medium    .    G-HSTORE-10
+DK_E_Medium    .    HeatPump_LargeDH-EL-20_29
+DK_E_Medium    .    HeatPump_LargeDH-EL-30_49
+DK_E_Medium    .    HeatPump-LargeDH-EL-50
+DK_E_Medium    .    HeatPump-EL-10_19
+DK_E_Medium    .    HeatPump-EL-20_29
+DK_E_Medium    .    HeatPump-EL-30_49
+DK_E_Medium    .    HeatPump-EL-50
+DK_E_Medium    .    SolarPV-10_19
+DK_E_Medium    .    SteamTur-CON-WP-10_19
+DK_E_Medium    .    SteamTur-CON-WP-20_29
+DK_E_Medium    .    SteamTur-CON-WP-30_49
+DK_E_Medium    .    SteamTur-CON-WP-50
+DK_E_Medium    .    SteamTur-EXT-WP-10_19
+DK_E_Medium    .    SteamTur-EXT-WP-20_29
+DK_E_Medium    .    SteamTur-EXT-WP-30_49
+DK_E_Medium    .    SteamTur-EXT-WP-50
+DK_E_Medium    .    SteamTur-LARGE-BP-WO-10_19
+DK_E_Medium    .    SteamTur-LARGE-BP-WO-20_29
+DK_E_Medium    .    SteamTur-LARGE-BP-WO-30
+DK_E_Medium    .    SteamTur-LARGE-CON-WO-10_19
+DK_E_Medium    .    SteamTur-LARGE-CON-WO-20_29
+DK_E_Medium    .    SteamTur-LARGE-CON-WO-30
+DK_E_Medium    .    SteamTur-LARGE-EXT-WO-10_19
+DK_E_Medium    .    SteamTur-LARGE-EXT-WO-20_29
+DK_E_Medium    .    SteamTur-LARGE-EXT-WO-30
+DK_E_Medium    .    SteamTur-Medi-BP-ST-10
+DK_E_Medium    .    SteamTur-Medi-BP-WW-10_19
+DK_E_Medium    .    SteamTur-Medi-BP-WW-20_29
+DK_E_Medium    .    SteamTur-Medi-BP-WW-30
+DK_E_Medium    .    Electrolyser_Large_15_29
+DK_E_Medium    .    Electrolyser_Large_30
+DK_E_Medium    .    H2_storage_Central_15_29
+DK_E_Medium    .    H2_storage_Central_30
+DK_E_Medium    .    WtECHP_Medium
+DK_E_Medium    .    WtEBoiler_Medium
+
+
+DK_E_MedSmall    .    Boiler-NG-10_19
+DK_E_MedSmall    .    Boiler-NG-20_29
+DK_E_MedSmall    .    Boiler-NG-30_49
+DK_E_MedSmall    .    Boiler-NG-50
+DK_E_MedSmall    .    Boiler-BGn_EC-10_19
+DK_E_MedSmall    .    Boiler-BGn_EC-20_29
+DK_E_MedSmall    .    Boiler-BGn_EC-30_49
+DK_E_MedSmall    .    Boiler-BGn_EC-50
+DK_E_MedSmall    .    Boiler-ST
+DK_E_MedSmall    .    Boiler-WO
+DK_E_MedSmall    .    Boiler-WP
+DK_E_MedSmall    .    Engine-BGn-10_19
+DK_E_MedSmall    .    Engine-BGn-20_29
+DK_E_MedSmall    .    Engine-BGn-30_49
+DK_E_MedSmall    .    Engine-BGn-50
+DK_E_MedSmall    .    Engine-BGn-EC-10_19
+DK_E_MedSmall    .    Engine-BGn-EC-20_29
+DK_E_MedSmall    .    Engine-BGn-EC-30_49
+DK_E_MedSmall    .    Engine-BGn-EC-50
+DK_E_MedSmall    .    Engine-NG-10_19
+DK_E_MedSmall    .    Engine-NG-20_29
+DK_E_MedSmall    .    Engine-NG-30_49
+DK_E_MedSmall    .    Engine-NG-50
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-NG-10_19
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-NG-20_29
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-NG-30_49
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-NG-50
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-NG-10_19
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-NG-20_29
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-NG-30_49
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-NG-50
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-BGn-10_19
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-BGn-20_29
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-BGn-30_49
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-BGn-50
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-BGn-10_19
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-BGn-20_29
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-BGn-30_49
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-BGn-50
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-BGn-EC-10_19
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-BGn-EC-20_29
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-BGn-EC-30_49
+DK_E_MedSmall    .    GasTur-MEDIUM-CON-BGn-EC-50
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-BGn-EC-10_19
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-BGn-EC-20_29
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-BGn-EC-30_49
+DK_E_MedSmall    .    GasTur-MEDIUM-BP-BGn-EC-50
+DK_E_MedSmall    .    Geo_EL_HeatPump-10_19
+DK_E_MedSmall    .    Geo_EL_HeatPump-20
+DK_E_MedSmall    .    GeothermalEl-10_19
+DK_E_MedSmall    .    GeothermalEl-20_29
+DK_E_MedSmall    .    GeothermalEl-30_50
+DK_E_MedSmall    .    G-HSTORE-10
+DK_E_MedSmall    .    HeatPump-EL-10_19
+DK_E_MedSmall    .    HeatPump-EL-20_29
+DK_E_MedSmall    .    HeatPump-EL-30_49
+DK_E_MedSmall    .    HeatPump-EL-50
+DK_E_MedSmall    .    SolarDH-10_19
+DK_E_MedSmall    .    SolarDH-20_29
+DK_E_MedSmall    .    SolarDH-30
+DK_E_MedSmall    .    SolarPV-10_19
+DK_E_MedSmall    .    SteamTur-Medi-BP-ST-10
+DK_E_MedSmall    .    SteamTur-Medi-BP-WO-10_19
+DK_E_MedSmall    .    SteamTur-Medi-BP-WO-20_29
+DK_E_MedSmall    .    SteamTur-Medi-BP-WO-30
+DK_E_MedSmall    .    SteamTur-Medi-BP-WW-10_19
+DK_E_MedSmall    .    SteamTur-Medi-BP-WW-20_29
+DK_E_MedSmall    .    SteamTur-Medi-BP-WW-30
+DK_E_MedSmall    .    Electrolyser_Small_15_29
+DK_E_MedSmall    .    Electrolyser_Small_30
+DK_E_MedSmall    .    H2_storage_Distributed_15_29
+DK_E_MedSmall    .    H2_storage_Distributed_30
+DK_E_MedSmall    .    WtECHP_Small
+DK_E_MedSmall    .    WtEBoiler_Small
+
+
+
+DK_E_Small    .    Boiler-NG-10_19
+DK_E_Small    .    Boiler-NG-20_29
+DK_E_Small    .    Boiler-NG-30_49
+DK_E_Small    .    Boiler-NG-50
+DK_E_Small    .    Boiler-BGn_EC-10_19
+DK_E_Small    .    Boiler-BGn_EC-20_29
+DK_E_Small    .    Boiler-BGn_EC-30_49
+DK_E_Small    .    Boiler-BGn_EC-50
+DK_E_Small    .    Boiler-ST
+DK_E_Small    .    Boiler-WO
+DK_E_Small    .    Boiler-WP
+DK_E_Small    .    Engine-BGn-10_19
+DK_E_Small    .    Engine-BGn-20_29
+DK_E_Small    .    Engine-BGn-30_49
+DK_E_Small    .    Engine-BGn-50
+DK_E_Small    .    Engine-BGn-EC-10_19
+DK_E_Small    .    Engine-BGn-EC-20_29
+DK_E_Small    .    Engine-BGn-EC-30_49
+DK_E_Small    .    Engine-BGn-EC-50
+DK_E_Small    .    Engine-NG-10_19
+DK_E_Small    .    Engine-NG-20_29
+DK_E_Small    .    Engine-NG-30_49
+DK_E_Small    .    Engine-NG-50
+DK_E_Small    .    Geo_EL_HeatPump-10_19
+DK_E_Small    .    Geo_EL_HeatPump-20
+DK_E_Small    .    GeothermalEl-10_19
+DK_E_Small    .    GeothermalEl-20_29
+DK_E_Small    .    GeothermalEl-30_50
+DK_E_Small    .    G-HSTORE-10
+DK_E_Small    .    HeatPump-EL-10_19
+DK_E_Small    .    HeatPump-EL-20_29
+DK_E_Small    .    HeatPump-EL-30_49
+DK_E_Small    .    HeatPump-EL-50
+DK_E_Small    .    SolarDH-10_19
+DK_E_Small    .    SolarDH-20_29
+DK_E_Small    .    SolarDH-30
+DK_E_Small    .    SolarPV-10_19
+DK_E_Small    .    SteamTur-Small-BP-ST-10
+DK_E_Small    .    SteamTur-Small-BP-WO-10
+DK_E_Small    .    SteamTur-Small-BP-WW-10
+DK_E_Small    .    Electrolyser_Small_15_29
+DK_E_Small    .    Electrolyser_Small_30
+DK_E_Small    .    H2_storage_Distributed_15_29
+DK_E_Small    .    H2_storage_Distributed_30
+DK_E_Small    .    WtECHP_VerySmall
+DK_E_Small    .    WtEBoiler_VerySmall
+
+
+DK_E_Rural    .    Boiler-NG-10_19
+DK_E_Rural    .    Boiler-NG-20_29
+DK_E_Rural    .    Boiler-NG-30_49
+DK_E_Rural    .    Boiler-NG-50
+DK_E_Rural    .    Boiler-BGn_EC-10_19
+DK_E_Rural    .    Boiler-BGn_EC-20_29
+DK_E_Rural    .    Boiler-BGn_EC-30_49
+DK_E_Rural    .    Boiler-BGn_EC-50
+DK_E_Rural    .    Boiler-ST
+DK_E_Rural    .    Boiler-WO
+DK_E_Rural    .    Boiler-WP
+DK_E_Rural    .    Engine-BGn-10_19
+DK_E_Rural    .    Engine-BGn-20_29
+DK_E_Rural    .    Engine-BGn-30_49
+DK_E_Rural    .    Engine-BGn-50
+DK_E_Rural    .    Engine-BGn-EC-10_19
+DK_E_Rural    .    Engine-BGn-EC-20_29
+DK_E_Rural    .    Engine-BGn-EC-30_49
+DK_E_Rural    .    Engine-BGn-EC-50
+DK_E_Rural    .    Engine-NG-10_19
+DK_E_Rural    .    Engine-NG-20_29
+DK_E_Rural    .    Engine-NG-30_49
+DK_E_Rural    .    Engine-NG-50
+DK_E_Rural    .    Geo_EL_HeatPump-10_19
+DK_E_Rural    .    Geo_EL_HeatPump-20
+DK_E_Rural    .    GeothermalEl-10_19
+DK_E_Rural    .    GeothermalEl-20_29
+DK_E_Rural    .    GeothermalEl-30_50
+DK_E_Rural    .    G-HSTORE-10
+DK_E_Rural    .    HeatPump-EL-10_19
+DK_E_Rural    .    HeatPump-EL-20_29
+DK_E_Rural    .    HeatPump-EL-30_49
+DK_E_Rural    .    HeatPump-EL-50
+DK_E_Rural    .    SolarDH-10_19
+DK_E_Rural    .    SolarDH-20_29
+DK_E_Rural    .    SolarDH-30
+DK_E_Rural    .    SolarPV-10_19
+DK_E_Rural    .    SteamTur-Small-BP-ST-10
+DK_E_Rural    .    SteamTur-Small-BP-WW-10
+DK_E_Rural    .    SteamTur-Small-BP-WO-10
+DK_E_Rural    .    Electrolyser_Small_15_29
+DK_E_Rural    .    Electrolyser_Small_30
+DK_E_Rural    .    H2_storage_Distributed_15_29
+DK_E_Rural    .    H2_storage_Distributed_30
+
+DK_E_Offshore20            . Wind-Offshore-20_29
+DK_E_Onshore20             . Wind-Onshore-20_29
+DK_W_Offshore20            . Wind-Offshore-20_29
+DK_W_Onshore20             . Wind-Onshore-20_29
+
+FI_R_Onshore20             . Wind-Onshore-20_29
+DE_CS_Onshore20            . Wind-Onshore-20_29
+DE_NE_Onshore20            . Wind-Onshore-20_29
+DE_NW_Onshore20            . Wind-Onshore-20_29
+NO_N_Onshore20             . Wind-Onshore-20_29
+NO_M_Onshore20             . Wind-Onshore-20_29
+NO_S_Onshore20             . Wind-Onshore-20_29
+SE_N_Onshore20             . Wind-Onshore-20_29
+SE_M_Onshore20             . Wind-Onshore-20_29
+SE_S_Onshore20             . Wind-Onshore-20_29
+
+FI_R_Offshore20            . Wind-Offshore-20_29
+DE_NE_Offshore20           . Wind-Offshore-20_29
+DE_NW_Offshore20           . Wind-Offshore-20_29
+NO_N_Offshore20            . Wind-Offshore-20_29
+NO_M_Offshore20            . Wind-Offshore-20_29
+NO_S_Offshore20            . Wind-Offshore-20_29
+SE_N_Offshore20            . Wind-Offshore-20_29
+SE_M_Offshore20            . Wind-Offshore-20_29
+SE_S_Offshore20            . Wind-Offshore-20_29
+
+DK_E_Offshore35            . Wind-Offshore-30_49
+DK_E_Onshore35             . Wind-Onshore-30_49
+DK_W_Offshore35            . Wind-Offshore-30_49
+DK_W_Onshore35             . Wind-Onshore-30_49
+
+FI_R_Onshore35             . Wind-Onshore-30_49
+DE_CS_Onshore35            . Wind-Onshore-30_49
+DE_NE_Onshore35            . Wind-Onshore-30_49
+DE_NW_Onshore35            . Wind-Onshore-30_49
+NO_N_Onshore35             . Wind-Onshore-30_49
+NO_M_Onshore35             . Wind-Onshore-30_49
+NO_S_Onshore35             . Wind-Onshore-30_49
+SE_N_Onshore35             . Wind-Onshore-30_49
+SE_M_Onshore35             . Wind-Onshore-30_49
+SE_S_Onshore35             . Wind-Onshore-30_49
+
+FI_R_Offshore35            . Wind-Offshore-30_49
+DE_NE_Offshore35           . Wind-Offshore-30_49
+DE_NW_Offshore35           . Wind-Offshore-30_49
+NO_N_Offshore35            . Wind-Offshore-30_49
+NO_M_Offshore35            . Wind-Offshore-30_49
+NO_S_Offshore35            . Wind-Offshore-30_49
+SE_N_Offshore35            . Wind-Offshore-30_49
+SE_M_Offshore35            . Wind-Offshore-30_49
+SE_S_Offshore35            . Wind-Offshore-30_49
+
+
+DK_E_Offshore50            . Wind-Offshore-50
+DK_E_Onshore50             . Wind-Onshore-50
+DK_W_Offshore50            . Wind-Offshore-50
+DK_W_Onshore50             . Wind-Onshore-50
+
+FI_R_Onshore50             . Wind-Onshore-50
+DE_CS_Onshore50            . Wind-Onshore-50
+DE_NE_Onshore50            . Wind-Onshore-50
+DE_NW_Onshore50            . Wind-Onshore-50
+NO_N_Onshore50             . Wind-Onshore-50
+NO_M_Onshore50             . Wind-Onshore-50
+NO_S_Onshore50             . Wind-Onshore-50
+SE_N_Onshore50             . Wind-Onshore-50
+SE_M_Onshore50             . Wind-Onshore-50
+SE_S_Onshore50             . Wind-Onshore-50
+
+FI_R_Offshore50            . Wind-Offshore-50
+DE_NE_Offshore50           . Wind-Offshore-50
+DE_NW_Offshore50           . Wind-Offshore-50
+NO_N_Offshore50            . Wind-Offshore-50
+NO_M_Offshore50            . Wind-Offshore-50
+NO_S_Offshore50            . Wind-Offshore-50
+SE_N_Offshore50            . Wind-Offshore-50
+SE_M_Offshore50            . Wind-Offshore-50
+SE_S_Offshore50            . Wind-Offshore-50
+
+
+*N O R W A Y
+*All the areas in Norway (North,Medium, South and East) are considered equivalent
+*The installed capacity for hydropower and the forecastes is stated in gkfx.inc
+*The four areas are rural, without an extensive district heating network and with 95% of electricity production from hydropower
+*Therefore, investments are equivalent to those in DK_CA_Aab, plus investments in condensing plant, in case only electricity is required
+
+
+
+NO_N_Rural    .    Boiler-NG-10_19
+NO_N_Rural    .    Boiler-NG-20_29
+NO_N_Rural    .    Boiler-NG-30_49
+NO_N_Rural    .    Boiler-NG-50
+NO_N_Rural    .    Boiler-ST
+NO_N_Rural    .    Boiler-WO
+NO_N_Rural    .    Boiler-WP
+NO_N_Rural    .    Engine-BGn-10_19
+NO_N_Rural    .    Engine-BGn-20_29
+NO_N_Rural    .    Engine-BGn-30_49
+NO_N_Rural    .    Engine-BGn-50
+NO_N_Rural    .    Engine-BGn-EC-10_19
+NO_N_Rural    .    Engine-BGn-EC-20_29
+NO_N_Rural    .    Engine-BGn-EC-30_49
+NO_N_Rural    .    Engine-BGn-EC-50
+NO_N_Rural    .    Engine-NG-10_19
+NO_N_Rural    .    Engine-NG-20_29
+NO_N_Rural    .    Engine-NG-30_49
+NO_N_Rural    .    Engine-NG-50
+NO_N_Rural    .    Geo_EL_HeatPump-10_19
+NO_N_Rural    .    Geo_EL_HeatPump-20
+NO_N_Rural    .    GeothermalEl-10_19
+NO_N_Rural    .    GeothermalEl-20_29
+NO_N_Rural    .    GeothermalEl-30_50
+NO_N_Rural    .    G-HSTORE-10
+NO_N_Rural    .    HeatPump-EL-10_19
+NO_N_Rural    .    HeatPump-EL-20_29
+NO_N_Rural    .    HeatPump-EL-30_49
+NO_N_Rural    .    HeatPump-EL-50
+NO_N_Rural    .    SolarDH-10_19
+NO_N_Rural    .    SolarDH-20_29
+NO_N_Rural    .    SolarDH-30
+NO_N_Rural    .    SolarPV-10_19
+NO_N_Rural    .    SteamTur-CON-WP-10_19
+NO_N_Rural    .    SteamTur-CON-WP-20_29
+NO_N_Rural    .    SteamTur-CON-WP-30_49
+NO_N_Rural    .    SteamTur-CON-WP-50
+NO_N_Rural    .    SteamTur-CON-WPccs-30_50
+NO_N_Rural    .    SteamTur-Small-BP-ST-10
+NO_N_Rural    .    SteamTur-Small-BP-WO-10
+NO_N_Rural    .    SteamTur-Small-BP-WW-10
+NO_N_Rural    .    Electrolyser_Small_15_29
+NO_N_Rural    .    Electrolyser_Small_30
+NO_N_Rural    .    H2_storage_Distributed_15_29
+NO_N_Rural    .    H2_storage_Distributed_30
+NO_N_Rural    .    WtEBoiler_Small
+NO_N_Rural    .    WtECHP_Small
+
+*S W E D E N
+*Bio areas in Sweden can invest in plants that use wood only and wood pellets, condensing plants not considered as they will be located in bigger areas
+
+SE_S_Bio    .    Boiler-ST
+SE_S_Bio    .    Boiler-WO
+SE_S_Bio    .    Boiler-WP
+SE_S_Bio    .    G-HSTORE-10
+SE_S_Bio    .    SteamTur-LARGE-BP-WO-10_19
+SE_S_Bio    .    SteamTur-LARGE-BP-WO-20_29
+SE_S_Bio    .    SteamTur-LARGE-BP-WO-30
+SE_S_Bio    .    SteamTur-LARGE-EXT-WO-10_19
+SE_S_Bio    .    SteamTur-LARGE-EXT-WO-20_29
+SE_S_Bio    .    SteamTur-LARGE-EXT-WO-30
+SE_S_Bio    .    SteamTur-EXT-WP-10_19
+SE_S_Bio    .    SteamTur-EXT-WP-20_29
+SE_S_Bio    .    SteamTur-EXT-WP-30_49
+SE_S_Bio    .    SteamTur-EXT-WP-50
+SE_S_Bio    .    SteamTur-Medi-BP-ST-10
+SE_S_Bio    .    SteamTur-Medi-BP-WO-10_19
+SE_S_Bio    .    SteamTur-Medi-BP-WO-20_29
+SE_S_Bio    .    SteamTur-Medi-BP-WO-30
+SE_S_Bio    .    SteamTur-Medi-BP-WW-10_19
+SE_S_Bio    .    SteamTur-Medi-BP-WW-20_29
+SE_S_Bio    .    SteamTur-Medi-BP-WW-30
+SE_S_Bio    .    Electrolyser_Small_15_29
+SE_S_Bio    .    Electrolyser_Small_30
+SE_S_Bio    .    H2_storage_Distributed_15_29
+SE_S_Bio    .    H2_storage_Distributed_30
+
+
+
+DE_CS_A1    .    Boiler-NG-10_19
+DE_CS_A1    .    Boiler-NG-20_29
+DE_CS_A1    .    Boiler-NG-30_49
+DE_CS_A1    .    Boiler-NG-50
+DE_CS_A1    .    Boiler-ST
+DE_CS_A1    .    Boiler-WO
+DE_CS_A1    .    Boiler-WP
+DE_CS_A1    .    Engine-BGn-10_19
+DE_CS_A1    .    Engine-BGn-20_29
+DE_CS_A1    .    Engine-BGn-30_49
+DE_CS_A1    .    Engine-BGn-50
+DE_CS_A1    .    Engine-BGn-EC-10_19
+DE_CS_A1    .    Engine-BGn-EC-20_29
+DE_CS_A1    .    Engine-BGn-EC-30_49
+DE_CS_A1    .    Engine-BGn-EC-50
+DE_CS_A1    .    Engine-NG-10_19
+DE_CS_A1    .    Engine-NG-20_29
+DE_CS_A1    .    Engine-NG-30_49
+DE_CS_A1    .    Engine-NG-50
+DE_CS_A1    .    GasTurCC-CON-NG-10_19
+DE_CS_A1    .    GasTurCC-CON-NG-20_29
+DE_CS_A1    .    GasTurCC-CON-NG-30_49
+DE_CS_A1    .    GasTurCC-CON-NG-50
+DE_CS_A1    .    GasTurCC-CON-BGn-10_19
+DE_CS_A1    .    GasTurCC-CON-BGn-20_29
+DE_CS_A1    .    GasTurCC-CON-BGn-30_49
+DE_CS_A1    .    GasTurCC-CON-BGn-50
+DE_CS_A1    .    GasTurCC-CON-BGn-EC-10_19
+DE_CS_A1    .    GasTurCC-CON-BGn-EC-20_29
+DE_CS_A1    .    GasTurCC-CON-BGn-EC-30_49
+DE_CS_A1    .    GasTurCC-CON-BGn-EC-50
+DE_CS_A1    .    GasTurCC-CON-NGccs-30_50
+DE_CS_A1    .    GasTurCC-EXT-NG-10_19
+DE_CS_A1    .    GasTurCC-EXT-NG-20_29
+DE_CS_A1    .    GasTurCC-EXT-NG-30_49
+DE_CS_A1    .    GasTurCC-EXT-NG-50
+DE_CS_A1    .    GasTurCC-EXT-BGn-10_19
+DE_CS_A1    .    GasTurCC-EXT-BGn-20_29
+DE_CS_A1    .    GasTurCC-EXT-BGn-30_49
+DE_CS_A1    .    GasTurCC-EXT-BGn-50
+DE_CS_A1    .    GasTurCC-EXT-BGn-EC-10_19
+DE_CS_A1    .    GasTurCC-EXT-BGn-EC-20_29
+DE_CS_A1    .    GasTurCC-EXT-BGn-EC-30_49
+DE_CS_A1    .    GasTurCC-EXT-BGn-EC-50
+DE_CS_A1    .    GasTurCC-EXT-NGccs-30_50
+DE_CS_A1    .    GasTurCC-BP-NG-10_19
+DE_CS_A1    .    GasTurCC-BP-NG-20_29
+DE_CS_A1    .    GasTurCC-BP-NG-30_49
+DE_CS_A1    .    GasTurCC-BP-NG-50
+DE_CS_A1    .    GasTurCC-BP-BGn-10_19
+DE_CS_A1    .    GasTurCC-BP-BGn-20_29
+DE_CS_A1    .    GasTurCC-BP-BGn-30_49
+DE_CS_A1    .    GasTurCC-BP-BGn-50
+DE_CS_A1    .    GasTurCC-BP-BGn-EC-10_19
+DE_CS_A1    .    GasTurCC-BP-BGn-EC-20_29
+DE_CS_A1    .    GasTurCC-BP-BGn-EC-30_49
+DE_CS_A1    .    GasTurCC-BP-BGn-EC-50
+DE_CS_A1    .    GasTur-LARGE-CON-NG-10_19
+DE_CS_A1    .    GasTur-LARGE-CON-NG-20_29
+DE_CS_A1    .    GasTur-LARGE-CON-NG-30_49
+DE_CS_A1    .    GasTur-LARGE-CON-NG-50
+DE_CS_A1    .    GasTur-LARGE-BP-NG-10_19
+DE_CS_A1    .    GasTur-LARGE-BP-NG-20_29
+DE_CS_A1    .    GasTur-LARGE-BP-NG-30_49
+DE_CS_A1    .    GasTur-LARGE-BP-NG-50
+DE_CS_A1    .    GasTur-LARGE-CON-BGn-10_19
+DE_CS_A1    .    GasTur-LARGE-CON-BGn-20_29
+DE_CS_A1    .    GasTur-LARGE-CON-BGn-30_49
+DE_CS_A1    .    GasTur-LARGE-CON-BGn-50
+DE_CS_A1    .    GasTur-LARGE-BP-BGn-10_19
+DE_CS_A1    .    GasTur-LARGE-BP-BGn-20_29
+DE_CS_A1    .    GasTur-LARGE-BP-BGn-30_49
+DE_CS_A1    .    GasTur-LARGE-BP-BGn-50
+DE_CS_A1    .    GasTur-LARGE-CON-BGn-EC-10_19
+DE_CS_A1    .    GasTur-LARGE-CON-BGn-EC-20_29
+DE_CS_A1    .    GasTur-LARGE-CON-BGn-EC-30_49
+DE_CS_A1    .    GasTur-LARGE-CON-BGn-EC-50
+DE_CS_A1    .    GasTur-LARGE-BP-BGn-EC-10_19
+DE_CS_A1    .    GasTur-LARGE-BP-BGn-EC-20_29
+DE_CS_A1    .    GasTur-LARGE-BP-BGn-EC-30_49
+DE_CS_A1    .    GasTur-LARGE-BP-BGn-EC-50
+DE_CS_A1    .    GeothermalEl-10_19
+DE_CS_A1    .    GeothermalEl-20_29
+DE_CS_A1    .    GeothermalEl-30_50
+DE_CS_A1    .    G-HSTORE-10
+DE_CS_A1    .    HeatPump-EL-10_19
+DE_CS_A1    .    HeatPump-EL-20_29
+DE_CS_A1    .    HeatPump-EL-30_49
+DE_CS_A1    .    HeatPump-EL-50
+DE_CS_A1    .    SolarPV-10_19
+DE_CS_A1    .    SteamTur-CON-CO-10_19
+DE_CS_A1    .    SteamTur-CON-CO-20_29
+DE_CS_A1    .    SteamTur-CON-CO-30_49
+DE_CS_A1    .    SteamTur-CON-CO-50
+DE_CS_A1    .    SteamTur-CON-COccs-30_50
+DE_CS_A1    .    SteamTur-CON-WP-10_19
+DE_CS_A1    .    SteamTur-CON-WP-20_29
+DE_CS_A1    .    SteamTur-CON-WP-30_49
+DE_CS_A1    .    SteamTur-CON-WP-50
+DE_CS_A1    .    SteamTur-CON-WPccs-30_50
+DE_CS_A1    .    SteamTur-EXT-CO-10_19
+DE_CS_A1    .    SteamTur-EXT-CO-20_29
+DE_CS_A1    .    SteamTur-EXT-CO-30_49
+DE_CS_A1    .    SteamTur-EXT-CO-50
+DE_CS_A1    .    SteamTur-EXT-COccs-30_50
+DE_CS_A1    .    SteamTur-EXT-WP-10_19
+DE_CS_A1    .    SteamTur-EXT-WP-20_29
+DE_CS_A1    .    SteamTur-EXT-WP-30_49
+DE_CS_A1    .    SteamTur-EXT-WP-50
+DE_CS_A1    .    SteamTur-EXT-WPccs-30_50
+DE_CS_A1    .    SteamTur-LARGE-BP-WO-10_19
+DE_CS_A1    .    SteamTur-LARGE-BP-WO-20_29
+DE_CS_A1    .    SteamTur-LARGE-BP-WO-30
+DE_CS_A1    .    SteamTur-LARGE-CON-WO-10_19
+DE_CS_A1    .    SteamTur-LARGE-CON-WO-20_29
+DE_CS_A1    .    SteamTur-LARGE-CON-WO-30
+DE_CS_A1    .    SteamTur-LARGE-EXT-WO-10_19
+DE_CS_A1    .    SteamTur-LARGE-EXT-WO-20_29
+DE_CS_A1    .    SteamTur-LARGE-EXT-WO-30
+DE_CS_A1    .    SteamTur-Medi-BP-ST-10
+DE_CS_A1    .    SteamTur-Medi-BP-WW-10_19
+DE_CS_A1    .    SteamTur-Medi-BP-WW-20_29
+DE_CS_A1    .    SteamTur-Medi-BP-WW-30
+DE_CS_A1    .    Electrolyser_Large_15_29
+DE_CS_A1    .    Electrolyser_Large_30
+*DE_CS_A1    .    H2_storage_Central_15_29
+*DE_CS_A1    .    H2_storage_Central_30
+DE_CS_A1    .    WtECHP_Large
+DE_CS_A1    .    WtEBoiler_Large
+
+
+DK_E_PV-20_29        .  SolarPV-20_29
+DK_W_PV-20_29        .  SolarPV-20_29
+FI_R_PV-20_29        .  SolarPV-20_29
+DE_CS_PV-20_29       .  SolarPV-20_29
+DE_NE_PV-20_29       .  SolarPV-20_29
+DE_NW_PV-20_29       .  SolarPV-20_29
+NO_N_PV-20_29        .  SolarPV-20_29
+NO_M_PV-20_29        .  SolarPV-20_29
+NO_S_PV-20_29        .  SolarPV-20_29
+NO_O_PV-20_29        .  SolarPV-20_29
+SE_N_PV-20_29        .  SolarPV-20_29
+SE_M_PV-20_29        .  SolarPV-20_29
+SE_S_PV-20_29        .  SolarPV-20_29
+
+DK_E_PV-30_49        .  SolarPV-30_49
+DK_W_PV-30_49        .  SolarPV-30_49
+FI_R_PV-30_49        .  SolarPV-30_49
+DE_CS_PV-30_49       .  SolarPV-30_49
+DE_NE_PV-30_49       .  SolarPV-30_49
+DE_NW_PV-30_49       .  SolarPV-30_49
+NO_N_PV-30_49        .  SolarPV-30_49
+NO_M_PV-30_49        .  SolarPV-30_49
+NO_S_PV-30_49        .  SolarPV-30_49
+NO_O_PV-30_49        .  SolarPV-30_49
+SE_N_PV-30_49        .  SolarPV-30_49
+SE_M_PV-30_49        .  SolarPV-30_49
+SE_S_PV-30_49        .  SolarPV-30_49
+
+DK_E_PV-50           .  SolarPV-50
+DK_W_PV-50           .  SolarPV-50
+FI_R_PV-50           .  SolarPV-50
+DE_CS_PV-50          .  SolarPV-50
+DE_NE_PV-50          .  SolarPV-50
+DE_NW_PV-50          .  SolarPV-50
+NO_N_PV-50           .  SolarPV-50
+NO_M_PV-50           .  SolarPV-50
+NO_S_PV-50           .  SolarPV-50
+NO_O_PV-50           .  SolarPV-50
+SE_N_PV-50           .  SolarPV-50
+SE_M_PV-50           .  SolarPV-50
+SE_S_PV-50           .  SolarPV-50
+
+
+/
+;
+
+AGKN('DK_W_Large',GGG)=AGKN('DK_E_Large',GGG);
+AGKN('DK_W_Medium',GGG)=AGKN('DK_E_Medium',GGG);
+AGKN('DK_W_MedSmall',GGG)=AGKN('DK_E_MedSmall',GGG);
+AGKN('DK_W_Small',GGG)=AGKN('DK_E_Small',GGG);
+AGKN('DK_W_Rural',GGG)=AGKN('DK_E_Rural',GGG);
+
+AGKN('DK_CA_KBH',GGG)=AGKN('DK_E_Large',GGG);
+AGKN('DK_CA_Aarhus',GGG)=AGKN('DK_W_Large',GGG);
+AGKN('DK_CA_Odense',GGG)=AGKN('DK_W_Large',GGG);
+AGKN('DK_CA_Aal',GGG)=AGKN('DK_W_Large',GGG);
+AGKN('DK_CA_TVIS',GGG)=AGKN('DK_W_Large',GGG);
+AGKN('DK_CA_Esb',GGG)=AGKN('DK_W_Large',GGG);
+AGKN('DK_CA_Hern',GGG)=AGKN('DK_W_Medium',GGG);
+AGKN('DK_CA_Kal',GGG)=AGKN('DK_E_Medium',GGG);
+AGKN('DK_MA_NrdOstSj',GGG)=AGKN('DK_E_Medium',GGG);
+AGKN('DK_CA_Randers',GGG)=AGKN('DK_W_Medium',GGG);
+AGKN('DK_MA_Holst',GGG)=AGKN('DK_W_Medium',GGG);
+AGKN('DK_MA_Silk',GGG)=AGKN('DK_W_Medium',GGG);
+AGKN('DK_MA_Hil',GGG)=AGKN('DK_E_Medium',GGG);
+AGKN('DK_MA_Hjoerring',GGG)=AGKN('DK_W_Medium',GGG);
+AGKN('DK_MA_Sndborg',GGG)=AGKN('DK_W_Medium',GGG);
+AGKN('DK_MA_Viborg',GGG)=AGKN('DK_W_Medium',GGG);
+AGKN('DK_MA_Horsens',GGG)=AGKN('DK_W_Medium',GGG);
+AGKN('DK_MAM_Nyk',GGG)=AGKN('DK_E_MedSmall',GGG);
+AGKN('DK_MA_Grenaa',GGG)=AGKN('DK_W_MedSmall',GGG);
+AGKN('DK_MAM_Frdhavn',GGG)=AGKN('DK_W_MedSmall',GGG);
+AGKN('DK_MAM_Naestved',GGG)=AGKN('DK_E_MedSmall',GGG);
+AGKN('DK_MAM_Thisted',GGG)=AGKN('DK_W_MedSmall',GGG);
+AGKN('DK_MAM_Slagelse',GGG)=AGKN('DK_E_MedSmall',GGG);
+AGKN('DK_MAM_Nyborg',GGG)=AGKN('DK_W_MedSmall',GGG);
+AGKN('DK_MAM_Svend',GGG)=AGKN('DK_W_MedSmall',GGG);
+AGKN('DK_CA_Roenne',GGG)=AGKN('DK_E_MedSmall',GGG);
+AGKN('DK_MAM_Had',GGG)=AGKN('DK_W_MedSmall',GGG);
+AGKN('DK_MAM_Aars',GGG)=AGKN('DK_W_Small',GGG);
+AGKN('DK_MAM_Hammel',GGG)=AGKN('DK_W_Small',GGG);
+AGKN('DK_E_DTU',GGG)=AGKN('DK_E_Small',GGG);
+AGKN('DK_MAM_Skagen',GGG)=AGKN('DK_W_Small',GGG);
+AGKN('DK_MAM_Hobro',GGG)=AGKN('DK_W_Small',GGG);
+AGKN('DK_CA_Aab',GGG)=AGKN('DK_W_Small',GGG);
+AGKN('DK_MAM_NrAlslev',GGG)=AGKN('DK_E_Small',GGG);
+
+*All the areas in NORWAY can invest in the same kind of plants (HY capacity pre-stated)
+AGKN('NO_M_Rural',GGG)=AGKN('NO_N_Rural',GGG);
+AGKN('NO_S_Rural',GGG)=AGKN('NO_N_Rural',GGG);
+AGKN('NO_O_Rural',GGG)=AGKN('NO_N_Rural',GGG);
+
+*Urban areas in FINLAND are equivalent to DK_E_Large and decentral areas to DK_E_Small
+AGKN('FI_R_Urban',GGG)=AGKN('DK_E_Large',GGG);
+AGKN('FI_R_Decen',GGG)=AGKN('DK_E_Rural',GGG);
+*Rural areas in FINLAND are similar to DK_CA_Aab
+AGKN('FI_R_Rural',GGG)=AGKN('DK_E_MedSmall',GGG);
+
+*Urban areas in SWEDEN are equivalent to DK_E_Large
+AGKN('SE_M_Urban',GGG)=AGKN('DK_E_Large',GGG);
+*Rural areas in SWEDEN are equivalent to DK_CA_Aab, plus investment in condensing plants, therefore equivalent to rural areas in Norway or Finland
+AGKN('SE_N_Rural',GGG)=AGKN('NO_N_Rural',GGG);
+AGKN('SE_S_Rural',GGG)=AGKN('NO_N_Rural',GGG);
+*Investment in condensing plants in SE_M will take place in the Urban area, so it is equivalent to DK_CA_Aab
+AGKN('SE_M_Rural',GGG)=AGKN('DK_E_MedSmall',GGG);
+*Bio areas in SWEDEN allow investments in plants that use wood waste and wood only, SE_S_Bio defined in the description
+AGKN('SE_M_Bio',GGG)=AGKN('SE_S_Bio',GGG);
+AGKN('SE_N_Bio',GGG)=AGKN('SE_S_Bio',GGG);
+
+*Areas in GERMANY are equivalent to DK_E_Large
+AGKN('DE_NE_A1',GGG)=AGKN('DE_CS_A1',GGG);
+AGKN('DE_NW_A1',GGG)=AGKN('DE_CS_A1',GGG);
+
+*Reset areas
+AGKN('DK_W_Large',GGG)=NO;
+AGKN('DK_E_Large',GGG)=NO;
+AGKN('DK_W_Medium',GGG)=NO;
+AGKN('DK_E_Medium',GGG)=NO;
+AGKN('DK_W_MedSmall',GGG)=NO;
+AGKN('DK_E_MedSmall',GGG)=NO;
+AGKN('DK_W_Small',GGG)=NO;
+AGKN('DK_E_Small',GGG)=NO;
+
+
+SET AGKN_INITIAL(AAA,GGG)
+
+/
+DE_CS_A1        .   WtECHP_Large
+DE_CS_A1        .   Engine-NG-30_49
+DE_CS_A1        .   GeothermalEl-30_50
+DE_CS_A1        .   Boiler-NG-30_49
+DE_NE_A1        .   Engine-NG-30_49
+DE_NE_A1        .   HeatPump-EL-30_49
+DE_NE_A1        .   Boiler-NG-30_49
+DE_NW_A1        .   WtECHP_Large
+DE_NW_A1        .   Engine-NG-30_49
+DE_NW_A1        .   HeatPump-EL-30_49
+DE_NW_A1        .   Boiler-NG-30_49
+DK_CA_Esb       .   HeatPump-EL-30_49
+DK_CA_Esb       .   HeatPump_LargeDH-EL-30_49
+DK_CA_Esb       .   SteamTur-Medi-BP-ST-10
+DK_CA_Hern      .   HeatPump-EL-30_49
+DK_CA_Hern      .   HeatPump_LargeDH-EL-30_49
+DK_CA_Kal       .   HeatPump-EL-30_49
+DK_CA_Kal       .   HeatPump_LargeDH-EL-30_49
+DK_CA_KBH       .   Electrolyser_Large_30
+DK_CA_KBH       .   HeatPump-EL-30_49
+DK_CA_KBH       .   HeatPump_LargeDH-EL-30_49
+DK_CA_Odense    .   Electrolyser_Large_30
+DK_CA_Odense    .   HeatPump-EL-30_49
+DK_CA_Randers   .   HeatPump-EL-30_49
+DK_CA_Randers   .   HeatPump_LargeDH-EL-30_49
+DK_CA_Roenne    .   HeatPump-EL-30_49
+DK_CA_Roenne    .   SolarDH-30
+DK_CA_TVIS      .   Electrolyser_Large_30
+DK_CA_TVIS      .   HeatPump-EL-30_49
+DK_CA_Aab       .   HeatPump-EL-30_49
+DK_CA_Aab       .   SolarDH-30
+DK_CA_Aal       .   Electrolyser_Large_30
+DK_CA_Aal       .   HeatPump-EL-30_49
+DK_CA_Aal       .   HeatPump_LargeDH-EL-30_49
+DK_CA_Aarhus    .   Engine-NG-30_49
+DK_CA_Aarhus    .   Electrolyser_Large_30
+DK_CA_Aarhus    .   HeatPump-EL-30_49
+DK_CA_Aarhus    .   HeatPump_LargeDH-EL-30_49
+DK_CA_Aarhus    .   SteamTur-Medi-BP-ST-10
+DK_E_DTU        .   HeatPump-EL-30_49
+DK_E_DTU        .   SolarDH-30
+DK_E_Rural      .   HeatPump-EL-30_49
+DK_E_Rural      .   SolarDH-30
+DK_E_Rural      .   Electrolyser_Small_30
+DK_MA_Grenaa    .   HeatPump-EL-30_49
+DK_MA_Grenaa    .   SolarDH-30
+DK_MA_Hil       .   HeatPump-EL-30_49
+DK_MA_Hil       .   HeatPump_LargeDH-EL-30_49
+DK_MA_Hjoerring .   HeatPump-EL-30_49
+DK_MA_Hjoerring .   HeatPump_LargeDH-EL-30_49
+DK_MA_Holst     .   HeatPump-EL-30_49
+DK_MA_Holst     .   HeatPump_LargeDH-EL-30_49
+DK_MA_Horsens   .   HeatPump-EL-30_49
+DK_MA_Horsens   .   Boiler-NG-30_49
+DK_MA_Horsens   .   HeatPump_LargeDH-EL-30_49
+DK_MA_NrdOstSj  .   HeatPump-EL-30_49
+DK_MA_NrdOstSj  .   HeatPump_LargeDH-EL-30_49
+DK_MA_Silk      .   HeatPump-EL-30_49
+DK_MA_Silk      .   HeatPump_LargeDH-EL-30_49
+DK_MA_Sndborg   .   HeatPump-EL-30_49
+DK_MA_Sndborg   .   HeatPump_LargeDH-EL-30_49
+DK_MA_Viborg    .   HeatPump-EL-30_49
+DK_MA_Viborg    .   HeatPump_LargeDH-EL-30_49
+DK_MAM_Frdhavn  .   HeatPump-EL-30_49
+DK_MAM_Frdhavn  .   SolarDH-30
+DK_MAM_Had      .   HeatPump-EL-30_49
+DK_MAM_Had      .   SolarDH-30
+DK_MAM_Hammel   .   HeatPump-EL-30_49
+DK_MAM_Hammel   .   SolarDH-30
+DK_MAM_Hobro    .   HeatPump-EL-30_49
+DK_MAM_Hobro    .   SolarDH-30
+DK_MAM_Naestved .   HeatPump-EL-30_49
+DK_MAM_Naestved .   SolarDH-30
+DK_MAM_NrAlslev .   HeatPump-EL-30_49
+DK_MAM_NrAlslev .   SolarDH-30
+DK_MAM_Nyborg   .   HeatPump-EL-30_49
+DK_MAM_Nyborg   .   SolarDH-30
+DK_MAM_Nyk      .   HeatPump-EL-30_49
+DK_MAM_Nyk      .   SolarDH-30
+DK_MAM_Slagelse .   HeatPump-EL-30_49
+DK_MAM_Slagelse .   SolarDH-30
+DK_MAM_Svend    .   HeatPump-EL-30_49
+DK_MAM_Svend    .   SolarDH-30
+DK_MAM_Thisted  .   HeatPump-EL-30_49
+DK_MAM_Thisted  .   SolarDH-30
+DK_MAM_Aars     .   HeatPump-EL-30_49
+DK_MAM_Aars     .   SolarDH-30
+DK_W_Rural      .   HeatPump-EL-30_49
+DK_W_Rural      .   SolarDH-30
+DK_W_Rural      .   Electrolyser_Small_30
+FI_R_Decen      .   HeatPump-EL-30_49
+FI_R_Decen      .   SolarDH-30
+FI_R_Rural      .   HeatPump-EL-30_49
+FI_R_Rural      .   Boiler-NG-30_49
+FI_R_Rural      .   SteamTur-Medi-BP-WW-30
+FI_R_Urban      .   WtEBoiler_Large
+FI_R_Urban      .   Electrolyser_Large_30
+FI_R_Urban      .   HeatPump-EL-30_49
+FI_R_Urban      .   Boiler-NG-30_49
+FI_R_Urban      .   SteamTur-Medi-BP-WW-30
+NO_M_Rural      .   WtEBoiler_Small
+NO_M_Rural      .   HeatPump-EL-30_49
+NO_M_Rural      .   Electrolyser_Small_30
+NO_N_Rural      .   WtEBoiler_Small
+NO_N_Rural      .   HeatPump-EL-30_49
+NO_N_Rural      .   Electrolyser_Small_30
+NO_O_Rural      .   Electrolyser_Small_30
+NO_S_Rural      .   WtEBoiler_Small
+NO_S_Rural      .   HeatPump-EL-30_49
+NO_S_Rural      .   Electrolyser_Small_30
+SE_M_Bio        .   SteamTur-Medi-BP-WW-30
+SE_M_Rural      .   HeatPump-EL-30_49
+SE_M_Rural      .   Boiler-NG-30_49
+SE_M_Urban      .   Electrolyser_Large_30
+SE_M_Urban      .   HeatPump-EL-30_49
+SE_M_Urban      .   SteamTur-Medi-BP-WW-30
+SE_N_Bio        .   SteamTur-Medi-BP-WW-30
+SE_N_Rural      .   HeatPump-EL-30_49
+SE_N_Rural      .   Boiler-NG-30_49
+SE_S_Bio        .   SteamTur-Medi-BP-WW-30
+SE_S_Rural      .   Engine-NG-30_49
+SE_S_Rural      .   HeatPump-EL-30_49
+DK_E_Onshore35  .   Wind-Onshore-30_49
+DK_W_Onshore35  .   Wind-Onshore-30_49
+DE_NE_Onshore35 .   Wind-Onshore-30_49
+DK_E_Offshore35 .   Wind-Offshore-30_49
+DK_W_Offshore35 .   Wind-Offshore-30_49
+DK_E_PV-30_49   .   SolarPV-30_49
+DE_CS_PV-30_49  .   SolarPV-30_49
+DE_NW_Onshore35 .   Wind-Onshore-30_49
+DK_W_PV-30_49   .   SolarPV-30_49
+NO_N_Onshore35  .   Wind-Onshore-30_49
+NO_S_Onshore35  .   Wind-Onshore-30_49
+SE_N_Onshore35  .   Wind-Onshore-30_49
+SE_M_Onshore35  .   Wind-Onshore-30_49
+SE_S_Onshore35  .   Wind-Onshore-30_49
+
+/;
+

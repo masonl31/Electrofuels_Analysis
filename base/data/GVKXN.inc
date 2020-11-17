@@ -1,0 +1,6 @@
+*Wind Scenario
+PARAMETER GVKXN(YYY,IRRRE,IRRRI)
+/
+
+
+/;

@@ -1,0 +1,22 @@
+*Last time modified (Raffaele, 12-06-2015)
+PARAMETER INSTALLEDCAPACITY(YYY,C) 'Maximum wind installed capacity in the scenario (MW)'
+
+/
+2012       . DENMARK                    8000
+2012       . SWEDEN                     8000
+2012       . NORWAY                     2000
+2012       . FINLAND                    2000
+2012       . GERMANY                   40000
+
+2035       . DENMARK                    8000
+2035       . SWEDEN                     8000
+2035       . NORWAY                     2000
+2035       . FINLAND                    2000
+2035       . GERMANY                   40000
+
+2050       . DENMARK                    4000
+2050       . SWEDEN                     4000
+2050       . NORWAY                     2000
+2050       . FINLAND                    2000
+2050       . GERMANY                    500
+/;

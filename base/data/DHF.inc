@@ -1,0 +1,21 @@
+SET  DHF 'Steps in elastic heat demand'
+/
+DHF_D_9                         
+DHF_D_8                         
+DHF_D_7                         
+DHF_D_6                         
+DHF_D_5                         
+DHF_D_4                         
+DHF_D_3                         
+DHF_D_2                         
+DHF_D_1                         
+DHF_U_1                         
+DHF_U_2                         
+DHF_U_3                         
+DHF_U_4                         
+DHF_U_5                         
+DHF_U_6                         
+DHF_U_7                         
+DHF_U_8                         
+DHF_U_9                         
+/;

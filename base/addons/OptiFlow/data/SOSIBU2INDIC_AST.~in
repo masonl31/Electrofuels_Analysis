@@ -1,0 +1,43 @@
+$ONTEXT
+PARAMETER SOSIBU2INDIC_AST(AAA,PROC,FLOWINDIC,SSS,TTT) "Coefficients for transformation of VSOURCE, VSINK and VBUFFER flows to FLOWINDIC values"
+
+
+* Note: there is also parallel tables  that contain less indexes. For PROC for which this is relevant, enter 0 here (or omit the corresponding row).
+*                             OPERATIONCOST   GHGEMISSION_nonbio
+*                            Cost (Money)    GHG emission (ton  CO2 equiv) GHGEMISSION_bio!! todo
+/
+*HouseHoldWasteGen                                       !! Not relevant for indexes RRR,AAA,SSS or TTT, cf. TABLE SOSIBU2INDIC(PROC,FLOWINDIC)
+*Landfill_37                                             !! Not relevant for indexes RRR,AAA,SSS or TTT, cf. TABLE SOSIBU2INDIC(PROC,FLOWINDIC)
+*BottomashProcessing_36  is now internal PROC                                !! Not relevant for indexes (AAA,SSS,TTT), cf. TABLE SOSIBU2INDIC(PROC,FLOWINDIC)
+*PretreatmentSep_55      is now internal PROC                                !! Not relevant for indexes (AAA,SSS,TTT), cf. TABLE SOSIBU2INDIC(PROC,FLOWINDIC)
+*ElecBuffer                                              !! Not relevant for indexes (AAA,SSS,TTT), cf. TABLE SOSIBU2INDIC(PROC,FLOWINDIC,RRR,SSS,TTT)
+**$ontext
+DK_W_AAA   .HeatBuffer .OPERATIONCOST       . S01.T001  15      !! dummy values
+DK_W_AAA   .HeatBuffer .GHGEMISSION_nonbio  . S01.T001  0.23    !! dummy values
+DK_W_AAA   .HeatBuffer .GHGEMISSION_bio     . S01.T001  0.23    !! dummy values
+
+DK_W_A2    .HeatBuffer .OPERATIONCOST       . S01.T001  15      !! dummy values
+DK_W_A2    .HeatBuffer .GHGEMISSION_nonbio  . S01.T001  0.23    !! dummy values
+DK_W_A2    .HeatBuffer .GHGEMISSION_bio     . S01.T001  0.23    !! dummy values
+
+DK_E_AAA   .HeatBuffer .OPERATIONCOST       . S01.T001   3      !! dummy values
+DK_E_AAA   .HeatBuffer .GHGEMISSION_nonbio  . S01.T001  0.13    !! dummy values
+DK_E_AAA   .HeatBuffer .GHGEMISSION_bio     . S01.T001  0.13    !! dummy values
+**$offtext
+DK_CA_Aab  .HeatBuffer .OPERATIONCOST       . S01.T001  15      !! dummy values
+*GHGEMISSION_bio!! todo
+*GasBuffer                                               !! todo
+
+*Money_buffer                                            !! Not relevant for indexes RRR,AAA,SSS or TTT, cf. TABLE SOSIBU2INDIC(PROC,FLOWINDIC)
+*GHG_Sink                                                !! Not relevant for indexes RRR,AAA,SSS or TTT, cf. TABLE SOSIBU2INDIC(PROC,FLOWINDIC)
+/;
+
+*SOSIBU2INDIC_AST(IA,PROC,FLOWINDIC,S,T) =  SOSIBU2INDIC_AST(IA,PROC,FLOWINDIC,'S01','T001') * ( 3 + COS((ORD(T)-1)*2*PI /CARD(T)));  !! JUST TO ILLUSTRATE A VARIATION
+$OFFTEXT
+
+PARAMETER SOSIBU2INDIC_AST(AAA,PROC,FLOW,FLOWINDIC,SSS,TTT) "Coefficients for transformation of VSOURCE, VSINK and VBUFFER flows to FLOWINDIC values"
+/
+*DK_CA_Aab  .HeatBuffer .HEATFLOW . OPERATIONCOST       . S01.T001  15      !! dummy values
+
+/;
+*SOSIBU2INDIC_AST(IA,PROC,FLOW,FLOWINDIC,S,T) =  SOSIBU2INDIC_AST(IA,PROC,FLOW,FLOWINDIC,'S01','T001') * ( 3 + COS((ORD(T)-1)*2*PI /CARD(T)));  !! JUST TO ILLUSTRATE A VARIATION

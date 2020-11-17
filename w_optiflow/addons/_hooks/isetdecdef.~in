@@ -1,0 +1,7 @@
+* Location of internal set delarations and definitions used in addons  (for any addon where declarations and definitions are in the same file)
+
+$ifi %COMBTECH%==yes  $include   "../../base/addons/combtech/combtech_isetdecdef.inc";
+
+$ifi %COMBTECH%==yes $ifi     exist "../addons/combtech/combtech_isetdecdef.inc"  $include  "../addons/combtech/combtech_isetdecdef.inc";
+$ifi %COMBTECH%==yes $ifi not exist "../addons/combtech/combtech_isetdecdef.inc"  $include  "../../base/addons/combtech/combtech_isetdecdef.inc"
+

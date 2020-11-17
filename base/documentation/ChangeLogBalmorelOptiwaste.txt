@@ -1,0 +1,271 @@
+* File ChangeLogBalmorelOptiwaste.txt
+* Add short descriptions of changes.
+* Additionally, at the top of this files there may be a list of todo's, when done one such, delete it and add the ocrresponding changelog information further down.
+
+* =====================================================================================================================
+* ===================== BACKGROUND COMMENTS  ==========================================================================
+* =====================================================================================================================
+
+ - The geography structure of the Balmorel data shall be changed to the one used in Optiwaste, to facilitate linking of Balmorel and Optiwaste.
+   Do not delete the present data from 'fjernvarmemodellen'. Whenever errors are found in the parts reused for Optiwaste, also the Fjernvarmemodellens data should, of ourse be corrected.
+
+- The model at O:\MAN\ESY-ALL\ESY\Topwaste\WP4\Davide\Fjernvarmemodellen\B303\Balmorel303_20140501\ is not for analyses.
+   It is to be considered a repository where the most recent version is kept.
+   To make analyses make a copy to somewhere else.
+   Therefore:
+      whenever there are changes here they should be documented and then communicated to all the users
+      whenever an error is found and corrected during analyses, it should be fed back to the repository.
+
+- The model at O:\MAN\ESY-ALL\ESY\Topwaste\WP4\Davide\Optiwastlink\Fjernvarmemodellen\B303\Balmorel303_20140501\ is for analyses.
+   The geography structure of the Balmorel data is the same used in Optiwaste, to facilitate linking of Balmorel and Optiwaste.
+
+
+- Observe the Balmorel ideas about a 'base' case and possibly a number of other cases, all placed under the same project folder (presently Balmorel303_20141016 at the O drive).
+   The base case contains all code, while any non-base case do not contain any. Non-base cases contain only output and a certain selection of other files.
+   Both base and any non-base cases contain the following folders with content
+     data    with files that differ from those in base/data
+     logerror
+     model   with files balgams.opt, balopt.opt. (more?)
+     output  with subfolders economic, inputout, intermed printout and temp.
+   The reason for this is to ensure that there is one and only one set of code within the project.
+   A non-base case may be run from the gams project in the base/model by using certain command in the command line. I can show which ones if needed.
+   A non-base case may also be run from the model folder of the case, however, to do this a copy of the Balmorel.gms files has to be placed there.
+
+ - Revised data files should be placed in a separate folder outside the project folder, presently e.g. O:\MAN\ESY-ALL\ESY\Topwaste\WP4\Davide\Optiwastlink\Fjernvarmemodellen\B303\datamine
+   These files cannot have the name as required by Balmorel because there will be more versions of the same Balmorel ID (identifier), so use e.g. FUELPRICE_IEA2008.inc, FUELPRICE_IEA2012.inc, FUELPRICE_DEA2014.inc etc.
+   When used, copy to the data folder of the relevant case and the rename as required by Balmorel, FUELPRICE.inc in the example.
+
+- A new folder named at O:\MAN\ESY-ALL\ESY\Topwaste\WP4\Davide\Optiwastlink\Fjernvarmemodellen\B303\Balmorel303_20140501\base\Literature has the purpose to collect all the sources,
+  for facilitating the review of that. Please for any modification of the model, provide the source in the "literature" folder.
+
+- Write a line in the headline of each .inc file which have been modified: *Last time modified (Name, dd-mm-yy) + source.
+
+- Note that "***" and "****" have special meaning in GAMS, therefore do not use such strings for comments.
+
+* =====================================================================================================================
+* ===================== TODO ==========================================================================================
+* =====================================================================================================================
+
+
+- ERROR: There are 2 errors in the printing files due to a division by zero caused by the change of parameter GEFFRATE in the files  "f_fcy.inc" at
+    O:\MAN\ESY-ALL\ESY\Topwaste\WP4\Davide\Optiwastlink\Fjernvarmemodellen\B303\Balmorel303_20140501\base\output\printout\printinc
+         Comment 20150505: Davide, please change it, the cause is 'the usual suspect' GEFFDERATE, the fix for that is the usual one.
+                           Note that you can avoid seeing this error by setting "$setglobal PRINTFILES" in balopt.opt
+
+
+
+- Run a simulation and check that Wind production and Solar electricity/Solar heating are consistent with data found by Raffaele (Source:Energinet.dk), found in this directory:
+  O:\MAN\ESY-ALL\ESY\Topwaste\WP4\Davide\Optiwastlink\Fjernvarmemodellen\B303\Balmorel303_20140501\OptiWaste_link\literature\Energinet_profile
+
+- To correct the errors at "errors.out"  at O:\MAN\ESY-ALL\ESY\Topwaste\WP4\Davide\Optiwastlink\Fjernvarmemodellen\B303\Balmorel303_20140501\base\logerror
+
+- I (hr) worked from home, in the material I have I observed:
+        data/wnd_var_t.inc   has a line    $include '..\data/WND_VAR_T2.inc';                                    I cannot find that file. I outcommented the line.
+        data/wawe_var_t.inc  has a line    $if not EXIST 'DK_W_wave.inc' $INCLUDE '..\data/DK_W_wave.inc' ;      I cannot find that file. I outcommented the line.
+        Please clarify somehow.
+
+- (dc) Chose which DE scenario include in the simulation among DE-base; DE-Bio; DE-Wind. (Data are available in the "Datamine" folder).
+
+- (hr) Se "TODO" under 20150518 below
+
+- In the GDATASET - the units of the parameter GDUCUCOST (start-up cost of a unit) are expressed as Money. However, according to the unit commitment program in
+  ...\base\addons\unitcommitment\qobjadd.inc
+  the units of the parameter should be Money/MW, as the cost associated to ramp up a unit is GDUCOST*GDUCUNITSIZE
+
+* =====================================================================================================================
+* ===================== CHANGES DONE ==================================================================================
+* =====================================================================================================================
+
+
+dc: Davide Conti
+ap: Amalia Pizarro
+
+-  20150430(hr): added two lines immediately above the declaration of variables in Balmorel.gms:
+                 * No need to proceed further if there are compilation errors in the data:
+                 $ifi not errorfree $goto endofmodel
+
+-  20150501(dc): #1 changed the directory for both models: 1) A repository model to do not use for analysis;
+                  2) A model developed to be linked with Optiwaste. (see "BACKGROUND COMMENTS", above).
+
+                 #2 Created a folder named: "Datamine" at -  O:\MAN\ESY-ALL\ESY\Topwaste\WP4\Davide\Optiwastlink\Fjernvarmemodellen\B303\datamine ; whose
+                        purpose is exaplained in ("BACKGROUND COMMENTS", above). All the data which have been modified for Optiwaste are reported in this folder.
+
+                 #3 Changed to relative paths of all files, (to make the model independent of where the model is located)
+
+
+                 #4 Updating completed for Balmorel (for Optiwaste linking ):
+                        - New geographical structure, (same of Optiwaste)
+                        - Added a new FUEL: "HAZARDOUSWASTE"
+                        - FDATA and FACRONYM contain the new fuel
+                        - Update the DH demand for all new areas in DK for years 2012-2025-2035-2050
+                        - GDATA updated (Amalia.. )
+                        - Added new GGG, G (Generation Technologies)
+                        - Associated new G to new geographical structure in GKFX
+                        - Checked that DISLOSS_H and DISLOSS_E have updated values (source: Energinet.dk )
+                                O:\MAN\ESY-ALL\ESY\Topwaste\WP4\Davide\Optiwastlink\Fjernvarmemodellen\B303\Balmorel303_20140501\OptiWaste_link\literature\Transmission
+
+- 20150505(hr):  improved the 20150430 modification, replaced by  $ifi not errorfree $abort "Balmorel execution aborted because of data errors"
+
+                 Improved the 20150501 modification of relative paths, using e.g. $include '..\data/var2001/DK_CA_Kbh_WND_VAR_T.inc';
+                 Reason: the 'project folder' (cf. above) name should not appear in the paths, to permit renaming project or copying a project to another place with anoher name.
+
+                 balopt.opt: changed $setglobal XKDERATE_DOL IRRRE_IRRRI_SSS_TTT  to $setglobal XKRATE_DOL IRRRE_IRRRI_SSS_TTT
+
+                 data/XKRATE.inc: modified content to contain only non-default values (default is 1). This changed size of file from 6.7 MB to 0.2 MB.
+
+                 balmorel.gms: modified assignment of PARAMETER IXKRATE to handle also DOL and default values.
+
+                 Deleted a number of .svn folders (they not in use). If I forgot some, please delete them.
+
+- 20150505(hr):  File FDATA.inc: Changed to Table format (original at bottom of file for verification; Davide, please verify, correct if needed, then delete).
+                 Replaced numbers by acronyms in field FDACRONYM
+                 Note the field FDRE: this is to be used for specification of fossil/biogen CO2: "Share of fuel considered renewable ([1;0])"
+
+                 Modified error2.inc wrt. _VAR_T on DH and DE.
+                 Modified error4.inc wrt. printing to errorfile.
+
+- 20150506(dc):  Updating data in Balmorel:
+
+                 - DH: include Gross demand for DK
+                 - DISLOSS_H, Set to zero the heat distribution loss for DK,
+                 - DE: Include Gross demand for countries: Finland, Norway, Sweden ( year 2012, 2025, 2035, 2050 )
+
+                 In "Datamine" folder, there are DE for all three different scenarios:
+                        DE-base
+                        DE-Bio
+                        DE-Wind
+
+- 20150507 (ap) fix ERROR: There is 1 erros in the model due to a division by zero, caused by GEFFRATE
+         20150505: NO, the error is from DATA(*,'GDFE').
+         For the data set used (4 Nordig plus germany) technologies 'DK_CA_Esb_DEC_GasTur_LO_CND' and 'DK_MA_Grenaa_DEC_GasTur_LO_CND' miss values in GDATA.
+         This is verified by adding two lines at the bottom of GDATA.inc:
+             GDATA('DK_CA_Esb_DEC_GasTur_LO_CND', 'GDFE') = 0.5;    !! Tester Hans
+             GDATA('DK_MA_Grenaa_DEC_GasTur_LO_CND', 'GDFE') = 0.5; !! Tester Hans
+         Please supply data.
+         Also note that: (1) there may be more data items missing in GDATA, and (2) I have run only with the five mentioned countries.
+         Also note that this is actually noted already in errors.out, search "Error in table GDATA:   The fuel efficiency for technology".
+
+
+
+- 20150507 (ap)Investments in solar thermal not expressed any more in m2, but in MW. Change in the GDATA file and SOLHFLH.inc document, in order to reflect that change .
+
+- 20150507 (ap) Update GEQF.inc, in order to reflec the actual MSW requirements in Denmark and the surroinding countries. Values for Denmark have been updated according to FRIDA model forecasts .
+
+- 20150507 (ap) Set power transmission loss as 0
+
+- 20150507 SFH, solar full load hours fixed
+
+
+- 20150510(dc): - Included DE for Germany ( year 2012, 2025, 2035, 2050 )
+                - Updated DE_VAR_T for DK_E and DK_W (starting by Monday)
+                - Updated WND_VAR_T for DK_CA_kbh, DK_CA_Aarhus, DK_E_Onshore, DK_W_Offshore, (for years 2010, -20, -35, -50), starting by Monday
+                - Updated XINVCOST for all transmission between ( DK_E, DK_W, FI_R, DE_CS, DE_NE,DE_NW, NO_M, NO_N,NO_O, NO_S, SE_M, SE_N,SE_S) ( considering currency C.F:)
+                - Updated SOLH_VAR_T
+                - Updated SOLE_VAR_T
+
+                 For all the sources: look at the literature folder.
+
+
+- 20150510 (dc) To Check electricity transmision capacity / potential future investment and costs.
+
+
+- 20150510 (ap) Update fuel prices for 2012 and future years.
+
+- 20150512(hr) Added ISCALAR5 to Balmorel.gms
+               Revised printinc/f_fcy.inc ot avoid division-by-zero error
+               Added simex folder
+               In balopt.opt: changed option value for HYRSBB123 to    $setglobal HYRSBB123 none
+               Changed XKDERATE TO XKRATE bALMOREL.GMS, BALOPT.OPT, AND DATA FILES.
+
+
+
+- 20150512 (ap) Update WNDFLH data with the current full load hours of operation of installed wind mills in Denmark - Future WNDFLH is not changed, as it will also depend on technology development
+
+- 20150518(hr): Changed path in  WTRRRVAR_T:inc to be more 'local':     $include '..\data/var2001/Baltic-WTRRRVAR_T.inc';
+                error4.inc: deleted line    vqeeq.l(ir,s,t,iplusminus) = 2;
+                Removed 2 display statements from printout/printinc/hyrs_as.inc.
+                Slightly revised error2.inc and error3.inc to make them more informative in the present context.
+                There are many observations reported in errors.out. Seems that many are related to items that are not in use. Therefore as follows:
+                Technologies: File testfile_G.out in present folder there is a list of all technologies (set GGG), with indication of whether they were originally in G (they all were) and have non-zero data i GDATA (The latter I decided from looking at data file).
+                   I outcommented lines in GDATA.inc that have zero data in GDATA, search "* Zero-data". I made new file G.inc without such G (the original one saved in data folder).
+                   Code used for this was inserted i Balmorel.gms immediately before "* Declarations and inclusion of data files:"  :
+                        $INCLUDE  "..\DATA\GGG.INC";
+                        $INCLUDE  "..\DATA\G.INC";
+                        $INCLUDE  "UNTITLED_1.GMS";
+                        FILE TESTFILE /TESTFILE.out/;
+                        PUT TESTFILE  "GGG                                     ";  PUT "G     ";  PUT "GDATA "/;
+                        LOOP(GGG,
+                          PUT GGG.TL:40;
+                          IF(G(GGG), PUT "YES   ";);
+                          IF(TESTER_G_GDATA(GGG), PUT "YES   ";);
+                          PUT /;
+                        );
+                        FILE TESTFILE2 /TESTFILE2.out/;
+                        PUT TESTFILE2 ;
+                        LOOP(GGG,
+                          PUT GGG.TL:40;
+                          IF((NOT (G(GGG) AND TESTER_G_GDATA(GGG))),  PUT "*";);
+                          PUT /;
+                        );
+                        FILE TESTFILE3 /TESTFILE3.out/;
+                        PUT TESTFILE3 "valid G"/;
+                        LOOP(GGG,
+                          IF(((G(GGG) AND TESTER_G_GDATA(GGG))),  PUT GGG.TL:50 /;);
+                        );
+                        $GOTO ENDOFMODEL
+                Balmorel.gms: Changed value definition of SCALAR IOF1_  from    /0.000001/    to  /1/
+                TODO: GKFX.inc: added more data for DK_CA_Aarhus due to infeasibility on heat side. Search "20150519".  Must be checked.
+                TODO: more heat infeasibilities:  SE_N_Rural, SE_M_Urban, SE_M_Rural, SE_S_Rural:  no heat demand, but production.
+                     Added demand for SE_N_Rural, SE_M_Urban, SE_M_Rural, SE_S_Rural from original data file. Must be checked.
+                bb123.sim: removed assignments og IGKRATE, IXKRATE; ensured they are in Balmorel.gms.
+                output/printout/printinc: print1.inc, ep_rt.inc and hp_at.inc: slight beautification, along with change of text in data/omoney.inc.
+                TODO: What is the output currency? Insert in data/OMONEY.inc where presently is used    SCALAR OMONEY  'DKK2012'
+                TODO: Deleted the single element in DEF_D2. TODO: Should it be there?
+
+- 20150520(dc): Assigned DE_VAR_T profiles for missing regions in Norway and Germany.
+                Assigned DH_VAR_T profiles for missing areas in Dk, using rural profile of relative regions (DK_E, DK_W)
+                Assigned WND_VAR_T profiles for missing areas in DK, using onshore profile of relative regions
+                Assigned SOLE_VAR_T profiles for missing areas in DK.
+
+- 20150527 (ap) Update GKFX with the installed capacity from plants in Denmark (Energy Producer Account) and wind mills (ENS data).
+
+- 20150527 (ap) Update values in GDATA file with efficiencies about current energy plants (Energy Producer Account) and using costs from the Fjernevarme rapport (EA).
+                Values have also been updated for investment in new technologies, according to data from the "Technology Data for Energy Plants", when possible; or to data
+                from the Nordic Energy Research Council.
+
+- 20150527 (ap) Update values about areas where it is possible to invest in specific types of technologies in AGKN.
+
+- 20150527 (ap) Update available and future plants in G and GGG files. Plants whose parameters in GDATA were 0, and which are not in used in the model are removed from those files.
+
+- 20150527 (ap) Update values in GINVCOST, GOMFCOST and GMOVCOST; in order to match with the available plants in G file.
+
+- 20150527 (ap) TAX_GE, TAX_GF and TAX_GH are put offline on the text, as our optimization is from a socioeconomic point of view.
+                Reconsider how these variables are used, as, i.e in TAX_GE there are more than 500.000 input data, which makes any modification
+                very complex.
+
+- 20150604 (ap) Define in DE.inc gross power production in Denmark and in the surrounding countries (NW, SW, DE & FI).
+                For all the countries it is assumed the same classic electricity consumption and a demand for transport, that will depend on the specific scenario we are simulated.
+                For Denmark, there is also included electricity consumption for process heat, which will follow an industrial demand profile.
+                The amount of electricity demanded in every Region of every Country, depends on the share of DE demand in that specific Region from the Fjernvarme report.
+
+- 20150604 (ap) Power transmission loss between RRR for EV (electric vehicles) and the classic RRR are set to 0 in XLOSS file
+                Attention!!! We do not have included vehicle to power modelling. In case we do, in order to avoid artificial flows going from one Region to another (as loss are 0), we might set a tiny cost.
+
+- 20150604 (ap) In the file FUELPRICE, the price for WP_CCS was missing. This price has been added, considered the same price than Wood_pellets.
+
+- 20150604 (ap) DH demand for NW, SW, DE & FI has been added. The amount of heat demanded in every Area of every Country, depends on the share of DH demand in that specific Area from the Fjernvarme report.
+
+- 20150604 (ap) Two new Areas (in West and East) Denmark has been defined for heat pumps for individual heating: DK_E_IndETOH and DK_W_IndETOH. This has only been done for the case of Denmark, as there was no data available for the other countries.
+                The heat demand is defined in DH, as the heat provided for individual heat pumps (it is not a district heating itself)
+                The same DH_VAR_T profile than for KBH (Denmark-East) and Aar (Denmark-West) have been given.
+                The individual heating is provided by heat pumps, whose efficiency increase along the years, as defined specifically in GDATA (HeatPump-Ind-YY).
+                A heat storage equivalent to the maximumd heat demand during 2 hours has been established in GKFX.
+
+
+- 20150604 (ap) Changes in the Balmorel code as the GDATASET of GDFUEL does not represent anymore the FDATASET of FDNB but it shows FDACRONYM.
+                In the code, there were still some places where the parameter FDATA was making reference to FDNB when related to GDFUEL, instead of to FDACRONYM, as it should be.
+
+- 20151027 (hr) Introduced bypass option for BPR units. Changes in files B.gms, balopt.opt, gdataset.inc, gdata.inc. Search "bypass". 
+
+
+

@@ -1,0 +1,490 @@
+BALPROJECT  BAL303-PUBLIC
+
+BUIVERSION  0.51   20140411  
+
+BDCTYPE  TXT
+
+PATHANDPROJECTWRAPPERFOLDER  C:\$_HANSC\BALMOREL\B-KONVERGENSPROJEKT\20140205\VERSIONED\
+
+PATHANDBALINDEXNAME  C:\$_HANSC\BALMOREL\B-KONVERGENSPROJEKT\20140205\VERSIONED\DATAMINE\BALINDEX.TXT 
+
+PATHANDNAMETOGAMSEXE  DEFAULT 
+
+SCREENSIZES_BEGIN  
+  (1,1280,990) 
+SCREENSIZES_END  
+
+BALINDEX_BEGIN: 
+* List of IDs: 
+Declaration; SET;   CCCRRR;();'Regions in countries';(0,1,480,180,0,0,0,0,0,0)
+Declaration; SET;   RRRAAA;(RRR,AAA);'Areas in regions';(0,1,480,240,0,0,0,0,0,0)
+Declaration; SET;   YYY;();'All years';(0,1,40,360,0,0,0,0,0,0)
+Declaration; SET;   SSS;();'All seasons';(0,1,40,450,0,0,0,0,0,0)
+Declaration; SET;   TTT;();'All time periods';(0,1,40,540,0,0,0,0,0,0)
+Declaration; SET;   GGG;();'All generation technologies';(0,2,40,150,0,0,0,0,0,0)
+Declaration; SET;   GDATASET;();'Generation technology data';(0,2,40,270,0,0,0,0,0,0)
+Declaration; SET;   FFF;();'Fuels';(0,4,40,180,0,0,0,0,0,0)
+Declaration; SET;   FDATASET;();'Characteristics of fuels ';(0,4,40,90,0,0,0,0,0,0)
+Declaration; SET;   DF_QP;();'Quantity and price information for elastic demands';(0,6,480,630,0,0,0,0,0,0)
+Declaration; SET;   DEF;();'Steps in elastic electricity demand';(0,6,40,150,0,0,0,0,0,0)
+Declaration; SET;   DEF_D1;(DEF);'Downwards steps in elastic el. demand ; relative data format';(0,6,40,210,0,0,0,0,0,0)
+Declaration; SET;   DEF_U1;(DEF);'Upwards steps in elastic el. demand ; relative data format';(0,6,40,270,0,0,0,0,0,0)
+Declaration; SET;   DEF_D2;(DEF);'Downwards steps in elastic el. demand ; absolute Money and MW-incremental data format';(0,6,40,330,0,0,0,0,0,0)
+Declaration; SET;   DEF_U2;(DEF);'Upwards steps in elastic el. demand ; absolute Money and MW-incremental data format';(0,6,40,390,0,0,0,0,0,0)
+Declaration; SET;   DEF_D3;(DEF);'Downwards steps in elastic el. demand ; absolute Money and fraction of nominal demand data format';(0,6,40,450,0,0,0,0,0,0)
+Declaration; SET;   DEF_U3;(DEF);'Upwards steps in elastic el. demand ; absolute Money and fraction of nominal demand data format';(0,6,40,510,0,0,0,0,0,0)
+Declaration; SET;   DHF;();'Steps in elastic heat demand';(0,6,880,150,0,0,0,0,0,0)
+Declaration; SET;   DHF_D1;(DHF);'Downwards steps in elastic heat demand ; relative data format';(0,6,880,210,0,0,0,0,0,0)
+Declaration; SET;   DHF_U1;(DHF);'Upwards steps in elastic heat demand ; relative data format';(0,6,880,270,0,0,0,0,0,0)
+Declaration; SET;   DHF_D2;(DHF);'Downwards steps in elastic heat demand ; absolute Money and MW-incremental data format';(0,6,880,330,0,0,0,0,0,0)
+Declaration; SET;   DHF_U2;(DHF);'Upwards steps in elastic heat demand ; absolute Money and MW-incremental data format';(0,6,880,390,0,0,0,0,0,0)
+Declaration; SET;   DHF_D3;(DHF);'Downwards steps in elastic heat demand ; absolute Money and fraction of nominal demand data format';(0,6,880,450,0,0,0,0,0,0)
+Declaration; SET;   DHF_U3;(DHF);'Upwards steps in elastic heat demand ; absolute Money and fraction of nominal demand data format';(0,6,880,510,0,0,0,0,0,0)
+Declaration; SET;   MPOLSET;();'Emission and other policy data';(0,3,440,210,0,0,0,0,0,0)
+Declaration; SET;   C;(CCC);'Countries in the simulation';(0,1,880,120,0,0,0,0,0,0)
+Declaration; SET;   G;(GGG);'Generation technologies in the simulation';(0,2,40,210,0,0,0,0,0,0)
+Declaration; SET;   AGKN;(AAA,G);'Areas for possible location of new technologies';(0,2,840,150,0,0,0,0,0,0)
+Declaration; SET;   Y;(YYY);'Years in the simulation';(0,1,480,360,0,0,0,0,0,0)
+Declaration; SET;   S;(SSS);'Seasons in the simulation';(0,1,480,450,0,0,0,0,0,0)
+Declaration; SET;   T;(TTT);'Time periods within the season in the simulation';(0,1,480,540,0,0,0,0,0,0)
+Declaration; SET;   DAYTYPE;();'Types of days within the week ; typically workdays/weekend';(0,1,880,360,0,0,0,0,0,0)
+Declaration; SET;   TWORKDAY;(TTT);'Time segments T in workdays';(0,1,880,450,0,0,0,0,0,0)
+Declaration; SET;   TWEEKEND;(TTT);'Time segments T in weekends';(0,1,880,540,0,0,0,0,0,0)
+Declaration; SET;   SCENARIO;();'All scenarios';(0,8,40,270,0,0,0,0,0,0)
+Declaration; SET;   SCENARSIM;(SCENARIO);'Scenarios in simulation';(0,8,480,270,0,0,0,0,0,0)
+Declaration; PAR;   PENALTYQ;();'Penalty on violation of equation';(0,9,40,120,0,0,0,0,0,0)
+Declaration; PAR;   YVALUE;(YYY);'Numerical value of the years labels';(0,1,40,630,0,0,0,0,0,0)
+Declaration; PAR;   GDATA;(GGG,GDATASET);'Technologies characteristics';(0,2,40,330,0,0,0,0,0,0)
+Declaration; PAR;   GKFX;(YYY,AAA,GGG);'Capacity of existing generation technologies  (MW)';(0,2,440,150,0,0,0,0,0,0)
+Declaration; PAR;   FDATA;(FFF,FDATASET);'Fuel specific values';(0,4,40,390,0,0,0,0,0,0)
+Declaration; ACRO;  FFFACRONYM;();'Fuel names';(0,4,40,270,0,0,0,0,0,0)
+Declaration; PAR;   IRESDE;(RRR);'Reserve requirements attributable to demand ;(%)';(0,8,480,360,0,0,0,0,0,0);$
+Declaration; PAR;   IRESWI;(RRR);'Reserve requirements attributable to wind';(0,8,880,360,0,0,0,0,0,0);$
+Declaration; PAR;   FMAXINVEST;(CCC,FFF);'Maximum investment (MW)by fueltype for each year simulated';(0,4,880,660,0,0,0,0,0,0)
+Declaration; PAR;   GROWTHCAP;(C,GGG);'Maximum model generated capacity increase  (MW) from one year to the next';(0,2,840,270,0,0,0,0,0,0)
+Declaration; PAR;   DISLOSS_E;(RRR);'Loss in electricity distribution  (fraction)';(0,7,480,390,0,0,0,0,0,0)
+Declaration; PAR;   DISLOSS_H;(AAA);'Loss in heat distribution  (fraction)';(0,7,880,390,0,0,0,0,0,0)
+Declaration; PAR;   DISCOST_E;(RRR);'Cost of electricity distribution  (Money/MWh) ';(0,7,40,390,0,0,0,0,0,0)
+Declaration; PAR;   DISCOST_H;(AAA);'Cost of heat distribution  (Money/MWh) ';(0,7,480,480,0,0,0,0,0,0)
+Declaration; PAR;   FKPOT;(CCCRRRAAA,FFF);'Fuel potential restriction by geography  (MW)';(0,4,880,180,0,0,0,0,0,0)
+Declaration; PAR;   FGEMIN;(CCCRRRAAA,FFF);'Minimum electricity generation by fuel  (MWh) ';(0,4,880,270,0,0,0,0,0,0)
+Declaration; PAR;   FGEMAX;(CCCRRRAAA,FFF);'Maximum electricity generation by fuel  (MWh) ';(0,4,880,90,0,0,0,0,0,0)
+Declaration; PAR;   GMINF;(CCCRRRAAA,FFF);'Minimum fuel use  (GJ) per year';(0,4,880,390,0,0,0,0,0,0)
+Declaration; PAR;   GMAXF;(CCCRRRAAA,FFF);'Maximum fuel use  (GJ) per year';(0,4,880,480,0,0,0,0,0,0)
+Declaration; PAR;   GEQF;(CCCRRRAAA,FFF);'Required fuel use  (GJ) per year';(0,4,880,570,0,0,0,0,0,0)
+Declaration; PAR;   WTRRSFLH;(AAA);'Full load hours for hydro reservoir plants  (hours)';(0,2,440,450,0,0,0,0,0,0)
+Declaration; PAR;   WTRRRFLH;(AAA);'Full load hours for hydro run-of-river plants  (hours)';(0,2,40,390,0,0,0,0,0,0)
+Declaration; PAR;   WNDFLH;(AAA);'Full load hours for wind power  (hours) ';(0,2,840,450,0,0,0,0,0,0)
+Declaration; PAR;   SOLEFLH;(AAA);'Full load hours for solar power (hours)';(0,2,840,330,0,0,0,0,0,0)
+Declaration; PAR;   HYRSDS;(AAA,HYRSDATAS,SSS);'Data for hydro with storage';(0,2,440,510,0,0,0,0,0,0)
+Declaration; PAR;   TAX_FHO;(AAA,G);'Fuel taxes on heat-only units';(0,3,40,660,0,0,0,0,0,0);$
+Declaration; PAR;   TAX_FHO_C;(FFF,CCC);'Fuel taxes on heat-only units';(0,3,40,390,0,0,0,0,0,0);$
+Declaration; PAR;   TAX_GH;(AAA,G);'Heat taxes on generation units';(0,3,40,450,0,0,0,0,0,0);$
+Declaration; PAR;   TAX_FCHP_C;(FFF,CCC);'Fuel taxes on CHP units';(0,3,40,510,0,0,0,0,0,0);$
+Declaration; PAR;   TAX_HHO_C;(FFF,CCC);'Fuel taxes on HO units';(0,3,40,570,0,0,0,0,0,0);$
+Declaration; PAR;   TAX_F;(FFF,CCC);'Fuel taxes for heat and electricity production (Money/GJ)';(0,3,40,90,0,0,0,0,0,0)
+Declaration; PAR;   TAX_DE;(CCC);'Consumers tax on electricity consumption  (Money/MWh)';(0,3,440,150,0,0,0,0,0,0)
+Declaration; PAR;   TAX_DH;(CCC);'Consumers tax on heat consumption (Money/MWh)';(0,3,440,90,0,0,0,0,0,0)
+Declaration; PAR;   ANNUITYC;(CCC);'Transforms investment to annual payment  (fraction)';(0,8,40,360,0,0,0,0,0,0)
+Declaration; PAR;   GINVCOST;(AAA,GGG);'Investment cost for new technology  (MMoney/MW)';(0,2,840,210,0,0,0,0,0,0)
+Declaration; PAR;   GOMVCOST;(AAA,GGG);'Variable operating and maintenance costs  (Money/MWh)';(0,2,440,330,0,0,0,0,0,0)
+Declaration; PAR;   GOMFCOST;(AAA,GGG);'Annual fixed operating costs  (kMoney/MW) ';(0,2,440,390,0,0,0,0,0,0)
+Declaration; PAR;   GEFFDERATE;(AAA,GGG);'Reduction in fuel efficiency  (fraction)';(0,2,440,210,0,0,0,0,0,0)
+Declaration; PAR;   DEFP_BASE;(RRR);'Nominal annual average consumer electricity price  (Money/MWh)';(0,6,40,630,0,0,0,0,0,0)
+Declaration; PAR;   DHFP_BASE;(AAA);'Nominal annual average consumer heat price  (Money/MWh)';(0,6,880,630,0,0,0,0,0,0)
+Declaration; PAR;   DE;(YYY,RRR);'Annual electricity consumption   (MWh)';(0,6,40,90,0,0,0,0,0,0)
+Declaration; PAR;   DH;(YYY,AAA);'Annual heat consumption   (MWh) ';(0,6,880,90,0,0,0,0,0,0)
+Declaration; PAR;   XKINI;(YYY,IRRRE,IRRRI);'Initial transmission capacity between regions (MW)';(0,7,40,90,0,0,0,0,0,0)
+Declaration; PAR;   XINVCOST;(IRRRE,IRRRI);'Investment cost in new transmission capacity  (Money/MW)';(0,7,480,270,0,0,0,0,0,0)
+Declaration; PAR;   XCOST;(IRRRE,IRRRI);'Transmission cost between regions  (Money/MWh)';(0,7,480,210,0,0,0,0,0,0)
+Declaration; PAR;   XLOSS;(IRRRE,IRRRI);'Transmission loss between regions  (fraction)';(0,7,480,90,0,0,0,0,0,0)
+Declaration; PAR;   XKDERATE;(IRRRE,IRRRI);'Transmission capacity derating  (fraction)';(0,7,40,180,0,0,0,0,0,0)
+Declaration; PAR;   X3FX;(YYY,RRR);'Annual net electricity export to third regions';(0,7,880,90,0,0,0,0,0,0)
+Declaration; PAR;   FUELPRICE;(YYY,AAA,FFF);'Fuel prices  (Money/GJ)';(0,4,480,90,0,0,0,0,0,0)
+Declaration; PAR;   M_POL;(YYY,MPOLSET);'Emission policy data';(0,3,40,210,0,0,0,0,0,0)
+Declaration; PAR;   WEIGHT_S;(SSS);'Weight (relative length) of each season';(0,5,40,120,0,0,0,0,0,0)
+Declaration; PAR;   WEIGHT_T;(TTT);'Weight  (relative length) ; of each time period';(0,5,40,210,0,0,0,0,0,0)
+Declaration; PAR;   GKDERATE;(AAA,GGG,SSS);'Reduction in capacity';(0,2,440,270,0,0,0,0,0,0)
+Declaration; PAR;   DE_VAR_T;(RRR,SSS,TTT);'Variation in electricity demand';(0,5,480,120,0,0,0,0,0,0)
+Declaration; PAR;   DH_VAR_T;(AAA,SSS,TTT);'Variation in heat demand';(0,5,480,240,0,0,0,0,0,0)
+Declaration; PAR;   WTRRSVAR_S;(AAA,SSS);'Variation of the water inflow to reservoirs';(0,5,480,510,0,0,0,0,0,0)
+Declaration; PAR;   WTRRRVAR_T;(AAA,SSS,TTT);'Variation of generation of hydro run-of-river';(0,5,480,420,0,0,0,0,0,0)
+Declaration; PAR;   WND_VAR_T;(AAA,SSS,TTT);'Variation of the wind generation';(0,5,480,330,0,0,0,0,0,0)
+Declaration; PAR;   SOLE_VAR_T;(AAA,SSS,TTT);'Variation of the solar power generation';(0,5,480,60,0,0,0,0,0,0)
+Declaration; PAR;   X3FX_VAR_T;(RRR,SSS,TTT);'Variation in fixed exchange with 3. region';(0,5,880,690,0,0,0,0,0,0)
+Declaration; PAR;   HYPPROFILS;(AAA,SSS);'Hydro with storage seasonal price profile';(0,8,40,90,0,0,0,0,0,0)
+Declaration; PAR;   DEF_STEPS;(RRR,SSS,TTT,DF_QP,DEF);'Elastic electricity demands';(0,6,40,690,0,0,0,0,0,0)
+Declaration; PAR;   DEFP_CALIB;(RRR,SSS,TTT);'Calibrate the price side of electricity demand';(0,6,40,570,0,0,0,0,0,0)
+Declaration; PAR;   DHF_STEPS;(AAA,SSS,TTT,DF_QP,DHF);'Elastic heat demands';(0,6,880,690,0,0,0,0,0,0)
+Declaration; PAR;   DHFP_CALIB;(AAA,SSS,TTT);'Calibrate the price side of heat demand';(0,6,880,570,0,0,0,0,0,0)
+Declaration; PAR;   DEF_STEPS2;(YYY,RRR,SSS,TTT,DF_QP,DEF);'Elastic electricity demands dependant on the year';(0,6,40,750,0,0,0,0,0,0)
+Declaration; PAR;   HYFXRW;(YYY,SSS,RRR);'';(0,8,40,180,0,0,0,0,0,0);$
+Declaration; PAR;   WATERVAL;(YYY,SSS,AAA);'';(0,8,480,180,0,0,0,0,0,0);$
+Declaration; PAR;   GKVACCDECOM;(Y,AAA,G);'Investments in generation technology by BB2 up to and including year Y with subtraction of decommisioning';(0,8,880,270,0,0,0,0,0,0);$
+Declaration; PAR;   GKVACC;(Y,AAA,G);'Investments in generation technology by BB2 up to and including year Y without subtraction of decommisioning';(0,8,880,180,0,0,0,0,0,0);$
+Declaration; PAR;   GVKGN;(YYY,AAA,G);'Investments in generation technology by BB2 in year Y';(0,8,880,90,0,0,0,0,0,0);$
+Declaration; PAR;   CYCLESINS;(S);'Number of load cycles per sesaon ';(0,5,880,120,0,0,0,0,0,0)
+Declaration; SET;   CCC;(CCCRRRAAA);'All countries';(0,1,40,180,0,0,0,0,0,0)
+Declaration; SET;   RRR;(CCCRRRAAA);'All regions';(0,1,480,120,0,0,0,0,0,0)
+Declaration; SET;   AAA;(CCCRRRAAA);'All areas';(0,1,40,240,0,0,0,0,0,0)
+Declaration; PAR;   OMONEY;();'Output currency name and its exchange rate to input currency';(0,8,480,450,0,0,0,0,0,0)
+Declaration; PAR;   DISLOSS1E;(RRR);'Loss in electricity distribution  (fraction)';(0,7,480,600,0,0,0,0,0,0)
+Declaration; PAR;   XLOSS1;(IRRRE,IRRRI);'Transmission loss between regions  (fraction)';(0,7,480,150,0,0,0,0,0,0)
+Declaration; PAR;   AGKNDISCGDATA;(GGG,AGKNDISCGSIZESET);'Technology investment data for discrete capacity size investments';(0,11,40,240,0,0,0,0,0,0);$
+Declaration; PAR;   GKNMAX;(YYY,AAA,GGG);'maximum capacities of those production technologies for which investments are allowed';(0,2,840,510,0,0,0,0,0,0)
+Declaration; PAR;   DISLOSS1H;(AAA);'Loss in heat distribution  (fraction)';(0,7,880,600,0,0,0,0,0,0)
+Declaration; PAR;   SOLHFLH;(AAA);'Full load hours for solar heat (hours)';(0,2,840,390,0,0,0,0,0,0)
+Declaration; SET;   GGCOMB;(GGG,IGGGALIAS);'Pair of combination technologies';(0,12,840,105,0,0,0,0,0,0);$
+Declaration; SET;   RESEDATA;();"All data for addon  REShareE (renewable electricy share)";(0,12,21,225,0,0,0,0,0,0);$
+Declaration; SET;   RESEHDATA;();"All data for addon  REShareEH (renewable electricy and heat share)";(0,12,430,225,0,0,0,0,0,0);$
+Declaration; SET;   AGKNDISCAG;(AAA,G);'Areas for possible location of discrete capacity investments in technologies';(0,12,840,225,0,0,0,0,0,0);$
+Declaration; SET;   AGKNDISCGDATASET;();'Technology investment data types for discrete capacity size investments';(0,12,21,345,0,0,0,0,0,0);$
+Declaration; SET;   AGKNDISCGSIZESET;();'Set of possible sizes for discrete capacity investments in technologies';(0,12,430,345,0,0,0,0,0,0);$
+Declaration; PAR;   SOLH_VAR_T;(AAA,SSS,TTT);'Variation of the solar heat generation';(0,5,880,60,0,0,0,0,0,0)
+Declaration; SET;   CCCRRRAAA;();'All geographical entities (CCC + RRR + AAA + more)';(0,1,40,120,0,0,0,0,0,0)
+Declaration; SET;   HYRSDATASET;();'Characteristics of hydro reservoirs';(0,2,440,570,0,0,0,0,0,0)
+Declaration; PAR;   TAX_GE;(YYY,AAA,G);'Electricity taxes(+) and subsidies(-) on generation units (Money/MWh)';(0,3,40,750,0,0,0,0,0,0);$
+Declaration; PAR;   TAX_KN;(YYY,AAA,G);'Taxes(+) and subsidies(-) for investment in electricity generation (mMoney/MW)';(0,3,40,840,0,0,0,0,0,0);$
+Declaration; SET;   ECONSET;();'Set for econ';(0,9,21,105,0,0,0,0,0,0)
+Declaration; SET;   ECONSETCATEGORY;();'Set for econ';(0,9,430,105,0,0,0,0,0,0)
+Declaration; SET;   SIMYEARS;();"Card(SIMYEARS) specifies the number of years in each Balbase4 model";(0,12,879,520,0,0,0,0,0,0);$
+Declaration; PAR;   SIMDELTA;(SIMYEARS);'The number of years between two consequtive years in a BB4 model';(0,12,880,600,0,0,0,0,0,0);$
+
+* List of data Tables: 
+CCC.INC;                   SET;   CCC;          (CCCRRRAAA);'Baltic and Nordic countries '
+RRR.INC;                   SET;   RRR;          (CCCRRRAAA);'Default data'
+AAA.INC;                   SET;   AAA;          (CCCRRRAAA);'Default data'
+CCCRRR.INC;                SET;   CCCRRR;       (CCC,RRR);'Default data'
+RRRAAA.INC;                SET;   RRRAAA;       (RRR,AAA);'Default data'
+YYY_1995-2030.INC;         SET;   YYY;          ();'All years: 1995 - 2030 '
+SSS_S01-S52.INC;           SET;   SSS;          ();'Seasons S01 - S52'
+TTT_168.INC;               SET;   TTT;          ();'TTT: T001*T168'
+TTT_24.INC;                SET;   TTT;          ();'TTT: T001*T024'
+GGG.INC;                   SET;   GGG;          ();'Default data'
+GDATASET.INC;              SET;   GDATASET;     ();'Default data'
+FFF.INC;                   SET;   FFF;          ();'Default data'
+FDATASET.INC;              SET;   FDATASET;     ();'Default data'
+DF_QP.INC;                 SET;   DF_QP;        ();'Default data'
+DEF.INC;                   SET;   DEF;          ();'Default data'
+DHF.INC;                   SET;   DHF;          ();'Default data'
+MPOLSET.INC;               SET;   MPOLSET;      ();'Default data'
+C_DK.INC;                  SET;   C;            (CCC);'Denmark'
+C_BALTIC.INC;              SET;   C;            (CCC);'Baltic and Nordic countries'
+C_NORDIC.INC;              SET;   C;            (CCC);'Nordic countries'
+G.INC;                     SET;   G;            (GGG);'Default data'
+AGKN.INC;                  SET;   AGKN;         (AAA,G);'Default data'
+Y_2010-15-20.INC;          SET;   Y;            (YYY);'2010, 2015, 2020'
+S_S01-S52.INC;             SET;   S;            (SSS);'Seasons S01 * S52'
+S_S20.INC;                 SET;   S;            (SSS);'Season S20 only'
+S_S05-S18-S31-S44.INC;     SET;   S;            (SSS);'Seasons S05, S18, S31, S44'
+DAYTYPE.INC;               SET;   DAYTYPE;      ();'Default data'
+PENALTYQ.INC;              PAR;   PENALTYQ;     ();'Default data'
+YVALUE_1995-2030.INC;      PAR;   YVALUE;       (YYY);'1995*2030'
+GKFX.INC;                  PAR;   GKFX;         (YYY,AAA,GGG);'Default data'
+FDATA.INC;                 PAR;   FDATA;        (FFF,FDATASET);'Default data'
+FFFACRONYM.INC;            ACRO;  FFFACRONYM;   ();'Default data'
+IRESDE.INC;                PAR;   IRESDE;       (RRR);'Default data'
+IRESWI.INC;                PAR;   IRESWI;       (RRR);'Default data'
+FMAXINVEST.INC;            PAR;   FMAXINVEST;   (CCC,FFF);'Default data'
+GROWTHCAP.INC;             PAR;   GROWTHCAP;    (C,GGG);'Default data'
+DISLOSS_E.INC;             PAR;   DISLOSS_E;    (RRR);'Default data'
+DISLOSS_H.INC;             PAR;   DISLOSS_H;    (AAA);'Default data'
+DISCOST_E.INC;             PAR;   DISCOST_E;    (RRR);'Default data'
+DISCOST_H.INC;             PAR;   DISCOST_H;    (AAA);'Default data'
+FKPOT.INC;                 PAR;   FKPOT;        (CCCRRRAAA,FFF);'Default data'
+FGEMIN.INC;                PAR;   FGEMIN;       (CCCRRRAAA,FFF);'Default data'
+FGEMAX.INC;                PAR;   FGEMAX;       (CCCRRRAAA,FFF);'Default data'
+GMINF.INC;                 PAR;   GMINF;        (CCCRRRAAA,FFF);'Default data'
+GMAXF.INC;                 PAR;   GMAXF;        (CCCRRRAAA,FFF);'Default data'
+GEQF.INC;                  PAR;   GEQF;         (CCCRRRAAAFFF);'Default data'
+WNDFLH.INC;                PAR;   WNDFLH;       (AAA);'Default data'
+SOLEFLH.INC;               PAR;   SOLEFLH;      (AAA);'Default data'
+HYRSDS.INC;                PAR;   HYRSDS;       (AAA,HYRSDATAS,SSS);'Default data'
+TAX_FHO-DUMMY.INC;         PAR;   TAX_FHO;      (AAA,G);'Default data'
+TAX_FHO_C-DUMMY.INC;       PAR;   TAX_FHO_C;    (FFF,CCC);'Default data'
+TAX_GH.INC;                PAR;   TAX_GH;       (AAA,G);'Default data'
+TAX_FCHP_C-DUMMY.INC;      PAR;   TAX_FCHP_C;   (FFF,CCC);'Default data'
+TAX_HHO_C-DUMMY.INC;       PAR;   TAX_HHO_C;    (FFF,CCC);'Default data'
+TAX_F-DUMMY0.INC;          PAR;   TAX_F;        (FFF,CCC);'Default data'
+TAX_DE-DUMMY0.INC;         PAR;   TAX_DE;       (CCC);'Default data'
+TAX_DH-DUMMY0.INC;         PAR;   TAX_DH;       (CCC);'Default data'
+ANNUITYC.INC;              PAR;   ANNUITYC;     (CCC);'Default data'
+GINVCOST.INC;              PAR;   GINVCOST;     (AAA,GGG);'Default data'
+GOMVCOST.INC;              PAR;   GOMVCOST;     (AAA,GGG);'Default data'
+GOMFCOST.INC;              PAR;   GOMFCOST;     (AAA,GGG);'Default data'
+GEFFDERATE.INC;            PAR;   GEFFDERATE;   (AAA,GGG);'Default data'
+DEFP_BASE.INC;             PAR;   DEFP_BASE;    (RRR);'Default data'
+DHFP_BASE.INC;             PAR;   DHFP_BASE;    (AAA);'Default data'
+DE.INC;                    PAR;   DE;           (YYY,RRR);'Default data'
+DH.INC;                    PAR;   DH;           (YYY,AAA);'Default data'
+XKINI.INC;                 PAR;   XKINI;        (YYY,IRRRE,IRRRI);'Default data'
+XINVCOST.INC;              PAR;   XINVCOST;     (IRRRE,IRRRI);'Default data'
+XCOST.INC;                 PAR;   XCOST;        (IRRRE,IRRRI);'Default data'
+XLOSS.INC;                 PAR;   XLOSS;        (IRRRE,IRRRI);'Default data'
+X3FX.INC;                  PAR;   X3FX;         (YYY,RRR);'Default data'
+FUELP.INC;                 PAR;   FUELPRICE;    (YYY,AAA,FFF);'Default data'
+MPOL.INC;                  PAR;   M_POL;        (YYY,MPOLSET);'Default data'
+WEIGHT_S_ALL168.INC;       PAR;   WEIGHT_S;     (SSS);'Weight on all S-Segments: 168'
+WEIGHT_T_ALL1.INC;         PAR;   WEIGHT_T;     (TTT);'All T-segments have identical weight (one-hour)'
+GKDERATE.INC;              PAR;   GKDERATE;     (AAA,GGG,SSS);'Default data'
+WTRRSVAR_S.INC;            PAR;   WTRRSVAR_S;   (AAA,SSS);'Default data'
+WTRRRVAR_T.INC;            PAR;   WTRRRVAR_T;   (AAA,SSS,TTT);'Default data'
+SOLE_VAR_T.INC;            PAR;   SOLE_VAR_T;   (AAA,SSS,TTT);'Default data'
+HYPPROFILS.INC;            PAR;   HYPPROFILS;   (AAA,SSS);'Default data'
+DEF_STEPS.INC;             PAR;   DEF_STEPS;    (RRR,SSS,TTT);'Default data'
+DEFP_CALIB.INC;            PAR;   DEFP_CALIB;   (RRR,SSS,TTT);'Default data'
+DHF_STEPS.INC;             PAR;   DHF_STEPS;    (AAA,SSS,TTT);'Default data'
+DHFP_CALIB.INC;            PAR;   DHFP_CALIB;   (AAA,SSS,TTT);'Default data'
+DEF_STEPS2.INC;            PAR;   DEF_STEPS2;   (YYY,RRR,SSS,TTT);'Default data'
+HYFXRW.INC;                PAR;   HYFXRW;       (YYY,SSS,RRR);'Default data'
+WATERVAL.INC;              PAR;   WATERVAL;     (YYY,SSS,AAA);'Default data'
+GKVACCDECOM.INC;           PAR;   GKVACCDECOM;  (Y,AAA,G);'Default data'
+GKVACC.INC;                PAR;   GKVACC;       (Y,AAA,G);'Default data'
+CYCLESINS.INC;             PAR;   CYCLESINS;    (S);'Default data'
+MPOL_CO2_15.INC;           PAR;   M_POL;        (YYY,MPOLSET);'CO2-price 15 EUR07/t'
+MPOL_CO2_30.INC;           PAR;   M_POL;        (YYY,MPOLSET);'CO2-price 30 EUR07/t'
+MPOL_CO2_45.INC;           PAR;   M_POL;        (YYY,MPOLSET);'CO2-price 45 EUR07/t'
+DEF_D1-NONE.INC;           SET;   DEF_D1;       (DEF);'No elasticity for DEF_D1'
+DEF_U1-NONE.INC;           SET;   DEF_U1;       (DEF);'No elasticity for DEF_U1'
+DEF_D2-NONE.INC;           SET;   DEF_D2;       (DEF);'No elasticity for DEF_D2'
+DEF_U2-NONE.INC;           SET;   DEF_U2;       (DEF);'No elasticity for DEF_U2'
+DEF_D3-NONE.INC;           SET;   DEF_D3;       (DEF);'No elasticity for DEF_D3'
+DEF_U3-NONE.INC;           SET;   DEF_U3;       (DEF);'No elasticity for DEF_U3'
+DEF_D1-9STEPS.INC;         SET;   DEF_D1;       (DEF);'9 steps for DEF_D1'
+DEF_U1-9STEPS.INC;         SET;   DEF_U1;       (DEF);'9 steps for DEF_U1'
+DEF_D2-9STEPS.INC;         SET;   DEF_D2;       (DEF);'9 steps for DEF_D2'
+DEF_U2-9STEPS.INC;         SET;   DEF_U2;       (DEF);'9 steps for DEF_U2'
+DHF_D1-NONE.INC;           SET;   DHF_D1;       (DHF);'No elasticity for DHF_D1'
+DHF_U1-NONE.INC;           SET;   DHF_U1;       (DHF);'No elasticity for DHF_U1'
+DHF_D2-NONE.INC;           SET;   DHF_D2;       (DHF);'No elasticity for DHF_D2'
+DHF_U2-NONE.INC;           SET;   DHF_U2;       (DHF);'No elasticity for DHF_U2'
+DHF_D3-NONE.INC;           SET;   DHF_D3;       (DHF);'No elasticity for DHF_D3'
+DHF_U3-NONE.INC;           SET;   DHF_U3;       (DHF);'No elasticity for DHF_U3'
+Y_2020.INC;                SET;   Y;            (YYY);'2020'
+DE_KOMPAS-20XX.TXT;        PAR;   DE;           (YYY,RRR);'Kompas'
+DEF_STEPS-CES-0P1.TXT;     PAR;   DEF_STEPS;    (RRR,SSS,TTT);'CES function (-0.1) for elastic electricity demand'
+DEF_STEPS-CES-0P15.TXT;    PAR;   DEF_STEPS;    (RRR,SSS,TTT);'CES function (-0.15) for elastic electricity demand'
+GDATA-MMCOMBTECH.INC;      PAR;   GDATA;        (GGG,GDATASET);'Technologies characteristics - MM with CombTech'
+G-MMCOMBTECH.INC;          SET;   G;            (GGG);'Technologies (subset) - MMcombtech'
+GGG-MMCOMBTECH.INC;        SET;   GGG;          ();'Technologies  (all) - MMcombtech'
+OMONEY_EUR07_1P389.TXT;    PAR;   OMONEY;       ();'Output currency: EUR07 with exchange rate to input currency 1.389'
+OMONEY_DKK06_10P42.TXT;    PAR;   OMONEY;       ();'Output currency: DKK06 with exchange rate to input currency 10.42'
+XKDERATE_NEUTRAL.TXT;      PAR;   XKDERATE;     (IRRRE,IRRRI);'XKDERATE: neutral (i.e., all values are 1)'
+S03.TXT;                   SET;   S;            (SSS);'Season S03 only'
+GKFX-HEAVYDECOM2020.INC;   PAR;   GKFX;         (YYY,AAA,GGG);'Large decommissioning in the year 2002'
+HYRSDS_SMALLRES.TXT;       PAR;   HYRSDS;       (AAA,HYRSDATAS,SSS);'Smaller reservoirs'
+XKDERATE_0P9.TXT;          PAR;   XKDERATE;     (IRRRE,IRRRI);'Transmission derate to 0.9'
+WTRRSFLH_NORMAL.INC;       PAR;   WTRRSFLH;     (AAA);'Normal hydrological year'
+WTRRRFLH_NORMAL.INC;       PAR;   WTRRRFLH;     (AAA);'Normal hydrological year'
+WTRRSFLH_WET_1P12.INC;     PAR;   WTRRSFLH;     (AAA);'Wet hydrological year (112%)'
+WTRRSFLH_DRY_0P83.INC;     PAR;   WTRRSFLH;     (AAA);'Dry hydrological year (83%)'
+WEIGHT_T_5UNEVEN.TXT;      PAR;   WEIGHT_T;     (TTT);'5 T-segments (T015,T025,T40,T85,T130), uneven duration'
+MPOL_NONE.TXT;             PAR;   M_POL;        (YYY,MPOLSET);''
+CO2-Q15.TXT;               PAR;   M_POL;        (YYY,MPOLSET);''
+CO2-Q30.TXT;               PAR;   M_POL;        (YYY,MPOLSET);''
+ANNUITYC_20Y7PCT.TXT;      PAR;   ANNUITYC;     (CCC);'20 years 7%'
+MPOL_CO2_50.TXT;           PAR;   M_POL;        (YYY,MPOLSET);'CO2 - 50 Euro/ton'
+MPOL_CO2_10.TXT;           PAR;   M_POL;        (YYY,MPOLSET);'MPOL CO2 price 10 E/t'
+MPOL_CO2_40.TXT;           PAR;   M_POL;        (YYY,MPOLSET);'MPOL CO2 40'
+MPLO_CO2_20.TXT;           PAR;   M_POL;        (YYY,MPOLSET);'MPLO CO2 20 E/t'
+TWORKDAY_168.TXT;          SET;   TWORKDAY;     (TTT);'Hours 1 - 120'
+TWEEKEND_168.TXT;          SET;   TWEEKEND;     (TTT);'Hours 121 - 168'
+Y_2008.INC;                SET;   Y;            (YYY);'2008'
+Y_2006-15-20.INC;          SET;   Y;            (YYY);'2006, 2015, 2020'
+Y_2007-10-20-30.INC;       SET;   Y;            (YYY);'2007, 2010, 2020, 2030'
+Y_2006.TXT;                SET;   Y;            (YYY);'2006'
+T_T001-T005.INC;           SET;   T;            (TTT);'T: T001 * T005'
+T_T001-T168.INC;           SET;   T;            (TTT);'T: 168 (in 168)'
+T_T001-T005-T009--T165.INC;SET;   T;            (TTT);'T: T001,T005,T009,T013,..,T165'
+T_015025040085130.TXT;     SET;   T;            (TTT);'T: T015,T025,T040,T085,T130'
+WEIGHT_T001-T005.INC;      PAR;   WEIGHT_T;     (TTT);'Weight on 5 T-segments: T001*T005'
+SCENARIO_SC1.INC;          SET;   SCENARIO;     ();'Default data:  one scenario: sc1'
+SCENARSIM_SC1.INC;         SET;   SCENARSIM;    (SCENARIO);'Default data:  one scenario'
+XLOSS1.TXT;                PAR;   XLOSS1;       (IRRRE,IRRRI);'Default data'
+DISLOSS1E.TXT;             PAR;   DISLOSS1E;    (RRR);'Default data'
+X3FX_VAR_T_2001.TXT;       PAR;   X3FX_VAR_T;   (RRR,SSS,TTT);'Default data'
+AGKNDISC\AGKNDISCGDATA_DEMO.TXT;PAR;   AGKNDISCGDATA;(GGG,AGKNDISCGSIZESET);'DEMO ONLY: Technology investment data for discrete capacity size investments'
+Y_2007_2020_2030.TXT;      SET;   Y;            (YYY);"2007, 2020, 2030"
+Y_2020_2030.TXT;           SET;   Y;            (YYY);"2020 and 2030"
+GKNMAX.INC;                PAR;   GKNMAX;       (YYY,AAA,GGG);'maximum capacities of those production technologies for which investments are allowed'
+DEVAR2001.TXT;             PAR;   DE_VAR_T;     (RRR,SSS,TTT);'Electricity consumption Variation profiles for 2001'
+DHVAR2001.TXT;             PAR;   DH_VAR_T;     (AAA,SSS,TTT);'Heat consumption Variation profiles for 2001'
+WNDVAR2001.TXT;            PAR;   WND_VAR_T;    (AAA,SSS,TTT);'Default data'
+DISLOSS1H.TXT;             PAR;   DISLOSS1H;    (AAA);'Default data'
+SOLHFLH.INC;               PAR;   SOLHFLH;      (AAA);'Default data'
+GGCOMB-MM.INC;             SET;   GGCOMB;       (GGG,IGGGALIAS);'Pair of combination technologies - MM'
+RESE_NONE.INC;             SET;   RESEDATA;     ();"All data for addon  REShareE (renewable electricy share) - zero share"
+RESE_20PCT.TXT;            PAR;   RESEDATA;     ();'20 % from electricity'
+RESE_30PCT.TXT;            PAR;   RESEDATA;     ();'30 % from electricity'
+RESEH_NONE.INC;            SET;   RESEHDATA;    ();"All data for addon  REShareEH (renewable electricy and heat share) - zero share"
+AGKNDISC\AGKNDISCAG_DEMO.TXT;SET;   AGKNDISCAG;   (AAA,G);'DEMO ONLY: Areas for possible location of discrete capacity investments in technologies'
+RESEH_NORDIC_0P3.TXT;      PAR;   RESEHDATA;    ();'RESEH-Nordic 0.3'
+RESEH_NORDIC_0P5.TXT;      PAR;   RESEHDATA;    ();'RESEH Nordic 0.5'
+RESEH_NORDIC_0P7.TXT;      PAR;   RESEHDATA;    ();'RESEH Nordic 0.7'
+RESEH_NORDIC_0P4PCT.TXT;   PAR;   RESEHDATA;    ();'ReSEH 0.4'
+RESEHSPECIALWVD0P7BIO1P5.TXT;PAR;   RESEHDATA;    ();'Special windfavour 0.7 biodown 1.5'
+SOLH_VAR_T.INC;            PAR;   SOLH_VAR_T;   (AAA,SSS,TTT);'Default data'
+T01.TXT;                   SET;   T;            (TTT);"oneseason"
+AGKNDISC/AGKNDISCGDATASET_DEMO.TXT;SET;   AGKNDISCGDATASET;();'DEMO ONLY: Technology investment data types for discrete capacity size investments'
+AGKNDISC\AGKNDISCGSIZESET_DEMO.TXT;SET;   AGKNDISCGSIZESET;();'DEMO ONLY: Set of possible sizes for discrete capacity investments in technologies'
+GDATA.INC;                 PAR;   GDATA;        (GGG,GDATASET);'Default data'
+CCCRRRAAA.INC;             SET;   CCCRRRAAA;    ();'Default data'
+CCCRRRAAA1.INC;            SET;   CCCRRRAAA;    ();'Default data'
+CCCRRRAAA2.INC;            SET;   CCCRRRAAA;    ();'Default data2'
+HYRSDATASET.INC;           SET;   HYRSDATASET;  ();'Characteristics of hydro reservoirs'
+TAX_GE.INC;                PAR;   TAX_GH;       (YYY,AAA,G);'Default data'
+ECONSET.INC;               SET;   ECONSET;      ();'Set for econ'
+ECONSETCATEGORY.INC;       SET;   ECONSETCATEGORY;();'Set for econ'
+SIMYEARS.INC;              SET;   SIMYEARS;     ();"Card(SIMYEARS) specifies the number of years in each Balbase4 model"
+SIMDELTA.INC;              PAR;   SIMDELTA;     (SIMYEARS);"The number of years between two consequtive years in a BB4 model"
+BALINDEX_END
+
+VARIANTS_BEGIN  
+VARINAME  BASE  
+CCCRRR.INC;                SET;    CCCRRR;        (); 'Default data'
+RRRAAA.INC;                SET;    RRRAAA;        (RRR,AAA); 'Default data'
+YYY_1995-2030.INC;         SET;    YYY;           (); 'All years: 1995 - 2030 '
+SSS_S01-S52.INC;           SET;    SSS;           (); 'Seasons S01 - S52'
+TTT_168.INC;               SET;    TTT;           (); 'TTT: T001*T168'
+C_NORDIC.INC;              SET;    C;             (CCC); 'Nordic countries'
+Y_2008.INC;                SET;    Y;             (YYY); '2008'
+S03.TXT;                   SET;    S;             (SSS); 'Season S03 only'
+T_T001-T005.INC;           SET;    T;             (TTT); 'T: T001 * T005'
+DAYTYPE.INC;               SET;    DAYTYPE;       (); 'Default data'
+TWORKDAY_168.TXT;          SET;    TWORKDAY;      (TTT); 'Hours 1 - 120'
+TWEEKEND_168.TXT;          SET;    TWEEKEND;      (TTT); 'Hours 121 - 168'
+YVALUE_1995-2030.INC;      PAR;    YVALUE;        (YYY); '1995*2030'
+CCC.INC;                   SET;    CCC;           (CCCRRRAAA); 'Baltic and Nordic countries '
+RRR.INC;                   SET;    RRR;           (CCCRRRAAA); 'Default data'
+AAA.INC;                   SET;    AAA;           (CCCRRRAAA); 'Default data'
+CCCRRRAAA.INC;             SET;    CCCRRRAAA;     (); 'Default data'
+GGG.INC;                   SET;    GGG;           (); 'Default data'
+GDATASET.INC;              SET;    GDATASET;      (); 'Default data'
+G.INC;                     SET;    G;             (GGG); 'Default data'
+AGKN.INC;                  SET;    AGKN;          (AAA,G); 'Default data'
+GDATA.INC;                 PAR;    GDATA;         (GGG,GDATASET); 'Default data'
+GKFX.INC;                  PAR;    GKFX;          (YYY,AAA,GGG); 'Default data'
+GROWTHCAP.INC;             PAR;    GROWTHCAP;     (C,GGG); 'Default data'
+WTRRSFLH_DRY_0P83.INC;     PAR;    WTRRSFLH;      (AAA); 'Dry hydrological year (83%)'
+WTRRRFLH_NORMAL.INC;       PAR;    WTRRRFLH;      (AAA); 'Normal hydrological year'
+WNDFLH.INC;                PAR;    WNDFLH;        (AAA); 'Default data'
+SOLEFLH.INC;               PAR;    SOLEFLH;       (AAA); 'Default data'
+HYRSDS.INC;                PAR;    HYRSDS;        (AAA,HYRSDATAS,SSS); 'Default data'
+GINVCOST.INC;              PAR;    GINVCOST;      (AAA,GGG); 'Default data'
+GOMVCOST.INC;              PAR;    GOMVCOST;      (AAA,GGG); 'Default data'
+GOMFCOST.INC;              PAR;    GOMFCOST;      (AAA,GGG); 'Default data'
+GEFFDERATE.INC;            PAR;    GEFFDERATE;    (AAA,GGG); 'Default data'
+GKDERATE.INC;              PAR;    GKDERATE;      (AAA,GGG,SSS); 'Default data'
+GKNMAX.INC;                PAR;    GKNMAX;        (YYY,AAA,GGG); 'maximum capacities of those production technologies for which investments are allowed'
+HYRSDATASET.INC;           SET;    HYRSDATASET;   (); 'Characteristics of hydro reservoirs'
+MPOLSET.INC;               SET;    MPOLSET;       (); 'Default data'
+TAX_F-DUMMY0.INC;          PAR;    TAX_F;         (FFF,CCC); 'Default data'
+TAX_DE-DUMMY0.INC;         PAR;    TAX_DE;        (CCC); 'Default data'
+TAX_DH-DUMMY0.INC;         PAR;    TAX_DH;        (CCC); 'Default data'
+MPOL.INC;                  PAR;    M_POL;         (YYY,MPOLSET); 'Default data'
+FFF.INC;                   SET;    FFF;           (); 'Default data'
+FDATASET.INC;              SET;    FDATASET;      (); 'Default data'
+FDATA.INC;                 PAR;    FDATA;         (FFF,FDATASET); 'Default data'
+FFFACRONYM.INC;            ACRO;   FFFACRONYM;    (); 'Default data'
+FMAXINVEST.INC;            PAR;    FMAXINVEST;    (CCC,FFF); 'Default data'
+FKPOT.INC;                 PAR;    FKPOT;         (CCCRRRAAA,FFF); 'Default data'
+FGEMIN.INC;                PAR;    FGEMIN;        (CCCRRRAAA,FFF); 'Default data'
+FGEMAX.INC;                PAR;    FGEMAX;        (CCCRRRAAA,FFF); 'Default data'
+GMINF.INC;                 PAR;    GMINF;         (CCCRRRAAA,FFF); 'Default data'
+GMAXF.INC;                 PAR;    GMAXF;         (CCCRRRAAA,FFF); 'Default data'
+GEQF.INC;                  PAR;    GEQF;          (CCCRRRAAA,FFF); 'Default data'
+FUELP.INC;                 PAR;    FUELPRICE;     (YYY,AAA,FFF); 'Default data'
+WEIGHT_S_ALL168.INC;       PAR;    WEIGHT_S;      (SSS); 'Weight on all S-Segments: 168'
+WEIGHT_T_ALL1.INC;         PAR;    WEIGHT_T;      (TTT); 'All T-segments have identical weight (one-hour)'
+DEVAR2001.TXT;             PAR;    DE_VAR_T;      (RRR,SSS,TTT); 'Electricity consumption Variation profiles for 2001'
+DHVAR2001.TXT;             PAR;    DH_VAR_T;      (AAA,SSS,TTT); 'Heat consumption Variation profiles for 2001'
+WTRRSVAR_S.INC;            PAR;    WTRRSVAR_S;    (AAA,SSS); 'Default data'
+WTRRRVAR_T.INC;            PAR;    WTRRRVAR_T;    (AAA,SSS,TTT); 'Default data'
+WNDVAR2001.TXT;            PAR;    WND_VAR_T;     (AAA,SSS,TTT); 'Default data'
+SOLE_VAR_T.INC;            PAR;    SOLE_VAR_T;    (AAA,SSS,TTT); 'Default data'
+X3FX_VAR_T_2001.TXT;       PAR;    X3FX_VAR_T;    (RRR,SSS,TTT); 'Default data'
+CYCLESINS.INC;             PAR;    CYCLESINS;     (S); 'Default data'
+SOLH_VAR_T.INC;            PAR;    SOLH_VAR_T;    (AAA,SSS,TTT); 'Default data'
+DF_QP.INC;                 SET;    DF_QP;         (); 'Default data'
+DEF.INC;                   SET;    DEF;           (); 'Default data'
+DEF_D1-NONE.INC;           SET;    DEF_D1;        (DEF); 'No elasticity for DEF_D1'
+DEF_U1-NONE.INC;           SET;    DEF_U1;        (DEF); 'No elasticity for DEF_U1'
+DEF_D2-NONE.INC;           SET;    DEF_D2;        (DEF); 'No elasticity for DEF_D2'
+DEF_U2-NONE.INC;           SET;    DEF_U2;        (DEF); 'No elasticity for DEF_U2'
+DEF_D3-NONE.INC;           SET;    DEF_D3;        (DEF); 'No elasticity for DEF_D3'
+DEF_U3-NONE.INC;           SET;    DEF_U3;        (DEF); 'No elasticity for DEF_U3'
+DHF.INC;                   SET;    DHF;           (); 'Default data'
+DHF_D1-NONE.INC;           SET;    DHF_D1;        (DHF); 'No elasticity for DHF_D1'
+DHF_U1-NONE.INC;           SET;    DHF_U1;        (DHF); 'No elasticity for DHF_U1'
+DHF_D2-NONE.INC;           SET;    DHF_D2;        (DHF); 'No elasticity for DHF_D2'
+DHF_U2-NONE.INC;           SET;    DHF_U2;        (DHF); 'No elasticity for DHF_U2'
+DHF_D3-NONE.INC;           SET;    DHF_D3;        (DHF); 'No elasticity for DHF_D3'
+DHF_U3-NONE.INC;           SET;    DHF_U3;        (DHF); 'No elasticity for DHF_U3'
+DEFP_BASE.INC;             PAR;    DEFP_BASE;     (RRR); 'Default data'
+DHFP_BASE.INC;             PAR;    DHFP_BASE;     (AAA); 'Default data'
+DE.INC;                    PAR;    DE;            (YYY,RRR); 'Default data'
+DH.INC;                    PAR;    DH;            (YYY,AAA); 'Default data'
+DEF_STEPS-CES-0P15.TXT;    PAR;    DEF_STEPS;     (RRR,SSS,TTT,DF_QP,DEF); 'CES function (-0.15) for elastic electricity demand'
+DEFP_CALIB.INC;            PAR;    DEFP_CALIB;    (RRR,SSS,TTT); 'Default data'
+DHF_STEPS.INC;             PAR;    DHF_STEPS;     (AAA,SSS,TTT,DF_QP,DHF); 'Default data'
+DHFP_CALIB.INC;            PAR;    DHFP_CALIB;    (AAA,SSS,TTT); 'Default data'
+DEF_STEPS2.INC;            PAR;    DEF_STEPS2;    (YYY,RRR,SSS,TTT,DF_QP,DEF); 'Default data'
+DISLOSS_E.INC;             PAR;    DISLOSS_E;     (RRR); 'Default data'
+DISLOSS_H.INC;             PAR;    DISLOSS_H;     (AAA); 'Default data'
+DISCOST_E.INC;             PAR;    DISCOST_E;     (RRR); 'Default data'
+DISCOST_H.INC;             PAR;    DISCOST_H;     (AAA); 'Default data'
+XKINI.INC;                 PAR;    XKINI;         (YYY,IRRRE,IRRRI); 'Default data'
+XINVCOST.INC;              PAR;    XINVCOST;      (IRRRE,IRRRI); 'Default data'
+XCOST.INC;                 PAR;    XCOST;         (IRRRE,IRRRI); 'Default data'
+XLOSS.INC;                 PAR;    XLOSS;         (IRRRE,IRRRI); 'Default data'
+XKDERATE_NEUTRAL.TXT;      PAR;    XKDERATE;      (IRRRE,IRRRI); 'XKDERATE: neutral (i.e., all values are 1)'
+X3FX.INC;                  PAR;    X3FX;          (YYY,RRR); 'Default data'
+DISLOSS1E.TXT;             PAR;    DISLOSS1E;     (RRR); 'Default data'
+XLOSS1.TXT;                PAR;    XLOSS1;        (IRRRE,IRRRI); 'Default data'
+DISLOSS1H.TXT;             PAR;    DISLOSS1H;     (AAA); 'Default data'
+SCENARIO_SC1.INC;          SET;    SCENARIO;      (); 'Default data:  one scenario: sc1'
+SCENARSIM_SC1.INC;         SET;    SCENARSIM;     (SCENARIO); 'Default data:  one scenario'
+IRESDE.INC;                PAR;    IRESDE;        (RRR); 'Default data'
+IRESWI.INC;                PAR;    IRESWI;        (RRR); 'Default data'
+ANNUITYC_20Y7PCT.TXT;      PAR;    ANNUITYC;      (CCC); '20 years 7%'
+HYPPROFILS.INC;            PAR;    HYPPROFILS;    (AAA,SSS); 'Default data'
+OMONEY_EUR07_1P389.TXT;    PAR;    OMONEY;        (); 'Output currency: EUR07 with exchange rate to input currency 1.389'
+PENALTYQ.INC;              PAR;    PENALTYQ;      (); 'Default data'
+SOLHFLH.INC;               PAR;    SOLHFLH;       (AAA); 'Default data'
+
+VARINAME  caseBB4  
+Y_2020_2030.TXT;           SET;    Y;             (YYY); "2020 and 2030"
+SIMYEARS.INC;              SET;    SIMYEARS;      (); "Card(SIMYEARS) specifies the number of years in each Balbase4 model"
+SIMDELTA.INC;              PAR;    SIMDELTA;      (SIMYEARS); "The number of years between two consequtive years in a BB4 model"
+
+VARIANTS_END
+
+DECORATIONS_BEGIN  
+PAGEBUTTON      (1,1,0,0,0,0,0,0,0,0) "Geograhy and Time"  
+DECORHORLINE    (1,1,240,55,1231,55,0,0,0,0) 
+DECORHORLINE    (1,1,242,284,1249,284,0,0,0,0) 
+DECORHORLINE    (1,1,238,297,1248,297,0,0,0,0) 
+DECORHORLINE    (1,1,240,68,1231,68,0,0,0,0) 
+DECORRECTANGLE  (1,1,29,322,418,667,0,0,0,0) 
+DECORHORLINE    (1,1,241,311,1249,311,0,0,0,0) 
+DECORHORLINE    (1,1,239,82,1232,82,0,0,0,0) 
+DECORLABEL      (1,1,41,284,10,0,0,0,0,0) "Time"  
+DECORLABEL      (1,1,40,55,10,0,0,0,0,0) "Geography"  
+PAGEBUTTON      (1,2,0,0,0,0,0,0,0,0) "Technology"  
+PAGEBUTTON      (1,3,0,0,0,0,0,0,0,0) "Taxes etc."  
+PAGEBUTTON      (1,4,0,0,0,0,0,0,0,0) "Fuel"  
+PAGEBUTTON      (1,5,0,0,0,0,0,0,0,0) "Time within the year"  
+DECORRECTANGLE  (1,5,450,199,859,560,0,0,0,0) 
+PAGEBUTTON      (1,6,0,0,0,0,0,0,0,0) "Demand"  
+DECORRECTANGLE  (1,6,26,48,418,783,0,0,0,0) 
+DECORRECTANGLE  (1,6,859,52,1251,777,0,0,0,0) 
+DECORLABEL      (1,6,481,561,10,0,0,0,0,0) "Not to be changed"  
+PAGEBUTTON      (1,7,0,0,0,0,0,0,0,0) "Transmission, distribution"  
+DECORHORLINE    (1,7,41,329,1230,329,0,0,0,0) 
+PAGEBUTTON      (1,8,0,0,0,0,0,0,0,0) "Miscellaneous"  
+PAGEBUTTON      (1,9,0,0,0,0,0,0,0,0) "Seldomly changed"  
+PAGEBUTTON      (1,11,0,0,0,0,0,0,0,0) "addon agkndisc"  
+PAGEBUTTON      (1,12,0,0,0,0,0,0,0,0) "Page 12"  
+DECORATIONS_END  
+
+BALPROJECT_END

@@ -1,0 +1,1 @@
+$ifi %OPTIFLOW%==yes $include "..\..\base\addons\combtech\bb4\OptiFlow_qobj.inc"

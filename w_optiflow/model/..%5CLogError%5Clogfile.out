@@ -1,0 +1,27 @@
+File logfile.out.
+Version:      Balmorel version 3.03 (January 2014; latest 20150430)
+Log created: 06/27/19 21:08:58
+
+
+* ------------------------------------------------------------------------------
+Some Balmorel errors were detected in the input data before simulation.
+See the file errors.out for details about the error.
+* ------------------------------------------------------------------------------
+
+
+No obvious additional errors detected before optimisation of year 2050.
+See the file errors.out for details about errors.
+
+Some Balmorel errors were detected in the input data before simulation. See the file errors.out.
+
+Solver status of the BALBASE2 model each year in the simulation
+
+   1 years to be simulated.
+
+Year    Model status returned     Solver status returned          Obj. fct. value  Iter. used  No of infeas No of nonopt
+       (now to first SOLVE statement)
+2050    Optimal                      Non optimal - error no.    4  20322794138.56        5932            1             0
+
+No obvious errors detected after optimisation of year 2050.
+See the file errors.out for details about errors.
+

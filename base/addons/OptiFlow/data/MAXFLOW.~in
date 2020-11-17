@@ -1,0 +1,8 @@
+PARAMETER MAXFLOW(YYY,CCCRRRAAA,PROC,FLOW) "Constraint about fuel use limitations (U/year)"
+/
+/;
+
+
+LOOP(Y,IMAXFLOW_Y(CCCRRRAAA,PROC,FLOW)=MAXFLOW(Y,CCCRRRAAA,PROC,FLOW););
+
+

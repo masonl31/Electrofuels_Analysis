@@ -1,0 +1,12 @@
+SET PROCTIMELINK(PROC) "TIME LINK STORAGE processes"
+
+/
+
+
+
+*Linkstorage_TG
+*Linkstorage_BG
+
+
+/;
+

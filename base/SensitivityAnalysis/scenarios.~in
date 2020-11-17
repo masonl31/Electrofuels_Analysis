@@ -1,0 +1,9 @@
+SET scenarios "Scenarios for the analysis"
+/
+*BASE
+Scenario_1
+Scenario_2
+Scenario_3
+Scenario_4
+*Scenario_5
+/;

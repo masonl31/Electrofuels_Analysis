@@ -1,0 +1,909 @@
+
+--- Job Balmorel.gms Start 03/22/18 22:35:06 24.8.5 r61358 WEX-WEI x86 64bit/MS Windows
+GAMS 24.8.5   Copyright (C) 1987-2017 GAMS Development. All rights reserved
+Licensee: Course License Spring 2018                     A171219:0913AO-GEN
+          Technical University of Denmark, Management Engineering    DC8756
+          License for teaching and research at degree granting institutions
+          License Admin: Thomas Stidsen, thst@man.dtu.dk                   
+--- Starting compilation
+--- Balmorel.gms(38) 2 Mb
+--- .balgams.opt(138) 2 Mb
+--- Balmorel.gms(47) 2 Mb
+--- .balopt.opt(491) 2 Mb
+--- Balmorel.gms(50) 2 Mb
+--- .../addons/_hooks/addonsopt.opt(1) 2 Mb
+--- ..optiflowopt.opt(92) 2 Mb
+--- .../addons/_hooks/addonsopt.opt(1) 2 Mb
+--- Balmorel.gms(147) 2 Mb
+--- .../data/CCCRRRAAA.inc(766) 3 Mb
+--- Balmorel.gms(152) 3 Mb
+--- .../data/CCC.inc(15) 3 Mb
+--- Balmorel.gms(157) 3 Mb
+--- .../data/RRR.inc(137) 3 Mb
+--- Balmorel.gms(162) 3 Mb
+--- .../data/AAA.inc(617) 3 Mb
+--- Balmorel.gms(167) 3 Mb
+--- .../data/CCCRRR.inc(137) 3 Mb
+--- Balmorel.gms(172) 3 Mb
+--- .../data/RRRAAA.inc(616) 3 Mb
+--- Balmorel.gms(181) 3 Mb
+--- .../data/YYY.inc(59) 3 Mb
+--- Balmorel.gms(186) 3 Mb
+--- .../data/SSS.inc(55) 3 Mb
+--- Balmorel.gms(191) 3 Mb
+--- .../data/TTT.inc(171) 3 Mb
+--- Balmorel.gms(196) 3 Mb
+--- .../data/GGG.inc(2056) 3 Mb
+--- Balmorel.gms(201) 3 Mb
+--- .../data/GDATASET.inc(50) 3 Mb
+--- Balmorel.gms(206) 3 Mb
+--- .../data/FFF.inc(51) 3 Mb
+--- Balmorel.gms(212) 3 Mb
+--- .../data/FFFACRONYM.inc(48) 3 Mb
+--- Balmorel.gms(217) 3 Mb
+--- .../data/FDATASET.inc(10) 3 Mb
+--- Balmorel.gms(222) 3 Mb
+--- .../data/HYRSDATASET.inc(6) 3 Mb
+--- Balmorel.gms(227) 3 Mb
+--- .../data/DF_QP.inc(5) 3 Mb
+--- Balmorel.gms(232) 3 Mb
+--- .../data/DEF.inc(51) 3 Mb
+--- Balmorel.gms(237) 3 Mb
+--- .../data/DEF_D1.inc(3) 3 Mb
+--- Balmorel.gms(242) 3 Mb
+--- .../data/DEF_U1.inc(3) 3 Mb
+--- Balmorel.gms(247) 3 Mb
+--- .../data/DEF_D2.inc(4) 3 Mb
+--- Balmorel.gms(252) 3 Mb
+--- .../data/DEF_U2.inc(3) 3 Mb
+--- Balmorel.gms(257) 3 Mb
+--- .../data/DEF_D3.inc(3) 3 Mb
+--- Balmorel.gms(262) 3 Mb
+--- .../data/DEF_U3.inc(3) 3 Mb
+--- Balmorel.gms(267) 3 Mb
+--- .../data/DHF.inc(21) 3 Mb
+--- Balmorel.gms(272) 3 Mb
+--- .../data/DHF_D1.inc(4) 3 Mb
+--- Balmorel.gms(277) 3 Mb
+--- .../data/DHF_U1.inc(4) 3 Mb
+--- Balmorel.gms(282) 3 Mb
+--- .../data/DHF_D2.inc(4) 3 Mb
+--- Balmorel.gms(287) 3 Mb
+--- .../data/DHF_U2.inc(4) 3 Mb
+--- Balmorel.gms(292) 3 Mb
+--- .../data/DHF_D3.inc(4) 3 Mb
+--- Balmorel.gms(297) 3 Mb
+--- .../data/DHF_U3.inc(4) 3 Mb
+--- Balmorel.gms(302) 3 Mb
+--- .../data/MPOLSET.inc(9) 3 Mb
+--- Balmorel.gms(307) 3 Mb
+--- .../data/C.inc(16) 3 Mb
+--- Balmorel.gms(312) 3 Mb
+--- .../data/G.inc(2061) 3 Mb
+--- Balmorel.gms(317) 3 Mb
+--- .../data/AGKN.inc(945) 3 Mb
+--- Balmorel.gms(322) 3 Mb
+--- .../data/Y.inc(4) 3 Mb
+--- Balmorel.gms(327) 3 Mb
+--- .../data/S.inc(6) 3 Mb
+--- Balmorel.gms(332) 3 Mb
+--- .../data/T.inc(91) 3 Mb
+--- Balmorel.gms(342) 3 Mb
+--- .../data/TWORKDAY.inc(123) 3 Mb
+--- Balmorel.gms(347) 3 Mb
+--- .../data/TWEEKEND.inc(51) 3 Mb
+--- Balmorel.gms(441) 3 Mb
+--- .../addons/_hooks/setdeclare.inc(4) 3 Mb
+--- ..../../base/addons/combtech/combtech_setdeclare.inc(5) 3 Mb
+--- .../addons/_hooks/setdeclare.inc(6) 3 Mb
+--- ..../addons/combtech/combtech_setdeclare.inc(5) 3 Mb
+--- .../addons/_hooks/setdeclare.inc(7) 3 Mb
+--- Balmorel.gms(444) 3 Mb
+--- .../addons/_hooks/setdefine.inc(5) 3 Mb
+--- ..../addons/combtech/combtech_setdefine.inc(3) 3 Mb
+--- ...../data/GGCOMB.inc(383) 3 Mb
+--- ..../addons/combtech/combtech_setdefine.inc(4) 3 Mb
+--- .../addons/_hooks/setdefine.inc(7) 3 Mb
+--- Balmorel.gms(454) 3 Mb
+--- .../data/AIND.inc(33) 3 Mb
+--- Balmorel.gms(460) 3 Mb
+--- .../data/AAAOFFSHORE.inc(201) 3 Mb
+--- Balmorel.gms(466) 3 Mb
+--- .../data/ENSOFFSHORE.inc(13) 3 Mb
+--- Balmorel.gms(472) 3 Mb
+--- .../data/RETRANS.inc(30) 3 Mb
+--- Balmorel.gms(478) 3 Mb
+--- .../data/ABF.inc(8) 3 Mb
+--- Balmorel.gms(484) 3 Mb
+--- .../data/RBF.inc(6) 3 Mb
+--- Balmorel.gms(577) 3 Mb
+--- .../data/gdata.inc(3) 3 Mb
+--- call =xls2gms r=A1:AF2100 I="..\data\GDATAinput.xlsx" O="..\data\GDATAout.inc"
+--- .../data/gdata.inc(5) 3 Mb
+--- ..GDATAout.inc(2111) 4 Mb
+--- .../data/gdata.inc(46) 4 Mb
+--- Balmorel.gms(582) 4 Mb
+--- .../data/RAMPUP.inc(9) 4 Mb
+--- Balmorel.gms(587) 4 Mb
+--- .../data/RAMPDOWN.inc(10) 4 Mb
+--- Balmorel.gms(631) 4 Mb
+--- .../../base/addons/hydrogen/H2g.inc(11) 4 Mb
+--- Balmorel.gms(780) 4 Mb
+--- .../addons/_hooks/isetdeclare.inc(4) 4 Mb
+--- Balmorel.gms(783) 4 Mb
+--- .../addons/_hooks/isetdefine.inc(4) 4 Mb
+--- Balmorel.gms(786) 4 Mb
+--- .../addons/_hooks/isetdecdef.inc(4) 4 Mb
+--- ..../addons/combtech/combtech_isetdecdef.inc(10) 4 Mb
+--- .../addons/_hooks/isetdecdef.inc(6) 4 Mb
+--- Balmorel.gms(797) 4 Mb
+--- .../../base/addons/hydrogen/H2Gassign.inc(16) 4 Mb
+--- Balmorel.gms(829) 4 Mb
+--- .../data/gkfx.inc(3655) 4 Mb
+--- Balmorel.gms(967) 4 Mb
+--- .../data/YVALUE.inc(59) 4 Mb
+--- Balmorel.gms(972) 4 Mb
+--- .../data/FDATA.inc(254) 4 Mb
+--- Balmorel.gms(985) 4 Mb
+--- .../data/FMAXINVEST.inc(4) 4 Mb
+--- Balmorel.gms(990) 4 Mb
+--- .../data/GROWTHCAP.inc(3) 4 Mb
+--- Balmorel.gms(996) 4 Mb
+--- .../data/DISLOSS_E.inc(141) 4 Mb
+--- Balmorel.gms(1001) 4 Mb
+--- .../data/DISLOSS_H.inc(501) 4 Mb
+--- Balmorel.gms(1006) 4 Mb
+--- .../data/DISCOST_E.inc(136) 4 Mb
+--- Balmorel.gms(1011) 4 Mb
+--- .../data/DISCOST_H.inc(3) 4 Mb
+--- Balmorel.gms(1016) 4 Mb
+--- .../data/FKPOT.inc(3) 4 Mb
+--- Balmorel.gms(1022) 4 Mb
+--- .../data/FGEMIN.inc(4) 4 Mb
+--- Balmorel.gms(1027) 4 Mb
+--- .../data/FGEMAX.inc(4) 4 Mb
+--- Balmorel.gms(1033) 4 Mb
+--- .../data/GMINF.inc(3) 4 Mb
+--- Balmorel.gms(1039) 4 Mb
+--- .../data/GMAXF.inc(458) 4 Mb
+--- Balmorel.gms(1045) 4 Mb
+--- .../data/GMAXFCOMB.inc(45) 4 Mb
+--- Balmorel.gms(1051) 4 Mb
+--- .../data/GEQF.inc(131) 4 Mb
+--- Balmorel.gms(1058) 4 Mb
+--- .../data/GEQF_FLEX.inc(98) 4 Mb
+--- Balmorel.gms(1065) 4 Mb
+--- .../data/GKNMAX.inc(4) 4 Mb
+--- Balmorel.gms(1071) 4 Mb
+--- .../data/WTRRSFLH.inc(501) 4 Mb
+--- Balmorel.gms(1076) 4 Mb
+--- .../data/WTRRRFLH.inc(502) 4 Mb
+--- Balmorel.gms(1081) 4 Mb
+--- .../data/WNDFLH.inc(125) 4 Mb
+--- Balmorel.gms(1086) 4 Mb
+--- .../data/SOLEFLH.inc(180) 4 Mb
+--- Balmorel.gms(1092) 4 Mb
+--- .../data/SOLHFLH.inc(28) 4 Mb
+--- Balmorel.gms(1097) 4 Mb
+--- .../data/WAVEFLH.inc(5) 4 Mb
+--- Balmorel.gms(1102) 4 Mb
+--- .../data/HYRSDATA.inc(6) 4 Mb
+--- Balmorel.gms(1107) 4 Mb
+--- .../data/TAX_GF.inc(88502) 4 Mb
+--- Balmorel.gms(1112) 4 Mb
+--- .../data/TAX_GE.inc(464304) 4 Mb
+--- Balmorel.gms(1117) 4 Mb
+--- .../data/TAX_GH.inc(14969) 4 Mb
+--- Balmorel.gms(1122) 4 Mb
+--- .../data/TAX_KN.inc(7) 4 Mb
+--- Balmorel.gms(1127) 4 Mb
+--- .../data/TAX_F.inc(3) 4 Mb
+--- Balmorel.gms(1132) 4 Mb
+--- .../data/TAX_DE.inc(14) 4 Mb
+--- Balmorel.gms(1137) 4 Mb
+--- .../data/TAX_DH.inc(14) 4 Mb
+--- Balmorel.gms(1144) 4 Mb
+--- .../data/ANNUITYC.inc(14) 4 Mb
+--- Balmorel.gms(1149) 4 Mb
+--- .../data/GINVCOST.inc(988) 4 Mb
+--- Balmorel.gms(1154) 4 Mb
+--- .../data/GOMVCOST.inc(1392) 4 Mb
+--- Balmorel.gms(1159) 4 Mb
+--- .../data/GOMFCOST.inc(600) 4 Mb
+--- Balmorel.gms(1164) 4 Mb
+--- .../data/GEFFRATE.inc(8) 4 Mb
+--- Balmorel.gms(1170) 4 Mb
+--- .../data/DEFP_BASE.inc(136) 4 Mb
+--- Balmorel.gms(1175) 4 Mb
+--- .../data/DHFP_BASE.inc(535) 4 Mb
+--- Balmorel.gms(1190) 4 Mb
+--- .../data/de.inc(317) 4 Mb
+--- Balmorel.gms(1199) 4 Mb
+--- .../data/dh.inc(453) 4 Mb
+--- Balmorel.gms(1210) 4 Mb
+--- .../data/XKINI.inc(1374) 5 Mb
+--- Balmorel.gms(1215) 5 Mb
+--- .../data/XINVCOST.inc(38) 5 Mb
+--- Balmorel.gms(1220) 5 Mb
+--- .../data/XLIFETIME.inc(40) 5 Mb
+--- Balmorel.gms(1225) 5 Mb
+--- .../data/XCOST.inc(383) 5 Mb
+--- Balmorel.gms(1230) 5 Mb
+--- .../data/XLOSS.inc(17563) 5 Mb
+--- Balmorel.gms(1236) 5 Mb
+--- .../data/XKRATE.inc(8) 5 Mb
+--- Balmorel.gms(1241) 5 Mb
+--- .../data/XMAXINV.inc(336) 5 Mb
+--- Balmorel.gms(1250) 5 Mb
+--- .../data/X3FX.inc(3) 5 Mb
+--- Balmorel.gms(1297) 5 Mb
+--- .../data/FUELPRICE.inc(350) 5 Mb
+--- Balmorel.gms(1307) 5 Mb
+--- .../data/m_pol.inc(2305) 5 Mb
+--- Balmorel.gms(1319) 5 Mb
+--- .../data/WEIGHT_S.inc(55) 5 Mb
+--- Balmorel.gms(1324) 5 Mb
+--- .../data/WEIGHT_T.inc(171) 5 Mb
+--- Balmorel.gms(1331) 5 Mb
+--- .../data/GKRATE.inc(6) 5 Mb
+--- Balmorel.gms(1339) 5 Mb
+--- .../data/DE_VAR_T.inc(69954) 8 Mb
+--- Balmorel.gms(1346) 8 Mb
+--- .../data/DH_VAR_T.inc(139968) 12 Mb
+--- Balmorel.gms(1351) 12 Mb
+--- .../data/WTRRSVAR_S.inc(41) 12 Mb
+--- Balmorel.gms(1356) 12 Mb
+--- .../data/WTRRRVAR_T.inc(131046) 16 Mb
+--- Balmorel.gms(1361) 16 Mb
+--- .../data/WND_VAR_T.inc(201049) 22 Mb
+--- Balmorel.gms(1366) 22 Mb
+--- .../data/SOLE_VAR_T.inc(113600) 26 Mb
+--- Balmorel.gms(1371) 26 Mb
+--- .../data/SOLH_VAR_T.inc(41) 26 Mb
+--- Balmorel.gms(1376) 26 Mb
+--- .../data/WAVE_VAR_T.inc(13) 26 Mb
+--- Balmorel.gms(1381) 26 Mb
+--- .../data/X3FX_VAR_T.inc(8753) 26 Mb
+--- Balmorel.gms(1387) 26 Mb
+--- .../data/HYPPROFILS.inc(22515) 27 Mb
+--- Balmorel.gms(1392) 27 Mb
+--- .../data/DEF_STEPS.inc(25) 27 Mb
+--- Balmorel.gms(1402) 27 Mb
+--- .../data/DHF_STEPS.inc(3) 27 Mb
+--- Balmorel.gms(1444) 27 Mb
+--- .../data/GVKGN.inc(424) 27 Mb
+--- Balmorel.gms(1447) 27 Mb
+--- .../data/GVKXN.inc(6) 27 Mb
+--- Balmorel.gms(1462) 27 Mb
+--- .../data/OMONEY.inc(2) 27 Mb
+--- Balmorel.gms(1479) 27 Mb
+--- .../addons/Hydrogen/H2data.inc(2) 27 Mb
+--- ..../addons/Hydrogen/DH2.inc(21) 27 Mb
+--- .../addons/Hydrogen/H2data.inc(8) 27 Mb
+--- ..../addons/Hydrogen/DH2_VAR_T.inc(5102) 27 Mb
+--- .../addons/Hydrogen/H2data.inc(31) 27 Mb
+--- Balmorel.gms(1496) 27 Mb
+--- .../data/PENALTYQ.inc(1) 27 Mb
+--- Balmorel.gms(1545) 27 Mb
+--- .../../base/logerror/logerinc/error1.inc(45) 27 Mb
+--- Balmorel.gms(1893) 27 Mb
+--- .../../base/addons/Hydrogen/H2InternalParameters.inc(4) 27 Mb
+--- Balmorel.gms(1913) 27 Mb
+--- .../../base/output/printout/printinc/print1.inc(230) 27 Mb
+--- Balmorel.gms(1916) 27 Mb
+--- .../../base/output/printout/printinc/inputout.inc(2327) 27 Mb
+--- Balmorel.gms(1991) 27 Mb
+--- .../data/TIMELENGHT.inc(1) 27 Mb
+--- Balmorel.gms(2022) 27 Mb
+--- .../addons/_hooks/parameters.inc(2) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(7) 27 Mb
+--- ...../addons/OptiFlow/data/AAAOPTIFLOW.inc(42) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(16) 27 Mb
+--- ...../addons/OptiFlow/data/AAATRANSIT.inc(5) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(21) 27 Mb
+--- ...../addons/OptiFlow/data/AAAIMPORT.inc(6) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(88) 27 Mb
+--- ...../addons/OptiFlow/data/PROC.inc(297) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(97) 27 Mb
+--- ...../addons/OptiFlow/data/PROCSOURCE.inc(6) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(104) 27 Mb
+--- ...../addons/OptiFlow/data/PROCSINK.inc(5) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(109) 27 Mb
+--- ...../addons/OptiFlow/data/PROCBUFFER.inc(22) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(114) 27 Mb
+--- ...../addons/OptiFlow/data/PROCEXIM.inc(7) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(119) 27 Mb
+--- ...../addons/OptiFlow/data/PROCTIMELINK.inc(97) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(124) 27 Mb
+--- ...../addons/OptiFlow/data/PROCSTORAGE.inc(96) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(133) 27 Mb
+--- ...../addons/OptiFlow/data/PROCSTORAGE_Y.inc(6) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(139) 27 Mb
+--- ...../addons/OptiFlow/data/PROC_T.inc(189) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(144) 27 Mb
+--- ...../addons/OptiFlow/data/PROCSTORAGE_YT.inc(5) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(164) 27 Mb
+--- ...../addons/OptiFlow/data/APROCKAPNEW.inc(56) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(176) 27 Mb
+--- ...../addons/OptiFlow/data/FLOW.inc(1762) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(185) 27 Mb
+--- ...../addons/OptiFlow/data/TRANSDIST.inc(156) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(198) 27 Mb
+--- ...../addons/OptiFlow/data/PROCDATASET.inc(11) 27 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(203) 27 Mb
+--- ...../addons/OptiFlow/data/PROCDATA.inc(97) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(217) 28 Mb
+--- ...../addons/OptiFlow/data/PROCKAPDATA.inc(100) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(224) 28 Mb
+--- ...../addons/OptiFlow/data/PROCKAPFX.inc(176) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(229) 28 Mb
+--- ...../addons/OptiFlow/data/PROCKAPNEWSCALE.inc(13) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(235) 28 Mb
+--- ...../addons/OptiFlow/data/M_EconomyScale.inc(5) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(242) 28 Mb
+--- ...../addons/OptiFlow/data/PROCKAPDECOM.inc(59) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(272) 28 Mb
+--- ...../addons/OptiFlow/data/FLOWINDIC.inc(7) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(279) 28 Mb
+--- ...../addons/OptiFlow/data/PROCINDIC.inc(9) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(284) 28 Mb
+--- ...../addons/OptiFlow/data/SOSIBU2INDIC.inc(45) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(291) 28 Mb
+--- ...../addons/OptiFlow/data/SOSIBU2INDIC_A.inc(7) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(297) 28 Mb
+--- ...../addons/OptiFlow/data/SOSIBU2INDIC_AST.inc(43) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(303) 28 Mb
+--- ...../addons/OptiFlow/data/SOSIBU2INDIC_AS.inc(123) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(308) 28 Mb
+--- ...../addons/OptiFlow/data/SOSIBU2INDIC_RST.inc(1355) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(313) 28 Mb
+--- ...../addons/OptiFlow/data/PROCSTORAGEBOUND.inc(9) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(327) 28 Mb
+--- ...../addons/OptiFlow/data/PROCKAPFXINV.inc(8) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(363) 28 Mb
+--- ...../addons/OptiFlow/data/FLOWFROMTOPROC.inc(307) 28 Mb
+--- call =xls2gms r=A1:I4000 I="..\addons\OptiFlow\data\FLOWFROMTOPROC_Y.xlsx" O="..\addons\OptiFlow\data\FLOWFROMTOPROC_Y.inc"
+--- ...../addons/OptiFlow/data/FLOWFROMTOPROC.inc(309) 28 Mb
+--- ....FLOWFROMTOPROC_Y.inc(4011) 28 Mb
+--- ...../addons/OptiFlow/data/FLOWFROMTOPROC.inc(314) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(370) 28 Mb
+--- ...../addons/OptiFlow/data/PROCINOUTFLOW.inc(45) 28 Mb
+--- call =xls2gms r=A1:L400 I="..\addons\OptiFlow\data\PROCINOUTFLOW_Y.xlsx" O="..\addons\OptiFlow\data\PROCINOUTFLOW_Y.inc"
+--- ...../addons/OptiFlow/data/PROCINOUTFLOW.inc(47) 28 Mb
+--- ....PROCINOUTFLOW_Y.inc(411) 28 Mb
+--- ...../addons/OptiFlow/data/PROCINOUTFLOW.inc(353) 28 Mb
+--- call =xls2gms r=A1:L3500 I="..\addons\OptiFlow\data\PROCINOUTFLOW_Y_A.xlsx" O="..\addons\OptiFlow\data\PROCINOUTFLOW_Y_A.inc"
+--- ...../addons/OptiFlow/data/PROCINOUTFLOW.inc(355) 28 Mb
+--- ....PROCINOUTFLOW_Y_A.inc(3511) 28 Mb
+--- ...../addons/OptiFlow/data/PROCINOUTFLOW.inc(387) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(428) 28 Mb
+--- ...../addons/OptiFlow/data/TRANSFLOWMAX.inc(14) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(457) 28 Mb
+--- ...../addons/OptiFlow/data/TRANSCOSTDATASET.inc(14) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(462) 28 Mb
+--- ...../addons/OptiFlow/data/TRANSCOST.inc(44) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(496) 28 Mb
+--- ...../addons/OptiFlow/data/SOSIBUBOUND.inc(23) 28 Mb
+--- call =xls2gms r=A1:J600 I="..\addons\OptiFlow\data\SOSIBUBOUND_Y.xlsx" O="..\addons\OptiFlow\data\SOSIBUBOUND_Y.inc"
+--- ...../addons/OptiFlow/data/SOSIBUBOUND.inc(25) 28 Mb
+--- ....SOSIBUBOUND_Y.inc(611) 28 Mb
+--- ...../addons/OptiFlow/data/SOSIBUBOUND.inc(33) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(504) 28 Mb
+--- ...../addons/OptiFlow/data/SOSIBUFLOW_VAR_T.inc(21) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(520) 28 Mb
+--- ...../addons/OptiFlow/data/FLOWSHAREOUT2IN.inc(24) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(525) 28 Mb
+--- ...../addons/OptiFlow/data/FLOWSHAREOUT2OUT.inc(29) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(530) 28 Mb
+--- ...../addons/OptiFlow/data/FLOWSHAREIN2IN.inc(6) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(540) 28 Mb
+--- ...../addons/OptiFlow/data/PROCRAMPUP.inc(95) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(545) 28 Mb
+--- ...../addons/OptiFlow/data/PROCRAMPDOWN.inc(95) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(552) 28 Mb
+--- ...../addons/OptiFlow/data/EQFLOW.inc(16) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(558) 28 Mb
+--- ...../addons/OptiFlow/data/MAXFLOW.inc(6) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(564) 28 Mb
+--- ...../addons/OptiFlow/data/MINFLOW.inc(7) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(588) 28 Mb
+--- ...../addons/OptiFlow/data/RateOfReturn.inc(3) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(611) 28 Mb
+--- ...../addons/OptiFlow/data/INDICLIMGOAL.inc(34) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_parameters.inc(650) 28 Mb
+--- .../addons/_hooks/parameters.inc(4) 28 Mb
+--- Balmorel.gms(2025) 28 Mb
+--- .../addons/_hooks/parameters_Bal_update.inc(4) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_pameters_Bal_upd.inc(4) 28 Mb
+--- .../addons/_hooks/parameters_Bal_update.inc(5) 28 Mb
+--- Balmorel.gms(2033) 28 Mb
+--- .../data/INSCAPSOLE.inc(50) 28 Mb
+--- Balmorel.gms(2042) 28 Mb
+--- .../data/INSCAPSOLH.inc(27) 28 Mb
+--- Balmorel.gms(2052) 28 Mb
+--- .../data/IGWNDON.inc(31) 28 Mb
+--- Balmorel.gms(2057) 28 Mb
+--- .../data/INSCAPWINDON.inc(58) 28 Mb
+--- Balmorel.gms(2066) 28 Mb
+--- .../data/IGWNDOFF.inc(19) 28 Mb
+--- Balmorel.gms(2071) 28 Mb
+--- .../data/INSCAPWINDOFF.inc(52) 28 Mb
+--- Balmorel.gms(2080) 28 Mb
+--- .../data/HEATPUMP_ST.inc(8) 28 Mb
+--- Balmorel.gms(2085) 28 Mb
+--- .../data/INSCAPHEATPUMP.inc(23) 28 Mb
+--- Balmorel.gms(2173) 28 Mb
+--- .../../base/addons/Hydrogen/H2variables.inc(10) 28 Mb
+--- Balmorel.gms(2175) 28 Mb
+--- .../addons/_hooks/defvariables.inc(1) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_variables.inc(58) 28 Mb
+--- .../addons/_hooks/defvariables.inc(3) 28 Mb
+--- Balmorel.gms(2322) 28 Mb
+--- .../addons/_hooks/qobj.inc(1) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_qobj.inc(2) 28 Mb
+--- .../addons/_hooks/qobj.inc(3) 28 Mb
+--- Balmorel.gms(2523) 28 Mb
+--- .../../base/addons/Hydrogen/H2costs.inc(64) 28 Mb
+--- Balmorel.gms(2555) 28 Mb
+--- .../addons/_hooks/qeeq.inc(4) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_qeeq.inc(4) 28 Mb
+--- .../addons/_hooks/qeeq.inc(7) 28 Mb
+--- Balmorel.gms(2592) 28 Mb
+--- .../addons/_hooks/qheq.inc(2) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_qheq.inc(4) 28 Mb
+--- .../addons/_hooks/qheq.inc(3) 28 Mb
+--- Balmorel.gms(3264) 28 Mb
+--- .../addons/_hooks/eqndeclare.inc(5) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_deceq.inc(57) 28 Mb
+--- .../addons/_hooks/eqndeclare.inc(7) 28 Mb
+--- Balmorel.gms(3267) 28 Mb
+--- .../addons/_hooks/eqndefine.inc(6) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_equations.inc(612) 28 Mb
+--- .../addons/_hooks/eqndefine.inc(8) 28 Mb
+--- Balmorel.gms(3270) 28 Mb
+--- .../addons/_hooks/eqndecdef.inc(5) 28 Mb
+--- ..combtech_eqndecdef.inc(262) 28 Mb
+--- .../addons/_hooks/eqndecdef.inc(20) 28 Mb
+--- Balmorel.gms(3300) 28 Mb
+--- .../../base/addons/Hydrogen/H2equations.inc(151) 28 Mb
+--- Balmorel.gms(3407) 28 Mb
+--- .../addons/_hooks/balbase1.inc(9) 28 Mb
+--- Balmorel.gms(3418) 28 Mb
+--- .../../base/addons/Hydrogen/H2bb1.inc(11) 28 Mb
+--- Balmorel.gms(3537) 28 Mb
+--- .../addons/_hooks/balbase2.inc(5) 28 Mb
+--- ..../addons/combtech/combtech_balbase2.inc(36) 28 Mb
+--- .../addons/_hooks/balbase2.inc(8) 28 Mb
+--- ..../addons/OptiFlow/OptiFlow_modeldef.inc(40) 28 Mb
+--- .../addons/_hooks/balbase2.inc(12) 28 Mb
+--- Balmorel.gms(3549) 28 Mb
+--- .../../base/addons/Hydrogen/H2bb1.inc(11) 28 Mb
+--- Balmorel.gms(3585) 28 Mb
+--- .../addons/_hooks/balbase3.inc(3) 28 Mb
+--- Balmorel.gms(3590) 28 Mb
+--- .../../base/addons/Hydrogen/H2bb3.inc(9) 28 Mb
+--- Balmorel.gms(3617) 28 Mb
+--- .../../base/logerror/logerinc/error2.inc(1104) 28 Mb
+--- Balmorel.gms(3621) 28 Mb
+--- .../addons/_hooks/error2.inc(4) 28 Mb
+--- ..../addons/combtech/combtech_error2.inc(151) 28 Mb
+--- .../addons/_hooks/error2.inc(6) 28 Mb
+--- Balmorel.gms(3654) 28 Mb
+--- .bb123.sim(183) 28 Mb
+--- ..../addons/_hooks/sim.inc(4) 28 Mb
+--- ...../addons/OptiFlow/OptiFlow_sim.inc(73) 28 Mb
+--- ..../addons/_hooks/sim.inc(5) 28 Mb
+--- .bb123.sim(202) 28 Mb
+--- ..../../base/addons/combtech/combSIM.inc(22) 28 Mb
+--- .bb123.sim(535) 28 Mb
+--- ..../../base/addons/Hydrogen/H2AnnualUpdate.inc(8) 28 Mb
+--- .bb123.sim(583) 28 Mb
+--- ..../../base/logerror/logerinc/error3.inc(112) 28 Mb
+--- .bb123.sim(707) 28 Mb
+--- ..../../base/logerror/logerinc/balbase2.mss(92) 28 Mb
+--- .bb123.sim(764) 28 Mb
+--- ..../../base/addons/Hydrogen/H2Sim.inc(5) 28 Mb
+--- .bb123.sim(768) 28 Mb
+--- ..../../base/logerror/logerinc/error4.inc(274) 28 Mb
+--- .bb123.sim(807) 28 Mb
+--- ..../../base/addons/Hydrogen/H2geninput.inc(9) 28 Mb
+--- .bb123.sim(855) 29 Mb
+--- Balmorel.gms(3735) 29 Mb
+--- .../output/inputout/OutputFile.inc(10) 29 Mb
+--- ..../data/TECHTYPE.inc(70) 29 Mb
+--- .../output/inputout/OutputFile.inc(15) 29 Mb
+--- ..../data/GTECHTYPE.inc(2055) 29 Mb
+--- .../output/inputout/OutputFile.inc(42) 29 Mb
+--- ..../addons/_hooks/OutputCalculation.inc(2) 29 Mb
+--- ...../addons/OptiFlow/OptiFlow_outputcalculation.inc(4) 29 Mb
+--- ....../addons/OptiFlow/data/PROCTECHTYPE.inc(95) 29 Mb
+--- ...../addons/OptiFlow/OptiFlow_outputcalculation.inc(7) 29 Mb
+--- ..../addons/_hooks/OutputCalculation.inc(4) 29 Mb
+--- .../output/inputout/OutputFile.inc(110) 29 Mb
+--- ..../addons/_hooks/EProduction_RST.inc(1) 29 Mb
+--- ..../addons/_hooks/EProduction_RST.inc(3) 29 Mb
+--- .../output/inputout/OutputFile.inc(167) 29 Mb
+--- ..../addons/_hooks/Hproduction_AST.inc(1) 29 Mb
+--- ...../addons/OptiFlow/OptiFlow_Hproduction_AST.inc(4) 29 Mb
+--- ..../addons/_hooks/Hproduction_AST.inc(3) 29 Mb
+--- .../output/inputout/OutputFile.inc(191) 29 Mb
+--- ..../addons/_hooks/FuelConsumption_C.inc(1) 29 Mb
+--- ..../addons/_hooks/FuelConsumption_C.inc(3) 29 Mb
+--- .../output/inputout/OutputFile.inc(258) 29 Mb
+--- ..../addons/_hooks/Outputgdx.inc(2) 29 Mb
+--- ...../addons/OptiFlow/OptiFlow_outputgdx.inc(2) 29 Mb
+--- ..../addons/_hooks/Outputgdx.inc(4) 29 Mb
+--- .../output/inputout/OutputFile.inc(265) 29 Mb
+--- Balmorel.gms(3741) 29 Mb
+--- Starting execution: elapsed 0:00:39.549
+--- Balmorel.gms(1270558) 206 Mb  6 secs
+--- Balmorel.gms(1270559) 206 Mb  3 secs
+--- Balmorel.gms(1270599) 206 Mb  6 secs
+--- Balmorel.gms(1308228) 206 Mb
+--- Balmorel.gms(1308237) 206 Mbrm: ../output/printout/printinc: is a directory
+--- Balmorel.gms(1310718) 210 Mb
+--- GDX File C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\output\temp\1INPUT_B303.gdx
+--- Balmorel.gms(1324605) 210 Mb  14 secs
+--- Balmorel.gms(1324616) 210 Mb  15 secs
+--- Balmorel.gms(1330495) 215 Mb
+--- Generating MIP model BALBASE2
+--- Balmorel.gms(1331295) 249 Mb
+--- LOOPS Y = 2035
+---   154,400 rows  185,974 columns  513,698 non-zeroes
+---   111 discrete-columns
+--- Executing CPLEX: elapsed 0:01:41.789
+
+IBM ILOG CPLEX   24.8.5 r61358 Released May 10, 2017 WEI x86 64bit/MS Windows 
+--- GAMS/Cplex licensed for continuous and discrete problems.
+Cplex 12.7.1.0
+
+Reading parameter(s) from "C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\cplex.opt"
+>>  lpmethod 4
+>>  $ifi %SOLVEMIP%==yes relaxfixedinfeas 1
+*** Error line 2: Option keyword expected, saw "$"
+>>  $ifi %solveOptiFlowmip%==yes relaxfixedinfeas 1  
+*** Error line 3: Option keyword expected, saw "$"
+Finished reading from "C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\cplex.opt"
+Reading data...
+Starting Cplex...
+Space for names approximately 25.23 Mb
+Use option 'names no' to turn use of names off
+CPXPARAM_Advance                                 0
+CPXPARAM_TimeLimit                               1000000000
+CPXPARAM_LPMethod                                4
+CPXPARAM_WorkDir                                 "C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\225a\"
+CPXPARAM_Threads                                 1
+CPXPARAM_Parallel                                1
+CPXPARAM_Tune_TimeLimit                          200000000
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   0
+CPXPARAM_MIP_Display                             4
+CPXPARAM_Barrier_Limits_Iteration                2000000000
+Tried aggregator 2 times.
+MIP Presolve eliminated 65686 rows and 83098 columns.
+Aggregator did 48410 substitutions.
+Reduced MIP has 40304 rows, 54466 columns, and 180755 nonzeros.
+Reduced MIP has 111 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.45 sec. (272.85 ticks)
+Probing time = 0.02 sec. (2.86 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 2750 rows and 2356 columns.
+Reduced MIP has 37554 rows, 52110 columns, and 172182 nonzeros.
+Reduced MIP has 111 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.22 sec. (108.49 ticks)
+Probing time = 0.00 sec. (2.58 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =    4885631668.929324
+Iteration:   548   Dual objective     =    6078640855.491283
+Iteration:  1077   Dual objective     =    6548958243.417005
+Iteration:  1639   Dual objective     =    8356445345.628173
+Iteration:  2222   Dual objective     =    9402894839.061764
+Iteration:  2591   Dual objective     =    9933533071.494982
+Iteration:  3314   Dual objective     =   10246856769.320642
+Iteration:  4054   Dual objective     =   10558700636.634659
+Iteration:  4599   Dual objective     =   10976861638.293364
+Iteration:  5068   Dual objective     =   11363068292.951576
+Iteration:  5547   Dual objective     =   12004229580.546600
+Iteration:  6076   Dual objective     =   12345209793.260017
+Iteration:  6711   Dual objective     =   12667740990.692518
+Iteration:  7217   Dual objective     =   12799042863.804140
+Iteration:  7646   Dual objective     =   13100244041.781458
+Iteration:  8073   Dual objective     =   13178355029.231327
+Iteration:  8581   Dual objective     =   13251190719.238968
+Iteration:  8983   Dual objective     =   13358179614.766350
+Iteration:  9383   Dual objective     =   13471053933.154194
+Iteration:  9884   Dual objective     =   13539002948.723795
+Iteration: 10191   Dual objective     =   13592077696.253916
+Iteration: 10566   Dual objective     =   13711618556.211647
+Iteration: 10887   Dual objective     =   13774821530.937460
+Iteration: 11204   Dual objective     =   13822475249.207697
+Iteration: 11582   Dual objective     =   13870292661.863022
+Iteration: 11925   Dual objective     =   13903885788.384262
+Iteration: 12290   Dual objective     =   13949955095.386320
+Iteration: 12642   Dual objective     =   13998779885.080593
+Iteration: 13098   Dual objective     =   14030189497.018440
+Iteration: 13477   Dual objective     =   14042303861.667088
+Iteration: 13766   Dual objective     =   14047611924.293835
+Iteration: 14199   Dual objective     =   14062720652.973192
+Iteration: 14601   Dual objective     =   14071161804.785067
+Iteration: 15012   Dual objective     =   14080507201.618351
+Iteration: 15409   Dual objective     =   14087346131.890324
+Iteration: 15889   Dual objective     =   14095859870.420427
+Iteration: 16168   Dual objective     =   14102854544.294340
+Iteration: 16532   Dual objective     =   14108058596.332605
+Iteration: 16956   Dual objective     =   14112698494.664326
+Iteration: 17301   Dual objective     =   14117559934.131474
+Iteration: 17742   Dual objective     =   14122093933.781319
+Iteration: 18157   Dual objective     =   14129393601.470148
+Iteration: 18570   Dual objective     =   14134245283.922480
+Iteration: 18987   Dual objective     =   14143065471.457653
+Iteration: 19398   Dual objective     =   14149841689.903181
+Iteration: 19782   Dual objective     =   14153041374.868675
+Iteration: 20118   Dual objective     =   14156654839.176498
+Iteration: 20456   Dual objective     =   14160325215.197941
+Iteration: 20755   Dual objective     =   14163554725.699881
+Iteration: 21050   Dual objective     =   14167884117.228458
+Iteration: 21363   Dual objective     =   14171256596.715500
+Iteration: 21818   Dual objective     =   14179294353.124954
+Iteration: 22216   Dual objective     =   14193768182.876528
+Iteration: 22576   Dual objective     =   14199407574.110083
+Iteration: 23007   Dual objective     =   14202304158.596800
+Iteration: 23258   Dual objective     =   14204538812.862221
+Iteration: 23497   Dual objective     =   14208122062.955479
+Iteration: 23713   Dual objective     =   14209522354.620569
+Iteration: 23943   Dual objective     =   14210331221.157843
+Iteration: 24172   Dual objective     =   14211863702.373531
+Iteration: 24404   Dual objective     =   14212790456.758369
+Iteration: 24644   Dual objective     =   14214743125.405636
+Iteration: 24883   Dual objective     =   14216885266.478075
+Iteration: 25136   Dual objective     =   14218519727.989885
+Iteration: 25430   Dual objective     =   14223725868.026997
+Iteration: 25685   Dual objective     =   14225568613.528570
+Iteration: 25989   Dual objective     =   14227412920.649952
+Iteration: 26311   Dual objective     =   14229286968.957077
+Iteration: 26633   Dual objective     =   14230339194.344450
+Iteration: 26910   Dual objective     =   14231329090.998659
+Iteration: 27186   Dual objective     =   14232370693.649656
+Iteration: 27473   Dual objective     =   14234145207.918159
+Iteration: 27720   Dual objective     =   14235010344.157700
+Iteration: 28001   Dual objective     =   14235633582.063236
+Iteration: 28302   Dual objective     =   14236458077.328793
+Iteration: 28598   Dual objective     =   14236973250.651276
+Iteration: 28955   Dual objective     =   14237936083.179819
+Iteration: 29395   Dual objective     =   14240389634.453444
+Iteration: 29694   Dual objective     =   14243150182.536272
+Iteration: 30148   Dual objective     =   14245910310.634409
+Iteration: 30570   Dual objective     =   14247624162.440104
+Iteration: 30979   Dual objective     =   14248521414.335503
+Iteration: 31261   Dual objective     =   14248602197.169516
+Iteration: 31661   Dual objective     =   14249163815.469124
+Removing shift (100).
+Root relaxation solution time = 14.58 sec. (9010.63 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0  1.42492e+010    10                1.42492e+010    31799         
+      0     0  1.42492e+010    13                   Cuts: 480    32609         
+      0     0  1.42493e+010    15                   Cuts: 186    33050         
+      0     2  1.42493e+010    15                1.42493e+010    33050         
+Elapsed time = 37.91 sec. (27002.53 ticks, tree = 0.01 MB, solutions = 0)
+      2     4  1.42529e+010    10                1.42493e+010    34454         
+      4     6  1.42498e+010    13                1.42493e+010    34870         
+      5     7  1.42512e+010    15                1.42493e+010    36175         
+      6     8  1.42504e+010     9                1.42498e+010    37080         
+      7     9  1.42505e+010    10                1.42498e+010    39882         
+      8    10  1.42514e+010     3                1.42498e+010    43873         
+      9    11  1.42514e+010     4                1.42498e+010    46708         
+*    10+   10                      1.42570e+010  1.42498e+010             0.05%
+Found incumbent of value 1.4257002e+010 after 45.14 sec. (32481.90 ticks)
+     10    12  1.42567e+010     2  1.42570e+010  1.42498e+010    49014    0.05%
+     11    13  1.42519e+010     8  1.42570e+010  1.42498e+010    49765    0.05%
+     13    13  1.42520e+010     9  1.42570e+010  1.42498e+010    53834    0.05%
+Elapsed time = 49.48 sec. (34555.96 ticks, tree = 1.04 MB, solutions = 1)
+     16    14  1.42539e+010     1  1.42570e+010  1.42498e+010    56199    0.05%
+*    17    11      integral     0  1.42539e+010  1.42498e+010    56229    0.03%
+Found incumbent of value 1.4253877e+010 after 52.19 sec. (36174.68 ticks)
+     18    11  1.42516e+010    12  1.42539e+010  1.42498e+010    57706    0.03%
+                                                     Cuts: 12                  
+     21    12  1.42530e+010    12  1.42539e+010  1.42498e+010    60344    0.03%
+     38    15  1.42509e+010     6  1.42539e+010  1.42505e+010    62887    0.02%
+*    40+   11                      1.42532e+010  1.42505e+010             0.02%
+Found incumbent of value 1.4253220e+010 after 58.97 sec. (41319.83 ticks)
+     40    13  1.42515e+010    10  1.42532e+010  1.42505e+010    63719    0.02%
+     63    36  1.42519e+010     5  1.42532e+010  1.42505e+010    65867    0.02%
+*    70+   38                      1.42525e+010  1.42505e+010             0.01%
+Found incumbent of value 1.4252540e+010 after 61.47 sec. (43249.56 ticks)
+     70    40  1.42522e+010     5  1.42525e+010  1.42505e+010    67084    0.01%
+*    91    59      integral     0  1.42525e+010  1.42505e+010    68548    0.01%
+Found incumbent of value 1.4252511e+010 after 62.38 sec. (43966.60 ticks)
+     94    60  1.42510e+010    10  1.42525e+010  1.42505e+010    69887    0.01%
+    103    69  1.42514e+010    12  1.42525e+010  1.42505e+010    71475    0.01%
+    118    84  1.42519e+010     8  1.42525e+010  1.42505e+010    73514    0.01%
+Elapsed time = 65.58 sec. (46468.91 ticks, tree = 2.27 MB, solutions = 5)
+    140    96        cutoff        1.42525e+010  1.42512e+010    76085    0.01%
+    146    96  1.42521e+010     9  1.42525e+010  1.42513e+010    78472    0.01%
+                                                     Cuts: 10                  
+    159    93  1.42525e+010     5  1.42525e+010  1.42514e+010    80529    0.01%
+    177    85  1.42524e+010     7  1.42525e+010  1.42516e+010    82907    0.01%
+    191    80        cutoff        1.42525e+010  1.42517e+010    84111    0.01%
+    215    57  1.42523e+010     1  1.42525e+010  1.42519e+010    86083    0.00%
+*   220+   28                      1.42523e+010  1.42519e+010             0.00%
+Found incumbent of value 1.4252319e+010 after 77.23 sec. (56187.20 ticks)
+    232    36        cutoff        1.42523e+010  1.42520e+010    87268    0.00%
+    253    42  1.42523e+010     6  1.42523e+010  1.42521e+010    88538    0.00%
+    286    10        cutoff        1.42523e+010  1.42523e+010    89529    0.00%
+
+Flow cuts applied:  147
+Mixed integer rounding cuts applied:  76
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =   37.95 sec. (27011.86 ticks)
+Sequential b&c:
+  Real time             =   42.31 sec. (31876.00 ticks)
+                          ------------
+Total (root+branch&cut) =   80.27 sec. (58887.85 ticks)
+MIP status(101): integer optimal solution
+Cplex Time: 80.27sec (det. 58888.39 ticks)
+Fixing integer variables, and solving final LP...
+CPXPARAM_Advance                                 2
+CPXPARAM_TimeLimit                               1000000000
+CPXPARAM_LPMethod                                4
+CPXPARAM_WorkDir                                 "C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\225a\"
+CPXPARAM_Threads                                 1
+CPXPARAM_Parallel                                1
+CPXPARAM_Tune_TimeLimit                          200000000
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   0
+CPXPARAM_MIP_Display                             4
+CPXPARAM_Barrier_Limits_Iteration                2000000000
+Tried aggregator 1 time.
+LP Presolve eliminated 98047 rows and 119821 columns.
+Aggregator did 33166 substitutions.
+Reduced LP has 23187 rows, 32992 columns, and 106454 nonzeros.
+Presolve time = 0.22 sec. (186.30 ticks)
+Symmetry aggregator did 4885 additional substitutions.
+Tried aggregator 0 times.
+Reduced presolve eliminated 1 rows and 214 columns.
+Reduced LP has 20440 rows, 30639 columns, and 97887 nonzeros.
+Presolve time = 0.02 sec. (14.97 ticks)
+Parallel mode: none, using 1 thread for barrier
+
+***NOTE: Found 117 dense columns.
+
+Number of nonzeros in lower triangle of A*A' = 93708
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.02 sec. (13.83 ticks)
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 20557
+  Integer space required    = 68579
+  Total non-zeros in factor = 377469
+  Total FP ops to factor    = 19380347
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf Inf Ratio
+   0  1.2361872e+019 -1.8786633e+017 4.64e+009 2.77e+009 5.38e+014 1.00e+000
+   1  1.0911802e+019 -2.1793925e+017 4.10e+009 2.45e+009 3.17e+014 3.44e-015
+   2  5.9309496e+018 -2.2508586e+017 2.27e+009 1.36e+009 2.06e+014 2.73e-015
+   3  2.9343255e+018 -2.1731416e+017 1.16e+009 6.94e+008 1.10e+014 2.95e-015
+   4  1.1913191e+018 -1.5654122e+017 5.00e+008 2.98e+008 3.99e+013 7.43e-015
+   5  2.1047517e+017 -9.5925237e+016 1.11e+008 6.65e+007 1.17e+013 1.78e-014
+   6  4.4938717e+016 -3.4412924e+016 3.03e+007 1.81e+007 2.60e+012 8.03e-014
+   7  9.9479953e+015 -1.4687238e+016 8.93e+006 5.33e+006 8.73e+011 2.87e-013
+   8  3.9085336e+015 -8.9107984e+015 3.97e+006 2.37e+006 5.07e+011 5.71e-013
+   9  8.5433630e+014 -3.3149048e+015 1.00e+006 5.97e+005 1.82e+011 1.93e-012
+  10  2.7901238e+014 -1.0806534e+015 3.58e+005 2.14e+005 5.78e+010 7.28e-012
+  11  3.2557873e+013 -2.8651035e+014 6.79e+004 4.05e+004 1.43e+010 4.97e-011
+  12  7.9410718e+012 -4.2741275e+013 1.61e+004 9.60e+003 2.15e+009 3.70e-010
+  13  1.9617744e+012 -1.0185058e+013 3.39e+003 2.02e+003 5.26e+008 1.69e-009
+  14  4.5687510e+011 -3.3876573e+012 7.24e+002 4.32e+002 1.77e+008 6.44e-009
+  15  1.7812406e+011 -8.4380102e+011 1.83e+002 1.09e+002 4.72e+007 2.59e-008
+  16  1.1554555e+011 -4.9402257e+011 1.02e+002 6.11e+001 2.84e+007 4.79e-008
+  17  1.0319107e+011 -4.2249419e+011 8.90e+001 5.31e+001 2.45e+007 5.70e-008
+  18  8.1789958e+010 -2.3618507e+011 6.17e+001 3.68e+001 1.45e+007 1.04e-007
+  19  7.9235725e+010 -1.5387542e+011 5.94e+001 3.55e+001 9.69e+006 1.64e-007
+  20  5.8424326e+010 -8.3313565e+010 4.00e+001 2.39e+001 5.66e+006 2.99e-007
+  21  4.4491249e+010 -3.7352605e+010 2.80e+001 1.67e+001 2.93e+006 6.10e-007
+  22  3.8579502e+010 -2.9681390e+010 2.27e+001 1.36e+001 2.48e+006 7.23e-007
+  23  3.0673308e+010 -2.1781326e+010 1.57e+001 9.36e+000 2.02e+006 8.96e-007
+  24  2.3460255e+010 -4.7099576e+009 8.42e+000 5.03e+000 1.09e+006 1.72e-006
+  25  2.1162082e+010  4.1623407e+009 6.21e+000 3.71e+000 5.90e+005 3.25e-006
+  26  1.9993458e+010  7.9898475e+009 5.19e+000 3.10e+000 3.62e+005 5.26e-006
+  27  1.7923821e+010  1.0780237e+010 3.39e+000 2.02e+000 1.95e+005 9.41e-006
+  28  1.7363813e+010  1.1479339e+010 2.90e+000 1.73e+000 1.53e+005 1.18e-005
+  29  1.6604952e+010  1.2826908e+010 2.24e+000 1.33e+000 7.32e+004 2.27e-005
+  30  1.6105190e+010  1.2960029e+010 1.80e+000 1.08e+000 6.50e+004 2.51e-005
+  31  1.5507999e+010  1.3296679e+010 1.27e+000 7.55e-001 4.59e+004 3.38e-005
+  32  1.5100778e+010  1.3687838e+010 8.74e-001 5.21e-001 2.59e+004 5.65e-005
+  33  1.4972783e+010  1.3814569e+010 7.52e-001 4.48e-001 1.93e+004 7.28e-005
+  34  1.4729889e+010  1.4003660e+010 5.14e-001 3.06e-001 9.94e+003 1.26e-004
+  35  1.4542777e+010  1.4096710e+010 3.29e-001 1.96e-001 5.48e+003 1.99e-004
+  36  1.4408095e+010  1.4165116e+010 1.88e-001 1.12e-001 2.64e+003 3.50e-004
+  37  1.4337703e+010  1.4209019e+010 1.09e-001 6.48e-002 1.11e+003 6.94e-004
+  38  1.4308453e+010  1.4224837e+010 7.44e-002 4.43e-002 6.26e+002 1.09e-003
+  39  1.4283624e+010  1.4236290e+010 4.34e-002 2.58e-002 3.28e+002 1.87e-003
+  40  1.4273496e+010  1.4241306e+010 3.04e-002 1.81e-002 2.07e+002 2.71e-003
+  41  1.4262028e+010  1.4245286e+010 1.47e-002 8.61e-003 1.27e+002 4.24e-003
+  42  1.4257265e+010  1.4248172e+010 7.83e-003 4.49e-003 7.30e+001 7.17e-003
+  43  1.4254830e+010  1.4250548e+010 4.21e-003 2.31e-003 3.03e+001 1.66e-002
+  44  1.4253349e+010  1.4251466e+010 2.13e-003 9.86e-004 1.40e+001 3.45e-002
+  45  1.4252800e+010  1.4251903e+010 1.83e-003 4.68e-004 6.68e+000 7.05e-002
+  46  1.4252541e+010  1.4252123e+010 2.60e-003 2.20e-004 3.11e+000 1.49e-001
+  47  1.4252426e+010  1.4252193e+010 3.38e-003 1.07e-004 2.00e+000 2.33e-001
+  48  1.4252365e+010  1.4252260e+010 1.17e-002 4.28e-005 9.75e-001 4.94e-001
+  49  1.4252332e+010  1.4252305e+010 1.91e-002 1.10e-005 2.46e-001 2.11e+000
+  50  1.4252323e+010  1.4252315e+010 7.82e-003 2.97e-006 7.93e-002 7.41e+000
+  51  1.4252321e+010  1.4252318e+010 4.14e-003 1.25e-006 4.18e-002 1.98e+001
+  52  1.4252320e+010  1.4252319e+010 2.26e-002 7.43e-007 1.97e-002 8.04e+001
+  53  1.4252320e+010  1.4252319e+010 3.92e-002 4.44e-007 2.01e-002 1.18e+002
+  54  1.4252320e+010  1.4252319e+010 5.39e-002 2.36e-007 1.42e-002 3.67e+002
+  55  1.4252319e+010  1.4252319e+010 5.49e-002 6.38e-008 2.04e-002 4.74e+002
+  56  1.4252319e+010  1.4252319e+010 7.86e-002 4.52e-009 1.63e-002 4.38e+003
+  57  1.4252319e+010  1.4252319e+010 8.31e-002 1.42e-009 1.07e-002 6.96e+004
+Barrier time = 1.50 sec. (1714.70 ticks)
+
+Total time on 1 threads = 1.78 sec. (1926.90 ticks)
+Barrier time = 1.58 sec. (1743.10 ticks)
+
+Primal crossover.
+  Primal:  Fixing 1036 variables.
+     1035 PMoves:  Infeasibility 6.43743174e-002  Objective 1.42523193e+010
+      366 PMoves:  Infeasibility 1.12977627e-010  Objective 1.42523193e+010
+        0 PMoves:  Infeasibility 1.13101972e-010  Objective 1.42523193e+010
+  Primal:  Pushed 586, exchanged 450.
+  Dual:  Fixing 2929 variables.
+     2928 DMoves:  Infeasibility 1.67744556e-007  Objective 1.42523193e+010
+     2055 DMoves:  Infeasibility 1.67744556e-007  Objective 1.42523193e+010
+      393 DMoves:  Infeasibility 1.67711814e-007  Objective 1.42523193e+010
+        0 DMoves:  Infeasibility 1.67849460e-007  Objective 1.42523193e+010
+  Dual:  Pushed 1155, exchanged 1774.
+Using devex.
+Total crossover time = 0.16 sec. (171.54 ticks)
+
+Total time on 1 threads = 1.98 sec. (2106.30 ticks)
+Fixed MIP status(1): optimal
+Cplex Time: 1.98sec (det. 2106.30 ticks)
+
+Proven optimal solution.
+
+MIP Solution:  14252319328.103050    (89587 iterations, 297 nodes)
+Final Solve:   14252319328.102859    (0 iterations)
+
+Best possible: 14252319328.103050
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Restarting execution
+--- Balmorel.gms(1331295) 88 Mb
+--- Reading solution for model BALBASE2
+--- Balmorel.gms(1331295) 102 Mb
+--- Executing after solve: elapsed 0:03:08.105
+--- Balmorel.gms(1331786) 103 Mb
+--- GDX File C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\output\temp\output.gdx
+--- Balmorel.gms(1331808) 103 Mb
+*** GDXopenWrite failed C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\../../simex/HYRSG.gdx
+*** Msg: No such file or directory
+--- Balmorel.gms(1331809) 103 Mb 2 Errors
+*** GDXopenWrite failed C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\../../simex/VHYRS_SL.gdx
+*** Msg: No such file or directory
+--- Balmorel.gms(1331810) 103 Mb 4 Errors
+*** GDXopenWrite failed C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\../../simex/WATERVAL.gdx
+*** Msg: No such file or directory
+--- Balmorel.gms(1331822) 103 Mb 6 Errors
+--- GDX File C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\../../base/addons/Hydrogen/H2STOVOL_START.gdx
+--- Balmorel.gms(1334368) 103 Mb
+--- GDX File C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\MainResults.gdx
+--- Balmorel.gms(1334389) 103 Mb
+--- GDX File C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\all.gdx
+--- Putfile ERRORFILE C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\LogError\errors.out
+--- Putfile logfile C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\LogError\logfile.out
+--- Putfile printoutoverview C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\model\../output/printout/printoutoverview.out
+--- Putfile inputout C:\Users\aroal\OneDrive - Danmarks Tekniske Universitet\Balmorel&OptiFlow 180322\base\output\inputout\inputout.out
+--- Balmorel.gms(1334389) 103 Mb 6 Errors
+*** Status: Execution error(s)
+--- Job Balmorel.gms Stop 03/22/18 22:38:16 elapsed 0:03:09.501
+Exit code = 3

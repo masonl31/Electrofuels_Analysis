@@ -1,0 +1,445 @@
+*Create output file
+
+
+* MODELING OF THE ELECTRICITY GENERATION
+
+SET EDemand_type /classic, transport, "individual heating", "process heating", DH, H2/;
+
+
+SET TECHTYPE  'Type of technologies for calculation of marginals' %semislash%
+$if     EXIST '../data/TECHTYPE.inc' $INCLUDE      '../data/TECHTYPE.inc';
+$if not EXIST '../data/TECHTYPE.inc' $INCLUDE '../../base/data/TECHTYPE.inc';
+%semislash%;
+
+SET GTECHTYPE(GGG,TECHTYPE) 'Type of technology aggrupated'%semislash%
+$if     EXIST '../data/GTECHTYPE.inc' $INCLUDE      '../data/GTECHTYPE.inc';
+$if not EXIST '../data/GTECHTYPE.inc' $INCLUDE '../../base/data/GTECHTYPE.inc';
+%semislash%;
+
+SET ELECTRADE /Import, Export, "Net Export"/;
+
+
+SET RRROFFSHORE(RRR);
+RRROFFSHORE(IR)$SUM(IA,RRRAAA(IR,IA)$AAAOFFSHORE(IA))=YES;
+RRROFFSHORE("DK_E")=NO;
+RRROFFSHORE("DK_W")=NO;
+RRROFFSHORE("DK_KF")=NO;
+RRROFFSHORE("DE_KF")=NO;
+
+SET CAPACITIES /New, Existing, TOTAL/;
+
+
+
+
+
+
+Parameter EPrice_RST(RRR,SSS,TTT)  'Electricity price per hour at a regional level - cost of producing one unit more of electricity for own consumption or for export (€ 2015/MWh)';
+EPrice_RST(IR,S,T)=QEEQ.M(IR,S,T)*MONEYCONVERT/IHOURSINST(S,T);
+
+Parameter HPrice_AST(AAA,SSS,TTT)'Heat price per hour at an area level - cost of producing one unit more of heat(€ 2015/MWh)';
+HPrice_AST(IA,S,T)=QHEQ.M(IA,S,T)*MONEYCONVERT/IHOURSINST(S,T);
+
+
+
+$if     EXIST '../addons/_hooks/OutputCalculation.inc' $INCLUDE      '../addons/_hooks/OutputCalculation.inc';
+$if not EXIST '../addons/_hooks/OutputCalculation.inc' $INCLUDE '../../base/addons/_hooks/OutputCalculation.inc';
+
+
+* MODELING OF THE ELECTRICITY DEMAND
+
+Parameter EDemand_RST(EDemand_type,RRR,SSS,TTT) 'Electricity Demand (MW)';
+
+EDemand_RST("classic",IR,S,T)$(NOT (RETRANS(IR) OR RINDUS(IR)))=IDE_T_Y(IR,S,T);
+
+EDemand_RST("transport",IR,S,T)=SUM(RETRANS$IXKINI_Y(IR,RETRANS),IDE_T_Y(RETRANS,S,T));
+
+EDemand_RST("individual heating",IR,S,T)=SUM(IAGK_Y(IA,IGE)$((RRRAAA(IR,IA) AND (AINDHEAT(IA))) AND IGETOH(IGE)), VGE_T.L(IA,IGE,S,T))
+$ifi %bb2%==yes                         +SUM(IAGKN(IA,IGE)$((RRRAAA(IR,IA) AND (AINDHEAT(IA))) AND IGETOH(IGE)), VGEN_T.L(IA,IGE,S,T));
+
+EDemand_RST("process heating",IR,S,T)=SUM(RINDUS$IXKINI_Y(IR,RINDUS),IDE_T_Y(RINDUS,S,T));
+
+EDemand_RST("DH",IR,S,T)=SUM(IAGK_Y(IA,IGE)$((RRRAAA(IR,IA) AND (NOT AINDHEAT(IA))) AND IGETOH(IGE)), VGE_T.L(IA,IGE,S,T))
+$ifi %bb2%==yes         +SUM(IAGKN(IA,IGE)$((RRRAAA(IR,IA) AND (NOT AINDHEAT(IA))) AND IGETOH(IGE)), VGEN_T.L(IA,IGE,S,T));
+
+*$ifi %H2%==yes  EDemand_RST("H2",IR,S,T)=SUM(IAGK_Y(IA,IGETOH2)$(RRRAAA(IR,IA)), VGE_T.L(IA,IGETOH2,S,T))
+*$ifi %bb2%==yes                         +SUM(IAGKN(IA,IGETOH2)$(RRRAAA(IR,IA)), VGEN_T.L(IA,IGETOH2,S,T));
+
+
+Parameter Edemand_CST(EDemand_type,CCC,SSS,TTT) 'Electricity Demand (MW)';
+Edemand_CST(EDemand_type,C,S,T)=SUM(IR$CCCRRR(C,IR),EDemand_RST(EDemand_type,IR,S,T));
+
+
+Parameter Edemand_R(EDemand_type,RRR) 'Electricity Demand (PJ/year)';
+Edemand_R(EDemand_type,IR)=SUM((S,T),EDemand_RST(EDemand_type,IR,S,T)*IHOURSINST(S,T))*IOF0000001*IOF3P6;
+
+
+Parameter Edemand_C(EDemand_type,CCC) 'Electricity Demand (PJ/year)';
+Edemand_C(EDemand_type,C)=SUM((S,T),EDemand_CST(EDemand_type,C,S,T)*IHOURSINST(S,T))*IOF0000001*IOF3P6;
+
+
+
+
+Parameter Hdemand_AST(AAA,SSS,TTT) 'District Heating Demand (MW)';
+Hdemand_AST(IA,S,T)$(NOT AINDHEAT(IA))=IDH_T_Y(IA,S,T);
+
+
+
+
+
+
+*Weighted average electricity price by consumption quantity (€ 2015/MWh)
+
+Parameter EPrice_R(RRR) 'Weighted average electricity price by consumption quantity per year at a regional level (€ 2015/MWh)';
+EPrice_R(IR)$(SUM((EDemand_type,S,T),EDemand_RST(EDemand_type,IR,S,T)*IHOURSINST(S,T)))=SUM((EDemand_type,S,T),EDemand_RST(EDemand_type,IR,S,T)*IHOURSINST(S,T)*EPrice_RST(IR,S,T))/SUM((EDemand_type,S,T),EDemand_RST(EDemand_type,IR,S,T)*IHOURSINST(S,T));
+
+Parameter EPrice_CST(CCC,SSS,TTT) 'Weighted average electricity price by consumption quantity at a country level(€ 2015/MWh)';
+EPrice_CST(C,S,T)=SUM((EDemand_type,IR)$CCCRRR(C,IR),EDemand_RST(EDemand_type,IR,S,T)*EPrice_RST(IR,S,T))/SUM((EDemand_type,IR)$CCCRRR(C,IR),EDemand_RST(EDemand_type,IR,S,T));
+
+Parameter EPrice_C(CCC) 'Weighted average electricity price by consumption quantity per year at a country level (€ 2015/MWh)';
+EPrice_C(C)=SUM((EDemand_type,S,T),EDemand_CST(EDemand_type,C,S,T)*IHOURSINST(S,T)*EPrice_CST(C,S,T))/SUM((EDemand_type,S,T),EDemand_CST(EDemand_type,C,S,T)*IHOURSINST(S,T));
+
+*Weighted average heat price by consumption quantity (€ 2012/MWh)
+Parameter HPrice_AS(AAA,SSS) 'Weighted average heat price by consumption quantity per week at an area level (€ 2015/MWh)';
+HPrice_AS(IA,S)$(SUM(T,Hdemand_AST(IA,S,T)))=SUM(T,HPrice_AST(IA,S,T)*Hdemand_AST(IA,S,T)*IHOURSINST(S,T))/SUM(T,Hdemand_AST(IA,S,T)*IHOURSINST(S,T));
+
+Parameter HPrice_A(AAA) 'Weighted average heat price by consumption quantity per year at an area level (€ 2015/MWh)';
+HPrice_A(IA)$(SUM((S,T),Hdemand_AST(IA,S,T)))=SUM((S,T),HPrice_AST(IA,S,T)*Hdemand_AST(IA,S,T)*IHOURSINST(S,T))/SUM((S,T),Hdemand_AST(IA,S,T)*IHOURSINST(S,T));
+
+Parameter HPrice_C(CCC) 'Weighted average heat price by consumption quantity per year at an country level (€ 2015/MWh)';
+HPrice_C(CCC)$(SUM((S,T,IA)$ICA(CCC,IA),Hdemand_AST(IA,S,T)))=SUM((S,T,IA)$ICA(CCC,IA),HPrice_AST(IA,S,T)*Hdemand_AST(IA,S,T)*IHOURSINST(S,T))/SUM((S,T,IA)$ICA(CCC,IA),Hdemand_AST(IA,S,T)*IHOURSINST(S,T));
+
+
+
+Parameter EProduction_RST(RRR,TECHTYPE,SSS,TTT) 'Electricity production at a regional level (MW)';
+EProduction_RST(IR,TECHTYPE,S,T)= SUM(IAGK_Y(IA,IGE)$((RRRAAA(IR,IA) AND (NOT AAAOFFSHORE(IA))) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)), VGE_T.L(IA,IGE,S,T))
+$ifi %bb2%==yes                  +SUM(IAGKN(IA,IGE)$((RRRAAA(IR,IA) AND (NOT AAAOFFSHORE(IA))) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)), VGEN_T.L(IA,IGE,S,T))
+                                 +SUM(RRROFFSHORE$IXKINI_Y(RRROFFSHORE,IR),(SUM(IAGK_Y(IA,IGE)$((RRRAAA(RRROFFSHORE,IA) AND (AAAOFFSHORE(IA))) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)), VGE_T.L(IA,IGE,S,T)))*(1-XLOSS(RRROFFSHORE,IR)))
+$ifi %bb2%==yes                  +SUM(RRROFFSHORE$IXKINI_Y(RRROFFSHORE,IR),(SUM(IAGKN(IA,IGE)$((RRRAAA(RRROFFSHORE,IA) AND (AAAOFFSHORE(IA))) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)), VGEN_T.L(IA,IGE,S,T)))*(1-XLOSS(RRROFFSHORE,IR)))
+
+$if     EXIST '../addons/_hooks/EProduction_RST.inc' $INCLUDE      '../addons/_hooks/EProduction_RST.inc';
+$if not EXIST '../addons/_hooks/EProduction_RST.inc' $INCLUDE '../../base/addons/_hooks/EProduction_RST.inc';
+
+;
+
+Parameter ETrade_RST(RRR,ELECTRADE,SSS,TTT) 'Electricity trade at a regional level (MW)';
+
+*electricity import, do not consider import from offshore regions
+ETrade_RST(IR,"Import",S,T)$((NOT RETRANS(IR)) AND (NOT RINDUS(IR)))=SUM(IRE$((IXKINI_Y(IRE,IR) OR IXKN(IRE,IR) OR IXKN(IR,IRE)) AND (NOT RRROFFSHORE(IRE))), VX_T.L(IRE,IR,S,T)*(1-XLOSS(IRE,IR)));
+
+*electricity export, do not consider export towards EV region or industrial region
+ETrade_RST(IR,"Export",S,T)$(NOT RRROFFSHORE(IR))= SUM(IRI$((IXKINI_Y(IR,IRI) OR IXKN(IR,IRI) OR IXKN(IRI,IR)) AND ((NOT RETRANS(IRI)) AND (NOT RINDUS(IRI)))),VX_T.L(IR,IRI,S,T));
+
+ETrade_RST(IR,"Net Export",S,T)=ETrade_RST(IR,"Export",S,T)-ETrade_RST(IR,"Import",S,T);
+
+Parameter Eproduction_CST(CCC,TECHTYPE,SSS,TTT) 'Electricity production at a country level (MW)';
+Eproduction_CST(C,TECHTYPE,S,T)=SUM(IR$CCCRRR(C,IR),EProduction_RST(IR,TECHTYPE,S,T));
+
+Parameter ETrade_CST(CCC,ELECTRADE,SSS,TTT) 'Electricity trade at a country level (MW)';
+ETrade_CST(C,"Import",S,T)=SUM((IR,IRE)$(CCCRRR(C,IR) AND (NOT CCCRRR(C,IRE))AND (IXKINI_Y(IRE,IR) OR IXKN(IR,IRE) OR IXKN(IRE,IR)) AND (IXKINI_Y(IRE,IR) NE INF)), VX_T.L(IRE,IR,S,T)*(1-XLOSS(IRE,IR)));
+ETrade_CST(C,"Export",S,T)=SUM((IR,IRI)$(CCCRRR(C,IR) AND (NOT CCCRRR(C,IRI))AND (IXKINI_Y(IR,IRI) OR IXKN(IRI,IR) OR IXKN(IR,IRI)) AND (IXKINI_Y(IR,IRI) NE INF)), VX_T.L(IR,IRI,S,T));
+ETrade_CST(C,"Net Export",S,T)=ETrade_CST(C,"Export",S,T)-ETrade_CST(C,"Import",S,T);
+
+
+*Energy production and trade at a yearly level in (PJ/year) units:
+Parameter Eproduction_R(RRR,TECHTYPE) 'Electricity production at a regional level (PJ/year)';
+EProduction_R(IR,TECHTYPE)=(SUM((S,T),EProduction_RST(IR,TECHTYPE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+Parameter Eproduction_C(CCC,TECHTYPE) 'Electricity production at a country level (PJ/year)';
+EProduction_C(C,TECHTYPE)= (SUM((S,T),EProduction_CST(C,TECHTYPE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+Parameter ETrade_R(RRR,ELECTRADE) 'Electricity trade at a regional level (PJ/year)';
+ETrade_R(IR,ELECTRADE)=(SUM((S,T),ETrade_RST(IR,ELECTRADE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+Parameter ETrade_C(CCC,ELECTRADE) 'Electricity trade at a regional level (PJ/year)';
+ETrade_C(C,ELECTRADE)=(SUM((S,T),ETrade_CST(C,ELECTRADE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+EProduction_RST(IR,"Net Trade",S,T)=-ETrade_RST(IR,"Net Export",S,T);
+Eproduction_CST(C,"Net Trade",S,T)=-ETrade_CST(C,"Net Export",S,T);
+
+
+*HEAT GENERATION
+
+Parameter Hproduction_AST(AAA,TECHTYPE,SSS,TTT) 'Heat production at an area level (MW)';
+
+Hproduction_AST(IA,TECHTYPE,S,T)$(NOT AINDHEAT(IA))=
+                                  SUM(IGBPR$(IAGK_Y(IA,IGBPR) AND GTECHTYPE(IGBPR,TECHTYPE)),VGH_T.L(IA,IGBPR,S,T))
+$ifi %bb2%==yes                 + SUM(IGBPR$(IAGKN(IA,IGBPR) AND GTECHTYPE(IGBPR,TECHTYPE)),VGHN_T.L(IA,IGBPR,S,T))
+                                + SUM(IGEXT$(IAGK_Y(IA,IGEXT) AND GTECHTYPE(IGEXT,TECHTYPE)),VGH_T.L(IA,IGEXT,S,T))
+$ifi %bb2%==yes                 + SUM(IGEXT$(IAGKN(IA,IGEXT) AND GTECHTYPE(IGEXT,TECHTYPE)),VGHN_T.L(IA,IGEXT,S,T))
+                                + SUM(IGHH$(IAGK_Y(IA,IGHH) AND GTECHTYPE(IGHH,TECHTYPE)),VGH_T.L(IA,IGHH,S,T))
+$ifi %bb2%==yes                 + SUM(IGHH$(IAGKN(IA,IGHH) AND GTECHTYPE(IGHH,TECHTYPE)),VGHN_T.L(IA,IGHH,S,T))
+                                + SUM(IGETOH$(IAGK_Y(IA,IGETOH) AND GTECHTYPE(IGETOH,TECHTYPE)),VGH_T.L(IA,IGETOH,S,T))
+$ifi %bb2%==yes                 + SUM(IGETOH$(IAGKN(IA,IGETOH) AND GTECHTYPE(IGETOH,TECHTYPE)),VGHN_T.L(IA,IGETOH,S,T))
+$ifi %H2%==yes                  +SUM(IGETOH2$(IAGK_Y(IA,IGETOH2) AND GTECHTYPE(IGETOH2,TECHTYPE)), VGH_T.L(IA,IGETOH2,S,T))
+$ifi %H2%==yes                  +SUM(IGETOH2$(IAGKN(IA,IGETOH2) AND GTECHTYPE(IGETOH2,TECHTYPE)), VGHN_T.L(IA,IGETOH2,S,T))
+
+$if     EXIST '../addons/_hooks/Hproduction_AST.inc' $INCLUDE      '../addons/_hooks/Hproduction_AST.inc';
+$if not EXIST '../addons/_hooks/Hproduction_AST.inc' $INCLUDE '../../base/addons/_hooks/Hproduction_AST.inc';
+;
+
+Hproduction_AST(IA,"Heat to Storage",S,T)=VHSTOLOADT.L(IA,S,T)$SUM(IGHSTO$(IAGK_Y(IA,IGHSTO) or IAGKN(IA,IGHSTO)),1);
+Hproduction_AST(IA,"Heat cool down",S,T)=VCOOLDOWN.L(IA,S,T);
+
+
+Parameter Hproduction_AS(AAA,TECHTYPE,SSS) 'Heat production at an area level per week (MWh)';
+Hproduction_AS(IA,TECHTYPE,S)=SUM(T,Hproduction_AST(IA,TECHTYPE,S,T)*WEIGHT_T(T)*SUM(TTT,WEIGHT_T(TTT))/IWEIGHSUMT);
+
+Parameter Hproduction_A(AAA,TECHTYPE) 'Heat production at an area level per year (PJ/year)';
+Hproduction_A(IA,TECHTYPE)=(SUM((S,T),Hproduction_AST(IA,TECHTYPE,S,T)*IHOURSINST(S,T)))*IOF0000001*IOF3P6;
+
+Parameter Hproduction_CST(CCC,TECHTYPE,SSS,TTT) 'Heat production at a country level (MW)';
+Hproduction_CST(C,TECHTYPE,S,T)=SUM(IA$ICA(C,IA),Hproduction_AST(IA,TECHTYPE,S,T));
+
+Parameter Hproduction_CS(CCC,TECHTYPE,SSS) 'Heat production at a country level per week (MWh)';
+Hproduction_CS(C,TECHTYPE,S)=SUM(IA$ICA(C,IA),Hproduction_AS(IA,TECHTYPE,S));
+
+Parameter Hproduction_C(CCC,TECHTYPE) 'Heat production at a country level per year (PJ/year)';
+Hproduction_C(C,TECHTYPE)=SUM(IA$ICA(C,IA),Hproduction_A(IA,TECHTYPE));
+
+Parameter FuelConsumption_C(CCC,TECHTYPE)  'Fuel Consumption at a country level per type of technology (PJ/year)';
+FuelConsumption_C(C,TECHTYPE)=SUM((IA,G,S,T)$(ICA(C,IA) AND GTECHTYPE(G,TECHTYPE)),IHOURSINST(S,T)*(VGF_T.L(IA,G,S,T)+VGFN_T.L(IA,G,S,T)))*IOF0000001*IOF3P6
+$if     EXIST '../addons/_hooks/FuelConsumption_C.inc' $INCLUDE      '../addons/_hooks/FuelConsumption_C.inc';
+$if not EXIST '../addons/_hooks/FuelConsumption_C.inc' $INCLUDE '../../base/addons/_hooks/FuelConsumption_C.inc';
+
+;
+
+Parameter FuelConsumption_TOTAL(TECHTYPE)  'Fuel Consumption in all the simulated countryes per type of technology (PJ/year)';
+FuelConsumption_TOTAL(TECHTYPE)=SUM(C,FuelConsumption_C(C,TECHTYPE));
+
+*_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+*New Installed Capacity per country for electricity and District Heating production
+
+Parameter Elec_Capacity(CCC,CAPACITIES,TECHTYPE) 'Installed capacity for electricity production (MW)';
+
+Elec_Capacity(C,'New',TECHTYPE)=SUM((IA,IGE)$(ICA(C,IA) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGE))
+),VGKN.L(IA,IGE));
+
+Elec_Capacity(C,'Existing',TECHTYPE)=SUM((IA,IGE)$(ICA(C,IA) AND IGNOTETOH(IGE) AND GTECHTYPE(IGE,TECHTYPE) AND IAGK_Y(IA,IGE)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGE))
+),IGKFX_Y(IA,IGE));
+
+Elec_Capacity(C,'TOTAL',TECHTYPE)=Elec_Capacity(C,'New',TECHTYPE)+Elec_Capacity(C,'Existing',TECHTYPE);
+
+
+
+Parameter Heat_Capacity(CCC,CAPACITIES,TECHTYPE) 'Installed capacity for heat production (MW)';
+
+Heat_Capacity(C,'New',TECHTYPE)=SUM(IA$(ICA(C,IA) AND (NOT AINDHEAT(IA))),
+SUM(IGBPR$(GTECHTYPE(IGBPR,TECHTYPE)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGBPR))
+),VGKN.L(IA,IGBPR)/GDATA(IGBPR,'GDCB'))
++SUM(IGEXT$(GTECHTYPE(IGEXT,TECHTYPE)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGEXT))
+),VGKN.L(IA,IGEXT)/GDATA(IGEXT,'GDCB'))
++SUM(IGHHNOSTO$(GTECHTYPE(IGHHNOSTO,TECHTYPE)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGHHNOSTO))
+),VGKN.L(IA,IGHHNOSTO ))
++SUM(IGETOH$(GTECHTYPE(IGETOH,TECHTYPE)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGETOH))
+),VGKN.L(IA,IGETOH)));
+
+Heat_Capacity(C,'Existing',TECHTYPE)=SUM(IA$(ICA(C,IA) AND (NOT AINDHEAT(IA))),
+SUM(IGBPR$(GTECHTYPE(IGBPR,TECHTYPE) AND IAGK_Y(IA,IGBPR)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGBPR))
+),IGKFX_Y(IA,IGBPR)/GDATA(IGBPR,'GDCB'))
++SUM(IGEXT$(GTECHTYPE(IGEXT,TECHTYPE) AND IAGK_Y(IA,IGEXT)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGEXT))
+),IGKFX_Y(IA,IGEXT)/GDATA(IGEXT,'GDCB'))
++SUM(IGHHNOSTO$(GTECHTYPE(IGHHNOSTO,TECHTYPE) AND IAGK_Y(IA,IGHHNOSTO)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGHHNOSTO))
+),IGKFX_Y(IA,IGHHNOSTO ))
++SUM(IGETOH$(GTECHTYPE(IGETOH,TECHTYPE) AND IAGK_Y(IA,IGETOH)
+$ifi %COMBTECH%==yes  AND (NOT IGCOMB2(IGETOH))
+),IGKFX_Y(IA,IGETOH)));
+
+Heat_Capacity(C,'TOTAL',TECHTYPE)=Heat_Capacity(C,'New',TECHTYPE)+Heat_Capacity(C,'Existing',TECHTYPE);
+
+
+
+
+
+
+
+*****************************************************************
+*OptiFlow
+
+Parameter Hproduction_AST_Opti(AAA,TECHTYPE,SSS,TTT) 'Heat production at an area level (GJ)';
+Hproduction_AST_Opti(IA,TECHTYPE,S,T)=SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Heat_Opti_to_Bal_conv','HEATFLOW_GJ',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Heat_Opti_to_Bal_conv','HEATFLOW_GJ'));
+
+
+Parameter RE_GasFuel_AST_Opti(AAA,TECHTYPE,SSS,TTT) 'RE-gas and fuels production at an area level (GJ)';
+RE_GasFuel_AST_Opti(IA,TECHTYPE,S,T)=        SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BioJetBuffer','BIOJETFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BioJetBuffer','BIOJETFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'EthanolBuffer','Ethanol_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'EthanolBuffer','Ethanol_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BiodieselBuffer','BIODIESELFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BiodieselBuffer','BIODIESELFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Bio_SNG_OUT','BIO_SNG_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BIO_SNG_OUT','BIO_SNG_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BioSyngasBuffer','BIO_SYNGAS_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BioSyngasBuffer','BIO_SYNGAS_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BIO_TG_GRID_OUT','BIO_TG_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BIO_TG_GRID_OUT','BIO_TG_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Biogas_Grid_SUM','BIOGAS_MANURE_WB_1_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BIOGAS_GRID_SUM','BIOGAS_MANURE_WB_1_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Biogas_Grid_SUM','BIOGAS_MIX_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BIOGAS_GRID_SUM','BIOGAS_MIX_FLOW'))
+*                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BiogasBuffer','BIOGAS_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BiogasBuffer','BIOGAS_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Hydrogen_Grid_IN','HYDROGEN_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Hydrogen_GRID_IN','HYDROGEN_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'MethanolBuffer','METHANOLFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'MethanolBuffer','METHANOLFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BioGasolineBuffer','BIOGASOLINEFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BioGasolineBuffer','BIOGASOLINEFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'GasBuffer','GASFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'GasBuffer','GASFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Other_Gas_Proc','OTHER_GAS_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Other_Gas_Proc','OTHER_GAS_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'EMethanolBuffer','EMETHANOLFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'EMethanolBuffer','EMETHANOLFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'AmmoniaBuffer','AMMONIA_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'AmmoniaBuffer','AMMONIA_FLOW'))
+					    +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'EME_JetBuffer','EME_JET_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'EME_JetBuffer','EME_JET_FLOW'))
+
+;
+
+
+
+*******************
+
+*RE-fuel
+
+Parameter RE_Fuel_AST_Opti(AAA,TECHTYPE,SSS,TTT) 'Final RE-fuel production at an area level (GJ)';
+RE_Fuel_AST_Opti(IA,TECHTYPE,S,T)=           SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BioJetBuffer','BIOJETFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BioJetBuffer','BIOJETFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'EthanolBuffer','Ethanol_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'EthanolBuffer','Ethanol_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BiodieselBuffer','BIODIESELFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BiodieselBuffer','BIODIESELFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'MethanolBuffer','METHANOLFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'MethanolBuffer','METHANOLFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BioGasolineBuffer','BIOGASOLINEFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BioGasolineBuffer','BIOGASOLINEFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'EMethanol_Eff','EMETHANOLFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'EMethanol_Eff','EMETHANOLFLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Ammonia_Eff','AMMONIA_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Ammonia_Eff','AMMONIA_FLOW'))
+					    +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'EME_Gasoline_Eff','EME_GASOLINE_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'EME_Gasoline_Eff','EME_GASOLINE_FLOW'))
+					    +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'EME_LPG_Eff','EME_LPG_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'EME_LPG_Eff','EME_LPG_FLOW'))
+					    +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'E_FT_Diesel_Eff','E_FT_DIESEL_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'E_FT_Diesel_Eff','E_FT_DIESEL_FLOW'))
+					    +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'EME_Jet_Eff','EME_JET_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'EME_Jet_Eff','EME_JET_FLOW'))
+					    +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'E_FT_Jet_Eff','E_FT_JET_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'E_FT_Jet_Eff','E_FT_JET_FLOW'))
+					    +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'HTL_Eff','HTLFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'HTL_Eff','HTLFLOW'))
+;
+
+Parameter RE_Fuel_AST_Opti_A(AAA,TECHTYPE) 'Final RE-fuel production at an area level per year (PJ/year)';
+RE_Fuel_AST_Opti_A(IA,TECHTYPE)=SUM((S,T),RE_Fuel_AST_Opti(IA,TECHTYPE,S,T)*IHOURSINST(S,T))*IOF0000001;
+
+Parameter RE_Fuel_AST_Opti_C(CCC,TECHTYPE) 'RE-fuel production at a country level per year (PJ/year)';
+RE_Fuel_AST_Opti_C(C,TECHTYPE)=SUM(IA$ICA(C,IA),RE_Fuel_AST_Opti_A(IA,TECHTYPE));
+
+
+*******************
+*RE-gas
+Parameter RE_Gas_AST_Opti(AAA,TECHTYPE,SSS,TTT) 'RE-gas production at an area level (GJ)';
+RE_Gas_AST_Opti(IA,TECHTYPE,S,T)=            SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'GasBuffer','GASFLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'GasBuffer','GASFLOW'))
+*                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Biogas_Grid_SUM','BIOGAS_MANURE_WB_1_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BIOGAS_GRID_SUM','BIOGAS_MANURE_WB_1_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Biogas_Grid_SUM','BIOGAS_MIX_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BIOGAS_GRID_SUM','BIOGAS_MIX_FLOW'))
+*                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BiogasBuffer','BIOGAS_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BiogasBuffer','BIOGAS_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Hydrogen_Grid_IN','HYDROGEN_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Hydrogen_GRID_IN','HYDROGEN_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Bio_SNG_OUT','BIO_SNG_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BIO_SNG_OUT','BIO_SNG_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'BioSyngasBuffer','BIO_SYNGAS_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'BioSyngasBuffer','BIO_SYNGAS_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Other_Gas_Proc','OTHER_GAS_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Other_Gas_Proc','OTHER_GAS_FLOW'))
+
+
+;
+
+
+Parameter RE_Gas_AST_Opti_A(AAA,TECHTYPE) 'Final RE-Gas production at an area level per year (PJ/year)';
+RE_Gas_AST_Opti_A(IA,TECHTYPE)=SUM((S,T),RE_Gas_AST_Opti(IA,TECHTYPE,S,T)*IHOURSINST(S,T))*IOF0000001;
+
+Parameter RE_Gas_AST_Opti_C(CCC,TECHTYPE) 'RE-gas production at a country level per year (PJ/year)';
+RE_Gas_AST_Opti_C(C,TECHTYPE)=SUM(IA$ICA(C,IA),RE_Gas_AST_Opti_A(IA,TECHTYPE));
+
+
+
+*******************
+*Resources used
+
+
+Parameter Resource_use_AST_Opti(AAA,TECHTYPE,SSS,TTT) 'Resource use for RE-gas and fuel production at an area level (GJ)';
+Resource_use_AST_Opti(IA,TECHTYPE,S,T)=      SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Wood','WOOD_GEN_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Wood','WOOD_GEN_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Straw','STRAW_GEN_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Straw','STRAW_GEN_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Muni_Waste','MUNI_WASTE_GEN_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Muni_Waste','MUNI_WASTE_GEN_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Wood_Pellets','WOOD_PELLETS_GEN_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Wood_Pellets','WOOD_PELLETS_GEN_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'Manure','MANURE_GEN_FLOW',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'Manure','MANURE_GEN_FLOW'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'CO2_PH','CO2_SOURCE_FLOW_PH',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'CO2_PH','CO2_SOURCE_FLOW_PH'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'CO2_IND','CO2_SOURCE_FLOW_IND',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'CO2_IND','CO2_SOURCE_FLOW_IND'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'CO2_DAC','CO2_SOURCE_FLOW_DAC',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'CO2_DAC','CO2_SOURCE_FLOW_DAC'))
+                                            +SUM(IPROCFROM$PROCTECHTYPE(IPROCFROM,TECHTYPE),VFLOW.L(IA,IPROCFROM,'CO2_Bio','CO2_SOURCE_FLOW_BIO',S,T)$IFLOWFROMTOPROC_Y(IA,IPROCFROM,'CO2_Bio','CO2_SOURCE_FLOW_BIO'))
+
+;
+
+Parameter Resource_use_Opti_A(AAA,TECHTYPE) 'Resource_use at an area level per year (PJ/year)';
+Resource_use_Opti_A(IA,TECHTYPE)=SUM((S,T),Resource_use_AST_Opti(IA,TECHTYPE,S,T)*IHOURSINSTWWT(S,T))*IOF0000001;
+
+Parameter Resource_use_Opti_C(CCC,TECHTYPE) 'Resource_use at a country level per year (PJ/year)';
+Resource_use_Opti_C(C,TECHTYPE)=SUM(IA$ICA(C,IA),Resource_use_Opti_A(IA,TECHTYPE));
+
+
+
+
+
+*FLOWS
+Parameter VFLOW_Opti_A(AAA,IPROCFROM,IPROCTO,FLOW)   'FLOWS at an area level per year (PJ/year)';
+VFLOW_Opti_A(IA,IPROCFROM,IPROCTO,FLOW)=   SUM((S,T),VFLOW.L(IA,IPROCFROM,IPROCTO,FLOW,S,T)*IHOURSINST(S,T))*IOF0000001;
+
+
+Parameter VFLOW_Opti_C(CCC,IPROCFROM,IPROCTO,FLOW) 'FLOWS at a country level per year (PJ/year)';
+VFLOW_Opti_C(C,IPROCFROM,IPROCTO,FLOW)=SUM(IA$ICA(C,IA),VFLOW_Opti_A(IA,IPROCFROM,IPROCTO,FLOW));
+
+
+
+*FLOWS source
+Parameter VFLOWSOURCE_Opti_A(AAA,PROCSOURCE,FLOW)   'Source FLOWS at an area level per year (ton/year)';
+VFLOWSOURCE_Opti_A(IA,PROCSOURCE,FLOW)=   SUM((S,T),VFLOWSOURCE.L(IA,PROCSOURCE,FLOW,S,T)*IHOURSINSTWWT(S,T));
+
+
+Parameter VFLOWSOURCE_Opti_C(CCC,PROCSOURCE,FLOW) 'Source FLOWS at a country level per year (ton/year)';
+VFLOWSOURCE_Opti_C(C,PROCSOURCE,FLOW)=SUM(IA$ICA(C,IA),VFLOWSOURCE_Opti_A(IA,PROCSOURCE,FLOW));
+
+
+
+
+
+*FLOWS Buffer
+Parameter VFLOWBUFFER_Opti_A(AAA,PROCBUFFER,FLOW)   'BUFFER FLOWS at an area level per year (u/year)';
+VFLOWBUFFER_Opti_A(IA,PROCBUFFER,FLOW)=   SUM((S,T),VFLOWBUFFER.L(IA,PROCBUFFER,FLOW,S,T)*IHOURSINST(S,T));
+
+
+Parameter VFLOWBUFFER_Opti_C(CCC,PROCBUFFER,FLOW) 'BUFFER FLOWS at a country level per year (u/year)';
+VFLOWBUFFER_Opti_C(C,PROCBUFFER,FLOW)=SUM(IA$ICA(C,IA),VFLOWBUFFER_Opti_A(IA,PROCBUFFER,FLOW));
+
+
+
+
+
+
+*FLOWS - transportation between areas
+
+Parameter VFLOWTRANS_Opti_A(IAAAE,IAAAI,PROC,FLOW)   'Transportation FLOWS at an area level per year (ton/year)';
+VFLOWTRANS_Opti_A(IAAAE,IAAAI,PROC,FLOW)=   SUM((S,T),VFLOWTRANS.L(IAAAE,IAAAI,PROC,FLOW,S,T)*IHOURSINSTWWT(S,T));
+
+
+
+
+* RE-fuel prices
+
+Parameter RE_fuel_Price(C,PROC,FLOW)'RE-fuel price (€ 2015/GJ)';
+RE_fuel_Price(C,PROC,FLOW)=QMINFLOW_C.M(C,PROC,FLOW);
+
+
+
+
+*_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+execute_unload "MainResults.gdx" EPrice_RST, HPrice_AST, EDemand_RST, EDemand_R, Edemand_CST, Edemand_C, Hdemand_AST, EPrice_R, EPrice_CST, EPrice_C, HPrice_AS, HPrice_A, HPrice_C, EProduction_RST, ETrade_RST,
+Eproduction_CST, ETrade_CST, EProduction_R, EProduction_C, ETrade_R, ETrade_C, Hproduction_AST, Hproduction_AS, Hproduction_A, Hproduction_CST, Hproduction_CS, Hproduction_C, FuelConsumption_C, FuelConsumption_TOTAL,
+Elec_Capacity,Heat_Capacity,VOBJ,VGKN,VX_T,VXKN,
+VFLOW,VFLOWTRANS,VPROCKAPNEW,Hproduction_AST_Opti,
+RE_GasFuel_AST_Opti,RE_Fuel_AST_Opti_A,RE_Fuel_AST_Opti_C,RE_Gas_AST_Opti,RE_Gas_AST_Opti_A,RE_Gas_AST_Opti_C,
+Resource_use_Opti_C,Resource_use_AST_Opti,Resource_use_Opti_A,
+VFLOW_Opti_A,VFLOW_Opti_C,VFLOWSOURCE_Opti_A,VFLOWSOURCE_Opti_C,VFLOWTRANS_Opti_A,VFLOWBUFFER_Opti_C
+RE_fuel_Price
+
+
+
+
+$if     EXIST '../addons/_hooks/Outputgdx.inc' $INCLUDE      '../addons/_hooks/Outputgdx.inc';
+$if not EXIST '../addons/_hooks/Outputgdx.inc' $INCLUDE '../../base/addons/_hooks/Outputgdx.inc';
+
+
+;
+
+
+*End of the output file

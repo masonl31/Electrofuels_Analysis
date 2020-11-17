@@ -1,0 +1,5 @@
+PARAMETERS
+   IDH2_T_Y(RRR,S,T)               'Demand for hydrogen in the transport sector (MWh)'
+   IH2STOVOL_START(AAA,G,SSS)      'Start level of hydrogen storage'
+   IH2STOVOL_END(AAA,G,SSS)        'End level of hydrogen storage'
+;

@@ -1,0 +1,46 @@
+*Last time modified (Amalia, 17-08-2016)
+TABLE GDATA(GGG,GDATASET) "Technologies characteristics"
+$if     EXIST "..\data\GDATAinput.xlsx" $call =xls2gms r=A1:AF2100 I="..\data\GDATAinput.xlsx" O="..\data\GDATAout.inc"
+$if not EXIST "..\data\GDATAinput.xlsx" $call =xls2gms r=A1:AF2100 I="..\..\base\data\GDATAinput.xlsx" O="..\..\base\data\GDATAout.inc"
+$if     EXIST "..\data\GDATAinput.xlsx" $include "..\data\GDATAout.inc"
+$if not EXIST "..\data\GDATAinput.xlsx" $include "..\..\base\data\GDATAout.inc"
+;
+
+
+$ifi %bypass%==yes  GDATA('WtECHP_21','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('WtECHP_VerySmall','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('WtECHP_Small','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('WtECHP_Medium','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('WtECHP_Large','GDBYPASSC')= 1;
+
+$ifi %bypass%==yes  GDATA('DK_W_Large_SteamTur_Medi_BP_ST_14','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('DK_W_Large_SteamTur_Medi_BP_ST_20','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('DK_W_Large_SteamTur_Medi_BP_ST_25','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('DK_W_Large_SteamTur_Medi_BP_ST_30','GDBYPASSC')= 1;
+
+$ifi %bypass%==yes  GDATA('DK_CA_Odense_SteamTur_Medi_BP_ST_14','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('DK_CA_Odense_SteamTur_Medi_BP_ST_20','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('DK_CA_Odense_SteamTur_Medi_BP_ST_25','GDBYPASSC')= 1;
+$ifi %bypass%==yes  GDATA('DK_CA_Odense_SteamTur_Medi_BP_ST_30','GDBYPASSC')= 1;
+
+
+$ifi %bypass%==yes  GDATA('BIO4','GDBYPASSC')= 1;
+
+
+GDATA(G,'GDSTOINTERS')$(GDATA(G,'GDTYPE')EQ GHSTOS)=1;
+GDATA(G,'GDLIFETIME')$(GDATA(G,'GDLIFETIME') EQ 0)=20;
+
+$ifi %combtech%==yes  GDATA(GGG,'GDINVCOST0')$(GDATA(GGG,'GDCOMB') EQ 2)= 0;
+$ifi %combtech%==yes  GDATA(GGG,'GDOMFCOST0')$(GDATA(GGG,'GDCOMB') EQ 2)= 0;
+
+
+
+
+
+
+
+
+
+
+
+

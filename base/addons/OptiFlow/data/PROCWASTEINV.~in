@@ -1,0 +1,16 @@
+SET PROCWASTEINV(PROC,WASTETREATMENT) 'Type of technology aggrupated'
+/
+Biogas_Upgrading              . "Biogas Upgrading"
+BiogasCHP                     . "Biogas CHP"
+MSW_chp_large                 . "Incineration"
+MSW_chp_medium                . "Incineration"
+MSW_ho                        . "Incineration"
+MSW_chp_small                 . "Incineration"
+RDF_chp                       . "RDF Incineration"
+RDF_ho                        . "RDF Incineration"
+RDF_Storage                   . "RDF Incineration"
+
+
+
+/
+;

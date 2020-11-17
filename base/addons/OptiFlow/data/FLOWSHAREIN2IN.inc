@@ -1,0 +1,24 @@
+PARAMETER FLOWSHAREIN2IN(YYY,AAA,PROC,IFLOWIN,IFLOWIN2,ILOUPFXSET) "Relationship between two input flows (U1/U2) - units of flow 1 divided by units of flow 2"
+
+/
+
+
+
+2014 .    DK_CA_KBH      .   Methanisation_Gasif_BSNG     .   BIO_SNGCO2_FLOW                .   HYDROGEN_FLOW_GASIF_BSNG       . ILOUPFX_FX    0.78
+2014 .    DK_CA_KBH      .   Methanisation_Bio_BioGas     .   BIOGAS_FLOW                    .   HYDROGEN_FLOW_BIO_BIOGAS       . ILOUPFX_FX    1.56
+2014 .    DK_CA_KBH      .   Methane_synthesis_TG_50      .   BIO_TG_FLOW                    .   HYDROGEN_FLOW_TG               . ILOUPFX_FX    0.78
+2014 .    DK_CA_KBH      .   Methanol_synthesis_TG_50     .   BIO_ME_FLOW                    .   HYDROGEN_FLOW_ME               . ILOUPFX_FX    2.2258
+*2014 .    DK_CA_KBH      .   Methanol_synthesis_TG_50     .   BIO_ME_FLOW                   .   HYDROGEN_FLOW_ME               . ILOUPFX_FX    0.78
+
+
+2014 .    DK_CA_KBH      .   SumSTWB                      .  MANURE_AND_WETBIO_GJ_BG_Mix     .   STRAW_GJ_BIOGAS                . ILOUPFX_FX    1.5499
+
+
+
+
+/
+;
+
+
+
+FLOWSHAREIN2IN(Y,AAA,PROC,IFLOWIN,IFLOWIN2,ILOUPFXSET)$( FLOWSHAREIN2IN(Y,AAA,PROC,IFLOWIN,IFLOWIN2,ILOUPFXSET)EQ 0) =  FLOWSHAREIN2IN('2014',AAA,PROC,IFLOWIN,IFLOWIN2,ILOUPFXSET);

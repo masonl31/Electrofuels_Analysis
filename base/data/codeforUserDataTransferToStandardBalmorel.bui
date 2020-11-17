@@ -1,0 +1,1044 @@
+  CCCRRR.inc; SET;  CCCRRR; (CCC,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRRAAA.inc; SET;  RRRAAA; (RRR,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YYY.inc; SET;  YYY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SSS.inc; SET;  SSS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TTT.inc; SET;  TTT; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGG.inc; SET;  GGG; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATASET.inc; SET;  GDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFF.inc; SET;  FFF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATASET.inc; SET;  FDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDATAS.inc; SET;  HYRSDATAS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DF_QP.inc; SET;  DF_QP; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF.inc; SET;  DEF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D1.inc; SET;  DEF_D1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U1.inc; SET;  DEF_U1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D2.inc; SET;  DEF_D2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U2.inc; SET;  DEF_U2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D3.inc; SET;  DEF_D3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U3.inc; SET;  DEF_U3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF.inc; SET;  DHF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_D1_zeroe.inc; SET;  DHF_D1; (DHF) ;  "Downwards steps in elastic heat demand; relative data format";
+  DHF_U1_zeroe.inc; SET;  DHF_U1; (DHF) ;  "Upwards steps in elastic heat demand; relative data format";
+  DHF_D2_zeroe.inc; SET;  DHF_D2; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_U2_zeroe.inc; SET;  DHF_U2; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_D3_zeroe.inc; SET;  DHF_D3; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  DHF_U3_zeroe.inc; SET;  DHF_U3; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  MPOLSET.inc; SET;  MPOLSET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  C.inc; SET;  C; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  G.inc; SET;  G; (GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AGKN.inc; SET;  AGKN; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  Y.inc; SET;  Y; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  S.inc; SET;  S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  T.inc; SET;  T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DAYTYPE.inc; SET;  DAYTYPE; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWORKDAY.inc; SET;  TWORKDAY; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWEEKEND.inc; SET;  TWEEKEND; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARIO.inc; SET;  SCENARIO; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARSIM.inc; SET;  SCENARSIM; (SCENARIO) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  PENALTYQ.inc; PARAMETER;  PENALTYQ; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YVALUE.inc; PARAMETER;  YVALUE; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATA.inc; PARAMETER;  GDATA; (GGG,GDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKFX.inc; PARAMETER;  GKFX; (YYY,AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATA.inc; PARAMETER;  FDATA; (FFF,FDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFFACRONYM_zeroe.inc; ACRO;  FFFACRONYM; () ;  "Fuel names";
+* IRESDE declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* IRESWI declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  FMAXINVEST.inc; PARAMETER;  FMAXINVEST; (CCC,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GROWTHCAP.inc; PARAMETER;  GROWTHCAP; (C,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_E.inc; PARAMETER;  DISLOSS_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_H.inc; PARAMETER;  DISLOSS_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_E.inc; PARAMETER;  DISCOST_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_H.inc; PARAMETER;  DISCOST_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FKPOT.inc; PARAMETER;  FKPOT; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FGEMIN_zeroe.inc; PARAMETER;  FGEMIN; (CCCRRRAAA,FFF) ;  "Minimum electricity generation by fuel (MWh)";
+  FGEMAX_zeroe.inc; PARAMETER;  FGEMAX; (CCCRRRAAA,FFF) ;  "Maximum electricity generation by fuel (MWh)";
+  GMINF.inc; PARAMETER;  GMINF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GMAXF.inc; PARAMETER;  GMAXF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEQF.inc; PARAMETER;  GEQF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSFLH.inc; PARAMETER;  WTRRSFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRFLH.inc; PARAMETER;  WTRRRFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WNDFLH.inc; PARAMETER;  WNDFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLEFLH.inc; PARAMETER;  SOLEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDS.inc; PARAMETER;  HYRSDS; (AAA,HYRSDATAS,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FHO declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_FHO_C.inc; PARAMETER;  TAX_FHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GH.inc; PARAMETER;  TAX_GH; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FCHP_C declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_HHO_C.inc; PARAMETER;  TAX_HHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DE.inc; PARAMETER;  TAX_DE; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DH.inc; PARAMETER;  TAX_DH; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  ANNUITYC.inc; PARAMETER;  ANNUITYC; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GINVCOST.inc; PARAMETER;  GINVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMVCOST.inc; PARAMETER;  GOMVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMFCOST.inc; PARAMETER;  GOMFCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEFFDERATE.inc; PARAMETER;  GEFFDERATE; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_BASE.inc; PARAMETER;  DEFP_BASE; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_BASE.inc; PARAMETER;  DHFP_BASE; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE.inc; PARAMETER;  DE; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH.inc; PARAMETER;  DH; (YYY,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKINI.inc; PARAMETER;  XKINI; (YYY,IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XINVCOST.inc; PARAMETER;  XINVCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XCOST.inc; PARAMETER;  XCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XLOSS.inc; PARAMETER;  XLOSS; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKDERATE.inc; PARAMETER;  XKDERATE; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX.inc; PARAMETER;  X3FX; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FUELPRICE.inc; PARAMETER;  FUELPRICE; (YYY,AAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  M_POL.inc; PARAMETER;  M_POL; (YYY,MPOLSET,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_S.inc; PARAMETER;  WEIGHT_S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_T.inc; PARAMETER;  WEIGHT_T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKDERATE.inc; PARAMETER;  GKDERATE; (AAA,GGG,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE_VAR_T.inc; PARAMETER;  DE_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH_VAR_T.inc; PARAMETER;  DH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSVAR_S.inc; PARAMETER;  WTRRSVAR_S; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRVAR_T.inc; PARAMETER;  WTRRRVAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WND_VAR_T.inc; PARAMETER;  WND_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLE_VAR_T.inc; PARAMETER;  SOLE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX_VAR_T.inc; PARAMETER;  X3FX_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYPPROFILS.inc; PARAMETER;  HYPPROFILS; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_STEPS.inc; PARAMETER;  DEF_STEPS; (RRR,SSS,TTT,DF_QP,DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_CALIB.inc; PARAMETER;  DEFP_CALIB; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_STEPS.inc; PARAMETER;  DHF_STEPS; (AAA,SSS,TTT,DF_QP,DHF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_CALIB.inc; PARAMETER;  DHFP_CALIB; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* DEF_STEPS2 declared in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_missing' as part of the name was created as a reminder.
+  CYCLESINS_zeroe.inc; PARAMETER;  CYCLESINS; (S) ;  "Number of load cycles per season";
+  CCCRRRAAA.inc; SET;  CCCRRRAAA; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  CCC.inc; SET;  CCC; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRR.inc; SET;  RRR; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AAA.inc; SET;  AAA; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  OMONEY.inc; PARAMETER;  OMONEY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS1E_zeroe.inc; PARAMETER;  DISLOSS1E; (RRR) ;  "Loss in electricity distribution (fraction)";
+  XLOSS1_zeroe.inc; PARAMETER;  XLOSS1; (IRRRE,IRRRI) ;  "Transmission loss between regions (fraction)";
+* AGKNDISCGDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  GKNMAX_zeroe.inc; PARAMETER;  GKNMAX; (YYY,AAA,GGG) ;  "Maximum capacities of production technologies for which investments are allowed (MW)";
+  DISLOSS1H_zeroe.inc; PARAMETER;  DISLOSS1H; (AAA) ;  "Loss in heat distribution (fraction)";
+  SOLHFLH.inc; PARAMETER;  SOLHFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGCOMB.inc; SET;  GGCOMB; (GGG,IGGGALIAS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* RESEDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* RESEHDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCAG declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGDATASET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGSIZESET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  SOLH_VAR_T.inc; PARAMETER;  SOLH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVE_VAR_T.inc; PARAMETER;  WAVE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVEFLH.inc; PARAMETER;  WAVEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GE.inc; PARAMETER;  TAX_GE; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GF.inc; PARAMETER;  TAX_GF; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_KN declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+BALINDEX_END
+
+VARIANTS_BEGIN
+VARINAME  BASE
+  CCCRRR.inc; SET;  CCCRRR; (CCC,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRRAAA.inc; SET;  RRRAAA; (RRR,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YYY.inc; SET;  YYY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SSS.inc; SET;  SSS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TTT.inc; SET;  TTT; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGG.inc; SET;  GGG; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATASET.inc; SET;  GDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFF.inc; SET;  FFF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATASET.inc; SET;  FDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDATAS.inc; SET;  HYRSDATAS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DF_QP.inc; SET;  DF_QP; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF.inc; SET;  DEF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D1.inc; SET;  DEF_D1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U1.inc; SET;  DEF_U1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D2.inc; SET;  DEF_D2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U2.inc; SET;  DEF_U2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D3.inc; SET;  DEF_D3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U3.inc; SET;  DEF_U3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF.inc; SET;  DHF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_D1_zeroe.inc; SET;  DHF_D1; (DHF) ;  "Downwards steps in elastic heat demand; relative data format";
+  DHF_U1_zeroe.inc; SET;  DHF_U1; (DHF) ;  "Upwards steps in elastic heat demand; relative data format";
+  DHF_D2_zeroe.inc; SET;  DHF_D2; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_U2_zeroe.inc; SET;  DHF_U2; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_D3_zeroe.inc; SET;  DHF_D3; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  DHF_U3_zeroe.inc; SET;  DHF_U3; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  MPOLSET.inc; SET;  MPOLSET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  C.inc; SET;  C; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  G.inc; SET;  G; (GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AGKN.inc; SET;  AGKN; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  Y.inc; SET;  Y; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  S.inc; SET;  S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  T.inc; SET;  T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DAYTYPE.inc; SET;  DAYTYPE; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWORKDAY.inc; SET;  TWORKDAY; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWEEKEND.inc; SET;  TWEEKEND; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARIO.inc; SET;  SCENARIO; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARSIM.inc; SET;  SCENARSIM; (SCENARIO) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  PENALTYQ.inc; PARAMETER;  PENALTYQ; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YVALUE.inc; PARAMETER;  YVALUE; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATA.inc; PARAMETER;  GDATA; (GGG,GDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKFX.inc; PARAMETER;  GKFX; (YYY,AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATA.inc; PARAMETER;  FDATA; (FFF,FDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFFACRONYM_zeroe.inc; ACRO;  FFFACRONYM; () ;  "Fuel names";
+* IRESDE declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* IRESWI declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  FMAXINVEST.inc; PARAMETER;  FMAXINVEST; (CCC,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GROWTHCAP.inc; PARAMETER;  GROWTHCAP; (C,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_E.inc; PARAMETER;  DISLOSS_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_H.inc; PARAMETER;  DISLOSS_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_E.inc; PARAMETER;  DISCOST_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_H.inc; PARAMETER;  DISCOST_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FKPOT.inc; PARAMETER;  FKPOT; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FGEMIN_zeroe.inc; PARAMETER;  FGEMIN; (CCCRRRAAA,FFF) ;  "Minimum electricity generation by fuel (MWh)";
+  FGEMAX_zeroe.inc; PARAMETER;  FGEMAX; (CCCRRRAAA,FFF) ;  "Maximum electricity generation by fuel (MWh)";
+  GMINF.inc; PARAMETER;  GMINF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GMAXF.inc; PARAMETER;  GMAXF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEQF.inc; PARAMETER;  GEQF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSFLH.inc; PARAMETER;  WTRRSFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRFLH.inc; PARAMETER;  WTRRRFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WNDFLH.inc; PARAMETER;  WNDFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLEFLH.inc; PARAMETER;  SOLEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDS.inc; PARAMETER;  HYRSDS; (AAA,HYRSDATAS,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FHO declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_FHO_C.inc; PARAMETER;  TAX_FHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GH.inc; PARAMETER;  TAX_GH; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FCHP_C declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_HHO_C.inc; PARAMETER;  TAX_HHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DE.inc; PARAMETER;  TAX_DE; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DH.inc; PARAMETER;  TAX_DH; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  ANNUITYC.inc; PARAMETER;  ANNUITYC; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GINVCOST.inc; PARAMETER;  GINVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMVCOST.inc; PARAMETER;  GOMVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMFCOST.inc; PARAMETER;  GOMFCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEFFDERATE.inc; PARAMETER;  GEFFDERATE; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_BASE.inc; PARAMETER;  DEFP_BASE; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_BASE.inc; PARAMETER;  DHFP_BASE; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE.inc; PARAMETER;  DE; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH.inc; PARAMETER;  DH; (YYY,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKINI.inc; PARAMETER;  XKINI; (YYY,IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XINVCOST.inc; PARAMETER;  XINVCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XCOST.inc; PARAMETER;  XCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XLOSS.inc; PARAMETER;  XLOSS; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKDERATE.inc; PARAMETER;  XKDERATE; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX.inc; PARAMETER;  X3FX; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FUELPRICE.inc; PARAMETER;  FUELPRICE; (YYY,AAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  M_POL.inc; PARAMETER;  M_POL; (YYY,MPOLSET,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_S.inc; PARAMETER;  WEIGHT_S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_T.inc; PARAMETER;  WEIGHT_T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKDERATE.inc; PARAMETER;  GKDERATE; (AAA,GGG,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE_VAR_T.inc; PARAMETER;  DE_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH_VAR_T.inc; PARAMETER;  DH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSVAR_S.inc; PARAMETER;  WTRRSVAR_S; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRVAR_T.inc; PARAMETER;  WTRRRVAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WND_VAR_T.inc; PARAMETER;  WND_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLE_VAR_T.inc; PARAMETER;  SOLE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX_VAR_T.inc; PARAMETER;  X3FX_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYPPROFILS.inc; PARAMETER;  HYPPROFILS; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_STEPS.inc; PARAMETER;  DEF_STEPS; (RRR,SSS,TTT,DF_QP,DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_CALIB.inc; PARAMETER;  DEFP_CALIB; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_STEPS.inc; PARAMETER;  DHF_STEPS; (AAA,SSS,TTT,DF_QP,DHF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_CALIB.inc; PARAMETER;  DHFP_CALIB; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* DEF_STEPS2 declared in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_missing' as part of the name was created as a reminder.
+  CYCLESINS_zeroe.inc; PARAMETER;  CYCLESINS; (S) ;  "Number of load cycles per season";
+  CCCRRRAAA.inc; SET;  CCCRRRAAA; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  CCC.inc; SET;  CCC; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRR.inc; SET;  RRR; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AAA.inc; SET;  AAA; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  OMONEY.inc; PARAMETER;  OMONEY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS1E_zeroe.inc; PARAMETER;  DISLOSS1E; (RRR) ;  "Loss in electricity distribution (fraction)";
+  XLOSS1_zeroe.inc; PARAMETER;  XLOSS1; (IRRRE,IRRRI) ;  "Transmission loss between regions (fraction)";
+* AGKNDISCGDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  GKNMAX_zeroe.inc; PARAMETER;  GKNMAX; (YYY,AAA,GGG) ;  "Maximum capacities of production technologies for which investments are allowed (MW)";
+  DISLOSS1H_zeroe.inc; PARAMETER;  DISLOSS1H; (AAA) ;  "Loss in heat distribution (fraction)";
+  SOLHFLH.inc; PARAMETER;  SOLHFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGCOMB.inc; SET;  GGCOMB; (GGG,IGGGALIAS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* RESEDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* RESEHDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCAG declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGDATASET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGSIZESET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  SOLH_VAR_T.inc; PARAMETER;  SOLH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVE_VAR_T.inc; PARAMETER;  WAVE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVEFLH.inc; PARAMETER;  WAVEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GE.inc; PARAMETER;  TAX_GE; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GF.inc; PARAMETER;  TAX_GF; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_KN declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+VARIANTS_END
+  CCCRRR.inc; SET;  CCCRRR; (CCC,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRRAAA.inc; SET;  RRRAAA; (RRR,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YYY.inc; SET;  YYY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SSS.inc; SET;  SSS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TTT.inc; SET;  TTT; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGG.inc; SET;  GGG; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATASET.inc; SET;  GDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFF.inc; SET;  FFF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATASET.inc; SET;  FDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDATAS.inc; SET;  HYRSDATAS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DF_QP.inc; SET;  DF_QP; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF.inc; SET;  DEF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D1.inc; SET;  DEF_D1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U1.inc; SET;  DEF_U1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D2.inc; SET;  DEF_D2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U2.inc; SET;  DEF_U2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D3.inc; SET;  DEF_D3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U3.inc; SET;  DEF_U3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF.inc; SET;  DHF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_D1_zeroe.inc; SET;  DHF_D1; (DHF) ;  "Downwards steps in elastic heat demand; relative data format";
+  DHF_U1_zeroe.inc; SET;  DHF_U1; (DHF) ;  "Upwards steps in elastic heat demand; relative data format";
+  DHF_D2_zeroe.inc; SET;  DHF_D2; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_U2_zeroe.inc; SET;  DHF_U2; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_D3_zeroe.inc; SET;  DHF_D3; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  DHF_U3_zeroe.inc; SET;  DHF_U3; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  MPOLSET.inc; SET;  MPOLSET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  C.inc; SET;  C; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  G.inc; SET;  G; (GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AGKN.inc; SET;  AGKN; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  Y.inc; SET;  Y; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  S.inc; SET;  S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  T.inc; SET;  T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DAYTYPE.inc; SET;  DAYTYPE; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWORKDAY.inc; SET;  TWORKDAY; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWEEKEND.inc; SET;  TWEEKEND; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARIO.inc; SET;  SCENARIO; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARSIM.inc; SET;  SCENARSIM; (SCENARIO) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  PENALTYQ.inc; PARAMETER;  PENALTYQ; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YVALUE.inc; PARAMETER;  YVALUE; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATA.inc; PARAMETER;  GDATA; (GGG,GDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKFX.inc; PARAMETER;  GKFX; (YYY,AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATA.inc; PARAMETER;  FDATA; (FFF,FDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFFACRONYM_zeroe.inc; ACRO;  FFFACRONYM; () ;  "Fuel names";
+* IRESDE declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* IRESWI declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  FMAXINVEST.inc; PARAMETER;  FMAXINVEST; (CCC,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GROWTHCAP.inc; PARAMETER;  GROWTHCAP; (C,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_E.inc; PARAMETER;  DISLOSS_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_H.inc; PARAMETER;  DISLOSS_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_E.inc; PARAMETER;  DISCOST_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_H.inc; PARAMETER;  DISCOST_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FKPOT.inc; PARAMETER;  FKPOT; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FGEMIN_zeroe.inc; PARAMETER;  FGEMIN; (CCCRRRAAA,FFF) ;  "Minimum electricity generation by fuel (MWh)";
+  FGEMAX_zeroe.inc; PARAMETER;  FGEMAX; (CCCRRRAAA,FFF) ;  "Maximum electricity generation by fuel (MWh)";
+  GMINF.inc; PARAMETER;  GMINF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GMAXF.inc; PARAMETER;  GMAXF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEQF.inc; PARAMETER;  GEQF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSFLH.inc; PARAMETER;  WTRRSFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRFLH.inc; PARAMETER;  WTRRRFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WNDFLH.inc; PARAMETER;  WNDFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLEFLH.inc; PARAMETER;  SOLEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDS.inc; PARAMETER;  HYRSDS; (AAA,HYRSDATAS,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FHO declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_FHO_C.inc; PARAMETER;  TAX_FHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GH.inc; PARAMETER;  TAX_GH; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FCHP_C declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_HHO_C.inc; PARAMETER;  TAX_HHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DE.inc; PARAMETER;  TAX_DE; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DH.inc; PARAMETER;  TAX_DH; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  ANNUITYC.inc; PARAMETER;  ANNUITYC; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GINVCOST.inc; PARAMETER;  GINVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMVCOST.inc; PARAMETER;  GOMVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMFCOST.inc; PARAMETER;  GOMFCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEFFDERATE.inc; PARAMETER;  GEFFDERATE; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_BASE.inc; PARAMETER;  DEFP_BASE; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_BASE.inc; PARAMETER;  DHFP_BASE; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE.inc; PARAMETER;  DE; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH.inc; PARAMETER;  DH; (YYY,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKINI.inc; PARAMETER;  XKINI; (YYY,IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XINVCOST.inc; PARAMETER;  XINVCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XCOST.inc; PARAMETER;  XCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XLOSS.inc; PARAMETER;  XLOSS; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKDERATE.inc; PARAMETER;  XKDERATE; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX.inc; PARAMETER;  X3FX; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FUELPRICE.inc; PARAMETER;  FUELPRICE; (YYY,AAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  M_POL.inc; PARAMETER;  M_POL; (YYY,MPOLSET,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_S.inc; PARAMETER;  WEIGHT_S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_T.inc; PARAMETER;  WEIGHT_T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKDERATE.inc; PARAMETER;  GKDERATE; (AAA,GGG,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE_VAR_T.inc; PARAMETER;  DE_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH_VAR_T.inc; PARAMETER;  DH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSVAR_S.inc; PARAMETER;  WTRRSVAR_S; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRVAR_T.inc; PARAMETER;  WTRRRVAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WND_VAR_T.inc; PARAMETER;  WND_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLE_VAR_T.inc; PARAMETER;  SOLE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX_VAR_T.inc; PARAMETER;  X3FX_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYPPROFILS.inc; PARAMETER;  HYPPROFILS; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_STEPS.inc; PARAMETER;  DEF_STEPS; (RRR,SSS,TTT,DF_QP,DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_CALIB.inc; PARAMETER;  DEFP_CALIB; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_STEPS.inc; PARAMETER;  DHF_STEPS; (AAA,SSS,TTT,DF_QP,DHF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_CALIB.inc; PARAMETER;  DHFP_CALIB; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* DEF_STEPS2 declared in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_missing' as part of the name was created as a reminder.
+  CYCLESINS_zeroe.inc; PARAMETER;  CYCLESINS; (S) ;  "Number of load cycles per season";
+  CCCRRRAAA.inc; SET;  CCCRRRAAA; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  CCC.inc; SET;  CCC; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRR.inc; SET;  RRR; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AAA.inc; SET;  AAA; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  OMONEY.inc; PARAMETER;  OMONEY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS1E_zeroe.inc; PARAMETER;  DISLOSS1E; (RRR) ;  "Loss in electricity distribution (fraction)";
+  XLOSS1_zeroe.inc; PARAMETER;  XLOSS1; (IRRRE,IRRRI) ;  "Transmission loss between regions (fraction)";
+* AGKNDISCGDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  GKNMAX_zeroe.inc; PARAMETER;  GKNMAX; (YYY,AAA,GGG) ;  "Maximum capacities of production technologies for which investments are allowed (MW)";
+  DISLOSS1H_zeroe.inc; PARAMETER;  DISLOSS1H; (AAA) ;  "Loss in heat distribution (fraction)";
+  SOLHFLH.inc; PARAMETER;  SOLHFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGCOMB.inc; SET;  GGCOMB; (GGG,IGGGALIAS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* RESEDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* RESEHDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCAG declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGDATASET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGSIZESET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  SOLH_VAR_T.inc; PARAMETER;  SOLH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVE_VAR_T.inc; PARAMETER;  WAVE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVEFLH.inc; PARAMETER;  WAVEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GE.inc; PARAMETER;  TAX_GE; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GF.inc; PARAMETER;  TAX_GF; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_KN declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+BALINDEX_END
+
+VARIANTS_BEGIN
+VARINAME  BASE
+  CCCRRR.inc; SET;  CCCRRR; (CCC,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRRAAA.inc; SET;  RRRAAA; (RRR,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YYY.inc; SET;  YYY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SSS.inc; SET;  SSS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TTT.inc; SET;  TTT; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGG.inc; SET;  GGG; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATASET.inc; SET;  GDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFF.inc; SET;  FFF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATASET.inc; SET;  FDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDATAS.inc; SET;  HYRSDATAS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DF_QP.inc; SET;  DF_QP; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF.inc; SET;  DEF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D1.inc; SET;  DEF_D1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U1.inc; SET;  DEF_U1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D2.inc; SET;  DEF_D2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U2.inc; SET;  DEF_U2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D3.inc; SET;  DEF_D3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U3.inc; SET;  DEF_U3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF.inc; SET;  DHF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_D1_zeroe.inc; SET;  DHF_D1; (DHF) ;  "Downwards steps in elastic heat demand; relative data format";
+  DHF_U1_zeroe.inc; SET;  DHF_U1; (DHF) ;  "Upwards steps in elastic heat demand; relative data format";
+  DHF_D2_zeroe.inc; SET;  DHF_D2; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_U2_zeroe.inc; SET;  DHF_U2; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_D3_zeroe.inc; SET;  DHF_D3; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  DHF_U3_zeroe.inc; SET;  DHF_U3; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  MPOLSET.inc; SET;  MPOLSET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  C.inc; SET;  C; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  G.inc; SET;  G; (GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AGKN.inc; SET;  AGKN; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  Y.inc; SET;  Y; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  S.inc; SET;  S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  T.inc; SET;  T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DAYTYPE.inc; SET;  DAYTYPE; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWORKDAY.inc; SET;  TWORKDAY; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWEEKEND.inc; SET;  TWEEKEND; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARIO.inc; SET;  SCENARIO; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARSIM.inc; SET;  SCENARSIM; (SCENARIO) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  PENALTYQ.inc; PARAMETER;  PENALTYQ; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YVALUE.inc; PARAMETER;  YVALUE; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATA.inc; PARAMETER;  GDATA; (GGG,GDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKFX.inc; PARAMETER;  GKFX; (YYY,AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATA.inc; PARAMETER;  FDATA; (FFF,FDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFFACRONYM_zeroe.inc; ACRO;  FFFACRONYM; () ;  "Fuel names";
+* IRESDE declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* IRESWI declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  FMAXINVEST.inc; PARAMETER;  FMAXINVEST; (CCC,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GROWTHCAP.inc; PARAMETER;  GROWTHCAP; (C,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_E.inc; PARAMETER;  DISLOSS_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_H.inc; PARAMETER;  DISLOSS_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_E.inc; PARAMETER;  DISCOST_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_H.inc; PARAMETER;  DISCOST_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FKPOT.inc; PARAMETER;  FKPOT; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FGEMIN_zeroe.inc; PARAMETER;  FGEMIN; (CCCRRRAAA,FFF) ;  "Minimum electricity generation by fuel (MWh)";
+  FGEMAX_zeroe.inc; PARAMETER;  FGEMAX; (CCCRRRAAA,FFF) ;  "Maximum electricity generation by fuel (MWh)";
+  GMINF.inc; PARAMETER;  GMINF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GMAXF.inc; PARAMETER;  GMAXF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEQF.inc; PARAMETER;  GEQF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSFLH.inc; PARAMETER;  WTRRSFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRFLH.inc; PARAMETER;  WTRRRFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WNDFLH.inc; PARAMETER;  WNDFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLEFLH.inc; PARAMETER;  SOLEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDS.inc; PARAMETER;  HYRSDS; (AAA,HYRSDATAS,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FHO declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_FHO_C.inc; PARAMETER;  TAX_FHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GH.inc; PARAMETER;  TAX_GH; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FCHP_C declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_HHO_C.inc; PARAMETER;  TAX_HHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DE.inc; PARAMETER;  TAX_DE; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DH.inc; PARAMETER;  TAX_DH; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  ANNUITYC.inc; PARAMETER;  ANNUITYC; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GINVCOST.inc; PARAMETER;  GINVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMVCOST.inc; PARAMETER;  GOMVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMFCOST.inc; PARAMETER;  GOMFCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEFFDERATE.inc; PARAMETER;  GEFFDERATE; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_BASE.inc; PARAMETER;  DEFP_BASE; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_BASE.inc; PARAMETER;  DHFP_BASE; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE.inc; PARAMETER;  DE; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH.inc; PARAMETER;  DH; (YYY,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKINI.inc; PARAMETER;  XKINI; (YYY,IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XINVCOST.inc; PARAMETER;  XINVCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XCOST.inc; PARAMETER;  XCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XLOSS.inc; PARAMETER;  XLOSS; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKDERATE.inc; PARAMETER;  XKDERATE; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX.inc; PARAMETER;  X3FX; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FUELPRICE.inc; PARAMETER;  FUELPRICE; (YYY,AAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  M_POL.inc; PARAMETER;  M_POL; (YYY,MPOLSET,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_S.inc; PARAMETER;  WEIGHT_S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_T.inc; PARAMETER;  WEIGHT_T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKDERATE.inc; PARAMETER;  GKDERATE; (AAA,GGG,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE_VAR_T.inc; PARAMETER;  DE_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH_VAR_T.inc; PARAMETER;  DH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSVAR_S.inc; PARAMETER;  WTRRSVAR_S; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRVAR_T.inc; PARAMETER;  WTRRRVAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WND_VAR_T.inc; PARAMETER;  WND_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLE_VAR_T.inc; PARAMETER;  SOLE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX_VAR_T.inc; PARAMETER;  X3FX_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYPPROFILS.inc; PARAMETER;  HYPPROFILS; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_STEPS.inc; PARAMETER;  DEF_STEPS; (RRR,SSS,TTT,DF_QP,DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_CALIB.inc; PARAMETER;  DEFP_CALIB; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_STEPS.inc; PARAMETER;  DHF_STEPS; (AAA,SSS,TTT,DF_QP,DHF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_CALIB.inc; PARAMETER;  DHFP_CALIB; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* DEF_STEPS2 declared in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_missing' as part of the name was created as a reminder.
+  CYCLESINS_zeroe.inc; PARAMETER;  CYCLESINS; (S) ;  "Number of load cycles per season";
+  CCCRRRAAA.inc; SET;  CCCRRRAAA; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  CCC.inc; SET;  CCC; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRR.inc; SET;  RRR; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AAA.inc; SET;  AAA; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  OMONEY.inc; PARAMETER;  OMONEY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS1E_zeroe.inc; PARAMETER;  DISLOSS1E; (RRR) ;  "Loss in electricity distribution (fraction)";
+  XLOSS1_zeroe.inc; PARAMETER;  XLOSS1; (IRRRE,IRRRI) ;  "Transmission loss between regions (fraction)";
+* AGKNDISCGDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  GKNMAX_zeroe.inc; PARAMETER;  GKNMAX; (YYY,AAA,GGG) ;  "Maximum capacities of production technologies for which investments are allowed (MW)";
+  DISLOSS1H_zeroe.inc; PARAMETER;  DISLOSS1H; (AAA) ;  "Loss in heat distribution (fraction)";
+  SOLHFLH.inc; PARAMETER;  SOLHFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGCOMB.inc; SET;  GGCOMB; (GGG,IGGGALIAS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* RESEDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* RESEHDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCAG declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGDATASET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGSIZESET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  SOLH_VAR_T.inc; PARAMETER;  SOLH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVE_VAR_T.inc; PARAMETER;  WAVE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVEFLH.inc; PARAMETER;  WAVEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GE.inc; PARAMETER;  TAX_GE; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GF.inc; PARAMETER;  TAX_GF; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_KN declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+VARIANTS_END
+  CCCRRR.inc; SET;  CCCRRR; (CCC,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRRAAA.inc; SET;  RRRAAA; (RRR,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YYY.inc; SET;  YYY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SSS.inc; SET;  SSS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TTT.inc; SET;  TTT; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGG.inc; SET;  GGG; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATASET.inc; SET;  GDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFF.inc; SET;  FFF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATASET.inc; SET;  FDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDATAS.inc; SET;  HYRSDATAS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DF_QP.inc; SET;  DF_QP; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF.inc; SET;  DEF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D1.inc; SET;  DEF_D1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U1.inc; SET;  DEF_U1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D2.inc; SET;  DEF_D2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U2.inc; SET;  DEF_U2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D3.inc; SET;  DEF_D3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U3.inc; SET;  DEF_U3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF.inc; SET;  DHF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_D1_zeroe.inc; SET;  DHF_D1; (DHF) ;  "Downwards steps in elastic heat demand; relative data format";
+  DHF_U1_zeroe.inc; SET;  DHF_U1; (DHF) ;  "Upwards steps in elastic heat demand; relative data format";
+  DHF_D2_zeroe.inc; SET;  DHF_D2; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_U2_zeroe.inc; SET;  DHF_U2; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_D3_zeroe.inc; SET;  DHF_D3; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  DHF_U3_zeroe.inc; SET;  DHF_U3; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  MPOLSET.inc; SET;  MPOLSET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  C.inc; SET;  C; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  G.inc; SET;  G; (GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AGKN.inc; SET;  AGKN; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  Y.inc; SET;  Y; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  S.inc; SET;  S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  T.inc; SET;  T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DAYTYPE.inc; SET;  DAYTYPE; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWORKDAY.inc; SET;  TWORKDAY; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWEEKEND.inc; SET;  TWEEKEND; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARIO.inc; SET;  SCENARIO; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARSIM.inc; SET;  SCENARSIM; (SCENARIO) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  PENALTYQ.inc; PARAMETER;  PENALTYQ; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YVALUE.inc; PARAMETER;  YVALUE; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATA.inc; PARAMETER;  GDATA; (GGG,GDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKFX.inc; PARAMETER;  GKFX; (YYY,AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATA.inc; PARAMETER;  FDATA; (FFF,FDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFFACRONYM_zeroe.inc; ACRO;  FFFACRONYM; () ;  "Fuel names";
+* IRESDE declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* IRESWI declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  FMAXINVEST.inc; PARAMETER;  FMAXINVEST; (CCC,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GROWTHCAP.inc; PARAMETER;  GROWTHCAP; (C,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_E.inc; PARAMETER;  DISLOSS_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_H.inc; PARAMETER;  DISLOSS_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_E.inc; PARAMETER;  DISCOST_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_H.inc; PARAMETER;  DISCOST_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FKPOT.inc; PARAMETER;  FKPOT; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FGEMIN_zeroe.inc; PARAMETER;  FGEMIN; (CCCRRRAAA,FFF) ;  "Minimum electricity generation by fuel (MWh)";
+  FGEMAX_zeroe.inc; PARAMETER;  FGEMAX; (CCCRRRAAA,FFF) ;  "Maximum electricity generation by fuel (MWh)";
+  GMINF.inc; PARAMETER;  GMINF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GMAXF.inc; PARAMETER;  GMAXF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEQF.inc; PARAMETER;  GEQF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSFLH.inc; PARAMETER;  WTRRSFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRFLH.inc; PARAMETER;  WTRRRFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WNDFLH.inc; PARAMETER;  WNDFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLEFLH.inc; PARAMETER;  SOLEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDS.inc; PARAMETER;  HYRSDS; (AAA,HYRSDATAS,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FHO declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_FHO_C.inc; PARAMETER;  TAX_FHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GH.inc; PARAMETER;  TAX_GH; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FCHP_C declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_HHO_C.inc; PARAMETER;  TAX_HHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DE.inc; PARAMETER;  TAX_DE; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DH.inc; PARAMETER;  TAX_DH; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  ANNUITYC.inc; PARAMETER;  ANNUITYC; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GINVCOST.inc; PARAMETER;  GINVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMVCOST.inc; PARAMETER;  GOMVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMFCOST.inc; PARAMETER;  GOMFCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEFFDERATE.inc; PARAMETER;  GEFFDERATE; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_BASE.inc; PARAMETER;  DEFP_BASE; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_BASE.inc; PARAMETER;  DHFP_BASE; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE.inc; PARAMETER;  DE; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH.inc; PARAMETER;  DH; (YYY,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKINI.inc; PARAMETER;  XKINI; (YYY,IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XINVCOST.inc; PARAMETER;  XINVCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XCOST.inc; PARAMETER;  XCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XLOSS.inc; PARAMETER;  XLOSS; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKDERATE.inc; PARAMETER;  XKDERATE; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX.inc; PARAMETER;  X3FX; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FUELPRICE.inc; PARAMETER;  FUELPRICE; (YYY,AAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  M_POL.inc; PARAMETER;  M_POL; (YYY,MPOLSET,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_S.inc; PARAMETER;  WEIGHT_S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_T.inc; PARAMETER;  WEIGHT_T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKDERATE.inc; PARAMETER;  GKDERATE; (AAA,GGG,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE_VAR_T.inc; PARAMETER;  DE_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH_VAR_T.inc; PARAMETER;  DH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSVAR_S.inc; PARAMETER;  WTRRSVAR_S; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRVAR_T.inc; PARAMETER;  WTRRRVAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WND_VAR_T.inc; PARAMETER;  WND_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLE_VAR_T.inc; PARAMETER;  SOLE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX_VAR_T.inc; PARAMETER;  X3FX_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYPPROFILS.inc; PARAMETER;  HYPPROFILS; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_STEPS.inc; PARAMETER;  DEF_STEPS; (RRR,SSS,TTT,DF_QP,DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_CALIB.inc; PARAMETER;  DEFP_CALIB; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_STEPS.inc; PARAMETER;  DHF_STEPS; (AAA,SSS,TTT,DF_QP,DHF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_CALIB.inc; PARAMETER;  DHFP_CALIB; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* DEF_STEPS2 declared in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_missing' as part of the name was created as a reminder.
+  CYCLESINS_zeroe.inc; PARAMETER;  CYCLESINS; (S) ;  "Number of load cycles per season";
+  CCCRRRAAA.inc; SET;  CCCRRRAAA; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  CCC.inc; SET;  CCC; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRR.inc; SET;  RRR; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AAA.inc; SET;  AAA; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  OMONEY.inc; PARAMETER;  OMONEY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS1E_zeroe.inc; PARAMETER;  DISLOSS1E; (RRR) ;  "Loss in electricity distribution (fraction)";
+  XLOSS1_zeroe.inc; PARAMETER;  XLOSS1; (IRRRE,IRRRI) ;  "Transmission loss between regions (fraction)";
+* AGKNDISCGDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  GKNMAX_zeroe.inc; PARAMETER;  GKNMAX; (YYY,AAA,GGG) ;  "Maximum capacities of production technologies for which investments are allowed (MW)";
+  DISLOSS1H_zeroe.inc; PARAMETER;  DISLOSS1H; (AAA) ;  "Loss in heat distribution (fraction)";
+  SOLHFLH.inc; PARAMETER;  SOLHFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGCOMB.inc; SET;  GGCOMB; (GGG,IGGGALIAS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* RESEDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* RESEHDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCAG declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGDATASET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGSIZESET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  SOLH_VAR_T.inc; PARAMETER;  SOLH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVE_VAR_T.inc; PARAMETER;  WAVE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVEFLH.inc; PARAMETER;  WAVEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GE.inc; PARAMETER;  TAX_GE; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GF.inc; PARAMETER;  TAX_GF; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_KN declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+BALINDEX_END
+
+VARIANTS_BEGIN
+VARINAME  BASE
+  CCCRRR.inc; SET;  CCCRRR; (CCC,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRRAAA.inc; SET;  RRRAAA; (RRR,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YYY.inc; SET;  YYY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SSS.inc; SET;  SSS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TTT.inc; SET;  TTT; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGG.inc; SET;  GGG; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATASET.inc; SET;  GDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFF.inc; SET;  FFF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATASET.inc; SET;  FDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDATAS.inc; SET;  HYRSDATAS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DF_QP.inc; SET;  DF_QP; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF.inc; SET;  DEF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D1.inc; SET;  DEF_D1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U1.inc; SET;  DEF_U1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D2.inc; SET;  DEF_D2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U2.inc; SET;  DEF_U2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D3.inc; SET;  DEF_D3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U3.inc; SET;  DEF_U3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF.inc; SET;  DHF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_D1_zeroe.inc; SET;  DHF_D1; (DHF) ;  "Downwards steps in elastic heat demand; relative data format";
+  DHF_U1_zeroe.inc; SET;  DHF_U1; (DHF) ;  "Upwards steps in elastic heat demand; relative data format";
+  DHF_D2_zeroe.inc; SET;  DHF_D2; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_U2_zeroe.inc; SET;  DHF_U2; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_D3_zeroe.inc; SET;  DHF_D3; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  DHF_U3_zeroe.inc; SET;  DHF_U3; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  MPOLSET.inc; SET;  MPOLSET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  C.inc; SET;  C; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  G.inc; SET;  G; (GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AGKN.inc; SET;  AGKN; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  Y.inc; SET;  Y; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  S.inc; SET;  S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  T.inc; SET;  T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DAYTYPE.inc; SET;  DAYTYPE; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWORKDAY.inc; SET;  TWORKDAY; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWEEKEND.inc; SET;  TWEEKEND; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARIO.inc; SET;  SCENARIO; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARSIM.inc; SET;  SCENARSIM; (SCENARIO) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  PENALTYQ.inc; PARAMETER;  PENALTYQ; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YVALUE.inc; PARAMETER;  YVALUE; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATA.inc; PARAMETER;  GDATA; (GGG,GDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKFX.inc; PARAMETER;  GKFX; (YYY,AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATA.inc; PARAMETER;  FDATA; (FFF,FDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFFACRONYM_zeroe.inc; ACRO;  FFFACRONYM; () ;  "Fuel names";
+* IRESDE declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* IRESWI declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  FMAXINVEST.inc; PARAMETER;  FMAXINVEST; (CCC,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GROWTHCAP.inc; PARAMETER;  GROWTHCAP; (C,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_E.inc; PARAMETER;  DISLOSS_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_H.inc; PARAMETER;  DISLOSS_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_E.inc; PARAMETER;  DISCOST_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_H.inc; PARAMETER;  DISCOST_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FKPOT.inc; PARAMETER;  FKPOT; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FGEMIN_zeroe.inc; PARAMETER;  FGEMIN; (CCCRRRAAA,FFF) ;  "Minimum electricity generation by fuel (MWh)";
+  FGEMAX_zeroe.inc; PARAMETER;  FGEMAX; (CCCRRRAAA,FFF) ;  "Maximum electricity generation by fuel (MWh)";
+  GMINF.inc; PARAMETER;  GMINF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GMAXF.inc; PARAMETER;  GMAXF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEQF.inc; PARAMETER;  GEQF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSFLH.inc; PARAMETER;  WTRRSFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRFLH.inc; PARAMETER;  WTRRRFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WNDFLH.inc; PARAMETER;  WNDFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLEFLH.inc; PARAMETER;  SOLEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDS.inc; PARAMETER;  HYRSDS; (AAA,HYRSDATAS,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FHO declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_FHO_C.inc; PARAMETER;  TAX_FHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GH.inc; PARAMETER;  TAX_GH; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FCHP_C declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_HHO_C.inc; PARAMETER;  TAX_HHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DE.inc; PARAMETER;  TAX_DE; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DH.inc; PARAMETER;  TAX_DH; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  ANNUITYC.inc; PARAMETER;  ANNUITYC; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GINVCOST.inc; PARAMETER;  GINVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMVCOST.inc; PARAMETER;  GOMVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMFCOST.inc; PARAMETER;  GOMFCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEFFDERATE.inc; PARAMETER;  GEFFDERATE; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_BASE.inc; PARAMETER;  DEFP_BASE; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_BASE.inc; PARAMETER;  DHFP_BASE; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE.inc; PARAMETER;  DE; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH.inc; PARAMETER;  DH; (YYY,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKINI.inc; PARAMETER;  XKINI; (YYY,IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XINVCOST.inc; PARAMETER;  XINVCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XCOST.inc; PARAMETER;  XCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XLOSS.inc; PARAMETER;  XLOSS; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKDERATE.inc; PARAMETER;  XKDERATE; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX.inc; PARAMETER;  X3FX; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FUELPRICE.inc; PARAMETER;  FUELPRICE; (YYY,AAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  M_POL.inc; PARAMETER;  M_POL; (YYY,MPOLSET,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_S.inc; PARAMETER;  WEIGHT_S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_T.inc; PARAMETER;  WEIGHT_T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKDERATE.inc; PARAMETER;  GKDERATE; (AAA,GGG,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE_VAR_T.inc; PARAMETER;  DE_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH_VAR_T.inc; PARAMETER;  DH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSVAR_S.inc; PARAMETER;  WTRRSVAR_S; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRVAR_T.inc; PARAMETER;  WTRRRVAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WND_VAR_T.inc; PARAMETER;  WND_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLE_VAR_T.inc; PARAMETER;  SOLE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX_VAR_T.inc; PARAMETER;  X3FX_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYPPROFILS.inc; PARAMETER;  HYPPROFILS; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_STEPS.inc; PARAMETER;  DEF_STEPS; (RRR,SSS,TTT,DF_QP,DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_CALIB.inc; PARAMETER;  DEFP_CALIB; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_STEPS.inc; PARAMETER;  DHF_STEPS; (AAA,SSS,TTT,DF_QP,DHF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_CALIB.inc; PARAMETER;  DHFP_CALIB; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* DEF_STEPS2 declared in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_missing' as part of the name was created as a reminder.
+  CYCLESINS_zeroe.inc; PARAMETER;  CYCLESINS; (S) ;  "Number of load cycles per season";
+  CCCRRRAAA.inc; SET;  CCCRRRAAA; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  CCC.inc; SET;  CCC; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRR.inc; SET;  RRR; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AAA.inc; SET;  AAA; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  OMONEY.inc; PARAMETER;  OMONEY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS1E_zeroe.inc; PARAMETER;  DISLOSS1E; (RRR) ;  "Loss in electricity distribution (fraction)";
+  XLOSS1_zeroe.inc; PARAMETER;  XLOSS1; (IRRRE,IRRRI) ;  "Transmission loss between regions (fraction)";
+* AGKNDISCGDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  GKNMAX_zeroe.inc; PARAMETER;  GKNMAX; (YYY,AAA,GGG) ;  "Maximum capacities of production technologies for which investments are allowed (MW)";
+  DISLOSS1H_zeroe.inc; PARAMETER;  DISLOSS1H; (AAA) ;  "Loss in heat distribution (fraction)";
+  SOLHFLH.inc; PARAMETER;  SOLHFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGCOMB.inc; SET;  GGCOMB; (GGG,IGGGALIAS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* RESEDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* RESEHDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCAG declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGDATASET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGSIZESET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  SOLH_VAR_T.inc; PARAMETER;  SOLH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVE_VAR_T.inc; PARAMETER;  WAVE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVEFLH.inc; PARAMETER;  WAVEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GE.inc; PARAMETER;  TAX_GE; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GF.inc; PARAMETER;  TAX_GF; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_KN declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+VARIANTS_END
+  CCCRRR.inc; SET;  CCCRRR; (CCC,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRRAAA.inc; SET;  RRRAAA; (RRR,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YYY.inc; SET;  YYY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SSS.inc; SET;  SSS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TTT.inc; SET;  TTT; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGG.inc; SET;  GGG; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATASET.inc; SET;  GDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFF.inc; SET;  FFF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATASET.inc; SET;  FDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDATAS.inc; SET;  HYRSDATAS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DF_QP.inc; SET;  DF_QP; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF.inc; SET;  DEF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D1.inc; SET;  DEF_D1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U1.inc; SET;  DEF_U1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D2.inc; SET;  DEF_D2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U2.inc; SET;  DEF_U2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D3.inc; SET;  DEF_D3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U3.inc; SET;  DEF_U3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF.inc; SET;  DHF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_D1_zeroe.inc; SET;  DHF_D1; (DHF) ;  "Downwards steps in elastic heat demand; relative data format";
+  DHF_U1_zeroe.inc; SET;  DHF_U1; (DHF) ;  "Upwards steps in elastic heat demand; relative data format";
+  DHF_D2_zeroe.inc; SET;  DHF_D2; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_U2_zeroe.inc; SET;  DHF_U2; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_D3_zeroe.inc; SET;  DHF_D3; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  DHF_U3_zeroe.inc; SET;  DHF_U3; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  MPOLSET.inc; SET;  MPOLSET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  C.inc; SET;  C; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  G.inc; SET;  G; (GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AGKN.inc; SET;  AGKN; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  Y.inc; SET;  Y; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  S.inc; SET;  S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  T.inc; SET;  T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DAYTYPE.inc; SET;  DAYTYPE; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWORKDAY.inc; SET;  TWORKDAY; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWEEKEND.inc; SET;  TWEEKEND; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARIO.inc; SET;  SCENARIO; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARSIM.inc; SET;  SCENARSIM; (SCENARIO) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  PENALTYQ.inc; PARAMETER;  PENALTYQ; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YVALUE.inc; PARAMETER;  YVALUE; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATA.inc; PARAMETER;  GDATA; (GGG,GDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKFX.inc; PARAMETER;  GKFX; (YYY,AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATA.inc; PARAMETER;  FDATA; (FFF,FDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFFACRONYM_zeroe.inc; ACRO;  FFFACRONYM; () ;  "Fuel names";
+* IRESDE declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* IRESWI declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  FMAXINVEST.inc; PARAMETER;  FMAXINVEST; (CCC,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GROWTHCAP.inc; PARAMETER;  GROWTHCAP; (C,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_E.inc; PARAMETER;  DISLOSS_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_H.inc; PARAMETER;  DISLOSS_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_E.inc; PARAMETER;  DISCOST_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_H.inc; PARAMETER;  DISCOST_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FKPOT.inc; PARAMETER;  FKPOT; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FGEMIN_zeroe.inc; PARAMETER;  FGEMIN; (CCCRRRAAA,FFF) ;  "Minimum electricity generation by fuel (MWh)";
+  FGEMAX_zeroe.inc; PARAMETER;  FGEMAX; (CCCRRRAAA,FFF) ;  "Maximum electricity generation by fuel (MWh)";
+  GMINF.inc; PARAMETER;  GMINF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GMAXF.inc; PARAMETER;  GMAXF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEQF.inc; PARAMETER;  GEQF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSFLH.inc; PARAMETER;  WTRRSFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRFLH.inc; PARAMETER;  WTRRRFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WNDFLH.inc; PARAMETER;  WNDFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLEFLH.inc; PARAMETER;  SOLEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDS.inc; PARAMETER;  HYRSDS; (AAA,HYRSDATAS,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FHO declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_FHO_C.inc; PARAMETER;  TAX_FHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GH.inc; PARAMETER;  TAX_GH; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FCHP_C declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_HHO_C.inc; PARAMETER;  TAX_HHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DE.inc; PARAMETER;  TAX_DE; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DH.inc; PARAMETER;  TAX_DH; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  ANNUITYC.inc; PARAMETER;  ANNUITYC; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GINVCOST.inc; PARAMETER;  GINVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMVCOST.inc; PARAMETER;  GOMVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMFCOST.inc; PARAMETER;  GOMFCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEFFDERATE.inc; PARAMETER;  GEFFDERATE; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_BASE.inc; PARAMETER;  DEFP_BASE; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_BASE.inc; PARAMETER;  DHFP_BASE; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE.inc; PARAMETER;  DE; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH.inc; PARAMETER;  DH; (YYY,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKINI.inc; PARAMETER;  XKINI; (YYY,IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XINVCOST.inc; PARAMETER;  XINVCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XCOST.inc; PARAMETER;  XCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XLOSS.inc; PARAMETER;  XLOSS; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKDERATE.inc; PARAMETER;  XKDERATE; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX.inc; PARAMETER;  X3FX; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FUELPRICE.inc; PARAMETER;  FUELPRICE; (YYY,AAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  M_POL.inc; PARAMETER;  M_POL; (YYY,MPOLSET,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_S.inc; PARAMETER;  WEIGHT_S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_T.inc; PARAMETER;  WEIGHT_T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKDERATE.inc; PARAMETER;  GKDERATE; (AAA,GGG,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE_VAR_T.inc; PARAMETER;  DE_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH_VAR_T.inc; PARAMETER;  DH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSVAR_S.inc; PARAMETER;  WTRRSVAR_S; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRVAR_T.inc; PARAMETER;  WTRRRVAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WND_VAR_T.inc; PARAMETER;  WND_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLE_VAR_T.inc; PARAMETER;  SOLE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX_VAR_T.inc; PARAMETER;  X3FX_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYPPROFILS.inc; PARAMETER;  HYPPROFILS; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_STEPS.inc; PARAMETER;  DEF_STEPS; (RRR,SSS,TTT,DF_QP,DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_CALIB.inc; PARAMETER;  DEFP_CALIB; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_STEPS.inc; PARAMETER;  DHF_STEPS; (AAA,SSS,TTT,DF_QP,DHF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_CALIB.inc; PARAMETER;  DHFP_CALIB; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* DEF_STEPS2 declared in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_missing' as part of the name was created as a reminder.
+  CYCLESINS_zeroe.inc; PARAMETER;  CYCLESINS; (S) ;  "Number of load cycles per season";
+  CCCRRRAAA.inc; SET;  CCCRRRAAA; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  CCC.inc; SET;  CCC; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRR.inc; SET;  RRR; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AAA.inc; SET;  AAA; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  OMONEY.inc; PARAMETER;  OMONEY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS1E_zeroe.inc; PARAMETER;  DISLOSS1E; (RRR) ;  "Loss in electricity distribution (fraction)";
+  XLOSS1_zeroe.inc; PARAMETER;  XLOSS1; (IRRRE,IRRRI) ;  "Transmission loss between regions (fraction)";
+* AGKNDISCGDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  GKNMAX_zeroe.inc; PARAMETER;  GKNMAX; (YYY,AAA,GGG) ;  "Maximum capacities of production technologies for which investments are allowed (MW)";
+  DISLOSS1H_zeroe.inc; PARAMETER;  DISLOSS1H; (AAA) ;  "Loss in heat distribution (fraction)";
+  SOLHFLH.inc; PARAMETER;  SOLHFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGCOMB.inc; SET;  GGCOMB; (GGG,IGGGALIAS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* RESEDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* RESEHDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCAG declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGDATASET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGSIZESET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  SOLH_VAR_T.inc; PARAMETER;  SOLH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVE_VAR_T.inc; PARAMETER;  WAVE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVEFLH.inc; PARAMETER;  WAVEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GE.inc; PARAMETER;  TAX_GE; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GF.inc; PARAMETER;  TAX_GF; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_KN declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+BALINDEX_END
+
+VARIANTS_BEGIN
+VARINAME  BASE
+  CCCRRR.inc; SET;  CCCRRR; (CCC,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRRAAA.inc; SET;  RRRAAA; (RRR,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YYY.inc; SET;  YYY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SSS.inc; SET;  SSS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TTT.inc; SET;  TTT; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGG.inc; SET;  GGG; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATASET.inc; SET;  GDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFF.inc; SET;  FFF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATASET.inc; SET;  FDATASET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDATAS.inc; SET;  HYRSDATAS; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DF_QP.inc; SET;  DF_QP; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF.inc; SET;  DEF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D1.inc; SET;  DEF_D1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U1.inc; SET;  DEF_U1; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D2.inc; SET;  DEF_D2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U2.inc; SET;  DEF_U2; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_D3.inc; SET;  DEF_D3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_U3.inc; SET;  DEF_U3; (DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF.inc; SET;  DHF; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_D1_zeroe.inc; SET;  DHF_D1; (DHF) ;  "Downwards steps in elastic heat demand; relative data format";
+  DHF_U1_zeroe.inc; SET;  DHF_U1; (DHF) ;  "Upwards steps in elastic heat demand; relative data format";
+  DHF_D2_zeroe.inc; SET;  DHF_D2; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_U2_zeroe.inc; SET;  DHF_U2; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and MW-incremental data format";
+  DHF_D3_zeroe.inc; SET;  DHF_D3; (DHF) ;  "Downwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  DHF_U3_zeroe.inc; SET;  DHF_U3; (DHF) ;  "Upwards steps in elastic heat demand; absolute Money and fraction of nominal demand data format";
+  MPOLSET.inc; SET;  MPOLSET; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  C.inc; SET;  C; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  G.inc; SET;  G; (GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AGKN.inc; SET;  AGKN; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  Y.inc; SET;  Y; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  S.inc; SET;  S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  T.inc; SET;  T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DAYTYPE.inc; SET;  DAYTYPE; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWORKDAY.inc; SET;  TWORKDAY; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TWEEKEND.inc; SET;  TWEEKEND; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARIO.inc; SET;  SCENARIO; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SCENARSIM.inc; SET;  SCENARSIM; (SCENARIO) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  PENALTYQ.inc; PARAMETER;  PENALTYQ; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  YVALUE.inc; PARAMETER;  YVALUE; (YYY) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GDATA.inc; PARAMETER;  GDATA; (GGG,GDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKFX.inc; PARAMETER;  GKFX; (YYY,AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FDATA.inc; PARAMETER;  FDATA; (FFF,FDATASET) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FFFACRONYM_zeroe.inc; ACRO;  FFFACRONYM; () ;  "Fuel names";
+* IRESDE declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* IRESWI declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  FMAXINVEST.inc; PARAMETER;  FMAXINVEST; (CCC,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GROWTHCAP.inc; PARAMETER;  GROWTHCAP; (C,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_E.inc; PARAMETER;  DISLOSS_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS_H.inc; PARAMETER;  DISLOSS_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_E.inc; PARAMETER;  DISCOST_E; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISCOST_H.inc; PARAMETER;  DISCOST_H; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FKPOT.inc; PARAMETER;  FKPOT; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FGEMIN_zeroe.inc; PARAMETER;  FGEMIN; (CCCRRRAAA,FFF) ;  "Minimum electricity generation by fuel (MWh)";
+  FGEMAX_zeroe.inc; PARAMETER;  FGEMAX; (CCCRRRAAA,FFF) ;  "Maximum electricity generation by fuel (MWh)";
+  GMINF.inc; PARAMETER;  GMINF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GMAXF.inc; PARAMETER;  GMAXF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEQF.inc; PARAMETER;  GEQF; (CCCRRRAAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSFLH.inc; PARAMETER;  WTRRSFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRFLH.inc; PARAMETER;  WTRRRFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WNDFLH.inc; PARAMETER;  WNDFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLEFLH.inc; PARAMETER;  SOLEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYRSDS.inc; PARAMETER;  HYRSDS; (AAA,HYRSDATAS,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FHO declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_FHO_C.inc; PARAMETER;  TAX_FHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GH.inc; PARAMETER;  TAX_GH; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_FCHP_C declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  TAX_HHO_C.inc; PARAMETER;  TAX_HHO_C; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DE.inc; PARAMETER;  TAX_DE; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_DH.inc; PARAMETER;  TAX_DH; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  ANNUITYC.inc; PARAMETER;  ANNUITYC; (CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GINVCOST.inc; PARAMETER;  GINVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMVCOST.inc; PARAMETER;  GOMVCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GOMFCOST.inc; PARAMETER;  GOMFCOST; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GEFFDERATE.inc; PARAMETER;  GEFFDERATE; (AAA,GGG) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_BASE.inc; PARAMETER;  DEFP_BASE; (RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_BASE.inc; PARAMETER;  DHFP_BASE; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE.inc; PARAMETER;  DE; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH.inc; PARAMETER;  DH; (YYY,AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKINI.inc; PARAMETER;  XKINI; (YYY,IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XINVCOST.inc; PARAMETER;  XINVCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XCOST.inc; PARAMETER;  XCOST; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XLOSS.inc; PARAMETER;  XLOSS; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  XKDERATE.inc; PARAMETER;  XKDERATE; (IRRRE,IRRRI) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX.inc; PARAMETER;  X3FX; (YYY,RRR) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  FUELPRICE.inc; PARAMETER;  FUELPRICE; (YYY,AAA,FFF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  M_POL.inc; PARAMETER;  M_POL; (YYY,MPOLSET,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_S.inc; PARAMETER;  WEIGHT_S; (SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WEIGHT_T.inc; PARAMETER;  WEIGHT_T; (TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GKDERATE.inc; PARAMETER;  GKDERATE; (AAA,GGG,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DE_VAR_T.inc; PARAMETER;  DE_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DH_VAR_T.inc; PARAMETER;  DH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRSVAR_S.inc; PARAMETER;  WTRRSVAR_S; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WTRRRVAR_T.inc; PARAMETER;  WTRRRVAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WND_VAR_T.inc; PARAMETER;  WND_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  SOLE_VAR_T.inc; PARAMETER;  SOLE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  X3FX_VAR_T.inc; PARAMETER;  X3FX_VAR_T; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  HYPPROFILS.inc; PARAMETER;  HYPPROFILS; (AAA,SSS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEF_STEPS.inc; PARAMETER;  DEF_STEPS; (RRR,SSS,TTT,DF_QP,DEF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DEFP_CALIB.inc; PARAMETER;  DEFP_CALIB; (RRR,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHF_STEPS.inc; PARAMETER;  DHF_STEPS; (AAA,SSS,TTT,DF_QP,DHF) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DHFP_CALIB.inc; PARAMETER;  DHFP_CALIB; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* DEF_STEPS2 declared in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_missing' as part of the name was created as a reminder.
+  CYCLESINS_zeroe.inc; PARAMETER;  CYCLESINS; (S) ;  "Number of load cycles per season";
+  CCCRRRAAA.inc; SET;  CCCRRRAAA; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  CCC.inc; SET;  CCC; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  RRR.inc; SET;  RRR; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  AAA.inc; SET;  AAA; (CCCRRRAAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  OMONEY.inc; PARAMETER;  OMONEY; () ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  DISLOSS1E_zeroe.inc; PARAMETER;  DISLOSS1E; (RRR) ;  "Loss in electricity distribution (fraction)";
+  XLOSS1_zeroe.inc; PARAMETER;  XLOSS1; (IRRRE,IRRRI) ;  "Transmission loss between regions (fraction)";
+* AGKNDISCGDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  GKNMAX_zeroe.inc; PARAMETER;  GKNMAX; (YYY,AAA,GGG) ;  "Maximum capacities of production technologies for which investments are allowed (MW)";
+  DISLOSS1H_zeroe.inc; PARAMETER;  DISLOSS1H; (AAA) ;  "Loss in heat distribution (fraction)";
+  SOLHFLH.inc; PARAMETER;  SOLHFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  GGCOMB.inc; SET;  GGCOMB; (GGG,IGGGALIAS) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* RESEDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* RESEHDATA declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCAG declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGDATASET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+* AGKNDISCGSIZESET declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+  SOLH_VAR_T.inc; PARAMETER;  SOLH_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVE_VAR_T.inc; PARAMETER;  WAVE_VAR_T; (AAA,SSS,TTT) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  WAVEFLH.inc; PARAMETER;  WAVEFLH; (AAA) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GE.inc; PARAMETER;  TAX_GE; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_F.inc; PARAMETER;  TAX_F; (FFF,CCC) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+  TAX_GF.inc; PARAMETER;  TAX_GF; (YYY,AAA,G) ;  "Description: No description for this data instance provided - please put description in Balindex.";
+* TAX_KN declared (with a $) in Balmorel version 3.02 (September 2011) but not declared in present User supplied Balmorel taken as input. However, a file with '_maybemissing' as part of the name was created as a reminder.
+VARIANTS_END

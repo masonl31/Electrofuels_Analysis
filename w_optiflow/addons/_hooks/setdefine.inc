@@ -1,0 +1,7 @@
+* File setdefine.inc for handling SET definitions for Balmorel addons
+
+
+
+$ifi %combtech%==yes $ifi     exist "../addons/combtech/combtech_setdefine.inc"  $include  "../addons/combtech/combtech_setdefine.inc";
+$ifi %combtech%==yes $ifi not exist "../addons/combtech/combtech_setdefine.inc"  $include  "../../base/addons/combtech/combtech_setdefine.inc"
+

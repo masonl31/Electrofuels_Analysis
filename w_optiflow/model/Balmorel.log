@@ -1,0 +1,305 @@
+
+--- Job Balmorel.gms Start 08/19/19 09:44:11 28.1.0 r5b48834 WEX-WEI x86 64bit/MS Windows
+--- GAMS Parameters defined
+    Input C:\Users\mscle\Desktop\test8\mason\model\Balmorel.gms
+    PageWidth 80
+    PageSize 0
+    PageContr 3
+    Action CE
+    ScrDir C:\Users\mscle\Desktop\test8\mason\model\225a\
+    SysDir C:\GAMS\win64\28.1\
+    WorkDir C:\Users\mscle\Desktop\test8\mason\model\
+    LogOption 3
+    DFormat 0
+    TFormat 0
+    ErrorLog 99
+    IDE 1
+GAMS 28.1.0   Copyright (C) 1987-2019 GAMS Development. All rights reserved
+*** License File has expired 17 days ago
+Licensee: Course License Technical University of Denmark A190104:0754AO-GEN
+          Management Engineering                                     DC8756
+          License for teaching and research at degree granting institutions
+          License Admin: Thomas Stidsen, thst@man.dtu.dk                   
+--- Starting compilation
+--- Balmorel.gms(38) 2 Mb
+--- . balgams.opt(138) 2 Mb
+--- Balmorel.gms(47) 2 Mb
+--- . balopt.opt(491) 2 Mb
+--- Balmorel.gms(50) 2 Mb
+--- . ../addons/_hooks/addonsopt.opt(1) 2 Mb
+--- .. ../../base/addons/OptiFlow/optiflowopt.opt(92) 2 Mb
+--- . ../addons/_hooks/addonsopt.opt(1) 2 Mb
+--- Balmorel.gms(147) 2 Mb
+--- . ../data/CCCRRRAAA.inc(874) 3 Mb
+--- Balmorel.gms(153) 3 Mb
+--- . ../../base/data/CCC.inc(15) 3 Mb
+--- Balmorel.gms(158) 3 Mb
+--- . ../../base/data/RRR.inc(137) 3 Mb
+--- Balmorel.gms(162) 3 Mb
+--- . ../data/AAA.inc(721) 3 Mb
+--- Balmorel.gms(168) 3 Mb
+--- . ../../base/data/CCCRRR.inc(137) 3 Mb
+--- Balmorel.gms(172) 3 Mb
+--- . ../data/RRRAAA.inc(718) 3 Mb
+--- Balmorel.gms(182) 3 Mb
+--- . ../../base/data/YYY.inc(59) 3 Mb
+--- Balmorel.gms(187) 3 Mb
+--- . ../../base/data/SSS.inc(55) 3 Mb
+--- Balmorel.gms(192) 3 Mb
+--- . ../../base/data/TTT.inc(171) 3 Mb
+--- Balmorel.gms(197) 3 Mb
+--- . ../../base/data/GGG.inc(2056) 3 Mb
+--- Balmorel.gms(202) 3 Mb
+--- . ../../base/data/GDATASET.inc(50) 3 Mb
+--- Balmorel.gms(207) 3 Mb
+--- . ../../base/data/FFF.inc(51) 3 Mb
+--- Balmorel.gms(213) 3 Mb
+--- . ../../base/data/FFFACRONYM.inc(48) 3 Mb
+--- Balmorel.gms(218) 3 Mb
+--- . ../../base/data/FDATASET.inc(10) 3 Mb
+--- Balmorel.gms(223) 3 Mb
+--- . ../../base/data/HYRSDATASET.inc(6) 3 Mb
+--- Balmorel.gms(228) 3 Mb
+--- . ../../base/data/DF_QP.inc(5) 3 Mb
+--- Balmorel.gms(233) 3 Mb
+--- . ../../base/data/DEF.inc(51) 3 Mb
+--- Balmorel.gms(238) 3 Mb
+--- . ../../base/data/DEF_D1.inc(3) 3 Mb
+--- Balmorel.gms(243) 3 Mb
+--- . ../../base/data/DEF_U1.inc(3) 3 Mb
+--- Balmorel.gms(248) 3 Mb
+--- . ../../base/data/DEF_D2.inc(4) 3 Mb
+--- Balmorel.gms(253) 3 Mb
+--- . ../../base/data/DEF_U2.inc(3) 3 Mb
+--- Balmorel.gms(258) 3 Mb
+--- . ../../base/data/DEF_D3.inc(3) 3 Mb
+--- Balmorel.gms(263) 3 Mb
+--- . ../../base/data/DEF_U3.inc(3) 3 Mb
+--- Balmorel.gms(268) 3 Mb
+--- . ../../base/data/DHF.inc(21) 3 Mb
+--- Balmorel.gms(273) 3 Mb
+--- . ../../base/data/DHF_D1.inc(4) 3 Mb
+--- Balmorel.gms(278) 3 Mb
+--- . ../../base/data/DHF_U1.inc(4) 3 Mb
+--- Balmorel.gms(283) 3 Mb
+--- . ../../base/data/DHF_D2.inc(4) 3 Mb
+--- Balmorel.gms(288) 3 Mb
+--- . ../../base/data/DHF_U2.inc(4) 3 Mb
+--- Balmorel.gms(293) 3 Mb
+--- . ../../base/data/DHF_D3.inc(4) 3 Mb
+--- Balmorel.gms(298) 3 Mb
+--- . ../../base/data/DHF_U3.inc(4) 3 Mb
+--- Balmorel.gms(303) 3 Mb
+--- . ../../base/data/MPOLSET.inc(9) 3 Mb
+--- Balmorel.gms(307) 3 Mb
+--- . ../data/C.inc(16) 3 Mb
+--- Balmorel.gms(313) 3 Mb
+--- . ../../base/data/G.inc(2061) 3 Mb
+--- Balmorel.gms(317) 3 Mb
+--- . ../data/AGKN.inc(965) 3 Mb
+--- Balmorel.gms(322) 3 Mb
+--- . ../data/Y.inc(4) 3 Mb
+--- Balmorel.gms(327) 3 Mb
+--- . ../data/S.inc(12) 3 Mb
+--- Balmorel.gms(332) 3 Mb
+--- . ../data/T.inc(157) 3 Mb
+--- Balmorel.gms(343) 3 Mb
+--- . ../../base/data/TWORKDAY.inc(123) 3 Mb
+--- Balmorel.gms(348) 3 Mb
+--- . ../../base/data/TWEEKEND.inc(51) 3 Mb
+--- Balmorel.gms(441) 3 Mb
+--- . ../addons/_hooks/setdeclare.inc(4) 3 Mb
+--- .. ../../base/addons/combtech/combtech_setdeclare.inc(5) 3 Mb
+--- . ../addons/_hooks/setdeclare.inc(6) 3 Mb
+--- .. ../addons/combtech/combtech_setdeclare.inc(5) 3 Mb
+--- . ../addons/_hooks/setdeclare.inc(7) 3 Mb
+--- Balmorel.gms(444) 3 Mb
+--- . ../addons/_hooks/setdefine.inc(5) 3 Mb
+--- .. ../addons/combtech/combtech_setdefine.inc(4) 3 Mb
+--- ... ../../base/data/GGCOMB.inc(383) 3 Mb
+--- .. ../addons/combtech/combtech_setdefine.inc(4) 3 Mb
+--- . ../addons/_hooks/setdefine.inc(7) 3 Mb
+--- Balmorel.gms(455) 3 Mb
+--- . ../../base/data/AIND.inc(33) 3 Mb
+--- Balmorel.gms(461) 3 Mb
+--- . ../../base/data/AAAOFFSHORE.inc(201) 3 Mb
+--- Balmorel.gms(467) 3 Mb
+--- . ../../base/data/ENSOFFSHORE.inc(13) 3 Mb
+--- Balmorel.gms(473) 3 Mb
+--- . ../../base/data/RETRANS.inc(30) 3 Mb
+--- Balmorel.gms(479) 3 Mb
+--- . ../../base/data/ABF.inc(8) 3 Mb
+--- Balmorel.gms(485) 3 Mb
+--- . ../../base/data/RBF.inc(6) 3 Mb
+--- Balmorel.gms(577) 3 Mb
+--- . ../data/GDATA.inc(2190) 5 Mb
+--- Balmorel.gms(583) 5 Mb
+--- . ../../base/data/RAMPUP.inc(9) 5 Mb
+--- Balmorel.gms(588) 5 Mb
+--- . ../../base/data/RAMPDOWN.inc(10) 5 Mb
+--- Balmorel.gms(780) 5 Mb
+--- . ../addons/_hooks/isetdeclare.inc(4) 5 Mb
+--- Balmorel.gms(783) 5 Mb
+--- . ../addons/_hooks/isetdefine.inc(4) 5 Mb
+--- Balmorel.gms(786) 5 Mb
+--- . ../addons/_hooks/isetdecdef.inc(4) 5 Mb
+--- .. ../addons/combtech/combtech_isetdecdef.inc(10) 5 Mb
+--- . ../addons/_hooks/isetdecdef.inc(6) 5 Mb
+--- Balmorel.gms(829) 5 Mb
+--- . ../data/gkfx.inc(3844) 5 Mb
+--- Balmorel.gms(968) 5 Mb
+--- . ../../base/data/YVALUE.inc(59) 5 Mb
+--- Balmorel.gms(972) 5 Mb
+--- . ../data/FDATA.inc(282) 5 Mb
+--- Balmorel.gms(986) 5 Mb
+--- . ../../base/data/FMAXINVEST.inc(4) 5 Mb
+--- Balmorel.gms(991) 5 Mb
+--- . ../../base/data/GROWTHCAP.inc(3) 5 Mb
+--- Balmorel.gms(997) 5 Mb
+--- . ../../base/data/DISLOSS_E.inc(141) 5 Mb
+--- Balmorel.gms(1002) 5 Mb
+--- . ../../base/data/DISLOSS_H.inc(501) 5 Mb
+--- Balmorel.gms(1006) 5 Mb
+--- . ../data/DISCOST_E.inc(136) 5 Mb
+--- Balmorel.gms(1012) 5 Mb
+--- . ../../base/data/DISCOST_H.inc(3) 5 Mb
+--- Balmorel.gms(1016) 5 Mb
+--- . ../data/FKPOT.inc(43) 5 Mb
+--- Balmorel.gms(1023) 5 Mb
+--- . ../../base/data/FGEMIN.inc(4) 5 Mb
+--- Balmorel.gms(1028) 5 Mb
+--- . ../../base/data/FGEMAX.inc(4) 5 Mb
+--- Balmorel.gms(1034) 5 Mb
+--- . ../../base/data/GMINF.inc(3) 5 Mb
+--- Balmorel.gms(1039) 5 Mb
+--- . ../data/GMAXF.inc(494) 5 Mb
+--- Balmorel.gms(1046) 5 Mb
+--- . ../../base/data/GMAXFCOMB.inc(45) 5 Mb
+--- Balmorel.gms(1051) 5 Mb
+--- . ../data/GEQF.inc(220) 5 Mb
+--- Balmorel.gms(1059) 5 Mb
+--- . ../../base/data/GEQF_FLEX.inc(98) 5 Mb
+--- Balmorel.gms(1066) 5 Mb
+--- . ../../base/data/GKNMAX.inc(4) 5 Mb
+--- Balmorel.gms(1072) 5 Mb
+--- . ../../base/data/WTRRSFLH.inc(501) 5 Mb
+--- Balmorel.gms(1077) 5 Mb
+--- . ../../base/data/WTRRRFLH.inc(502) 5 Mb
+--- Balmorel.gms(1081) 5 Mb
+--- . ../data/WNDFLH.inc(148) 5 Mb
+--- Balmorel.gms(1086) 5 Mb
+--- . ../data/SOLEFLH.inc(306) 5 Mb
+--- Balmorel.gms(1092) 5 Mb
+--- . ../data/SOLHFLH.inc(71) 5 Mb
+--- Balmorel.gms(1098) 5 Mb
+--- . ../../base/data/WAVEFLH.inc(5) 5 Mb
+--- Balmorel.gms(1103) 5 Mb
+--- . ../../base/data/HYRSDATA.inc(6) 5 Mb
+--- Balmorel.gms(1107) 5 Mb
+--- . ../data/TAX_GF.inc(80) 5 Mb
+--- Balmorel.gms(1113) 5 Mb
+--- . ../../base/data/TAX_GE.inc(464304) 5 Mb
+--- Balmorel.gms(1118) 5 Mb
+--- . ../../base/data/TAX_GH.inc(14969) 5 Mb
+--- Balmorel.gms(1123) 5 Mb
+--- . ../../base/data/TAX_KN.inc(7) 5 Mb
+--- Balmorel.gms(1128) 5 Mb
+--- . ../../base/data/TAX_F.inc(3) 5 Mb
+--- Balmorel.gms(1132) 5 Mb
+--- . ../data/TAX_DE.inc(21) 5 Mb
+--- Balmorel.gms(1138) 5 Mb
+--- . ../../base/data/TAX_DH.inc(14) 5 Mb
+--- Balmorel.gms(1145) 5 Mb
+--- . ../../base/data/ANNUITYC.inc(14) 5 Mb
+--- Balmorel.gms(1150) 5 Mb
+--- . ../../base/data/GINVCOST.inc(988) 5 Mb
+--- Balmorel.gms(1155) 5 Mb
+--- . ../../base/data/GOMVCOST.inc(1392) 5 Mb
+--- Balmorel.gms(1160) 5 Mb
+--- . ../../base/data/GOMFCOST.inc(600) 5 Mb
+--- Balmorel.gms(1165) 5 Mb
+--- . ../../base/data/GEFFRATE.inc(8) 5 Mb
+--- Balmorel.gms(1171) 5 Mb
+--- . ../../base/data/DEFP_BASE.inc(136) 5 Mb
+--- Balmorel.gms(1176) 5 Mb
+--- . ../../base/data/DHFP_BASE.inc(535) 5 Mb
+--- Balmorel.gms(1190) 5 Mb
+--- . ../data/DE.inc(480) 5 Mb
+--- Balmorel.gms(1199) 5 Mb
+--- . ../data/DH.inc(515) 5 Mb
+--- Balmorel.gms(1210) 5 Mb
+--- . ../data/XKINI.inc(1544) 5 Mb
+--- Balmorel.gms(1216) 5 Mb
+--- . ../../base/data/XINVCOST.inc(38) 5 Mb
+--- Balmorel.gms(1221) 5 Mb
+--- . ../../base/data/XLIFETIME.inc(40) 5 Mb
+--- Balmorel.gms(1226) 5 Mb
+--- . ../../base/data/XCOST.inc(383) 5 Mb
+--- Balmorel.gms(1231) 5 Mb
+--- . ../../base/data/XLOSS.inc(17563) 6 Mb
+--- Balmorel.gms(1237) 6 Mb
+--- . ../../base/data/XKRATE.inc(8) 6 Mb
+--- Balmorel.gms(1241) 6 Mb
+--- . ../data/XMAXINV.inc(410) 6 Mb
+--- Balmorel.gms(1251) 6 Mb
+--- . ../../base/data/X3FX.inc(3) 6 Mb
+--- Balmorel.gms(1297) 6 Mb
+--- . ../data/FUELPRICE.inc(165) 6 Mb
+--- Balmorel.gms(1307) 6 Mb
+--- . ../data/M_POL.inc(2379) 6 Mb
+--- Balmorel.gms(1320) 6 Mb
+--- . ../../base/data/WEIGHT_S.inc(55) 6 Mb
+--- Balmorel.gms(1325) 6 Mb
+--- . ../../base/data/WEIGHT_T.inc(171) 6 Mb
+--- Balmorel.gms(1332) 6 Mb
+--- . ../../base/data/GKRATE.inc(6) 6 Mb
+--- Balmorel.gms(1340) 6 Mb
+--- . ../../base/data/DE_VAR_T.inc(69954) 8 Mb
+--- Balmorel.gms(1347) 8 Mb
+--- . ../../base/data/DH_VAR_T.inc(139808) 12 Mb 1 Error
+*** Error 172 in C:\Users\mscle\Desktop\test8\mason\model\../../base/data/DH_VAR_T.inc
+    Element is redefined
+--- . ../../base/data/DH_VAR_T.inc(139968) 12 Mb
+--- Balmorel.gms(1352) 12 Mb
+--- . ../../base/data/WTRRSVAR_S.inc(41) 12 Mb
+--- Balmorel.gms(1357) 12 Mb
+--- . ../../base/data/WTRRRVAR_T.inc(131046) 12 Mb
+--- Balmorel.gms(1362) 12 Mb
+--- . ../../base/data/WND_VAR_T.inc(201049) 14 Mb
+--- Balmorel.gms(1367) 14 Mb
+--- . ../../base/data/SOLE_VAR_T.inc(113600) 14 Mb
+--- Balmorel.gms(1372) 14 Mb
+--- . ../../base/data/SOLH_VAR_T.inc(41) 14 Mb
+--- Balmorel.gms(1377) 14 Mb
+--- . ../../base/data/WAVE_VAR_T.inc(13) 14 Mb
+--- Balmorel.gms(1382) 14 Mb
+--- . ../../base/data/X3FX_VAR_T.inc(8753) 14 Mb
+--- Balmorel.gms(1388) 14 Mb
+--- . ../../base/data/HYPPROFILS.inc(22515) 14 Mb
+--- Balmorel.gms(1393) 14 Mb
+--- . ../../base/data/DEF_STEPS.inc(25) 14 Mb
+--- Balmorel.gms(1403) 14 Mb
+--- . ../../base/data/DHF_STEPS.inc(3) 14 Mb
+--- Balmorel.gms(1444) 14 Mb
+--- . ../data/GVKGN.inc(5) 14 Mb
+--- Balmorel.gms(1448) 14 Mb
+--- . ../../base/data/GVKXN.inc(6) 14 Mb
+--- Balmorel.gms(1463) 14 Mb
+--- . ../../base/data/OMONEY.inc(2) 14 Mb
+--- Balmorel.gms(1497) 14 Mb
+--- . ../../base/data/PENALTYQ.inc(1) 14 Mb
+--- Balmorel.gms(1545) 14 Mb
+--- . ../../base/logerror/logerinc/error1.inc(45) 14 Mb
+--- Balmorel.gms(1913) 14 Mb
+--- . ../../base/output/printout/printinc/print1.inc(230) 15 Mb
+--- Balmorel.gms(1916) 15 Mb
+--- . ../../base/output/printout/printinc/inputout.inc(2327) 15 Mb
+***
+*** Abort "Balmorel execution aborted because of data errors"
+***
+*** Error 343 in C:\Users\mscle\Desktop\test8\mason\model\Balmorel.gms
+    Abort triggered by above statement
+--- Balmorel.gms(1985) 15 Mb 2 Errors
+*** Status: Compilation error(s)
+--- Job Balmorel.gms Stop 08/19/19 09:44:12 elapsed 0:00:01.620
+Exit code = 2

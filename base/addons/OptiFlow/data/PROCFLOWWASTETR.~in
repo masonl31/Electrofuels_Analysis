@@ -1,0 +1,105 @@
+SET PROCFLOWWASTETR(IPROC,PROC,FLOW,WASTETREATMENT) 'Type of technology aggrupated'
+/
+Biogas_Upgrading             .  GasBuffer               .  GASFLOW                . "Upgraded Biogas"
+CurbsideCollectBioW          .  DieselBuffer            .  DIESELFLOW             . "Collection"
+CurbsideCollectResHHW_1      .  DieselBuffer            .  DIESELFLOW             . "Collection"
+CurbsideCollectResHHW_2      .  DieselBuffer            .  DIESELFLOW             . "Collection"
+CurbsideCollectResHHW_3      .  DieselBuffer            .  DIESELFLOW             . "Collection"
+IndustryCollectCW            .  DieselBuffer            .  DIESELFLOW             . "Collection"
+IndustryCollectBio           .  DieselBuffer            .  DIESELFLOW             . "Collection"
+
+
+CurbsideCollectBioW          .  BiooilBuffer            .  BIOOILFLOW             . "Collection"
+CurbsideCollectResHHW_1      .  BiooilBuffer            .  BIOOILFLOW             . "Collection"
+CurbsideCollectResHHW_2      .  BiooilBuffer            .  BIOOILFLOW             . "Collection"
+CurbsideCollectResHHW_3      .  BiooilBuffer            .  BIOOILFLOW             . "Collection"
+IndustryCollectCW            .  BiooilBuffer            .  BIOOILFLOW             . "Collection"
+IndustryCollectBio           .  BiooilBuffer            .  BIOOILFLOW             . "Collection"
+
+DigestateStorSpread          .  DieselBuffer            .  DIESELFLOW             . "Anaerobic Digestion"
+PretreatmentSep              .  DieselBuffer            .  DIESELFLOW             . "Anaerobic Digestion"
+
+DigestateStorSpread          .  BiooilBuffer            .  BIOOILFLOW             . "Anaerobic Digestion"
+PretreatmentSep              .  BiooilBuffer            .  BIOOILFLOW             . "Anaerobic Digestion"
+
+DigestateStorSpread          .  Field_K                 .  K_TOFIELD              . "Fertilizers"
+DigestateStorSpread          .  Field_N                 .  N_TOFIELD              . "Fertilizers"
+DigestateStorSpread          .  Field_P                 .  P_TOFIELD              . "Fertilizers"
+Anaerob_CoDigestion          .  Money_Buffer            .  OPERATIONCOST          . "Anaerobic Digestion"
+CurbsideCollectBioW          .  Money_Buffer            .  OPERATIONCOST          . "Collection"
+CurbsideCollectResHHW_1      .  Money_Buffer            .  OPERATIONCOST          . "Collection"
+CurbsideCollectResHHW_2      .  Money_Buffer            .  OPERATIONCOST          . "Collection"
+CurbsideCollectResHHW_3      .  Money_Buffer            .  OPERATIONCOST          . "Collection"
+IndustryCollectCW            .  Money_Buffer            .  OPERATIONCOST          . "Collection"
+IndustryCollectBio           .  Money_Buffer            .  OPERATIONCOST          . "Collection"
+
+DigestateStorSpread          .  Money_Buffer            .  OPERATIONCOST          . "Anaerobic Digestion"
+PretreatmentSep              .  Money_Buffer            .  OPERATIONCOST          . "Anaerobic Digestion"
+Biogas_Upgrading             .  Money_Buffer_T          .  OPERATIONCOST          . "Biogas Upgrading"
+BiogasCHP                    .  Money_Buffer_T          .  OPERATIONCOST          . "Biogas CHP"
+MSW_chp_large                .  Money_Buffer_T          .  OPERATIONCOST          . "Incineration"
+MSW_chp_medium               .  Money_Buffer_T          .  OPERATIONCOST          . "Incineration"
+MSW_ho                       .  Money_Buffer_T          .  OPERATIONCOST          . "Incineration"
+MSW_chp_small                .  Money_Buffer_T          .  OPERATIONCOST          . "Incineration"
+BiogasCHP                    .  ElecBuffer              .  ELECFLOW               . "Electricity sold"
+
+Anaerob_CoDigestion          .  ElecBuffer              .  ELECFLOW               . "Anaerobic Digestion"
+Biogas_Upgrading             .  ElecBuffer              .  ELECFLOW               . "Biogas Upgrading"
+PretreatmentSep              .  ElecBuffer              .  ELECFLOW               . "Anaerobic Digestion"
+
+MSW_chp_large                .  ElecBuffer              .  ELECFLOW               . "Electricity sold"
+MSW_chp_medium               .  ElecBuffer              .  ELECFLOW               . "Electricity sold"
+MSW_chp_small                .  ElecBuffer              .  ELECFLOW               . "Electricity sold"
+RDF_chp                      . ElecBuffer               . ELECFLOW              ."Flexible Electricity"
+
+
+HeatUsage                . ProcHeatGenLinkStorage      . HEATFLOW      . "Heat sold"
+HeatUsage                . HeatCoolDown                . HEATCOOLFLOW  .  "Heat cool down"
+
+Anaerob_CoDigestion          . ProcHeatGenLinkStorage             . HEATFLOW             . "Anaerobic Digestion"
+RDF_chp                      . ProcHeatGenLinkStorage             . HEATFLOW              ."Flexible Heat"
+RDF_ho                       . ProcHeatGenLinkStorage             . HEATFLOW              ."Flexible Heat"
+Anaerob_MoDigestion          . ProcHeatGenLinkStorage             . HEATFLOW              . "Anaerobic Digestion"
+
+MSW_chp_large                .  GHG_Buffer_T            .  GHGEMISSION_NONBIO     . "Incineration"
+MSW_chp_medium               .  GHG_Buffer_T            .  GHGEMISSION_NONBIO     . "Incineration"
+MSW_ho                       .  GHG_Buffer_T            .  GHGEMISSION_NONBIO     . "Incineration"
+MSW_chp_small                .  GHG_Buffer_T            .  GHGEMISSION_NONBIO     . "Incineration"
+Biogas_Upgrading             .  GHGbio_Buffer_T         .  GHGEMISSION_bio        . "Biogas Upgrading"
+DigestateStorSpread          .  GHG_Buffer              .  GHGEMISSION_NONBIO     . "Anaerobic Digestion"
+DigestateStorSpread          .  GHGbio_Buffer           .  GHGEMISSION_bio        . "Anaerobic Digestion"
+Anaerob_CoDigestion          .  GHGbio_Buffer           .  GHGEMISSION_bio        . "Anaerobic Digestion"
+BiogasCHP                    .  HeatBuffer              .  HEATFLOW               . "Heat sold"
+
+
+MRF_plant               .Money_buffer              . OPERATIONCOST     ."Material Recovery Facility"
+MRF_plant               .DieselBuffer              . DIESELFLOW        ."Material Recovery Facility"
+MRF_plant               .BiooilBuffer              . BIOOILFLOW        ."Material Recovery Facility"
+
+
+MRF_plant               .ElecBuffer                . ELECFLOW          ."Material Recovery Facility"
+RDF_processing               .Money_buffer              . OPERATIONCOST     ."Material Recovery Facility"
+RDF_processing               .DieselBuffer              . DIESELFLOW        ."Material Recovery Facility"
+RDF_processing               .BiooilBuffer              . BIOOILFLOW        ."Material Recovery Facility"
+
+RDF_processing               .ElecBuffer                . ELECFLOW          ."Material Recovery Facility"
+RDF_chp                      . GHG_Buffer_T              . GHGEMISSION_nonbio    ."RDF Incineration"
+RDF_chp                      . GHGbio_Buffer_T           . GHGEMISSION_bio       ."RDF Incineration"
+RDF_chp                      .  Money_buffer_T           . OPERATIONCOST         ."RDF Incineration"
+RDF_ho                       . GHG_Buffer_T              . GHGEMISSION_nonbio    ."RDF Incineration"
+RDF_ho                       . GHGbio_Buffer_T           . GHGEMISSION_bio       ."RDF Incineration"
+RDF_ho                       . Money_buffer_T            . OPERATIONCOST         ."RDF Incineration"
+Anaerob_MoDigestion          . Money_buffer           . OPERATIONCOST       . "Anaerobic Digestion"
+Anaerob_MoDigestion          . GHGbio_Buffer          . GHGEMISSION_bio     . "Anaerobic Digestion"
+Anaerob_MoDigestion          . ElecBuffer             . ELECFLOW            . "Anaerobic Digestion"
+
+DigestateDewatering          . Money_buffer             . OPERATIONCOST            . "Anaerobic Digestion"
+
+SUM_Recyclables              . Recycling_plastic        . MRF_RECYCLABLES_PLASTIC_TOTAL  . "Materials Recycled from MRF"
+SUM_Recyclables              . Recycling_iron           . MRF_RECYCLABLES_IRON_TOTAL     . "Materials Recycled from MRF"
+SUM_Recyclables              . Recycling_nonferrous     . MRF_RECYCLABLES_NF_TOTAL       . "Materials Recycled from MRF"
+
+
+
+/
+;

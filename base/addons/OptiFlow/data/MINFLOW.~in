@@ -1,0 +1,8 @@
+PARAMETER MINFLOW(YYY,CCCRRRAAA,PROC,FLOW) "Constraint about fuel use limitations (U/year)"
+/
+/;
+
+
+LOOP(Y,IMINFLOW_Y(CCCRRRAAA,PROC,FLOW)=MINFLOW(Y,CCCRRRAAA,PROC,FLOW););
+
+
